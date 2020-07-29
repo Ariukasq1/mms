@@ -11,19 +11,19 @@ function Header({ title, image }) {
   return (
     <>
       <Head>
-        <title>{title || 'Gerege WP Template'}</title>
+        <title>{title || 'MMS'}</title>
         <meta charSet="UTF-8" />
         <meta name="keywords" content="wp, gerege" />
-        <meta name="description" content="Here is website description" />
-        <meta name="author" content="Here is website author url" />
+        <meta name="description" content="MMS - Description" />
+        <meta name="author" content="Gerege" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
 
-        <meta property="og:title" content={title || "Gerege WP Template"} />
-        <meta property="og:description" content="Here is website description" />
+        <meta property="og:title" content={title || "MMS"} />
+        <meta property="og:description" content="MMS description" />
         <meta property="og:url" content={defaultUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={image || "Here is website demo image"} />
