@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from "../components/layouts/Layout";
 import ReactFullpage from "@fullpage/react-fullpage";
-import MySection from "../pages/MySection"
+// import MySection from "../pages/MySection"
 
 const anchors = ["firstPage", "secondPage", "thirdPage"];
 
@@ -22,10 +22,14 @@ class Index extends React.Component {
                             console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
 
                             return (
-                                <div>
-                                    <MySection content={"Slide down!"}/>
-                                    <MySection content={"Keep going!"}/>
-                                    <MySection content={"Slide up!"}/>
+                                <div id="fullpage">
+                                    <div className="section">One</div>
+                                    <div className="section">
+                                        <div className="slide" data-anchor="slide1">Two 1</div>
+                                        <div className="slide" data-anchor="slide2">Two 2</div>
+                                    </div>
+                                    <div className="section">Three</div>
+                                    <div className="section">Four</div>
                                 </div>
                             );
                         }}

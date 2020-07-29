@@ -4,7 +4,7 @@ import React from "react";
 class MenuComponent extends React.Component {
     render() {
         return (
-            <nav className="flex items-center justify-between flex-wrap p-6 h-auto w-auto bg-blue-900">
+            <nav className="flex items-center justify-between flex-wrap p-6 h-auto w-auto bg-blue-900 absolute z-10 top-0 left-0 right-0">
                 <div className="flex items-center flex-shrink-0 text-white mr-6">
                     <span className="font-semibold text-xl tracking-tight">MMS</span>
                 </div>
