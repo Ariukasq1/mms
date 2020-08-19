@@ -4,7 +4,7 @@ class MySection extends React.Component {
     render() {
         return (
             <div className="section">
-                <h3>{this.props.content}</h3>
+                <h3>sdadsa</h3>
             </div>
         );
     }

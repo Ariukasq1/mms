@@ -5,3 +5,146 @@
 @import './base/header.scss';
 @import './base/footer.scss';
 @import './base/responsiveness.scss';
+
+//main
+@import "main";
+
+
+.fp-viewing-section1 #fp-nav ul li a span {
+  background: white;
+}
+
+.fp-viewing-section2 #fp-nav ul li a span {
+  background: $primary-color;
+}
+.fp-viewing-section3 #fp-nav ul li a span {
+  background: $primary-color;
+}
+.fp-viewing-section4 #fp-nav ul li a span {
+  background: $primary-color;
+}
+.fp-viewing-section5 #fp-nav ul li a span {
+  background: $primary-color;
+}
+
+
+#fp-nav ul {
+  margin-left: 20px !important;
+}
+
+.section {
+  font-size: 20px;
+}
+
+.slick-dots {
+  bottom: 10% !important;
+
+  li {
+    display: block;
+    width: 3px;
+    height: 30px;
+    margin: 10px 25px;
+  }
+}
+
+.slick-dots li button:before {
+  content: "" !important;
+}
+
+.slick-dots li.slick-active button {
+  color: white;
+  border: 1px solid !important;
+  border-radius: 50% !important;
+  background: #0000ff00 !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  padding-top: 116px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    color: #000000;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+//.slick-slider {
+//  height: 100vh;
+//}
+.slick-dots li.slick-active button:before {
+  opacity: .75;
+  color: #000;
+}
+
+.slick-dots li button {
+  border: 1px solid white !important;
+  border-radius: 50% !important;
+  background: white !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+.drawerLang {
+  display: flex;
+  flex-direction: row;
+}
+
+.drawerMenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerSubMenu {
+  display: flex;
+  flex-direction: row;
+}
+
+.ant-drawer-close {
+  span {
+    color: white !important;
+  }
+}
+
+.ant-drawer-close:focus {
+  outline: 0 !important;
+}
+
+.brands {
+  .slick-slide {
+    padding: 0 15px;
+  }
+
+
+  .slick-prev {
+    left: 67%;
+    top: 117.8%;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .slick-next {
+    left: 72%;
+    top: 120%;
+    width: auto !important;
+    height: auto !important;
+  }
+}
+
+.topMenuList a:last-child {
+  border-right: none;
+}
+
+.drawerSubMenu a:last-child {
+  border-right: none;
+}
+
+//.capabilitiesImage {
+//  margin-top: 116px;
+//}

@@ -1,46 +1,151 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from 'react';
+import logo from '../../public/images/mms-logo.png'
+import burger from '../../public/images/burger.png'
+// import {Link} from '../../routes'
+import Link from 'next/link'
+import DataContext from "../DataContext";
+import {Drawer} from "antd";
+import mainStore from '../../stores'
 
+const MenuComponent = () => {
+    let menu = useContext(DataContext)
+    const {language, setLanguage} = mainStore()
+    // const fetcher = (url) => axios.get(url).then(res => res.data.items)
+    // const {data: topMenu} = useSWR(`${config.menuUrl}/nav-menu-top${currentLanguage.language === 'mn' ? '?lang=' + currentLanguage.language : ''}`, {initialData: menu.top_menu.items})
+    // const {data: bottomMenu} = useSWR(`${config.menuUrl}/nav-menu${currentLanguage.language === 'mn' ? '?lang=' + currentLanguage.language : ''}`, fetcher, {revalidateOnFocus: false}, {dedupingInterval: 10000})
+    const [visible, setVisible] = useState(false);
 
-class MenuComponent extends React.Component {
-    render() {
-        return (
-            <nav className="flex items-center justify-between flex-wrap p-6 h-auto w-auto bg-blue-900 absolute z-10 top-0 left-0 right-0">
-                <div className="flex items-center flex-shrink-0 text-white mr-6">
-                    <span className="font-semibold text-xl tracking-tight">MMS</span>
+    const showDrawer = () => {
+        setVisible(true);
+    };
+    const onClose = () => {
+        setVisible(false);
+    };
+    return (
+        <div>
+            <nav
+                className={"main-header flex flex-row justify-between p-2 w-full absolute top-0 left-0 right-0 z-10"}>
+                <div className={"logo my-auto"}>
+                    <img src={logo} alt={"logo"}/>
                 </div>
-                <div className="block lg:hidden">
-                    <button
-                        className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-                        <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <title>Menu</title>
-                            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-                        </svg>
-                    </button>
-                </div>
-                <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                    <div className="text-sm lg:flex-grow">
-                        <a href="#responsive-header"
-                           className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                            Docs
-                        </a>
-                        <a href="#responsive-header"
-                           className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                            Examples
-                        </a>
-                        <a href="#responsive-header"
-                           className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                            Blog
-                        </a>
+                <div className={"menus flex flex-col  justify-around"}>
+                    <div className={"topMenu self-end flex flex-row"}>
+                        <div className={"topMenuList text-menuTextColor font-light text-sm "}>
+                            {!menu ? <div>Loading</div> : menu.top_menu.items.map((item, index) => (
+                                    <Link key={index}
+                                          href={{pathname: `${item.slug}`, query: {lang: language}}}>
+                                        <a className={"px-4 border-r border-menuTextColor"}>
+                                            {item.title}
+                                        </a>
+                                    </Link>
+                                )
+                            )}
+                        </div>
+                        <div className={"topMenuLanguage mr-4"}>
+                            <Link href={{pathname: `/`, query: {lang: 'en'}}}>
+                                <a onClick={() => setLanguage('en')} className={`mr-1 ${language === 'en' ? 'font-bold text-menuTextColor' : ''}`}>
+                                    EN
+                                </a>
+                            </Link>
+                            <span>/</span>
+                            <Link href={{pathname: `/`, query: {lang: 'mn'}}}>
+                                <a onClick={() => setLanguage('mn')} className={`ml-1 ${language === 'mn' ? 'font-bold' : ''}`}>
+                                    MN
+                                </a>
+                            </Link>
+
+                        </div>
                     </div>
-                    <div>
-                        <a href="#"
-                           className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
+                    <div className={"bottomMenu  text-menuTextColor flex flex-row"}>
+                        <div className={"bottomMenuList text-base font-extrabold border-r border-blue-700"}>
+                            {!menu ? <div>Loading</div> : menu.bottom_menu.items.map((item, index) => (
+                                    <Link key={index}
+                                          href={{pathname: `${item.slug}`, query: {lang: language}}}>
+                                        <a className={"mx-4"}>
+                                            {item.title}
+                                        </a>
+                                    </Link>
+                                )
+                            )}
+                        </div>
+                        <div className={"bottomMenuSearchMenu flex flex-row"}>
+                            <a className={"mx-4"}>
+                                <i className="fa fa-search" aria-hidden="true"/>
+                            </a>
+                            <a onClick={showDrawer} className={"mx-4 my-auto"}>
+                                <img src={burger}/>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </nav>
-        );
-    }
-}
+            <Drawer
+                placement="right"
+                closable={true}
+                onClose={onClose}
+                visible={visible}
+                bodyStyle={{
+                    backgroundColor: '#00488D',
+                    color: 'white',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}
+                width={360}
+            >
+
+                <div className="drawerMenu self-center">
+                    <div className="drawerLang my-4">
+                        <Link href={{pathname: `/`, query: {lang: 'en'}}}>
+                            <a onClick={() => setLanguage('en')} className={`mx-4 ${language === 'en' ? 'font-bold' : ''}`}>
+                                English
+                            </a>
+                        </Link>
+                        <span> - </span>
+                        <Link href={{pathname: `/`, query: {lang: 'mn'}}}>
+                            <a onClick={() => setLanguage('mn')} className={`mx-4 ${language === 'mn' ? 'font-bold' : ''}`}>
+                                Монгол
+                            </a>
+                        </Link>
+                    </div>
+                    {!menu ? <div>Loading</div> : menu.bottom_menu.items.map((item, index) => (
+                            <div className="flex flex-col ">
+                                <Link key={index} href={{pathname: `${item.slug}`, query: {lang: language}}}>
+                                    <a key={index} className={"mx-4 font-bold"}>
+                                        {item.title}
+                                    </a>
+                                </Link>
+                                <div className="flex flex-col mb-6 ml-4">
+                                    {item.child_items.map((children, childrenIndex) => (
+                                        <Link key={childrenIndex}
+                                              href={{pathname: `${children.slug}`, query: {lang: language}}}>
+                                            <a key={childrenIndex} className={"mx-4"}>
+                                                {children.title}
+                                            </a>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                        )
+                    )}
+                </div>
+                <div className="drawerSubMenu justify-between mb-10">
+                    {!menu ? <div>Loading</div> : menu.top_menu.items.map((item, index) => (
+                            <Link key={index} href={{pathname: `${item.slug}`, query: {lang: language}}}>
+                                <a key={index} className={"px-4 font-bold border-r border-white"}>
+                                    {item.title}
+                                </a>
+                            </Link>
+                        )
+                    )}
+                </div>
+            </Drawer>
+        </div>
+    );
+};
 
 export default MenuComponent;
 

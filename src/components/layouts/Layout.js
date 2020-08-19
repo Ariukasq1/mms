@@ -5,13 +5,12 @@ import Menu from "./menu";
 
 class Layout extends React.Component {
   render() {
-    const { children, title, image } = this.props;
-
+    const { children, title, image, navMenu } = this.props;
     return (
       <>
         <Header title={title} image={image} />
         <main className="relative">
-          <Menu />
+          <Menu data={navMenu}/>
           {children}
         </main>
         <Footer />

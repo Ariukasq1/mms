@@ -1,6 +1,6 @@
 import WPAPI from 'wpapi';
 import React from 'react';
-import Config from "../config";
+import {Config} from "../config";
 import Layout from "../components/layouts/Layout";
 import { getData } from "../utils";
 

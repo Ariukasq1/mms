@@ -1,5 +1,5 @@
 import React from 'react';
-import Config from "../config";
+import {Config} from "../config";
 import WPAPI from 'wpapi';
 import Error from 'next/error';
 import Layout from "../components/layouts/Layout";
