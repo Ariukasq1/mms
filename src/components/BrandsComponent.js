@@ -2,6 +2,8 @@ import React from 'react';
 import Slider from "react-slick";
 import arrow from '../public/images/arrow.png'
 import arrowImage from "../public/images/arrow.png";
+import mainStore from "../stores";
+import Link from "next/link";
 
 
 const settings = {
@@ -11,47 +13,51 @@ const settings = {
     slidesToScroll: 1,
     rows: 1,
     slidesPerRow: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    nextArrow: <SampleNextArrow/>,
+    prevArrow: <SamplePrevArrow/>
 };
 
 function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
+    const {className, style, onClick} = props;
     return (
         <img
             src={arrow}
             className={className}
-            style={{ ...style, display: "block" }}
+            style={{...style, display: "block"}}
             onClick={onClick}
         />
     );
 }
 
 function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
+    const {className, style, onClick} = props;
     return (
         <img
             src={arrow}
             className={className}
-            style={{ ...style, display: "block", transform: 'rotate(180deg)' }}
+            style={{...style, display: "block", transform: 'rotate(180deg)'}}
             onClick={onClick}
         />
     );
 }
 
 const BrandsComponent = ({data}) => {
+    const {language} = mainStore()
+
     const renderBrands = data.map((brand, index) => {
         const item = brand.acf
         return (
-            <div key={index} >
+            <div key={index}>
                 <div className="w-auto h-12">
-                    <img  src={item.brand_image.url} className="object-contain h-full" alt={item.brand_image.alt}/>
+                    <img src={item.brand_image.url} className="object-contain h-full" alt={item.brand_image.alt}/>
                 </div>
-                <a
-                    className="my-8 text-lg w-auto bg-transparent text-black text-opacity-50 lowercase hover:text-opacity-100 hover:text-black flex flex-row">
-                    read more
-                    <img className="object-contain ml-4" src={arrowImage}/>
-                </a>
+                <Link href={{pathname: `${brand.taxonomy}/${brand.slug}`, query: {lang: language}}}>
+                    <a
+                        className="my-8 text-lg w-auto bg-transparent text-black text-opacity-50 lowercase hover:text-opacity-100 hover:text-black flex flex-row">
+                        read more
+                        <img className="object-contain ml-4" src={arrowImage}/>
+                    </a>
+                </Link>
                 <div className="w-auto h-64">
                     <img src={item.brand_thumbnail.url} className="object-cover h-full" alt={item.brand_thumbnail.alt}/>
                 </div>

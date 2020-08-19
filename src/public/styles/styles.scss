@@ -17,12 +17,15 @@
 .fp-viewing-section2 #fp-nav ul li a span {
   background: $primary-color;
 }
+
 .fp-viewing-section3 #fp-nav ul li a span {
   background: $primary-color;
 }
+
 .fp-viewing-section4 #fp-nav ul li a span {
   background: $primary-color;
 }
+
 .fp-viewing-section5 #fp-nav ul li a span {
   background: $primary-color;
 }
@@ -67,12 +70,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  h3 {
-    color: #000000;
-    text-align: center;
-    width: 100%;
-  }
 }
 
 //.slick-slider {
@@ -148,3 +145,16 @@
 //.capabilitiesImage {
 //  margin-top: 116px;
 //}
+
+@media (max-width: 767px) {
+  #fp-nav ul {
+    margin-left: 0 !important;
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .slick-dots {
+    bottom: 3% !important;
+  }
+}

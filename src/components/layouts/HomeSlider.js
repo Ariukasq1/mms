@@ -18,25 +18,24 @@ const HomeSlider = ({sliders}) => {
             <div key={index}>
                 <div style={{
                     background: sliderObj.slider_background_color,
-                    flexDirection: sliderObj.position_of_image === 'right' ? "row" : "row-reverse"
-                }} className={"wrapper px-56"}>
-                    <div className="homeSliderText">
-                        <h3 className="mb-8 mx-10" style={{
-                            fontSize: `${sliderTitle.title_size}px`,
+                    // flexDirection: sliderObj.position_of_image === 'right' ? "row" : "row-reverse"
+                }} className={`wrapper sm:px-10 sm:flex-col px-56 justify-between sm:justify-evenly  ${sliderObj.position_of_image === 'right' ? "flex-row" : "flex-row-reverse"}`}>
+                    <div className="homeSliderText mr-10 sm:ml-8 sm:mr-0">
+                        <h3 className="break-words text-left w-3/5 leading-snug  mb-8 mx-10 text-6xl  sm:text-4xl sm:w-full  sm:mb-0 sm:mx-0" style={{
+                            // fontSize: `${sliderTitle.title_size}px`,
                             color: sliderTitle.title_color,
                             fontWeight: '600',
-                            textAlign: 'left',
-                            lineHeight: '5rem',
+                            // lineHeight: '5rem',
 
                         }}>{sliderTitle.title_text}</h3>
-                        <p className={"mx-10"} style={{
-                            fontSize: `${sliderBody.body_font_size}px`,
+                        <p className={"mx-10 text-xl sm:mx-0"} style={{
+                            // fontSize: `${sliderBody.body_font_size}px`,
                             color: sliderBody.body_font_color,
                             fontWeight: '50',
-                            opacity: 0.7
+                            opacity: 0.9
                         }}>{sliderBody.body_text}</p>
                     </div>
-                    <div className="homeSliderImage">
+                    <div className="homeSliderImage w-4/7">
                         <img src={sliderImage.url} alt={sliderImage.alt}/>
                     </div>
                 </div>

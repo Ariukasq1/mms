@@ -21,7 +21,7 @@ const Index = ({sliders, top_menu, bottom_menu, query, home_screen_items, brands
             case 'capabilities':
                 capabilities = item
                 break
-            case 'industry':
+            case 'industries':
                 industry = item
                 break
             case 'showroom':

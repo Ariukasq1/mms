@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import logo from '../../public/images/mms-logo.png'
 import burger from '../../public/images/burger.png'
 // import {Link} from '../../routes'
@@ -25,11 +25,11 @@ const MenuComponent = () => {
         <div>
             <nav
                 className={"main-header flex flex-row justify-between p-2 w-full absolute top-0 left-0 right-0 z-10"}>
-                <div className={"logo my-auto"}>
+                <div className={"logo my-auto sm:w-12"}>
                     <img src={logo} alt={"logo"}/>
                 </div>
                 <div className={"menus flex flex-col  justify-around"}>
-                    <div className={"topMenu self-end flex flex-row"}>
+                    <div className={"topMenu sm:hidden self-end flex flex-row"}>
                         <div className={"topMenuList text-menuTextColor font-light text-sm "}>
                             {!menu ? <div>Loading</div> : menu.top_menu.items.map((item, index) => (
                                     <Link key={index}
@@ -56,8 +56,8 @@ const MenuComponent = () => {
 
                         </div>
                     </div>
-                    <div className={"bottomMenu  text-menuTextColor flex flex-row"}>
-                        <div className={"bottomMenuList text-base font-extrabold border-r border-blue-700"}>
+                    <div className={"bottomMenu  text-menuTextColor flex flex-row sm:justify-end" }>
+                        <div className={"bottomMenuList sm:hidden  text-base font-extrabold border-r border-blue-700"}>
                             {!menu ? <div>Loading</div> : menu.bottom_menu.items.map((item, index) => (
                                     <Link key={index}
                                           href={{pathname: `${item.slug}`, query: {lang: language}}}>
@@ -68,7 +68,7 @@ const MenuComponent = () => {
                                 )
                             )}
                         </div>
-                        <div className={"bottomMenuSearchMenu flex flex-row"}>
+                        <div className={"bottomMenuSearchMenu flex flex-row  "}>
                             <a className={"mx-4"}>
                                 <i className="fa fa-search" aria-hidden="true"/>
                             </a>
