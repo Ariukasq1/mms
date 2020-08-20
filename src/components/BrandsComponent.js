@@ -14,7 +14,33 @@ const settings = {
     rows: 1,
     slidesPerRow: 1,
     nextArrow: <SampleNextArrow/>,
-    prevArrow: <SamplePrevArrow/>
+    prevArrow: <SamplePrevArrow/>,
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ]
 };
 
 function SampleNextArrow(props) {
@@ -53,7 +79,7 @@ const BrandsComponent = ({data}) => {
                 </div>
                 <Link href={{pathname: `${brand.taxonomy}/${brand.slug}`, query: {lang: language}}}>
                     <a
-                        className="my-8 text-lg w-auto bg-transparent text-black text-opacity-50 lowercase hover:text-opacity-100 hover:text-black flex flex-row">
+                        className="my-8 text-lg w-auto bg-transparent text-black text-opacity-50 lowercase hover:text-opacity-100 hover:text-black flex flex-row sm:my-4">
                         read more
                         <img className="object-contain ml-4" src={arrowImage}/>
                     </a>
@@ -65,8 +91,8 @@ const BrandsComponent = ({data}) => {
         )
     })
     return (
-        <div className="ml-32 justify-start items-start brands">
-            <div className="ml-4 mb-20 font-bold text-4xl text-black">
+        <div className="ml-32 justify-start items-start brands sm:ml-10 sm:mr-4">
+            <div className="ml-4 mb-20 font-bold text-4xl text-black sm:mb-8">
                 Brands
             </div>
             <Slider {...settings} className="h-full">

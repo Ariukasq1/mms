@@ -22,7 +22,7 @@ const ShowRoomComponent = ({data}) => {
                 </div>
                 <Link href={{pathname: `${data.slug}`, query: {lang: language}}}>
                     <a
-                        className="ml-20 w-auto bg-transparent text-black text-base lowercase hover:text-menuTextColor flex flex-row">
+                        className="ml-20 w-auto bg-transparent text-black text-base lowercase hover:text-menuTextColor flex flex-row sm:ml-0">
                         {item.button_label}
                         <img className="object-contain ml-4" src={arrowImage}/>
                     </a>
