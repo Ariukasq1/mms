@@ -18,17 +18,16 @@ const HomeSlider = ({sliders}) => {
             <div key={index}>
                 <div style={{
                     background: sliderObj.slider_background_color,
-                    // flexDirection: sliderObj.position_of_image === 'right' ? "row" : "row-reverse"
-                }} className={`wrapper sm:px-10 sm:flex-col px-56 justify-between sm:justify-evenly  ${sliderObj.position_of_image === 'right' ? "flex-row" : "flex-row-reverse"}`}>
-                    <div className="homeSliderText mr-10 sm:ml-8 sm:mr-0">
-                        <h3 className="break-words text-left w-3/5 leading-snug  mb-8 mx-10 text-6xl  sm:text-4xl sm:w-full  sm:mb-0 sm:mx-0" style={{
+                }} className={`wrapper sm:px-10 sm:flex-col px-56 md:px-24 lg:px-20 justify-between sm:justify-evenly  ${sliderObj.position_of_image === 'right' ? "flex-row" : "flex-row-reverse"}`}>
+                    <div className="homeSliderText mr-10 sm:ml-8 sm:mr-0 md:m-0">
+                        <h3 className="text-left w-3/5 leading-snug  mb-8 mx-10 text-6xl  sm:text-4xl sm:w-full  sm:mb-0 sm:mx-0 md:mx-0 md:w-full md:leading-none lg:w-full xl:w-full" style={{
                             // fontSize: `${sliderTitle.title_size}px`,
                             color: sliderTitle.title_color,
                             fontWeight: '600',
                             // lineHeight: '5rem',
 
                         }}>{sliderTitle.title_text}</h3>
-                        <p className={"mx-10 text-xl sm:mx-0"} style={{
+                        <p className={"mx-10 text-xl sm:mx-0 md:mx-0"} style={{
                             // fontSize: `${sliderBody.body_font_size}px`,
                             color: sliderBody.body_font_color,
                             fontWeight: '50',

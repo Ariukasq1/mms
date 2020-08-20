@@ -9,11 +9,11 @@ const IndustryComponent = ({data}) => {
 
     return (
         <div className="industry flex flex-row justify-between items-center sm:flex-col">
-            <div className="industryTexts pl-64 pr-40 sm:px-16 sm:pr-8" style={{flexBasis: "50%"}}>
+            <div className="industryTexts pl-64 pr-40 lg:pr-12 lg:pl-24 sm:px-16 sm:pr-8 md:pl-24 md:pr-4" style={{flexBasis: "50%"}}>
                 <div className="industryTag text-black font-bold sm:text-base">
-                    #{item.tag}
+                    #{data.slug}
                 </div>
-                <div className="industryTitle text-6xl font-bold text-menuTextColor break-words leading-tight my-8 sm:text-3xl sm:my-2">
+                <div className="industryTitle text-6xl font-bold text-menuTextColor break-words leading-tight my-8 sm:text-3xl sm:my-2 md:text-5xl">
                     {item.title}
                 </div>
                 <Link href={{pathname: `${data.slug}`, query: {lang: language}}}>
@@ -23,9 +23,9 @@ const IndustryComponent = ({data}) => {
                     </a>
                 </Link>
             </div>
-            <div className="capabilitiesImage " style={{flexBasis: "50%"}}>
-                <img className="object-cover mb-24 sm:w-48 sm:m-auto sm:my-8" src={url}/>
-                <div className="text-sm w-2/3 sm:w-full sm:px-16 sm:pr-8 ">{item.body}</div>
+            <div className="capabilitiesImage md:pr-8" style={{flexBasis: "50%"}}>
+                <img className="object-cover mb-24 sm:w-48 sm:m-auto sm:my-8 lg:w-3/4 lg:mb-12 xl:w-5/6" src={url}/>
+                <div className="text-base w-2/3 sm:w-full sm:px-16 sm:pr-8 md:w-full lg:w-3/4 xl:w-5/6">{item.body}</div>
             </div>
         </div>
     );

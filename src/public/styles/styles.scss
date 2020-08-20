@@ -157,4 +157,13 @@
   .slick-dots {
     bottom: 3% !important;
   }
+  .showRoomTexts {
+    flex-basis: 100% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .showRoomTexts {
+    flex-basis: 100% !important;
+  }
 }

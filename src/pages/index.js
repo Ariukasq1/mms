@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from "../components/layouts/Layout";
 import ReactFullpage from "../lib/fullpage";
 import {Config} from "../config";
@@ -10,13 +10,29 @@ import CapabilitiesComponent from "../components/CapabilitiesComponent";
 import IndustryComponent from "../components/IndustryComponent";
 import ShowRoomComponent from "../components/ShowRoomComponent";
 import BrandsComponent from "../components/BrandsComponent";
+import mainStore from "../stores";
 
 const Index = ({sliders, top_menu, bottom_menu, query, home_screen_items, brands}) => {
+    const {language, setLanguage} = mainStore()
+    const [lang, setLang] = useState(null)
+    useEffect(() => {
+        if (!lang)
+            setLanguage(query)
+    },[])
+    // setLanguage(query)
+    console.log(language)
     const anchors = ["section1", "section2", "section3", "section4", "section5"]
     let capabilities
     let industry
     let showroom
     home_screen_items.filter(function (item) {
+        // if (item.slug === 'capabilities' || 'capabilities-mn')
+        //     capabilities = item
+        // else if (item.slug === 'industries')
+        //     industry = item
+        // else if (item.slug === 'showroom' || 'showroom-mn')
+        //     showroom = item
+
         switch (item.slug) {
             case 'capabilities':
                 capabilities = item
