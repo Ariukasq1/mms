@@ -13,7 +13,7 @@ class Layout extends React.Component {
           <Menu data={navMenu}/>
           {children}
         </main>
-        <Footer />
+        {/*<Footer />*/}
       </>
     );
   }

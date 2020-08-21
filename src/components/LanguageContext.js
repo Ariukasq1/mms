@@ -1,19 +1,18 @@
-import React, { createContext, useState } from "react";
+import React, {createContext, useState} from "react";
 
-export const LanguageContext = createContext();
+export const MenuContext = createContext();
 
 // This context provider is passed to any component requiring the context
-export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState("en");
-
+export const MenuProvider = ({children}) => {
+    // const [menu, setMenu] = useState([]);
     return (
-        <LanguageContext.Provider
+        <MenuContext.Provider
             value={{
-                language,
-                setLanguage
+                menu,
+                setMenu
             }}
         >
             {children}
-        </LanguageContext.Provider>
+        </MenuContext.Provider>
     );
 };

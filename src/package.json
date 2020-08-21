@@ -36,6 +36,7 @@
     "slick-carousel": "^1.8.1",
     "swr": "^0.3.0",
     "tailwindcss": "^1.6.0",
+    "tailwindcss-truncate-multiline": "^1.0.3",
     "wpapi": "^1.2.1",
     "zustand": "^3.0.1"
   },
