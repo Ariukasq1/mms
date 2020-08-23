@@ -48,6 +48,7 @@ const Index = ({sliders, home_screen_items, brands}) => {
                     anchors={anchors}
                     navigationPosition={"left"}
                     navigation
+                    scrollOverflow={true}
                     navigationTooltips={anchors}
                     onLeave={(origin, destination, direction) => {
                         // console.log("onLeave event", {origin, destination, direction});
@@ -70,7 +71,9 @@ const Index = ({sliders, home_screen_items, brands}) => {
                                     <ShowRoomComponent data={showroom}/>
                                 </div>
                                 <div className="section">
-                                    <BrandsComponent data={brands}/>
+                                    <div className="ml-32">
+                                        <BrandsComponent data={brands}/>
+                                    </div>
                                 </div>
                             </div>
                         );
@@ -87,7 +90,8 @@ Index.getInitialProps = async (ctx) => {
     const fetcher = url => axios.get(url).then(res => res.data)
     const sliders = await fetcher(`${Config.apiUrl}/wp/v2/sliders${query === 'mn' ? '?lang=' + query : ''}`)
     const home_screen_items = await fetcher(`${Config.apiUrl}/wp/v2/home_screen_items${query === 'mn' ? '?lang=' + query : ''}`)
-    const brands = await fetcher(`${Config.apiUrl}/wp/v2/brands${query === 'mn' ? '?lang=' + query : ''}`)
+    // const brands = await fetcher(`${Config.apiUrl}/wp/v2/brands${query === 'mn' ? '?lang=' + query : ''}`)
+    const brands = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?slug=brands&${query === 'mn' ? '?lang=' + query : ''}`)
     return {sliders, query, home_screen_items, brands}
 }
 

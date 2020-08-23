@@ -173,3 +173,37 @@
     flex-basis: 100% !important;
   }
 }
+
+.itemDetails {
+  .slick-slide {
+    height: 100vh;
+  }
+}
+
+.thumbnailSlide {
+  .slick-slide {
+    height: 100%;
+  }
+
+  .slick-prev {
+    left: 0 !important;
+    z-index: 99999 !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    height: 100%;
+    width: 60px !important;
+  }
+
+  .slick-next {
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    height: 100%;
+    width: 60px !important;
+  }
+}
+
+.brandsProducts {
+  .slick-slide {
+    padding: 0 18px;
+  }
+}

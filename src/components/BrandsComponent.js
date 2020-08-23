@@ -6,43 +6,6 @@ import mainStore from "../stores";
 import Link from "next/link";
 
 
-const settings = {
-    className: "center",
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    rows: 1,
-    slidesPerRow: 1,
-    nextArrow: <SampleNextArrow/>,
-    prevArrow: <SamplePrevArrow/>,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-    ]
-};
-
 function SampleNextArrow(props) {
     const {className, style, onClick} = props;
     return (
@@ -68,31 +31,68 @@ function SamplePrevArrow(props) {
 }
 
 const BrandsComponent = ({data}) => {
-    const {language} = mainStore()
+    const settings = {
+        className: "center",
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        rows: 1,
+        slidesPerRow: 1,
+        nextArrow: <SampleNextArrow/>,
+        prevArrow: <SamplePrevArrow/>,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
 
-    const renderBrands = data.map((brand, index) => {
-        const item = brand.acf
+    const {language} = mainStore()
+    const items = data[0].acf
+    // const items = brands.acf
+    const renderBrands = items.brands.map((brand, index) => {
         return (
             <div key={index}>
                 <div className="w-auto h-12">
-                    <img src={item.brand_image.url} className="object-contain h-full" alt={item.brand_image.alt}/>
+                    <img src={brand.brand_image.url} className="object-contain h-full" alt={brand.brand_image.alt}/>
                 </div>
-                <Link href={{pathname: `${brand.taxonomy}/${brand.slug}`, query: {lang: language}}}>
+                <Link href={{pathname: `${data[0].slug}/${brand.slug}`, query: {lang: language}}}>
                     <a
                         className="my-8 text-lg w-auto bg-transparent text-black text-opacity-50 lowercase hover:text-opacity-100 hover:text-black flex flex-row sm:my-4">
                         read more
                         <img className="object-contain ml-4" src={arrowImage}/>
                     </a>
                 </Link>
-                <div className="w-auto h-64">
-                    <img src={item.brand_thumbnail.url} className="object-cover h-full" alt={item.brand_thumbnail.alt}/>
+                <div className="w-full h-48">
+                    <img src={brand.brand_thumbnail.url} className="object-cover h-full" alt={brand.brand_thumbnail.alt}/>
                 </div>
             </div>
         )
     })
     return (
-        <div className="ml-32 justify-start items-start brands sm:ml-10 sm:mr-4">
-            <div className="ml-4 mb-20 font-bold text-4xl text-black sm:mb-8">
+        <div className="justify-start items-start brands sm:ml-10 sm:mr-4">
+            <div className="ml-4 my-8 font-medium text-3xl text-black sm:mb-8">
                 Brands
             </div>
             <Slider {...settings} className="h-full">

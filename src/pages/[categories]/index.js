@@ -9,10 +9,12 @@ import Link from "next/link";
 import arrowImage from "../../public/images/arrow.png";
 import mainStore from "../../stores";
 import ReactFullpage from "../../lib/fullpage";
+import RelativeCategory from "../../components/RelativeCategory";
 
 const settings = {
     className: "center",
     infinite: true,
+    autoplay: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     rows: 1,
@@ -44,10 +46,10 @@ const settings = {
         }
     ]
 };
-const anchors = ["1", "2", "section3"]
-const Categories = ({brands, categories, querySlug}) => {
+const anchors = ["1", "2", "3"]
+const Categories = ({brands, categories, querySlug, relativeCategory, relative_child, relativeCategory1, relative_child1}) => {
     const {language} = mainStore()
-    const renderCategories = categories.map((category, index) => {
+    const renderCategories = querySlug !== 'brands' ? categories.map((category, index) => {
             const cat = category.acf
             const image = cat.thumbnail_image
             return (
@@ -59,7 +61,8 @@ const Categories = ({brands, categories, querySlug}) => {
                         <p className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
                             {category.description}
                         </p>
-                        <Link href={{pathname: `${querySlug}/${category.slug}`, query: {lang: language}}}>
+                        <Link href={{pathname: `/[categories]/[item]`, query: {lang: language}}}
+                              as={`${querySlug}/${category.slug}?lang=${language}`}>
                             <a
                                 className="my-4 text-sm w-auto bg-transparent text-black  lowercase hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
                                 read more
@@ -74,7 +77,7 @@ const Categories = ({brands, categories, querySlug}) => {
                 </div>
             )
         }
-    )
+    ) : null
 
     return (
         <Layout>
@@ -98,24 +101,29 @@ const Categories = ({brands, categories, querySlug}) => {
 
                                         </div>
                                         <div className="capabilitiesPageSlider px-72" style={{flexBasis: '50%'}}>
-                                            <Slider {...settings} className="h-full">
-                                                {renderCategories}
-                                            </Slider>
+                                            {querySlug === "brands" ? <BrandsComponent data={brands}/> :
+                                                <Slider {...settings} className="h-full">
+                                                    {renderCategories}
+                                                </Slider>}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="section">
-                                    <BrandsComponent data={brands}/>
+                                    <div className="capabilitiesPageSlider px-72" style={{flexBasis: '50%'}}>
+                                        {querySlug !== 'brands' ? <BrandsComponent data={brands}/> :
+                                            <RelativeCategory category={relativeCategory1} child={relative_child1}/>}
+                                        <RelativeCategory category={relativeCategory} child={relative_child}
+                                                          querySlug={querySlug}/>
+                                    </div>
                                 </div>
                             </div>
                         );
                     }}
                 />
             </div>
-
-
         </Layout>
-    );
+    )
+        ;
 };
 
 Categories.getInitialProps = async (ctx) => {
@@ -123,10 +131,26 @@ Categories.getInitialProps = async (ctx) => {
     const query = ctx.query.lang;
     const querySlug = ctx.query.categories
     const fetcher = url => axios.get(url).then(res => res.data)
-    const brands = await fetcher(`${Config.apiUrl}/wp/v2/brands${query === 'mn' ? '?lang=' + query : ''}`)
-    const category = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?slug=${ctx.query.categories}&${query === 'mn' ? '?lang=' + query : ''}`)
+    // const brands = await fetcher(`${Config.apiUrl}/wp/v2/brands${query === 'mn' ? '?lang=' + query : ''}`)
+    const brands = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?slug=brands&${query === 'mn' ? '?lang=' + query : ''}`)
+    const category = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?slug=${querySlug}&${query === 'mn' ? '?lang=' + query : ''}`)
     const categories = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?parent=${category.map((data) => data.id)}&${query === 'mn' ? '?lang=' + query : ''}`)
-    return {brands, categories, querySlug}
+    const relative_acf = category[0].acf.relative_category[0]
+    const relative_acf1 = category[0].acf.relative_category[1]
+    const relativeCategory = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus/${relative_acf}${query === 'mn' ? '?lang=' + query : ''}`)
+    const relative_child = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?parent=${relativeCategory.id}&${query === 'mn' ? '?lang=' + query : ''}`)
+
+    let relativeCategory1
+    let relative_child1
+
+
+    if (querySlug === 'brands') {
+        relativeCategory1 = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus/${relative_acf1}${query === 'mn' ? '?lang=' + query : ''}`)
+        relative_child1 = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?parent=${relativeCategory1.id}&${query === 'mn' ? '?lang=' + query : ''}`)
+        return {brands, categories, querySlug, relativeCategory, relative_child, relativeCategory1, relative_child1}
+    } else {
+        return {brands, categories, querySlug, relativeCategory, relative_child}
+    }
 }
 
 export default Categories;

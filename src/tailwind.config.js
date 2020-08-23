@@ -2,11 +2,10 @@ module.exports = {
     purge: [],
     theme: {
         screens: {
-            'sm': {'min': '320px', 'max': '767px'},
-            'md': {'min': '768px', 'max': '1023px'},
-            'lg': {'min': '1024px', 'max': '1280px'},
-            'xl': {'min': '1281px', 'max': '1440px'},
-            'xxl': {'min': '1441px'},
+            'sm': {'min': '320px', 'max': '480px'},
+            'md': {'min': '481px ', 'max': '768px'},
+            'lg': {'min': '769px ', 'max': '1024px'},
+            'xl': {'min': '1025px', 'max': '1366px'},
         },
         truncate: {
             lines: {
@@ -17,6 +16,10 @@ module.exports = {
             }
         },
         extend: {
+            screens: {
+                '2xl': {'min': '1367px', 'max': '1440px'},
+                '3xl': {'min': '1441px'}
+            },
             colors: {
                 menuTextColor: '#00498e',
             },

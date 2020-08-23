@@ -49,7 +49,6 @@ export const configureLanguage = (ctx) => {
     let lang = getLanguage(language, ctx);
     if (!asPath.includes("?lang=")) {
         redirectToLanguage(lang, res);
-        console.log("Redirecting")
     } else {
         lang = validateLanguage(query.lang);
         setLanguageCookie(ctx, lang);
