@@ -7,9 +7,12 @@ import {Config} from "../../config";
 import Slider from "react-slick";
 import mainStore from "../../stores";
 import ReactFullpage from "../../lib/fullpage";
+import Error from 'next/error';
+import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
 
 
 const Item = ({subcategory, slugQuery, itemQuery}) => {
+    if (!subcategory) return <Error statusCode={404}/>
     const router = useRouter();
     const {item} = router.query
     let item_acf;
@@ -99,6 +102,9 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
 
                     return (
                         <div id="fullpage">
+                            <div className={"section"}>
+                                <ItemDetailsWithGallery subcategory={subcategory}/>
+                            </div>
                             <div className="section">
                                 <div className={"itemDetails flex flex-row items-center justify-between"}>
                                     <div className={"itemDetailsTexts w-1/2 pl-48 pr-24"}>
@@ -163,11 +169,11 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
                         </div>
                     );
                 }}
-            />
+        />
 
-        </Layout>
-    )
-        ;
+</Layout>
+)
+    ;
 };
 
 Item.getInitialProps = async (ctx) => {
@@ -181,13 +187,18 @@ Item.getInitialProps = async (ctx) => {
         subcategory = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?slug=${itemQuery}&${query === 'mn' ? '?lang=' + query : ''}`)
     } else {
         const brands = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?slug=${slugQuery}&${query === 'mn' ? '?lang=' + query : ''}`)
-        brands.forEach(el => {
-            el.acf.brands[0].slug === itemQuery
-            subcategory = el.acf.brands[0]
-            return
+        brands[0].acf.brands.forEach(el => {
+            if (el.slug === itemQuery) {
+                subcategory = el
+                return
+            } else {
+                if (ctx.res) {
+                    ctx.res.statusCode = 404
+                }
+            }
+
         });
     }
-    console.log(subcategory)
     return {subcategory, slugQuery, itemQuery}
 }
 

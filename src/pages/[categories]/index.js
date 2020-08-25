@@ -10,6 +10,7 @@ import arrowImage from "../../public/images/arrow.png";
 import mainStore from "../../stores";
 import ReactFullpage from "../../lib/fullpage";
 import RelativeCategory from "../../components/RelativeCategory";
+import SliderSubCategories from "../../components/SliderSubCategories";
 
 const settings = {
     className: "center",
@@ -49,36 +50,6 @@ const settings = {
 const anchors = ["1", "2", "3"]
 const Categories = ({brands, categories, querySlug, relativeCategory, relative_child, relativeCategory1, relative_child1}) => {
     const {language} = mainStore()
-    const renderCategories = querySlug !== 'brands' ? categories.map((category, index) => {
-            const cat = category.acf
-            const image = cat.thumbnail_image
-            return (
-                <div key={index}>
-                    <div className={"flex flex-col"}>
-                        <div className={"text-lg text-black font-medium"}>
-                            {category.name}
-                        </div>
-                        <p className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
-                            {category.description}
-                        </p>
-                        <Link href={{pathname: `/[categories]/[item]`, query: {lang: language}}}
-                              as={`${querySlug}/${category.slug}?lang=${language}`}>
-                            <a
-                                className="my-4 text-sm w-auto bg-transparent text-black  lowercase hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
-                                read more
-                                <img className="object-contain ml-4" src={arrowImage}/>
-                            </a>
-                        </Link>
-                        <div className="w-full">
-                            <img src={image.url} className="object-cover w-full h-86"
-                                 alt={image.alt}/>
-                        </div>
-                    </div>
-                </div>
-            )
-        }
-    ) : null
-
     return (
         <Layout>
             <div className="relative">
@@ -102,9 +73,11 @@ const Categories = ({brands, categories, querySlug, relativeCategory, relative_c
                                         </div>
                                         <div className="capabilitiesPageSlider px-72" style={{flexBasis: '50%'}}>
                                             {querySlug === "brands" ? <BrandsComponent data={brands}/> :
-                                                <Slider {...settings} className="h-full">
-                                                    {renderCategories}
-                                                </Slider>}
+                                                // <Slider {...settings} className="h-full">
+                                                //     {renderCategories}
+                                                    <SliderSubCategories data={categories} querySlug={querySlug} language={language}/>
+                                                // </Slider>
+                                                }
                                         </div>
                                     </div>
                                 </div>
@@ -147,6 +120,7 @@ Categories.getInitialProps = async (ctx) => {
     if (querySlug === 'brands') {
         relativeCategory1 = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus/${relative_acf1}${query === 'mn' ? '?lang=' + query : ''}`)
         relative_child1 = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?parent=${relativeCategory1.id}&${query === 'mn' ? '?lang=' + query : ''}`)
+
         return {brands, categories, querySlug, relativeCategory, relative_child, relativeCategory1, relative_child1}
     } else {
         return {brands, categories, querySlug, relativeCategory, relative_child}

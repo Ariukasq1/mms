@@ -15,14 +15,6 @@ import {MenuContext} from "../components/LanguageContext";
 import Router from "next/router";
 
 const Index = ({sliders, home_screen_items, brands}) => {
-    const daa = useContext(MenuContext)
-    // Router.events.on('routeChangeComplete', () => {
-    //     daa.setMenu({bottom_menu, top_menu})
-    // })
-    // useEffect(() => {
-    //     daa.setMenu({bottom_menu, top_menu})
-    //     setLanguage(query)
-    // }, [])
     const anchors = ["section1", "section2", "section3", "section4", "section5"]
     let capabilities
     let industry
@@ -57,7 +49,7 @@ const Index = ({sliders, home_screen_items, brands}) => {
                         // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
 
                         return (
-                            <div id="fullpage">
+                            <div id="fullpage homeScreen">
                                 <div className="section">
                                     <HomeSlider sliders={sliders}/>
                                 </div>
