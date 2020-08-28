@@ -52,7 +52,7 @@ const SliderSubCategories = (props) => {
                                 <p className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
                                     {category.description}
                                 </p>
-                                <Link href={{pathname: `/[categories]/[item]`, query: {lang: props.language}}}
+                                <Link href={{pathname: `/[portfolio]/[item]`, query: {lang: props.language}}}
                                       as={`${props.querySlug}/${category.slug}?lang=${props.language}`}>
                                     <a
                                         className="my-4 text-sm w-auto bg-transparent text-black  lowercase hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">

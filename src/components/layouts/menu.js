@@ -23,6 +23,27 @@ const MenuComponent = () => {
     const onClose = () => {
         setVisible(false);
     };
+
+    const pathChecker = (item) => {
+        if (item.slug === 'capabilities') {
+            return '/[categories]'
+        } else if (item.slug === 'industries') {
+            return '/[categories]'
+        } else if (item.slug === 'brands') {
+            return '/[categories]'
+        } else return `/${item.slug}`
+    }
+
+    const childPathChecker = (item) => {
+        if (item.slug === 'capabilities') {
+            return '/[categories]/[items]'
+        } else if (item.slug === 'industries') {
+            return '/[categories]/[items]'
+        } else if (item.slug === 'brands') {
+            return '/[categories]/[items]'
+        } else return `/${item.slug}`
+    }
+
     return (
         <div>
             <nav
@@ -66,10 +87,11 @@ const MenuComponent = () => {
                     <div className={"bottomMenu  text-menuTextColor flex flex-row sm:justify-end"}>
                         <div className={"bottomMenuList sm:hidden  text-base font-extrabold border-r border-blue-700"}>
                             {!menu ? <div>Loading</div> : menu.bottom_menu.items.map((item, index) => (
-                                    <Link href={{pathname: `/[categories]`, query: {lang: language}}}
+                                    <Link href={{
+                                        pathname: pathChecker(item),
+                                        query: {lang: language}
+                                    }}
                                           as={`/${item.slug}?lang=${language}`}>
-                                        {/*<Link*/}
-                                        {/*    href={{pathname: `${item.slug}`, query: {lang: language}}}>*/}
                                         <a key={index} className={"mx-4"}>
                                             {item.title}
                                         </a>
@@ -85,12 +107,6 @@ const MenuComponent = () => {
                                 <img src={burger}/>
                             </a>
                         </div>
-                        {/*<Link href={{pathname: `/capabilities/[item]`, query: {slug: 'sourcing', lang: language}}} as={`/capabilities/sourcing?lang=${language}`}>*/}
-                        {/*    <a>Hello world</a>*/}
-                        {/*</Link>*/}
-                        {/*<Link href={{pathname: `/capabilities`, query: {lang: language}}} as={`/capabilities?lang=${language}`}>*/}
-                        {/*    <a>233232 1</a>*/}
-                        {/*</Link>*/}
                     </div>
                 </div>
             </nav>
@@ -128,19 +144,18 @@ const MenuComponent = () => {
                     </div>
                     {!menu ? <div>Loading</div> : menu.bottom_menu.items.map((item, index) => (
                             <div key={index} className="flex flex-col ">
-                                <Link href={{pathname: `/[categories]`, query: {lang: language}}}
+                                <Link href={{pathname: pathChecker(item), query: {lang: language}}}
                                       as={`/${item.slug}?lang=${language}`}>
                                     <a className={"mx-4 font-bold"}>
                                         {item.title}
                                     </a>
                                 </Link>
                                 <div key={index} className="flex flex-col mb-6 ml-4">
-                                    {item.child_items.map((children) => (
+                                    {item.child_items?.map((children) => (
                                         <Link href={{
-                                            pathname: `/[categories]/[item]`,
+                                            pathname: childPathChecker(children),
                                             query: {item: `${children.slug}`, lang: language}
                                         }} as={`/${item.slug}/${children.slug}?lang=${language}`}>
-                                            {/*<Link href={{pathname: `${item.slug}/${children.slug}`, query: {lang: language}}}>*/}
                                             <a key={children.ID} className={"mx-4"}>
                                                 {children.title}
                                             </a>

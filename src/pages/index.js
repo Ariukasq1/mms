@@ -40,6 +40,7 @@ const Index = ({sliders, home_screen_items, brands}) => {
                     anchors={anchors}
                     navigationPosition={"left"}
                     navigation
+                    paddingTop={"116px"}
                     scrollOverflow={true}
                     navigationTooltips={anchors}
                     onLeave={(origin, destination, direction) => {
@@ -78,6 +79,7 @@ const Index = ({sliders, home_screen_items, brands}) => {
 }
 
 Index.getInitialProps = async (ctx) => {
+    const language = configureLanguage(ctx);
     const query = ctx.query.lang;
     const fetcher = url => axios.get(url).then(res => res.data)
     const sliders = await fetcher(`${Config.apiUrl}/wp/v2/sliders${query === 'mn' ? '?lang=' + query : ''}`)

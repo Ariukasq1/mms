@@ -21,6 +21,7 @@ const Portfolio = styled.div`
       width: 100vw;
       height: 100vh;
       filter: brightness(0.3) ;
+  
   }
 `;
 const Index = ({categories, language, category}) => {

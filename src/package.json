@@ -10,7 +10,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@emotion/core": "^10.0.35",
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@fullpage/react-fullpage": "^0.1.17",
     "@zeit/next-css": "^1.0.1",
@@ -18,7 +17,6 @@
     "antd": "^4.5.1",
     "axios": "^0.19.2",
     "core-js": "2",
-    "emotion": "^10.0.27",
     "express": "^4.17.1",
     "google-map-react": "^1.1.7",
     "moment": "^2.24.0",
@@ -33,6 +31,7 @@
     "react-moment": "^0.9.7",
     "react-reveal": "^1.2.2",
     "react-scripts": "3.4.1",
+    "react-scrollable-box": "^0.2.1",
     "react-share": "^4.0.1",
     "react-slick": "^0.27.1",
     "slick-carousel": "^1.8.1",

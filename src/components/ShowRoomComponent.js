@@ -43,7 +43,7 @@ const ShowRoomComponent = ({data}) => {
                     ))}
                 </div>
             </div>
-            <div className="showRoomImage w-1/2 w-full h-screen sm:hidden" style={{flexBasis: "50%"}}>
+            <div className="showRoomImage w-1/2 w-full h-body sm:hidden" style={{flexBasis: "50%"}}>
                 <img className="object-cover h-full w-full" src={url}/>
             </div>
         </div>

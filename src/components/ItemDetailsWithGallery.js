@@ -35,7 +35,7 @@ const ItemDetailsWithGallery = ({subcategory}) => {
     });
     const renderImages = item_acf.slider_images.map((data, index) => (
         <div key={index} className={"slick-slide"}>
-            <img className={"object-cover object-center h-full w-full"} src={data.image.url} alt={data.image.alt}/>
+            <img className={"object-cover object-center h-body w-full"} src={data.image.url} alt={data.image.alt}/>
         </div>
     ))
     const renderThumbnail = item_acf.slider_images.map((data, index) => (
@@ -47,7 +47,7 @@ const ItemDetailsWithGallery = ({subcategory}) => {
 
     return (
         <div className={"itemDetails flex flex-row items-center justify-between"}>
-            <div className={"itemDetailsTexts w-1/2 pl-48 pr-24"}>
+            <div className={"itemDetailsTexts w-1/2 pl-80 pr-24"}>
                 <div>
                     <h2 className={"py-4 font-medium"}>#{subcategory[0].name}</h2>
                     <div className={"text-xl"}

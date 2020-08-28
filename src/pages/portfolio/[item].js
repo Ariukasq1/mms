@@ -6,25 +6,92 @@ import {Config} from "../../config";
 import {configureLanguage} from "../../utils/language";
 import axios from "axios";
 import Slider from "react-slick";
-
 import styled from 'styled-components'
+import arrowImage from "../../public/images/arrow.png";
 
 const settings = {
-    className: "center",
-    infinite: false,
-    slidesToShow: 3,
+    infinite: true,
+    slidesToShow: 4,
     speed: 500,
     rows: 2,
-    slidesPerRow: 2
+    slidesPerRow: 1
 };
 
+const Gallery = styled.div`
+  /* Adapt the colours based on primary prop */
+  position: relative;
+   &:hover:before {
+      filter: brightness(0.4) ;
+   }
+  &:before {
+      content: "";
+      position: absolute;
+     
+      z-index: -99;
+      width: 100%;
+      height: 100%;
+      
+      display: block;
+      background-image: url(${props => props.item.image.url});
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: brightness(0.6) ;
+      transition: 0.8s;
+     
+  }
+`;
+
+const Portfolio = styled.div`
+  /* Adapt the colours based on primary prop */
+  
+  &:before {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      
+      display: block;
+      background: url(${props => props.item.background_image.url});
+      box-shadow: inset 2000px 0 0 0 rgba(255, 255, 255, 0.7);
+     
+      
+      width: 100vw;
+      height: 100vh;
+  }
+  &:after {
+      background: rgba(255,255,255);
+  }
+`;
+
 const Item = ({subcategory}) => {
-    const {image} = subcategory[0].acf.slider_images[0]
+    const portfolio = subcategory[0].acf.portfolio
+    const renderGallery = (portfolio) => {
+        return (
+            portfolio.map((item, index) => (
+                    <div key={index}>
+                        <Gallery item={item} style={{height: "300px", width: '100%'}}
+                                 className={"portfolioGallery flex flex-col justify-center items-center text-center"}>
+                            <div className={"text-white p-10"}>
+                                {item.name}
+                            </div>
+                            <a className={"portfolioGalleryButton text-white text-sm opacity-0 transition duration-500 ease-in-out flex flex-row hover:text-gray-300"}>
+                                {item.button}
+                                <img className="object-contain ml-4" src={arrowImage}/>
+                            </a>
+                        </Gallery>
+                    </div>
+                )
+            )
+        )
+    }
+
     return (
         <Layout>
             <ReactFullpage
                 navigationPosition={"left"}
                 navigation
+                paddingTop={"116px"}
                 onLeave={(origin, destination, direction) => {
                     // console.log("onLeave event", {origin, destination, direction});
                 }}
@@ -36,26 +103,23 @@ const Item = ({subcategory}) => {
                             <div className={"section"}>
                                 <ItemDetailsWithGallery subcategory={subcategory}/>
                             </div>
-                            <div className={"section"}>
-                                <Slider {...settings}>
-                                    <div style={{backgroundImage: `url(${image.url})`}}>
-                                        <div>
-                                            name
-                                        </div>
-                                        <div>
-                                            Read more
-                                        </div>
-                                    </div>
-                                </Slider>
+                            <div className={"section px-80 "}>
+                                <Portfolio item={portfolio} className={"h-full flex flex-col justify-center"}>
+                                    <h2 className={"text-menuTextColor my-6"}>{subcategory[0].name}</h2>
+                                    <Slider {...settings}>
+                                        {renderGallery(portfolio.portfolios)}
+                                    </Slider>
+                                </Portfolio>
+
                             </div>
                         </div>
                     )
                 }}
-        />
+            />
 
-</Layout>
-)
-    ;
+        </Layout>
+    )
+        ;
 };
 
 Item.getInitialProps = async (ctx) => {

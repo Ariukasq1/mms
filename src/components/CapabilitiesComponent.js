@@ -26,7 +26,7 @@ const CapabilitiesComponent = ({data}) => {
                     </a>
                 </Link>
             </div>
-            <div className="capabilitiesImage w-full h-screen sm:hidden" style={{flexBasis: "50%"}}>
+            <div className="capabilitiesImage w-full h-body sm:hidden" style={{flexBasis: "50%"}}>
                 <img className="object-cover h-full w-full" src={url}/>
             </div>
         </div>

@@ -14,16 +14,15 @@ import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
 const Item = ({subcategory, slugQuery, itemQuery}) => {
     if (!subcategory) return <Error statusCode={404}/>
     const router = useRouter();
-    const {item} = router.query
     let item_acf;
     let products;
     if (slugQuery === 'brands') {
+        console.log(slugQuery)
         item_acf = subcategory
         products = subcategory.products
     } else {
         item_acf = subcategory[0].acf
     }
-    const {language} = mainStore()
     const [nav1, setNav1] = useState(null);
     const [nav2, setNav2] = useState(null);
     const [slider1, setSlider1] = useState(null);
@@ -93,6 +92,7 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
             <ReactFullpage
                 navigationPosition={"left"}
                 navigation
+                paddingTop={"116px"}
                 scrollOverflow={true}
                 onLeave={(origin, destination, direction) => {
                     // console.log("onLeave event", {origin, destination, direction});
@@ -102,9 +102,9 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
 
                     return (
                         <div id="fullpage">
-                            <div className={"section"}>
-                                <ItemDetailsWithGallery subcategory={subcategory}/>
-                            </div>
+                            {/*<div className={"section"}>*/}
+                            {/*    <ItemDetailsWithGallery subcategory={subcategory}/>*/}
+                            {/*</div>*/}
                             <div className="section">
                                 <div className={"itemDetails flex flex-row items-center justify-between"}>
                                     <div className={"itemDetailsTexts w-1/2 pl-48 pr-24"}>
@@ -149,7 +149,7 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
                                             </div> :
                                             <div>
                                                 <img src={item_acf.brand_thumbnail.url}
-                                                     className={"object-contain object-center h-screen w-full"}/>
+                                                     className={"object-contain object-center h-body w-full"}/>
                                             </div>}
 
                                     </div>

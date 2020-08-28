@@ -22,15 +22,21 @@ module.exports = {
             },
             colors: {
                 menuTextColor: '#00498e',
+                contact: '#262626',
             },
             spacing: {
                 "28": "7rem",
                 "72": "18rem",
                 "80": "20rem",
                 "86": "30rem",
+            },
+            height: {
+                'body': 'calc(100vh - 116px)',
             }
         },
     },
-    variants: {},
+    variants: {
+        textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    },
     plugins: [require('tailwindcss-truncate-multiline')(),],
 }
