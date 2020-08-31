@@ -22,10 +22,10 @@ const settings = {
     slidesPerRow: 1,
     responsive: [
         {
-            breakpoint: 1024,
+            breakpoint: 768,
             settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 2,
+                slidesToScroll: 2,
                 infinite: true,
                 dots: true
             }
@@ -58,6 +58,8 @@ const Categories = ({brands, categories, querySlug, relativeCategory, relative_c
                     navigationPosition={"left"}
                     navigation
                     navigationTooltips={anchors}
+                    scrollOverflow={true}
+                    paddingTop={"116px"}
                     onLeave={(origin, destination, direction) => {
                         // console.log("onLeave event", {origin, destination, direction});
                     }}
@@ -71,7 +73,7 @@ const Categories = ({brands, categories, querySlug, relativeCategory, relative_c
                                         <div className="capabilitiesPageContent">
 
                                         </div>
-                                        <div className="capabilitiesPageSlider px-72" style={{flexBasis: '50%'}}>
+                                        <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12" style={{flexBasis: '50%'}}>
                                             {querySlug === "brands" ? <BrandsComponent data={brands}/> :
                                                 // <Slider {...settings} className="h-full">
                                                 //     {renderCategories}
@@ -82,7 +84,7 @@ const Categories = ({brands, categories, querySlug, relativeCategory, relative_c
                                     </div>
                                 </div>
                                 <div className="section">
-                                    <div className="capabilitiesPageSlider px-72" style={{flexBasis: '50%'}}>
+                                    <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12" style={{flexBasis: '50%'}}>
                                         {querySlug !== 'brands' ? <BrandsComponent data={brands}/> :
                                             <RelativeCategory category={relativeCategory1} child={relative_child1}/>}
                                         <RelativeCategory category={relativeCategory} child={relative_child}

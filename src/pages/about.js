@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from "../components/layouts/Layout";
 import Footer from "../components/layouts/footer";
-import ScrollableBox, {useDefaultLipClassNames} from "react-scrollable-box";
 import ReactFullpage from "../lib/fullpage";
 import axios from "axios";
 import {Config} from "../config";
@@ -9,13 +8,12 @@ import {configureLanguage} from "../utils/language";
 
 const About = ({about, contact}) => {
     const {details, what_we_do, background_image} = about[0].acf.about
-    const lipClassNames = useDefaultLipClassNames();
 
     const renderCards = (item) => (
-        <div className={" w-1/2 p-3 px-16"}>
+        <div className={" w-1/2 p-3 px-16 sm:w-full sm:px-2"}>
             <div className={"flex flex-row bg-white  items-center p-5"}>
-                <img src={item.image.url}/>
-                <p className={"ml-10 font-bold"}>{item.title}</p>
+                <img className={"sm:w-16 sm:h-16"} src={item.image.url}/>
+                <p className={"ml-10 sm:ml-4 font-bold"}>{item.title}</p>
             </div>
 
         </div>
@@ -27,6 +25,7 @@ const About = ({about, contact}) => {
             <ReactFullpage
                 navigationPosition={"left"}
                 navigation
+                scrollOverflow={true}
                 paddingTop={"116px"}
                 onLeave={(origin, destination, direction) => {
                     // console.log("onLeave event", {origin, destination, direction});
@@ -37,29 +36,29 @@ const About = ({about, contact}) => {
                         <div id="fullpage">
                             <div className={"section"} style={{background: "whitesmoke"}}>
 
-                                <div className={"px-40 flex flex-row justify-center items-center"}>
-                                    <div className={"w-1/2"}>
+                                <div className={"px-40 flex flex-row justify-center items-stretch sm:flex-col sm:px-16"}>
+                                    <div className={"w-1/2 sm:w-full py-24 sm:py-2"}>
                                         <img className={"h-auto object-cover"} src={details.image.url}/>
                                     </div>
-                                    <div className={" w-1/2  pl-20 "}>
-                                        <ScrollableBox
-                                            {...lipClassNames}
-                                            style={{maxHeight: '440px', overflow: 'auto'}}
-                                        >
-                                            <h2 className={"font-medium mb-8"}>{details.title}</h2>
-                                            <div className={"careerDetails text-lg pr-20"}
-                                                 dangerouslySetInnerHTML={{__html: details.editor}}/>
-                                        </ScrollableBox>
+                                    <div className={" w-1/2  pl-20 py-24 sm:py-2 sm:w-full sm:pl-0"}>
+                                        {/*<div*/}
+                                        {/*    {...lipClassNames}*/}
+                                        {/*    style={{maxHeight: '440px', overflow: 'auto'}}*/}
+                                        {/*>*/}
+                                        <h2 className={"font-medium mb-8"}>{details.title}</h2>
+                                        <div className={"careerDetails text-lg pr-20 sm:pr-0"}
+                                             dangerouslySetInnerHTML={{__html: details.editor}}/>
                                     </div>
+                                    {/*</div>*/}
 
                                 </div>
                             </div>
-                            <div className={"section px-72"} style={{backgroundImage: `url(${background_image.url})`}}>
-                                <div className={"px-16"}>
+                            <div className={"section "}
+                                 style={{backgroundImage: `url(${background_image.url})`}}>
+                                <div className={"px-16 px-72 xl:px-24 2xl:px-40 sm:px-12"}>
                                     <h2 className={"text-white mb-8 "}>{what_we_do.name}</h2>
                                 </div>
-                                <div className={"flex flex-wrap "}>
-
+                                <div className={"flex flex-wrap sm:flex-col px-72 xl:px-24 2xl:px-40 sm:px-12"}>
                                     {what_we_do.items.map(item => renderCards(item))}
                                 </div>
 

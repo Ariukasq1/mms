@@ -2,11 +2,10 @@ import React from "react";
 
 function Footer({data}) {
     const {contacts, address} = data[0].acf
-    console.log(contacts)
     return (
         <footer className={"bg-contact text-white h-screen"} style={{paddingTop: "116px"}}>
-            <div className={"flex flex-row align-center justify-evenly px-72 py-20"}>
-                <div className={"flex flex-col w-1/3 px-16"}>
+            <div className={"flex flex-row align-center justify-evenly px-72 py-20 xl:px-24 sm:px-12 sm:flex-col"}>
+                <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"}>
                     <h2 className={"text-lg font-medium text-white"}>Contacts</h2>
                     <div className={"flex flex-row"}>
                         <p className={"text-lg  text-white"}>Tel: </p>
@@ -26,22 +25,22 @@ function Footer({data}) {
                         ))}
                     </div>
                 </div>
-                <div className={"flex flex-col w-1/3 px-16"}>
-                    <div className={"flex flex-col mb-10"}>
+                <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"}>
+                    <div className={"flex flex-col mb-10 sm:w-full"}>
                         <h2 className={"text-lg font-medium text-white"}>{address.office.name}</h2>
                         <p className={"text-lg  text-pink-100"}>{address.office.address}</p>
                     </div>
-                    <div className={"flex flex-col mb-10"}>
+                    <div className={"flex flex-col mb-10 sm:w-full"}>
                         <h2 className={"text-lg font-medium text-white"}>{address.office_copy.name}</h2>
                         <p className={"text-lg  text-pink-100"}>{address.office_copy.address}</p>
                     </div>
-                    <div className={"flex flex-col mb-10"}>
+                    <div className={"flex flex-col mb-10 sm:w-full"}>
                         <h2 className={"text-lg font-medium text-white"}>{address.hunnu_mall_showroom.name}</h2>
                         <p className={"text-lg  text-pink-100"}>{address.hunnu_mall_showroom.address}</p>
                     </div>
 
                 </div>
-                <div className={"flex flex-col w-1/3 px-16"}>
+                <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"}>
                     <h2 className={"text-lg font-medium text-white"}>Please contact us</h2>
                     <form className={"relative w-full"}>
                         <div className={"relative w-full my-4"}>

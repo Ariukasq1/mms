@@ -37,7 +37,7 @@ const Index = ({categories, language, category}) => {
                     <div className={"font-medium text-black"}>
                         {item.name}
                     </div>
-                    <div className={"mr-6 leading-6"}>
+                    <div className={"mr-6 leading-6 sm:mr-2"}>
                         {item.description}
                     </div>
                 </div>
@@ -49,6 +49,7 @@ const Index = ({categories, language, category}) => {
             <ReactFullpage
                 navigationPosition={"left"}
                 navigation
+                scrollOverflow={true}
                 onLeave={(origin, destination, direction) => {
                     // console.log("onLeave event", {origin, destination, direction});
                 }}
@@ -62,7 +63,7 @@ const Index = ({categories, language, category}) => {
                                     <div className="capabilitiesPageContent">
 
                                     </div>
-                                    <div className="capabilitiesPageSlider px-72" style={{flexBasis: '50%'}}>
+                                    <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-20 sm:px-10" style={{flexBasis: '50%'}}>
                                         <SliderSubCategories data={categories} querySlug={'portfolio'}
                                                              language={language}/>
                                     </div>
@@ -70,15 +71,15 @@ const Index = ({categories, language, category}) => {
                             </div>
                             <div className="section portfolio">
                                 <Portfolio background_image={background_image}>
-                                    <div className={" px-72 flex flex-row justify-center"}
+                                    <div className={"px-72 flex flex-row justify-center xl:px-20 2xl:px-40 md:px-20 md:flex-col lg:px-20 sm:flex-col sm:px-10"}
                                          style={{paddingTop: "116px"}}>
-                                        <div className={"flex flex-col justify-center mr-12"}>
+                                        <div className={"flex flex-col justify-center mr-12 md:mr-2 md:ml-2 sm:mr-0"}>
                                             <h2 className={"uppercase text-white"}>interiors</h2>
                                             {interiors.map(interior => {
                                                 return renderInteriorExterior(interior)
                                             })}
                                         </div>
-                                        <div className={"flex flex-col ml-12"}>
+                                        <div className={"flex flex-col ml-12 md:ml-2 sm:ml-0"}>
                                             <h2 className={"uppercase text-white"}>exteriors</h2>
                                             {exteriors.map(exterior => {
                                                 return renderInteriorExterior(exterior)

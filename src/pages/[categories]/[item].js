@@ -90,8 +90,8 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
     return (
         <Layout>
             <ReactFullpage
-                navigationPosition={"left"}
-                navigation
+                // navigationPosition={"left"}
+                // navigation
                 paddingTop={"116px"}
                 scrollOverflow={true}
                 onLeave={(origin, destination, direction) => {
@@ -106,8 +106,8 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
                             {/*    <ItemDetailsWithGallery subcategory={subcategory}/>*/}
                             {/*</div>*/}
                             <div className="section">
-                                <div className={"itemDetails flex flex-row items-center justify-between"}>
-                                    <div className={"itemDetailsTexts w-1/2 pl-48 pr-24"}>
+                                <div className={"itemDetails flex flex-row items-center justify-between md:flex-col sm:flex-col"}>
+                                    <div className={"itemDetailsTexts w-1/2 pl-48 pr-24 md:w-full md:pl-10 md:pb-10 xl:pl-24 sm:px-12 sm:w-full"}>
                                         {slugQuery !== 'brands' ?
                                             <div>
                                                 <h2 className={"py-4 font-medium"}>#{subcategory[0].name}</h2>
@@ -124,7 +124,7 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
 
                                         }
                                     </div>
-                                    <div className={"itemDetailsImages w-1/2 relative"}>
+                                    <div className={"itemDetailsImages w-1/2 relative md:w-full sm:w-full"}>
                                         {slugQuery !== 'brands' ?
                                             <div className={"relative"}>
                                                 <Slider

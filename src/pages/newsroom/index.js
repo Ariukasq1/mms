@@ -35,8 +35,6 @@ const News = styled.div`
 `;
 
 const Index = ({newsroom, news, page}) => {
-    console.log(news)
-    console.log(page)
     const [pager, setPager] = useState(page === undefined ? 1 : page)
     const router = useRouter()
     const {language} = mainStore()
@@ -69,7 +67,7 @@ const Index = ({newsroom, news, page}) => {
                     // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
                     return (
                         <div id="fullpage">
-                            <div className={"section px-72"}>
+                            <div className={"section px-72 xl:px-40"}>
                                 <div className="grid grid-rows-4 grid-cols-4 px-10">
                                     <News item={newsroom[newsroom.length - 5].acf}
                                           className=" row-span-2 col-span-1 relative">
@@ -144,7 +142,7 @@ const Index = ({newsroom, news, page}) => {
 
                                 </div>
                             </div>
-                            <div className={"section px-72"}>
+                            <div className={"section px-72 xl:px-40"}>
                                 <div className={"flex flex-col"}>
                                     <div className={"flex flex-wrap justify-start"}>
                                         {!news ?

@@ -46,15 +46,15 @@ const ItemDetailsWithGallery = ({subcategory}) => {
     ))
 
     return (
-        <div className={"itemDetails flex flex-row items-center justify-between"}>
-            <div className={"itemDetailsTexts w-1/2 pl-80 pr-24"}>
+        <div className={"itemDetails flex flex-row items-center justify-between md:flex-col sm:flex-col"}>
+            <div className={"itemDetailsTexts w-1/2 pl-80 pr-24 md:w-full md:pl-24 md:pb-10 lg:pl-24 lg:pr-12 xl:px-24 2xl:pl-40 sm:pl-12 sm:pr-10 sm:w-full"}>
                 <div>
                     <h2 className={"py-4 font-medium"}>#{subcategory[0].name}</h2>
                     <div className={"text-xl"}
                          dangerouslySetInnerHTML={{__html: item_acf.editor}}/>
                 </div>
             </div>
-            <div className={"itemDetailsImages w-1/2 relative"}>
+            <div className={"itemDetailsImages w-1/2 relative md:w-full sm:w-full"}>
                 <div className={"relative"}>
                     <Slider
                         {...settingsMain}

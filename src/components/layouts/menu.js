@@ -84,8 +84,8 @@ const MenuComponent = () => {
 
                         </div>
                     </div>
-                    <div className={"bottomMenu  text-menuTextColor flex flex-row sm:justify-end"}>
-                        <div className={"bottomMenuList sm:hidden  text-base font-extrabold border-r border-blue-700"}>
+                    <div className={"bottomMenu  text-menuTextColor flex flex-row md:justify-end"}>
+                        <div className={"bottomMenuList sm:hidden md:hidden md:justify-end  text-base font-extrabold border-r border-blue-700"}>
                             {!menu ? <div>Loading</div> : menu.bottom_menu.items.map((item, index) => (
                                     <Link href={{
                                         pathname: pathChecker(item),

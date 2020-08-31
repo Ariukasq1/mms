@@ -12,10 +12,10 @@ const settings = {
     slidesPerRow: 1,
     responsive: [
         {
-            breakpoint: 1024,
+            breakpoint: 800,
             settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 2,
+                slidesToScroll: 2,
                 infinite: true,
                 dots: true
             }
@@ -61,7 +61,7 @@ const SliderSubCategories = (props) => {
                                     </a>
                                 </Link>
                                 <div className="w-full">
-                                    <img src={image.url} className="object-cover w-full h-86"
+                                    <img src={image.url} className="object-cover w-full h-86 xl:h-80"
                                          alt={image.alt}/>
                                 </div>
                             </div>

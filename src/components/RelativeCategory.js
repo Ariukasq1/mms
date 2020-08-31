@@ -20,6 +20,15 @@ const settings = {
                 slidesToShow: 3,
                 slidesToScroll: 3,
                 infinite: true,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 800,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                infinite: true,
                 dots: true,
             }
         },
@@ -66,7 +75,7 @@ const RelativeCategory = ({category, child, querySlug}) => {
         }
     )
     return (
-        <div className="justify-start items-start brands sm:ml-10 sm:mr-4">
+        <div className="justify-start items-start brands mb-10 sm:ml-10 sm:mr-4">
             <div className="ml-4 my-8 font-medium text-3xl text-black sm:mb-8">
                 {category.name}
             </div>

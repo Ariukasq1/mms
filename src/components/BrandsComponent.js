@@ -51,6 +51,15 @@ const BrandsComponent = ({data}) => {
                 }
             },
             {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,

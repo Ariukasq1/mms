@@ -14,7 +14,59 @@ const settings = {
     slidesToShow: 4,
     speed: 500,
     rows: 2,
-    slidesPerRow: 1
+    slidesPerRow: 1,
+    responsive: [
+        {
+            breakpoint: 1400,
+            settings: {
+                slidesToShow: 3,
+                rows: 2,
+                infinite: true,
+                slidesPerRow: 1,
+                dots: true,
+            }
+        },
+        {
+            breakpoint: 1280,
+            settings: {
+                slidesToShow: 3,
+                rows: 2,
+                infinite: true,
+                slidesPerRow: 1,
+                dots: true,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+                rows: 2,
+                infinite: true,
+                slidesPerRow: 1,
+                dots: true,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                rows: 2,
+                infinite: true,
+                slidesPerRow: 1,
+                dots: true,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                rows: 1,
+                infinite: true,
+                slidesPerRow: 1,
+                dots: true,
+            }
+        }
+    ]
 };
 
 const Gallery = styled.div`
@@ -71,7 +123,7 @@ const Item = ({subcategory}) => {
             portfolio.map((item, index) => (
                     <div key={index}>
                         <Gallery item={item} style={{height: "300px", width: '100%'}}
-                                 className={"portfolioGallery flex flex-col justify-center items-center text-center"}>
+                                 className={"portfolioGallery flex flex-col justify-center items-center text-center pb-12"}>
                             <div className={"text-white p-10"}>
                                 {item.name}
                             </div>
@@ -92,6 +144,7 @@ const Item = ({subcategory}) => {
                 navigationPosition={"left"}
                 navigation
                 paddingTop={"116px"}
+                scrollOverflow={true}
                 onLeave={(origin, destination, direction) => {
                     // console.log("onLeave event", {origin, destination, direction});
                 }}
@@ -103,8 +156,8 @@ const Item = ({subcategory}) => {
                             <div className={"section"}>
                                 <ItemDetailsWithGallery subcategory={subcategory}/>
                             </div>
-                            <div className={"section px-80 "}>
-                                <Portfolio item={portfolio} className={"h-full flex flex-col justify-center"}>
+                            <div className={"section"}>
+                                <Portfolio item={portfolio} className={"h-full flex flex-col justify-center  px-80 md:px-20 xl:px-24 lg:px-24 xl:px-36 2xl:px-40 sm:pl-12 sm:pr-10"}>
                                     <h2 className={"text-menuTextColor my-6"}>{subcategory[0].name}</h2>
                                     <Slider {...settings}>
                                         {renderGallery(portfolio.portfolios)}
