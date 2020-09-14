@@ -18,12 +18,12 @@ const ShowRoomComponent = ({data}) => {
                     className="ml-20 showRoomTitle text-3xl font-bold text-black leading-8 my-8 break-words sm:ml-8 sm:my-4 sm:text-2xl">
                     {item.title}
                 </div>
-                <div className="ml-20 showRoomBody mb-8 text-black font-light text-lg sm:ml-8 sm:text-base">
+                <div className="ml-20 showRoomBody mb-8 text-black font-light text-lg sm:ml-8 sm:text-base" style={{fontSize: 16, fontWeight: "bold", lineHeight: -2,  letterSpacing: -1, width: "62.6667%"}}>
                     {item.body}
                 </div>
                 <Link href={{pathname: `${data.slug}`, query: {lang: language}}}>
                     <a
-                        className="ml-20 w-auto bg-transparent text-black text-base lowercase hover:text-menuTextColor flex flex-row sm:ml-8">
+                        className="ml-20 w-auto bg-transparent text-black text-base lowercase hover:text-menuTextColor flex flex-row sm:ml-8" style={{fontWeight: "bold"}}>
                         {item.button_label}
                         <img className="object-contain ml-4" src={arrowImage}/>
                     </a>

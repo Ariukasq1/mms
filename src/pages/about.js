@@ -5,6 +5,7 @@ import ReactFullpage from "../lib/fullpage";
 import axios from "axios";
 import {Config} from "../config";
 import {configureLanguage} from "../utils/language";
+import Time from './time'
 
 const About = ({about, contact}) => {
     const {details, what_we_do, background_image} = about[0].acf.about
@@ -28,10 +29,8 @@ const About = ({about, contact}) => {
                 scrollOverflow={true}
                 paddingTop={"116px"}
                 onLeave={(origin, destination, direction) => {
-                    // console.log("onLeave event", {origin, destination, direction});
                 }}
                 render={({state, fullpageApi}) => {
-                    // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
                     return (
                         <div id="fullpage">
                             <div className={"section"} style={{background: "whitesmoke"}}>
@@ -41,16 +40,10 @@ const About = ({about, contact}) => {
                                         <img className={"h-auto object-cover"} src={details.image.url}/>
                                     </div>
                                     <div className={" w-1/2  pl-20 py-24 sm:py-2 sm:w-full sm:pl-0"}>
-                                        {/*<div*/}
-                                        {/*    {...lipClassNames}*/}
-                                        {/*    style={{maxHeight: '440px', overflow: 'auto'}}*/}
-                                        {/*>*/}
                                         <h2 className={"font-medium mb-8"}>{details.title}</h2>
                                         <div className={"careerDetails text-lg pr-20 sm:pr-0"}
                                              dangerouslySetInnerHTML={{__html: details.editor}}/>
                                     </div>
-                                    {/*</div>*/}
-
                                 </div>
                             </div>
                             <div className={"section "}
@@ -64,7 +57,7 @@ const About = ({about, contact}) => {
 
                             </div>
                             <div className={"section"}>
-                                <div className={"flex justify-center items-center"}>
+                                {/* <div className={"flex justify-center items-center"}>
                                     <ul className="timeline">
                                         <li>
                                             <div>
@@ -92,8 +85,14 @@ const About = ({about, contact}) => {
                                             </div>
                                         </li>
                                     </ul>
-                                </div>
-
+                                </div> */}
+                                
+                              {/* <Timeline/> */}
+                              <Time/>
+                              
+                            </div>
+                            <div>
+                                
                             </div>
                             <div className={"section "}>
                                 <Footer data={contact}/>

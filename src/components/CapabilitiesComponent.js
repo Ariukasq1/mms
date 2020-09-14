@@ -9,11 +9,11 @@ const CapabilitiesComponent = ({data}) => {
 
     return (
         <div className="capabilities flex xl:flex-row sm:flex-col justify-between items-center">
-            <div className="capabilitiesTexts pl-64 pr-40 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-16 sm:pr-8" style={{flexBasis: "50%"}}>
+            <div className="capabilitiesTexts pr-32 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-16 sm:pr-8 bg-white" style={{flexBasis: "50%", paddingLeft: "29rem"}}>
                 <div className="capabilitiesTag text-black font-bold sm:text-base">
                     #{data.slug}
                 </div>
-                <div className="capabilitiesTitle text-3xl font-bold text-menuTextColor leading-8 my-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+                <div className="capabilitiesTitle text-4xl font-bold text-menuTextColor leading-8 my-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
                     {item.title}
                 </div>
                 <div className="capabilitiesBody mb-8 font-light text-lg sm:text-base">

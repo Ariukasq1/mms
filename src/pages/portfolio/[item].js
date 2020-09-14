@@ -163,7 +163,6 @@ const Item = ({subcategory}) => {
                                         {renderGallery(portfolio.portfolios)}
                                     </Slider>
                                 </Portfolio>
-
                             </div>
                         </div>
                     )
