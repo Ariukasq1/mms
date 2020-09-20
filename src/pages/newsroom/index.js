@@ -9,6 +9,7 @@ import {useRouter} from "next/router";
 import mainStore from "../../stores";
 import Link from "next/link";
 import {configureLanguage} from "../../utils/language";
+import ScrollableBox, {useDefaultLipClassNames} from 'react-scrollable-box';
 
 const News = styled.div`
   /* Adapt the colours based on primary prop */
@@ -35,7 +36,9 @@ const News = styled.div`
 `;
 
 const Index = ({newsroom, news, page}) => {
+    const lipClassNames = useDefaultLipClassNames();
     const [pager, setPager] = useState(page === undefined ? 1 : page)
+    const newsroom_details = newsroom[0].acf
     const router = useRouter()
     const {language} = mainStore()
     const handleChange = value => {
@@ -46,7 +49,7 @@ const Index = ({newsroom, news, page}) => {
         })
     }
     const renderNews = (item, index) => (
-        <div key={index} className={"flex flex-col w-1/4  p-4 "}>
+        <div key={index} className={"flex flex-col w-1/4  p-4 bg-white"}>
             <img className={"w-full h-64 object-cover relative"} src={item.acf.image.url}/>
             <Link href={{pathname: '/newsroom/[news]', query: {news: item.slug}}}
                   as={`/newsroom/${item.slug}?lang=${language}`}>
@@ -67,7 +70,8 @@ const Index = ({newsroom, news, page}) => {
                     // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
                     return (
                         <div id="fullpage">
-                            <div className={"section px-72 xl:px-40"}>
+                            <div className={"section px-72 xl:px-40"} style={{margin: "0 auto", width: "90%"}}>
+                            <h4 style={{fontWeight: "bold", marginLeft: 25, fontSize: 30}}>News</h4>
                                 <div className="grid grid-rows-4 grid-cols-4 px-10">
                                     <News item={newsroom[newsroom.length - 5].acf}
                                           className=" row-span-2 col-span-1 relative">
@@ -142,17 +146,36 @@ const Index = ({newsroom, news, page}) => {
 
                                 </div>
                             </div>
+                            <div className={"section"}>
+                                <div className={"px-40 flex flex-row justify-center items-center"}>
+                                    <div className={"w-1/2"}>
+                                        <img className={"h-auto object-cover"} src={newsroom_details.image.url}/>
+                                    </div>
+                                    <div className={" w-1/2  pl-20 "}>
+                                        <h2 className={"mb-10 font-medium text-sm"}>#{newsroom[0].name}</h2>
+                                        <ScrollableBox
+                                            {...lipClassNames}
+                                            style={{maxHeight: '440px', overflow: 'auto', backgroundColor: "white"}}
+                                        >
+                                            <div className={"careerDetails text-xl pr-20"} 
+                                                 dangerouslySetInnerHTML={{__html: newsroom_details.editor}}/>
+                                        </ScrollableBox>
+                                    </div>
+                                </div>
+                            </div>
                             <div className={"section px-72 xl:px-40"}>
                                 <div className={"flex flex-col"}>
+                                <h4 style={{fontWeight: "bold", marginLeft: 25, fontSize: 30}}>News</h4>
                                     <div className={"flex flex-wrap justify-start"}>
+                                        
                                         {!news ?
                                             <h2 className={"font-bold text-xl"}>
                                                 News not found
                                             </h2> : news.map((item, index) => renderNews(item, index))}
                                     </div>
-                                    <Pagination className={"self-center"} onChange={handleChange} pageSize={8}
+                                    {/* <Pagination className={"self-center"} onChange={handleChange} pageSize={8}
                                                 current={pager} defaultCurrent={1}
-                                                total={newsroom.length}/>
+                                                total={newsroom.length}/> */}
                                 </div>
 
                             </div>

@@ -1,3 +1,4 @@
+import { AutoComplete } from 'antd';
 import Ribbon from 'antd/lib/badge/Ribbon';
 import React, {useEffect, useState} from 'react';
 import Slider from "react-slick";
@@ -47,34 +48,37 @@ const ItemDetailsWithGallery = ({subcategory}) => {
     ))
 
     return (
-        <div className={"section itemDetails flex flex-row items-center justify-between md:flex-col sm:flex-col"} style={{marginTop: 226}}>
-            <div className={"itemDetailsTexts w-1/2 pl-80 pr-24 md:w-full md:pl-24 md:pb-10 lg:pl-24 lg:pr-12 xl:px-24 2xl:pl-40 sm:pl-12 sm:pr-10 sm:w-full float-left bg-white"} style={{marginTop: 300}}>
-                <div>
-                    <h2 className={"py-4 font-medium"}>#{subcategory[0].name}</h2>
-                    <div className={"text-xl"}
-                         dangerouslySetInnerHTML={{__html: item_acf.editor}}/>
+        <div className={"section itemDetails flex-1 flex-row items-center md:flex-col sm:flex-col"} style={{marginTop: 226}}>
+            <div style={{width: "100%", height: "100%", display: "flex", flexDirection:"row"}}>
+                
+                <div className={"itemDetailsTexts md:w-full md:pl-24 md:pb-10 lg:pl-24 lg:pr-12 xl:px-24 2xl:pl-40 sm:pl-12 sm:pr-10 sm:w-full bg-white"} style={{width: "50%", margin: "auto"}} >
+                    <div style={{margin: "auto", width: "50%", padding: "10px", marginLeft: 500}}>
+                        <h2 className={"py-4 font-medium"}>#{subcategory[0].name}</h2>
+                        <div className={"text-xl"}
+                            dangerouslySetInnerHTML={{__html: item_acf.editor}}/>
+                    </div>
                 </div>
-            </div>
-            <div className={"itemDetailsImages relative md:w-full sm:w-full float-right"} style={{marginTop: 106, width:900, marginRight: 190}}>
-                <div className={"relative"}>
-                    <Slider
-                        {...settingsMain}
-                        asNavFor={nav2}
-                        ref={slider => (setSlider1((slider)))}
-                    >
-                        {renderImages}
-                    </Slider>
-                    <div className={"thumbnailSlide absolute w-full bottom-0"}>
+                <div className={"itemDetailsImages relative md:w-full sm:w-full float-right"} style={{width: "50%", paddingRight: 100}}>
+                    <div className={"relative"} >
                         <Slider
-                            {...settingsThumbs}
-                            asNavFor={nav1}
-                            ref={slider => (setSlider2(slider))}
-                            slidesToShow={3}
-                            swipeToSlide={true}
-                            focusOnSelect={true}
+                            {...settingsMain}
+                            asNavFor={nav2}
+                            ref={slider => (setSlider1((slider)))}
                         >
-                            {renderThumbnail}
+                            {renderImages}
                         </Slider>
+                        <div className={"thumbnailSlide absolute w-full bottom-0"}>
+                            <Slider
+                                {...settingsThumbs}
+                                asNavFor={nav1}
+                                ref={slider => (setSlider2(slider))}
+                                slidesToShow={3}
+                                swipeToSlide={true}
+                                focusOnSelect={true}
+                            >
+                                {renderThumbnail}
+                            </Slider>
+                        </div>
                     </div>
                 </div>
             </div>

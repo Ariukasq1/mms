@@ -48,7 +48,7 @@ const Index = ({ categories, language, category }) => {
       <ReactFullpage
         navigationPosition={"left"}
         navigation
-        scrollOverflow={true}
+        scrollOverflow={false}
         onLeave={(origin, destination, direction) => {
           // console.log("onLeave event", {origin, destination, direction});
         }}

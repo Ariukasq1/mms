@@ -7,7 +7,7 @@ import Slider from "react-slick";
 const settings = {
     className: "center",
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     rows: 1,
     arrows: true,
@@ -64,8 +64,8 @@ const RelativeCategory = ({category, child, querySlug}) => {
                                 </div>
                             </a>
                         </Link>
-                        <div className="w-full">
-                            <img src={image.url} className="object-cover w-full h-48"
+                        <div className="w-full" style={{height: 250}}>
+                            <img src={image.url} className="object-cover w-full"
                                  alt={image.alt}/>
                         </div>
 
@@ -75,7 +75,7 @@ const RelativeCategory = ({category, child, querySlug}) => {
         }
     )
     return (
-        <div className="justify-start items-start brands mb-10 sm:ml-10 sm:mr-4">
+        <div className="justify-start items-start brands mb-10 sm:ml-10 sm:mr-4" style={{backgroundColor: "white"}}>
             <div className="ml-4 my-8 font-medium text-3xl text-black sm:mb-8">
                 {category.name}
             </div>

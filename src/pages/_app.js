@@ -13,6 +13,7 @@ import axios from "axios";
 import { Config } from "../config";
 import DataContext from "../components/DataContext";
 import "react-scrollable-box/lib/default.css";
+import "./style.css"
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();

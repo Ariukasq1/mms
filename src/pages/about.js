@@ -1,63 +1,75 @@
-import React from 'react';
+import React from "react";
 import Layout from "../components/layouts/Layout";
 import Footer from "../components/layouts/footer";
 import ReactFullpage from "../lib/fullpage";
 import axios from "axios";
-import {Config} from "../config";
-import {configureLanguage} from "../utils/language";
-import Time from './time'
-
-const About = ({about, contact}) => {
-    const {details, what_we_do, background_image} = about[0].acf.about
-
-    const renderCards = (item) => (
-        <div className={" w-1/2 p-3 px-16 sm:w-full sm:px-2"}>
-            <div className={"flex flex-row bg-white  items-center p-5"}>
-                <img className={"sm:w-16 sm:h-16"} src={item.image.url}/>
-                <p className={"ml-10 sm:ml-4 font-bold"}>{item.title}</p>
-            </div>
-
-        </div>
-    )
+import { Config } from "../config";
+import { configureLanguage } from "../utils/language";
 
 
-    return (
-        <Layout>
-            <ReactFullpage
-                navigationPosition={"left"}
-                navigation
-                scrollOverflow={true}
-                paddingTop={"116px"}
-                onLeave={(origin, destination, direction) => {
-                }}
-                render={({state, fullpageApi}) => {
-                    return (
-                        <div id="fullpage">
-                            <div className={"section"} style={{background: "whitesmoke"}}>
+const About = ({ about, contact }) => {
+  const { details, what_we_do, background_image } = about[0].acf.about;
 
-                                <div className={"px-40 flex flex-row justify-center items-stretch sm:flex-col sm:px-16"}>
-                                    <div className={"w-1/2 sm:w-full py-24 sm:py-2"}>
-                                        <img className={"h-auto object-cover"} src={details.image.url}/>
-                                    </div>
-                                    <div className={" w-1/2  pl-20 py-24 sm:py-2 sm:w-full sm:pl-0"}>
-                                        <h2 className={"font-medium mb-8"}>{details.title}</h2>
-                                        <div className={"careerDetails text-lg pr-20 sm:pr-0"}
-                                             dangerouslySetInnerHTML={{__html: details.editor}}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={"section "}
-                                 style={{backgroundImage: `url(${background_image.url})`}}>
-                                <div className={"px-16 px-72 xl:px-24 2xl:px-40 sm:px-12"}>
-                                    <h2 className={"text-white mb-8 "}>{what_we_do.name}</h2>
-                                </div>
-                                <div className={"flex flex-wrap sm:flex-col px-72 xl:px-24 2xl:px-40 sm:px-12"}>
-                                    {what_we_do.items.map(item => renderCards(item))}
-                                </div>
+  const renderCards = (item) => (
+    <div className={" w-1/2 p-3 px-16 sm:w-full sm:px-2"}>
+      <div className={"flex flex-row bg-white  items-center p-5"}>
+        <img className={"sm:w-16 sm:h-16"} src={item.image.url} />
+        <p className={"ml-10 sm:ml-4 font-bold"}>{item.title}</p>
+      </div>
+    </div>
+  );
 
-                            </div>
-                            <div className={"section"}>
-                                {/* <div className={"flex justify-center items-center"}>
+  return (
+    <Layout>
+      <ReactFullpage
+        navigationPosition={"left"}
+        navigation
+        scrollOverflow={true}
+        paddingTop={"116px"}
+        onLeave={(origin, destination, direction) => {}}
+        render={({ state, fullpageApi }) => {
+          return (
+            <div id="fullpage">
+              <div className={"section"} style={{ background: "whitesmoke" }}>
+                <div
+                  className={
+                    "px-40 flex flex-row justify-center items-stretch sm:flex-col sm:px-16"
+                  }
+                >
+                  <div className={"w-1/2 sm:w-full py-24 sm:py-2"}>
+                    <img
+                      className={"h-auto object-cover"}
+                      src={details.image.url}
+                    />
+                  </div>
+                  <div
+                    className={" w-1/2  pl-20 py-24 sm:py-2 sm:w-full sm:pl-0"}
+                  >
+                    <h2 className={"font-medium mb-8"}>{details.title}</h2>
+                    <div
+                      className={"careerDetails text-lg pr-20 sm:pr-0"}
+                      dangerouslySetInnerHTML={{ __html: details.editor }}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className={"section "}
+                style={{ backgroundImage: `url(${background_image.url})` }}
+              >
+                <div className={"px-16 px-72 xl:px-24 2xl:px-40 sm:px-12"}>
+                  <h2 className={"text-white mb-8 "}>{what_we_do.name}</h2>
+                </div>
+                <div
+                  className={
+                    "flex flex-wrap sm:flex-col px-72 xl:px-24 2xl:px-40 sm:px-12"
+                  }
+                >
+                  {what_we_do.items.map((item) => renderCards(item))}
+                </div>
+              </div>
+              <div className={"section"}>
+                {/* <div className={"flex justify-center items-center"}>
                                     <ul className="timeline">
                                         <li>
                                             <div>
@@ -86,35 +98,90 @@ const About = ({about, contact}) => {
                                         </li>
                                     </ul>
                                 </div> */}
-                                
-                              {/* <Timeline/> */}
-                              <Time/>
-                              
-                            </div>
-                            <div>
-                                
-                            </div>
-                            <div className={"section "}>
-                                <Footer data={contact}/>
-                            </div>
-                        </div>
-                    )
-                }}
-        />
 
-</Layout>
-)
-    ;
+                <div className="container">
+                  <ol className="ps-timeline">
+                    <li>
+                      <div className="img-handler-top">
+                        <img
+                          src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_03.png"
+                          alt=""
+                        />
+                      </div>
+                      <div className="ps-bot">
+                        Do you have a recent injury or long term pain?
+                      </div>
+                      <span className="ps-sp-top">01</span>
+                    </li>
+                    <li>
+                      <div className="img-handler-bot">
+                        <img
+                          src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_13.png"
+                          alt=""
+                        />
+                      </div>
+                      <div className="ps-top">
+                        Have you tried Physiotherapy, Chiropractor or your GP
+                        without the pain free results?
+                      </div>
+                      <span className="ps-sp-bot">02</span>
+                    </li>
+                    <li>
+                      <div className="img-handler-top">
+                        <img
+                          src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_05.png"
+                          alt=""
+                        />
+                      </div>
+                      <div className="ps-bot">
+                        Let Physology assess and treat your pain with our
+                        trusted revolusionary approach.
+                      </div>
+                      <span className="ps-sp-top">03</span>
+                    </li>
+                    <li>
+                      <div className="img-handler-bot">
+                        <img
+                          src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_10.png"
+                          alt=""
+                        />
+                      </div>
+                      <div className="ps-top">
+                        Join our happy family of pain free clients.
+                      </div>
+                      <span className="ps-sp-bot">04</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div></div>
+              <div className={"section "}>
+                <Footer data={contact} />
+              </div>
+            </div>
+          );
+        }}
+      />
+    </Layout>
+  );
 };
 
 About.getInitialProps = async (ctx) => {
-    const language = configureLanguage(ctx);
+  const language = configureLanguage(ctx);
 
-    const query = ctx.query.lang;
-    const fetcher = url => axios.get(url).then(res => res.data)
-    const about = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?slug=about&${query === 'mn' ? '?lang=' + query : ''}`)
-    const contact = await fetcher(`${Config.apiUrl}/wp/v2/navigation_menus?slug=contact&${query === 'mn' ? '?lang=' + query : ''}`)
-    return {about, contact}
-}
+  const query = ctx.query.lang;
+  const fetcher = (url) => axios.get(url).then((res) => res.data);
+  const about = await fetcher(
+    `${Config.apiUrl}/wp/v2/navigation_menus?slug=about&${
+      query === "mn" ? "?lang=" + query : ""
+    }`
+  );
+  const contact = await fetcher(
+    `${Config.apiUrl}/wp/v2/navigation_menus?slug=contact&${
+      query === "mn" ? "?lang=" + query : ""
+    }`
+  );
+  return { about, contact };
+};
 
 export default About;

@@ -17,7 +17,6 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
     let item_acf;
     let products;
     if (slugQuery === 'brands') {
-        console.log(slugQuery)
         item_acf = subcategory
         products = subcategory.products
     } else {
@@ -90,21 +89,14 @@ const Item = ({subcategory, slugQuery, itemQuery}) => {
     return (
         <Layout>
             <ReactFullpage
-                // navigationPosition={"left"}
-                // navigation
                 paddingTop={"116px"}
-                scrollOverflow={true}
+                scrollOverflow={false}
                 onLeave={(origin, destination, direction) => {
-                    // console.log("onLeave event", {origin, destination, direction});
                 }}
                 render={({state, fullpageApi}) => {
-                    // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
 
                     return (
                         <div id="fullpage">
-                            {/*<div className={"section"}>*/}
-                            {/*    <ItemDetailsWithGallery subcategory={subcategory}/>*/}
-                            {/*</div>*/}
                             <div className="section">
                                 <div className={"itemDetails flex flex-row items-center justify-between md:flex-col sm:flex-col"}>
                                     <div className={"itemDetailsTexts w-1/2 pl-48 pr-24 md:w-full md:pl-10 md:pb-10 xl:pl-24 sm:px-12 sm:w-full"}>
@@ -181,6 +173,7 @@ Item.getInitialProps = async (ctx) => {
     const query = ctx.query.lang;
     const slugQuery = ctx.query.categories;
     const itemQuery = ctx.query.item;
+    console.log(slugQuery)
     const fetcher = url => axios.get(url).then(res => res.data)
     let subcategory;
     if (slugQuery !== 'brands') {

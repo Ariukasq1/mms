@@ -30,7 +30,7 @@ const MenuComponent = () => {
     } else if (item.slug === "industries") {
       return "/[categories]";
     } else if (item.slug === "brands") {
-      return "/[categories]";
+      return "/brands";
     } else return `/${item.slug}`;
   };
 

@@ -5,6 +5,7 @@ import arrowImage from "../public/images/arrow.png";
 import mainStore from "../stores";
 import Link from "next/link";
 import styled from "styled-components";
+import { Nav, Dropdown } from "rsuite";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -30,28 +31,18 @@ function SamplePrevArrow(props) {
   );
 }
 
-function clickFilter(data, index) {
-  if (index === 1) {
-    return (
-      <div key={index}>
-        <div className="w-full h-48">
-          <img
-            src={brand.brand_thumbnail.url}
-            className="object-cover h-full"
-            alt={brand.brand_thumbnail.alt}
-          />
-        </div>
-      </div>
-    );
+const styles = {
+  navlink:{ 
+    display: "inline-block",
+    marginRight: "25px",
+    fontSize: 25,
+    fontWeight: "bold"
+  },
+  nav : {
+    marginBottom: 25
   }
-}
+};
 
-
-function clicking(name){
-  <Slider {...settings} className="h-full">
-    {name}
-  </Slider>
-}
 const BrandsComponent = ({ data }) => {
   const settings = {
     className: "center",
@@ -101,33 +92,36 @@ const BrandsComponent = ({ data }) => {
 
   const { language } = mainStore();
   const items = data[0].acf;
+  // console.log(data[0].acf);
 
-
-function clicking(){
-
-  const clickFilter = items.brands.map((brand, index) => {
-    if(brand.slug === "basheng"){
-      return(
-        <Slider {...settings} className="h-full">
-        <div key={index}>
-          <div className="w-full h-48">
-          <img
-            src={brand.brand_thumbnail.url}
-            className="object-cover h-full"
-            alt={brand.brand_thumbnail.alt}
-          />
-          </div>
-        </div>
-        </Slider>
-      )
-    }
+  const MyLink = React.forwardRef((props, ref) => {
+    const { href, as, ...rest } = props;
+    return (
+      <Link href={href} as={as}>
+        <a ref={ref} {...rest} />
+      </Link>
+    );
   });
-  
-}
+
+  const NavLink = (props) => <Nav.Item componentClass={MyLink} {...props} />;
+  const instance = (
+    <Nav style={styles.nav}>
+      <NavLink style={styles.navlink} href="/brands?lang=en">
+        #all brands
+      </NavLink>
+      <NavLink style={styles.navlink} href="/guide/introduction">
+        #cable
+      </NavLink>
+      <NavLink style={styles.navlink} href="/components/overview">
+        #connectors
+      </NavLink>
+    </Nav>
+  );
+
   const renderBrands = items.brands.map((brand, index) => {
     return (
       <div key={index}>
-        <div className="w-auto h-12">
+        <div style={{height: 50}}>
           <img
             src={brand.brand_image.url}
             className="object-contain h-full"
@@ -135,17 +129,19 @@ function clicking(){
           />
         </div>
         <Link
-          href={{
-            pathname: `${data[0].slug}/${brand.slug}`,
-            query: { lang: language },
-          }}
+          // href={{
+          //   pathname: `${data[0].slug}/${brand.slug}`,
+          //   query: { lang: language },
+          // }}
+          href={`${data[0].slug}/${brand.slug}`}
+          as={`/brands/${brand.slug}?lang=${language}`}
         >
           <a className="my-8 text-lg w-auto bg-transparent text-black text-opacity-50 lowercase hover:text-opacity-100 hover:text-black flex flex-row sm:my-4">
             read more
             <img className="object-contain ml-4" src={arrowImage} />
           </a>
         </Link>
-        <div className="w-full h-48">
+        <div style={{width: 300, height: 250}}>
           <img
             src={brand.brand_thumbnail.url}
             className="object-cover h-full"
@@ -156,13 +152,8 @@ function clicking(){
     );
   });
   return (
-    <div className="justify-start items-start brands sm:ml-10 sm:mr-4">
-      <div className="flex">
-        <FilterWord onClick={clicking()}>#all brands</FilterWord>
-        <FilterWord>#cable</FilterWord>
-        <FilterWord>#connectors</FilterWord>
-        <FilterWord>#tools</FilterWord>
-      </div>
+    <div className="justify-start items-start brands sm:ml-10 sm:mr-4" style={{backgroundColor: "white"}}>
+      <div>{instance}</div>
       <Slider {...settings} className="h-full">
         {renderBrands}
       </Slider>
@@ -171,16 +162,3 @@ function clicking(){
 };
 
 export default BrandsComponent;
-
-const FilterWord = styled.button`
-  text-align: center;
-  vertical-align: middle;
-  margin-bottom: 100px;
-  padding: 10px 50px 10px 50px;
-  margin-left: 20px;
-  color: black;
-
-  :active {
-    border: 2px solid #296d98;
-  }
-`;

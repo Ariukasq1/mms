@@ -11,15 +11,15 @@ const Index = ({careers}) => {
 
     const {human_resource, career_details, job} = careers[0].acf.careers
     const renderCareerCard = (item) => (
-        <div className={" flex flex-col justify-center align-center w-1/4 p-5 group bg-white hover:bg-menuTextColor"}>
-            <div className={"mb-16"}>
+        <div className={" flex flex-col justify-center align-center w-1/4 p-5 group bg-white hover:bg-menuTextColor"} style={{width: 400}}>
+            <div style={{width:100, marginBottom: 60} }>
                 <img src={item.image.url}/>
             </div>
-            <p className={"font-medium text-black text-lg mb-4 group-hover:text-white "}>
+            <p className={"font-medium text-black text-lg mb-4 group-hover:text-white "} style={{fontSize: 25, fontWeight: "bold", letterSpacing: 0.1}}>
                 {item.title}
             </p>
 
-            <p className={"text-black text-sm leading-5 group-hover:text-white"}>
+            <p className={"text-black text-sm leading-5 group-hover:text-white"} style={{width: 330, fontSize: 16}}>
                 {item.description}
             </p>
 
@@ -42,15 +42,13 @@ const Index = ({careers}) => {
                 navigation
                 paddingTop={"116px"}
                 onLeave={(origin, destination, direction) => {
-                    // console.log("onLeave event", {origin, destination, direction});
                 }}
                 render={({state, fullpageApi}) => {
-                    // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
-
                     return (
                         <div id="fullpage">
                             <div className={"section"}>
-                                <div className={"px-80 flex flex-wrap mb-4"}>
+                            <h4 style={{fontWeight: "bold", marginLeft: 340, fontSize: 30}}>Human Resource</h4>
+                                <div className={"px-80 flex flex-wrap mb-4"} style={{margin: "0 auto"}}>
                                     {human_resource.map(data => renderCareerCard(data))}
                                 </div>
                             </div>
@@ -73,8 +71,8 @@ const Index = ({careers}) => {
                             </div>
                             <div className={"section"}>
                                 <div className={"px-72 flex flex-row"}>
-                                    <div className={"w-1/2 pr-20 "}>
-                                        <div className={"text-xl"}
+                                    <div className={"w-1/2 pr-20"}>
+                                        <div style={{width: 800, marginLeft: "50px", fontSize: 30}}
                                              dangerouslySetInnerHTML={{__html: job.editor}}/>
                                     </div>
                                     <div className={"w-1/2 pl-20 "}>

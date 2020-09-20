@@ -20,7 +20,7 @@ class Share extends React.Component {
     const { path, title = "" } = this.props;
 
     return (
-      <div className="share-container" style={{ marginTop: 10 }}>
+      <div className="share-container" style={{ marginTop: 10, backgroundColor: "#262626" }}>
         <Logo
           href="https://www.facebook.com/mmsengineer"
           className="facebook social"

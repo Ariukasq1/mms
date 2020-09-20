@@ -8,6 +8,7 @@ import mainStore from "../../stores";
 import ReactFullpage from "../../lib/fullpage";
 import RelativeCategory from "../../components/RelativeCategory";
 import SliderSubCategories from "../../components/SliderSubCategories";
+import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery"
 
 const settings = {
   className: "center",
@@ -56,6 +57,7 @@ const Categories = ({
 }) => {
   const { language } = mainStore();
   return (
+    
     <Layout>
       <div className="relative">
         <ReactFullpage
@@ -78,7 +80,7 @@ const Categories = ({
                     <div className="capabilitiesPageContent"></div>
                     <div
                       className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12"
-                      style={{ flexBasis: "50%" }}
+                      style={{ flexBasis: "50%",  marginTop: 116 }}
                     >
                       {
                         querySlug === "brands" ? (
@@ -97,10 +99,16 @@ const Categories = ({
                     </div>
                   </div>
                 </div>
+               
+               
+                  <ItemDetailsWithGallery subcategory={categories} style={{height:500}}/>
+                
+
+                      
                 <div className="section">
                   <div
                     className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12"
-                    style={{ flexBasis: "50%" }}
+                    style={{ flexBasis: "50%",  marginTop: 116}}
                   >
                     {querySlug !== "brands" ? (
                       <BrandsComponent data={brands} />
@@ -131,7 +139,6 @@ Categories.getInitialProps = async (ctx) => {
   const query = ctx.query.lang;
   const querySlug = ctx.query.categories;
   const fetcher = (url) => axios.get(url).then((res) => res.data);
-  // const brands = await fetcher(`${Config.apiUrl}/wp/v2/brands${query === 'mn' ? '?lang=' + query : ''}`)
   const brands = await fetcher(
     `${Config.apiUrl}/wp/v2/navigation_menus?slug=brands&${
       query === "mn" ? "?lang=" + query : ""

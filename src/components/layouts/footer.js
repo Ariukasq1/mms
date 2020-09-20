@@ -1,6 +1,11 @@
 import React from "react";
 import Share from "../Share";
 
+const styles={
+  zIndex: 20,
+  backgroundColor: "#262626"
+}
+
 function Footer({ data }) {
   const { contacts, address } = data[0].acf;
   return (
@@ -10,10 +15,10 @@ function Footer({ data }) {
     >
       <div
         className={
-          "flex flex-row align-center justify-evenly px-72 py-20 xl:px-24 sm:px-12 sm:flex-col"
-        }
+          "flex flex-row align-center justify-evenly px-72 py-20 xl:px-24 sm:px-12 sm:flex-col "
+        } style={{backgroundColor: "#262626"}}
       >
-        <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"}>
+        <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"} style={styles}>
           <h2 className={"text-lg font-medium text-white"}>Contacts</h2>
           <div className={"flex flex-row"}>
             <p className={"text-lg  text-white"}>Tel: </p>
@@ -29,13 +34,9 @@ function Footer({ data }) {
           </div>
 
           <Share />
-          {/* <div className={"flex flex-row"}>
-            {contacts.social.map((item) => (
-              <a href={item.link.url}></a>
-            ))}
-          </div> */}
+          
         </div>
-        <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"}>
+        <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"} style={styles}>
           <div className={"flex flex-col mb-10 sm:w-full"}>
             <h2 className={"text-lg font-medium text-white"}>
               {address.office.name}
@@ -59,7 +60,7 @@ function Footer({ data }) {
             </p>
           </div>
         </div>
-        <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"}>
+        <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"} style={styles}>
           <h2 className={"text-lg font-medium text-white"}>
             Please contact us
           </h2>

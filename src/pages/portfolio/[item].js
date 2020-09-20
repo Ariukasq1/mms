@@ -144,7 +144,7 @@ const Item = ({subcategory}) => {
                 navigationPosition={"left"}
                 navigation
                 paddingTop={"116px"}
-                scrollOverflow={true}
+                scrollOverflow={false}
                 onLeave={(origin, destination, direction) => {
                     // console.log("onLeave event", {origin, destination, direction});
                 }}
