@@ -1,0 +1,27 @@
+//slider
+.slider {
+  .text {
+    width: 50%;
+    padding-right: 40px;
+
+    .title {
+      font-size: 80px;
+      font-weight: 600;
+      line-height: 1.3em;
+    }
+
+    .desc {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 300;
+      opacity: 0.8;
+    }
+  }
+
+  .image {
+    max-width: 40%;
+  }
+}
+
+.capabilities {
+}

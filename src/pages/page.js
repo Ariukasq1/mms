@@ -1,6 +1,6 @@
-import WPAPI from 'wpapi';
-import React from 'react';
-import {Config} from "../config";
+import WPAPI from "wpapi";
+import React from "react";
+import { Config } from "../config";
 import Layout from "../components/layouts/Layout";
 import { getData } from "../utils";
 
@@ -14,7 +14,7 @@ export default class extends React.Component {
       .pages()
       .slug(slug)
       .embed()
-      .then(data => {
+      .then((data) => {
         return data[0];
       });
 
@@ -29,7 +29,7 @@ export default class extends React.Component {
         <div className="row">
           <h2>{page.title}</h2>
           Here is page
-          <img src={getData(page._embedded, 'image')} />
+          <img src={getData(page._embedded, "image")} />
         </div>
       </Layout>
     );

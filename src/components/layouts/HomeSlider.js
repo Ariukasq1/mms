@@ -8,12 +8,14 @@ const settings = {
   slidesToScroll: 1,
   dots: true,
 };
+
 const HomeSlider = ({ sliders }) => {
   const renderSlider = sliders.map((slider, index) => {
     const sliderObj = slider.acf;
     const sliderTitle = sliderObj.slider_title;
     const sliderBody = sliderObj.slider_body;
     const sliderImage = sliderObj.slider_image;
+
     return (
       <div key={index}>
         <div
@@ -24,34 +26,30 @@ const HomeSlider = ({ sliders }) => {
               : "flex-row-reverse"
           }`}
         >
-          <div className="homeSliderText mr-10 sm:ml-8 sm:mr-0 md:m-0">
-            <h3
-              className="text-left w-3/5 leading-snug 3xl:w-3/5 2xl:w-full mb-8 mx-10 text-7xl  sm:text-4xl sm:w-full  sm:mb-0 sm:mx-0 md:mx-0 md:w-full md:leading-none lg:w-full xl:w-full"
+          <div className="text mr-10 sm:ml-8 sm:mr-0 md:m-0">
+            <div
+              className="title text-left  leading-snug 2xl:w-full text-7xl sm:text-4xl sm:w-full  sm:mb-0 sm:mx-0 md:mx-0 md:w-full md:leading-none lg:w-full xl:w-full mb-20"
+              dangerouslySetInnerHTML={{ __html: sliderTitle.title_text }}
               style={{
                 color: sliderTitle.title_color,
-                fontWeight: "600",
               }}
-            >
-              {sliderTitle.title_text}
-            </h3>
-            <p
-              className={"mx-10 text-xl sm:mx-0 md:mx-0"}
+            />
+            <div
+              className="desc mx-10 text-xl sm:mx-0 md:mx-0"
+              dangerouslySetInnerHTML={{ __html: sliderBody.body_text }}
               style={{
                 color: sliderBody.body_font_color,
-                fontWeight: "50",
-                opacity: 0.9,
               }}
-            >
-              {sliderBody.body_text}
-            </p>
+            />
           </div>
-          <div className="homeSliderImage w-4/7 sm:ml-8">
+          <div className="image w-4/7 sm:ml-8">
             <img src={sliderImage.url} alt={sliderImage.alt} />
           </div>
         </div>
       </div>
     );
   });
+
   return (
     <Slider {...settings} className="h-full homeSlider">
       {renderSlider}

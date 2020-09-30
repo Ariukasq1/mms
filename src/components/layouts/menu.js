@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 const MenuComponent = () => {
   const router = useRouter();
   let menu = useContext(DataContext);
+
   const { language, setLanguage } = mainStore();
   const [visible, setVisible] = useState(false);
   const lang = router.query.lang;
@@ -17,9 +18,11 @@ const MenuComponent = () => {
   useEffect(() => {
     setLanguage(lang);
   }, []);
+
   const showDrawer = () => {
     setVisible(true);
   };
+
   const onClose = () => {
     setVisible(false);
   };
@@ -69,13 +72,11 @@ const MenuComponent = () => {
               ) : (
                 menu.top_menu.items.map((item, index) => (
                   <Link
+                    key={index}
                     href={`${item.slug}`}
                     as={`/${item.slug}?lang=${language}`}
                   >
-                    <a
-                      key={index}
-                      className={"px-4 border-r border-menuTextColor"}
-                    >
+                    <a className={"px-4 border-r border-menuTextColor"}>
                       {item.title}
                     </a>
                   </Link>
@@ -121,15 +122,14 @@ const MenuComponent = () => {
               ) : (
                 menu.bottom_menu.items.map((item, index) => (
                   <Link
+                    key={index}
                     href={{
                       pathname: pathChecker(item),
                       query: { lang: language },
                     }}
                     as={`/${item.slug}?lang=${language}`}
                   >
-                    <a key={index} className={"mx-4"}>
-                      {item.title}
-                    </a>
+                    <a className={"mx-4"}>{item.title}</a>
                   </Link>
                 ))
               )}
@@ -145,6 +145,7 @@ const MenuComponent = () => {
           </div>
         </div>
       </nav>
+
       <Drawer
         placement="right"
         closable={true}
@@ -180,6 +181,7 @@ const MenuComponent = () => {
               </a>
             </Link>
           </div>
+
           {!menu ? (
             <div>Loading</div>
           ) : (
@@ -194,18 +196,17 @@ const MenuComponent = () => {
                 >
                   <a className={"mx-4 font-bold"}>{item.title}</a>
                 </Link>
-                <div key={index} className="flex flex-col mb-6 ml-4">
+                <div className="flex flex-col mb-6 ml-4">
                   {item.child_items?.map((children) => (
                     <Link
+                      key={children.ID}
                       href={{
                         pathname: childPathChecker(children),
                         query: { item: `${children.slug}`, lang: language },
                       }}
                       as={`/${item.slug}/${children.slug}?lang=${language}`}
                     >
-                      <a key={children.ID} className={"mx-4"}>
-                        {children.title}
-                      </a>
+                      <a className={"mx-4"}>{children.title}</a>
                     </Link>
                   ))}
                 </div>
@@ -213,18 +214,17 @@ const MenuComponent = () => {
             ))
           )}
         </div>
+
         <div className="drawerSubMenu justify-between mb-10">
           {!menu ? (
             <div>Loading</div>
           ) : (
             menu.top_menu.items.map((item, index) => (
               <Link
+                key={index}
                 href={{ pathname: `${item.slug}`, query: { lang: language } }}
               >
-                <a
-                  key={index}
-                  className={"px-4 font-bold border-r border-white"}
-                >
+                <a className={"px-4 font-bold border-r border-white"}>
                   {item.title}
                 </a>
               </Link>
