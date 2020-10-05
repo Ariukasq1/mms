@@ -51,7 +51,7 @@ const MenuComponent = () => {
     <div>
       <nav
         className={
-          "main-header flex flex-row justify-between p-2 w-full absolute top-0 left-0 right-0 z-10 border-b-2"
+          "main-header flex flex-row justify-between p-2 w-full absolute top-0 left-0 right-0 border-b-2"
         }
       >
         <Link
