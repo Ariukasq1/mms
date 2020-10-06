@@ -1,11 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
-import arrow from "../public/images/arrow.png";
-import arrowImage from "../public/images/arrow.png";
+import arrow from "../public/images/arrow.svg";
 import mainStore from "../stores";
 import Link from "next/link";
-import styled from "styled-components";
-import { Nav, Dropdown } from "rsuite";
+import { Nav } from "rsuite";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -32,15 +30,15 @@ function SamplePrevArrow(props) {
 }
 
 const styles = {
-  navlink:{ 
+  navlink: {
     display: "inline-block",
     marginRight: "25px",
     fontSize: 25,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
-  nav : {
-    marginBottom: 25
-  }
+  nav: {
+    marginBottom: 25,
+  },
 };
 
 const BrandsComponent = ({ data }) => {
@@ -92,7 +90,7 @@ const BrandsComponent = ({ data }) => {
 
   const { language } = mainStore();
   const items = data[0].acf;
-  // console.log(data[0].acf);
+  console.log(items);
 
   const MyLink = React.forwardRef((props, ref) => {
     const { href, as, ...rest } = props;
@@ -121,7 +119,7 @@ const BrandsComponent = ({ data }) => {
   const renderBrands = items.brands.map((brand, index) => {
     return (
       <div key={index}>
-        <div style={{height: 50}}>
+        <div className="logo-wrapper">
           <img
             src={brand.brand_image.url}
             className="object-contain h-full"
@@ -129,19 +127,15 @@ const BrandsComponent = ({ data }) => {
           />
         </div>
         <Link
-          // href={{
-          //   pathname: `${data[0].slug}/${brand.slug}`,
-          //   query: { lang: language },
-          // }}
           href={`${data[0].slug}/${brand.slug}`}
           as={`/brands/${brand.slug}?lang=${language}`}
         >
           <a className="my-8 text-lg w-auto bg-transparent text-black text-opacity-50 lowercase hover:text-opacity-100 hover:text-black flex flex-row sm:my-4">
             read more
-            <img className="object-contain ml-4" src={arrowImage} />
+            <img className="object-contain ml-4" src={arrow} />
           </a>
         </Link>
-        <div style={{width: 300, height: 250}}>
+        <div className="bg-img-wrapper">
           <img
             src={brand.brand_thumbnail.url}
             className="object-cover h-full"
@@ -151,9 +145,16 @@ const BrandsComponent = ({ data }) => {
       </div>
     );
   });
+
   return (
-    <div className="justify-start items-start brands sm:ml-10 sm:mr-4" style={{backgroundColor: "white"}}>
-      <div>{instance}</div>
+    <div
+      className="justify-start items-start brands sm:ml-10 sm:mr-4"
+      style={{ backgroundColor: "white" }}
+    >
+      <div className="header">
+        <h2>Brands</h2>
+        {instance}
+      </div>
       <Slider {...settings} className="h-full">
         {renderBrands}
       </Slider>

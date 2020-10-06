@@ -1,5 +1,6 @@
 import React from "react";
 import { Tabs } from "antd";
+import arrowImage from "../public/images/arrow-blue.svg";
 import mainStore from "../stores";
 import Link from "next/link";
 
@@ -30,7 +31,7 @@ const IndustryComponent = ({ data }) => {
                 tab={
                   <div className="title">
                     {item.title}
-                    <i className="fas fa-long-arrow-alt-right"></i>
+                    <img className="image-icon" src={arrowImage} />
                   </div>
                 }
                 key={i}
