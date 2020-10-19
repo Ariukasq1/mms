@@ -1,5 +1,4 @@
-const routes = require('next-routes');
+const routes = require("next-routes");
 
 // Setup router.
-module.exports = routes()
-    .add('index', '/?lang=:lang')
+module.exports = routes().add("index", "/?lang=:lang");

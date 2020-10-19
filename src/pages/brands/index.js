@@ -2,13 +2,12 @@ import React from "react";
 import Layout from "../../components/layouts/Layout";
 import BrandsComponent from "../../components/BrandsComponent";
 import { Config } from "../../config";
-import axios from "axios";
-import { configureLanguage } from "../../utils/language";
 import ReactFullpage from "../../lib/fullpage";
+import { fetcher } from "../../utils";
 
 class Brands extends React.Component {
   render() {
-    const { brands } = this.props;
+    const { brands, brandCategories } = this.props;
     const anchors = ["1", "2", "3"];
     return (
       <Layout>
@@ -19,13 +18,15 @@ class Brands extends React.Component {
             navigation
             scrollOverflow={true}
             paddingTop={"116px"}
-            onLeave={(origin, destination, direction) => {}}
             render={({ state, fullpageApi }) => {
               return (
                 <div id="fullpage">
                   <div className={"section"}>
                     <div style={{ width: "80%", margin: "0 auto" }}>
-                      <BrandsComponent data={brands} />
+                      <BrandsComponent
+                        brands={brands}
+                        brandCategories={brandCategories}
+                      />
                     </div>
                   </div>
                 </div>
@@ -39,16 +40,20 @@ class Brands extends React.Component {
 }
 
 Brands.getInitialProps = async (ctx) => {
-  const language = configureLanguage(ctx);
   const query = ctx.query.lang;
-  const fetcher = (url) => axios.get(url).then((res) => res.data);
 
-  const brands = await fetcher(
-    `${Config.apiUrl}/wp/v2/navigation_menus?slug=brands&${
+  const brandCategories = await fetcher(
+    `${Config.apiUrl}/wp/v2/categories?parent=112&${
       query === "mn" ? "?lang=" + query : ""
     }`
   );
 
-  return { brands };
+  const brands = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=100&${
+      query === "mn" ? "?lang=" + query : ""
+    }`
+  );
+
+  return { brands, brandCategories };
 };
 export default Brands;

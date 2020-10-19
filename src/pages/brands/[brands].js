@@ -1,94 +1,165 @@
 import React from "react";
-import BrandsComponent from "../../components/BrandsComponent";
-import { configureLanguage } from "../../utils/language";
-import { Config } from "../../config";
-import axios from "axios";
 import Slider from "react-slick";
+import Link from "next/link";
+import mainStore from "../../stores";
+import arrow from "../../public/images/arrow.svg";
 import Layout from "../../components/layouts/Layout";
+import { Config } from "../../config";
 import ReactFullpage from "../../lib/fullpage";
+import { fetcher, getData } from "../../utils";
 
-const styles = {
-  width: 320,
-  height: 209 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <img
+      src={arrow}
+      className={className}
+      style={{ ...style, display: "block" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <img
+      src={arrow}
+      className={className}
+      style={{ ...style, display: "block", transform: "rotate(180deg)" }}
+      onClick={onClick}
+    />
+  );
 }
 
 class Brands extends React.Component {
   render() {
+    const { language } = mainStore;
     const settingsProductItems = {
-      slidesToShow: 5,
-      slidesToScroll: 1,
       infinite: true,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      initialSlide: 0,
+      rows: 2,
+      autoplay: false,
+      autoplaySpeed: 3000,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
     };
-    const { brand, subcategory } = this.props;
-    console.log(subcategory)
-    const renderBrandItems = subcategory.products.map((product, index) => (
-      <div key={index} className={"h-64"} style={{margin: "0 auto", width: "99%", height: "500px"}}>
-        <div className={"font-medium text-black text-xl mb-4"}>
-          {product.product_name}
-        </div>
-        <div>
-          <img style={styles} src={product.product_image.url} />
-        </div>
+
+    const { products, items } = this.props;
+    const brand = items ? items[0] : {};
+    const { logo, about, what_we_offer_with } = brand.acf || {};
+
+    const renderProducts = products.map((product, index) => (
+      <div key={index} className="brand-p-item mb-20">
+        <a>
+          <div className="font-medium text-black text-xl mb-4 title">
+            {product.title.rendered}
+          </div>
+          <div className="image-wrapper">
+            <img src={getData(product._embedded, "image")} />
+          </div>
+        </a>
       </div>
     ));
+
     return (
       <Layout>
         <ReactFullpage
           paddingTop={"116px"}
           scrollOverflow={false}
-          onLeave={(origin, destination, direction) => {}}
           render={({ state, fullpageApi }) => {
             return (
               <div id="fullpage">
                 <div className="section">
                   <div
-                    className={
-                      "itemDetails flex flex-row items-center justify-between md:flex-col sm:flex-col"
-                    }
+                    className="brand-detail pr-32 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-16 sm:pr-8 bg-white"
+                    style={{ flexBasis: "50%", paddingLeft: "14rem" }}
                   >
-                    <div
-                      className={
-                        "itemDetailsTexts w-1/2 pl-48 pr-24 md:w-full md:pl-10 md:pb-10 xl:pl-24 sm:px-12 sm:w-full"
-                      }
-                    >
-                      <div style={{ paddingTop: "116px" }}>
-                        <div className={"mb-8"}>
-                          <img src={brand[0].brand_image.url} />
-                        </div>
-                        <div
-                          className={"text-lg pb-10"}
-                          dangerouslySetInnerHTML={{
-                            __html: brand[0].products.map(
-                              (product) => product.product_about
-                            ),
-                          }}
-                        />
-                      </div>
+                    <div className={"mb-8"}>
+                      <img src={logo.url} alt="brand-logo" />
                     </div>
+
                     <div
                       className={
-                        "itemDetailsImages w-1/2 relative md:w-full sm:w-full"
+                        "itemDetails flex flex-row items-center justify-between md:flex-col sm:flex-col"
                       }
                     >
-                      <div>
-                        <img
-                          src={brand[0].brand_thumbnail.url}
-                          className={
-                            "object-contain object-center h-body w-full"
-                          }
-                        />
+                      <div
+                        className={
+                          "itemDetailsTexts w-1/3 mr-16 md:w-full md:pl-10 md:pb-10 xl:pl-24 sm:px-12 sm:w-full"
+                        }
+                      >
+                        <img src={getData(brand._embedded, "image")} />
+                      </div>
+                      <div className="w-2/3 relative md:w-full sm:w-full">
+                        <div className={"itemDetailsTexts pr-24"}>
+                          <h3 className="mb-10">
+                            About <span> {brand.title.rendered}</span>{" "}
+                          </h3>
+                          <div
+                            className={"text-lg pb-10"}
+                            dangerouslySetInnerHTML={{
+                              __html: about,
+                            }}
+                          />
+                        </div>
+                        <div className={"itemDetailsImages"}>
+                          <h3 className="mb-10">
+                            What WE offer with{" "}
+                            <span> {brand.title.rendered}</span>
+                          </h3>
+                          <div
+                            className={"text-lg pb-10"}
+                            dangerouslySetInnerHTML={{
+                              __html: what_we_offer_with,
+                            }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="section">
-                  <div className={"brandsProducts px-40 flex flex-col"} >
-                    <div className={"self-end mb-10 flex flex-row"}>
-                      <img src={subcategory.brand_image.url} />
-                    </div>
-                    <Slider {...settingsProductItems}>
-                      {renderBrandItems}
-                    </Slider>
+                <div className="section odd">
+                  <div className={"brandsProducts px-40 flex flex-col"}>
+                    <h2>{brand.title.rendered} products</h2>
+                    <Slider {...settingsProductItems}>{renderProducts}</Slider>
                   </div>
                 </div>
               </div>
@@ -102,35 +173,23 @@ class Brands extends React.Component {
 
 Brands.getInitialProps = async (ctx) => {
   const query = ctx.query.brands;
-  const itemQuery = ctx.query.brands;
-  const fetcher = (url) => axios.get(url).then((res) => res.data);
+  const lang = ctx.query.lang;
 
-  const brands = await fetcher(
-    `${Config.apiUrl}/wp/v2/navigation_menus?slug=brands&${
-      query === "mn" ? "?lang=" + query : ""
+  const items = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${query}&${
+      lang === "mn" ? "?lang=" + lang : ""
     }`
   );
-  const items = brands[0].acf.brands;
-  let brand = [];
-  items.map((data) => {
-    if (data.slug === query) {
-      brand.push(data);
-    }
-  });
 
-  let subcategory;
-  brands[0].acf.brands.forEach((el) => {
-    if (el.slug === itemQuery) {
-      subcategory = el;
-      return;
-    } else {
-      if (ctx.res) {
-        ctx.res.statusCode = 404;
-      }
-    }
-  });
+  const categories = (items[0] || []).categories;
 
-  return { brand, subcategory };
+  const products = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=175&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  return { items, products };
 };
 
 export default Brands;

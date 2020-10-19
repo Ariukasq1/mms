@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import arrow from "../public/images/arrow.svg";
 import mainStore from "../stores";
 import Link from "next/link";
-import { Nav } from "rsuite";
+import { getData } from "../utils";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -29,137 +29,149 @@ function SamplePrevArrow(props) {
   );
 }
 
-const styles = {
-  navlink: {
-    display: "inline-block",
-    marginRight: "25px",
-    fontSize: 25,
-    fontWeight: "bold",
-  },
-  nav: {
-    marginBottom: 25,
-  },
+const settings = {
+  infinite: true,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  initialSlide: 0,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
-const BrandsComponent = ({ data }) => {
-  const settings = {
-    className: "center",
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    rows: 1,
-    slidesPerRow: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+class BrandsComponent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { brandId: 0, filteredBrands: this.props.brands };
+  }
+
+  filterBrand = (brandId) => {
+    const { brands } = this.props;
+
+    this.setState({ brandId }, () => {
+      if (brandId !== 0) {
+        this.setState({
+          filteredBrands: brands.filter((brand) =>
+            brand.categories.includes(brandId)
+          ),
+        });
+      } else {
+        this.setState({ filteredBrands: brands });
+      }
+    });
   };
 
-  const { language } = mainStore();
-  const items = data[0].acf;
-  console.log(items);
+  renderBrands() {
+    const { language } = mainStore;
+    const { filteredBrands } = this.state;
 
-  const MyLink = React.forwardRef((props, ref) => {
-    const { href, as, ...rest } = props;
-    return (
-      <Link href={href} as={as}>
-        <a ref={ref} {...rest} />
-      </Link>
-    );
-  });
+    return filteredBrands.map((brand, index) => {
+      const { logo } = brand.acf || {};
 
-  const NavLink = (props) => <Nav.Item componentClass={MyLink} {...props} />;
-  const instance = (
-    <Nav style={styles.nav}>
-      <NavLink style={styles.navlink} href="/brands?lang=en">
-        #all brands
-      </NavLink>
-      <NavLink style={styles.navlink} href="/guide/introduction">
-        #cable
-      </NavLink>
-      <NavLink style={styles.navlink} href="/components/overview">
-        #connectors
-      </NavLink>
-    </Nav>
-  );
-
-  const renderBrands = items.brands.map((brand, index) => {
-    return (
-      <div key={index}>
-        <div className="logo-wrapper">
-          <img
-            src={brand.brand_image.url}
-            className="object-contain h-full"
-            alt={brand.brand_image.alt}
-          />
+      return (
+        <div className="single-brand" key={index}>
+          <div className="logo-wrapper">
+            <img
+              src={logo.url}
+              className="object-contain h-full"
+              alt={logo.name}
+            />
+          </div>
+          <Link href={`/brands/${brand.slug}?lang=${language}`} passHref>
+            <a className="more flex">
+              Read more
+              <img className="object-contain ml-4" src={arrow} />
+            </a>
+          </Link>
+          <div className="bg-img-wrapper">
+            <img
+              src={getData(brand._embedded, "image")}
+              className="object-cover h-full"
+              alt={logo.name}
+            />
+          </div>
         </div>
-        <Link
-          href={`${data[0].slug}/${brand.slug}`}
-          as={`/brands/${brand.slug}?lang=${language}`}
+      );
+    });
+  }
+
+  render() {
+    const { brandCategories } = this.props;
+    const { brandId } = this.state;
+
+    const instance = (
+      <ul className="flex category-wrapper mb-40">
+        <li
+          className={brandId === 0 ? "active" : null}
+          onClick={this.filterBrand.bind(this, 0)}
+          href="/brands?lang=en"
         >
-          <a className="my-8 text-lg w-auto bg-transparent text-black text-opacity-50 lowercase hover:text-opacity-100 hover:text-black flex flex-row sm:my-4">
-            read more
-            <img className="object-contain ml-4" src={arrow} />
-          </a>
-        </Link>
-        <div className="bg-img-wrapper">
-          <img
-            src={brand.brand_thumbnail.url}
-            className="object-cover h-full"
-            alt={brand.brand_thumbnail.alt}
-          />
+          #All brands
+        </li>
+        {brandCategories.map((category) => (
+          <li
+            key={category.id}
+            className={brandId === category.id ? "active" : null}
+            onClick={this.filterBrand.bind(this, category.id)}
+          >
+            #{category.name}
+          </li>
+        ))}
+      </ul>
+    );
+
+    return (
+      <div
+        className="justify-start items-start brands sm:ml-10 sm:mr-4"
+        style={{ backgroundColor: "white" }}
+      >
+        <div className="header">
+          <h2>Brands</h2>
+          {instance}
         </div>
+        <Slider {...settings} className="h-full">
+          {this.renderBrands()}
+        </Slider>
       </div>
     );
-  });
-
-  return (
-    <div
-      className="justify-start items-start brands sm:ml-10 sm:mr-4"
-      style={{ backgroundColor: "white" }}
-    >
-      <div className="header">
-        <h2>Brands</h2>
-        {instance}
-      </div>
-      <Slider {...settings} className="h-full">
-        {renderBrands}
-      </Slider>
-    </div>
-  );
-};
+  }
+}
 
 export default BrandsComponent;

@@ -199,13 +199,12 @@ const Item = ({ subcategory, slugQuery, itemQuery }) => {
 };
 
 Item.getInitialProps = async (ctx) => {
-  const language = configureLanguage(ctx);
   const query = ctx.query.lang;
   const slugQuery = ctx.query.categories;
   const itemQuery = ctx.query.item;
-  console.log(slugQuery);
   const fetcher = (url) => axios.get(url).then((res) => res.data);
   let subcategory;
+
   if (slugQuery !== "brands") {
     subcategory = await fetcher(
       `${Config.apiUrl}/wp/v2/navigation_menus?slug=${itemQuery}&${
@@ -218,6 +217,7 @@ Item.getInitialProps = async (ctx) => {
         query === "mn" ? "?lang=" + query : ""
       }`
     );
+
     brands[0].acf.brands.forEach((el) => {
       if (el.slug === itemQuery) {
         subcategory = el;
@@ -229,6 +229,7 @@ Item.getInitialProps = async (ctx) => {
       }
     });
   }
+
   return { subcategory, slugQuery, itemQuery };
 };
 

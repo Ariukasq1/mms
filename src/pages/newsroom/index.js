@@ -96,7 +96,7 @@ const Index = ({newsroom, news, page}) => {
                                             }}
                                                   as={`/newsroom/${newsroom[newsroom.length - 4].slug}?lang=${language}`}>
                                                 <a className={"text-base leading-5 p-6 text-white w-full"}>
-                                                    {newsroom[newsroom.length - 4].title.rendered}
+                                                    {newsroomnewsroom.length - 4].title.rendered}
                                                 </a>
                                             </Link>
                                         </div>

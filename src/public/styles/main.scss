@@ -101,8 +101,8 @@ body {
     box-sizing: border-box;
 
     border: solid 5px transparent;
-    border-top-color: #007cba;
-    border-left-color: #007cba;
+    border-top-color: #00519b;
+    border-left-color: #6280b9;
     border-radius: 50%;
 
     -webkit-animation: nprogress-spinner 400ms linear infinite;
@@ -118,6 +118,9 @@ body {
 .nprogress-custom-parent #nprogress .spinner,
 .nprogress-custom-parent #nprogress .bar {
   position: absolute;
+}
+.fp-section {
+  overflow: auto;
 }
 
 .fp-viewing-section1 #fp-nav ul li a span {
@@ -179,6 +182,27 @@ section {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border: 1px solid #eee;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-origin: 50% 100%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    > img {
+      transform: scale(1.05);
+    }
+  }
 }
 
 //.slick-slider {
@@ -354,6 +378,10 @@ label {
   background: #262626;
 }
 
+.section.odd {
+  background: #f0f0f0;
+}
+
 .sendButton {
   width: 50%;
   height: 58px;
@@ -364,6 +392,19 @@ label {
   border: 1px solid white;
   box-sizing: border-box;
   color: white;
+}
+
+.brand-detail {
+  .itemDetails {
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+
+      > span {
+        text-transform: uppercase;
+      }
+    }
+  }
 }
 
 *,

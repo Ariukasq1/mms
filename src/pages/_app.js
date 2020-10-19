@@ -1,5 +1,4 @@
 import React from "react";
-import "../public/styles/styles.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "@fortawesome/fontawesome-free/js/all.min";
 import "antd/dist/antd.css";
@@ -7,13 +6,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-scrollable-box/lib/default.css";
 import "../public/styles/tailwind.css";
+import "../public/styles/styles.scss";
 import Router from "next/router";
 import NProgress from "nprogress";
 import App from "next/app";
 import axios from "axios";
 import { Config } from "../config";
 import DataContext from "../components/DataContext";
-import "./style.css"
+import "./style.css";
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();

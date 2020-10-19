@@ -9,7 +9,7 @@ import IndustryComponent from "../components/IndustryComponent";
 import ShowRoomComponent from "../components/ShowRoomComponent";
 import BrandsComponent from "../components/BrandsComponent";
 
-const Index = ({ sliders, home_screen_items, brands }) => {
+const Index = ({ sliders, home_screen_items, brands, brandCategories }) => {
   const anchors = ["section1", "section2", "section3", "section4", "section5"];
   let capabilities;
   let industry;
@@ -56,7 +56,10 @@ const Index = ({ sliders, home_screen_items, brands }) => {
                 </div>
                 <div className="section brands bg-white">
                   <div className="ml-32">
-                    <BrandsComponent data={brands} />
+                    <BrandsComponent
+                      brands={brands}
+                      brandCategories={brandCategories}
+                    />
                   </div>
                 </div>
               </div>
@@ -82,13 +85,19 @@ Index.getInitialProps = async (ctx) => {
     }`
   );
 
-  const brands = await fetcher(
-    `${Config.apiUrl}/wp/v2/navigation_menus?slug=brands&${
+  const brandCategories = await fetcher(
+    `${Config.apiUrl}/wp/v2/categories?parent=112&${
       query === "mn" ? "?lang=" + query : ""
     }`
   );
 
-  return { sliders, query, home_screen_items, brands };
+  const brands = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=100&${
+      query === "mn" ? "?lang=" + query : ""
+    }`
+  );
+
+  return { sliders, query, home_screen_items, brandCategories, brands };
 };
 
 export default Index;
