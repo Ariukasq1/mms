@@ -47,7 +47,7 @@
 
       > .image-icon {
         display: none;
-        margin-left: 30px;
+        margin: 15px 0 0 30px;
         transition: all ease 0.3s;
       }
     }
@@ -58,7 +58,6 @@
 
       &.ant-tabs-tab-active .title {
         color: #00488d;
-        font-weight: 600;
 
         > .image-icon {
           display: block;
@@ -73,8 +72,25 @@
     }
   }
 
-  .capabilitiesImage img {
-    max-height: 400px;
+  .capabilitiesImage {
+    img {
+      max-height: 400px;
+      animation-name: bounce-1;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+    }
+
+    @keyframes bounce-1 {
+      0% {
+        transform: translateY(0);
+      }
+      20% {
+        transform: translateY(-50px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
   }
 }
 
@@ -205,7 +221,7 @@
       transition: all ease 0.3s;
 
       &:hover {
-        color: rgba(0, 0, 0, 0.8);
+        color: $primary-color;
       }
     }
     .logo-wrapper {
