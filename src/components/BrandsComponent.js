@@ -3,77 +3,7 @@ import Slider from "react-slick";
 import arrow from "../public/images/arrow.svg";
 import mainStore from "../stores";
 import Link from "next/link";
-import { getData } from "../utils";
-
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <img
-      src={arrow}
-      className={className}
-      style={{ ...style, display: "block" }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <img
-      src={arrow}
-      className={className}
-      style={{ ...style, display: "block", transform: "rotate(180deg)" }}
-      onClick={onClick}
-    />
-  );
-}
-
-const settings = {
-  infinite: true,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  initialSlide: 0,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        initialSlide: 2,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
+import { getData, sliderSettings } from "../utils";
 
 class BrandsComponent extends React.Component {
   constructor(props) {
@@ -166,7 +96,7 @@ class BrandsComponent extends React.Component {
           <h2>Brands</h2>
           {instance}
         </div>
-        <Slider {...settings} className="h-full">
+        <Slider {...sliderSettings} className="h-full">
           {this.renderBrands()}
         </Slider>
       </div>

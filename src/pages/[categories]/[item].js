@@ -1,236 +1,119 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React from "react";
 import Layout from "../../components/layouts/Layout";
-import { configureLanguage } from "../../utils/language";
-import axios from "axios";
 import { Config } from "../../config";
-import Slider from "react-slick";
 import mainStore from "../../stores";
 import ReactFullpage from "../../lib/fullpage";
-import Error from "next/error";
+import SliderSubCategories from "../../components/SliderSubCategories";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
+import { fetcher } from "../../utils";
+import RelationSlider from "../../components/RelationSlider";
 
-const Item = ({ subcategory, slugQuery, itemQuery }) => {
-  if (!subcategory) return <Error statusCode={404} />;
-  const router = useRouter();
-  let item_acf;
-  let products;
-  if (slugQuery === "brands") {
-    item_acf = subcategory;
-    products = subcategory.products;
-  } else {
-    item_acf = subcategory[0].acf;
-  }
-  const [nav1, setNav1] = useState(null);
-  const [nav2, setNav2] = useState(null);
-  const [slider1, setSlider1] = useState(null);
-  const [slider2, setSlider2] = useState(null);
-
-  useEffect(() => {
-    setNav1(slider1);
-    setNav2(slider2);
-  });
-
-  const settingsMain = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: ".slider-nav",
-  };
-
-  const settingsThumbs = {
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: ".slider-for",
-    // dots: true,
-    centerMode: true,
-    swipeToSlide: true,
-    focusOnSelect: true,
-    arrows: true,
-  };
-
-  const settingsProductItems = {
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    infinite: true,
-  };
-  let renderBrandItems;
-  let renderImages;
-  let renderThumbnail;
-  if (slugQuery !== "brands") {
-    renderImages = item_acf.slider_images.map((data, index) => (
-      <div key={index} className={"slick-slide"}>
-        <img
-          className={"object-cover object-center h-full w-full"}
-          src={data.image.url}
-          alt={data.image.alt}
-        />
+const anchors = ["1", "2", "3"];
+const Item = ({ industries, detail, querySlug }) => {
+  const { language } = mainStore();
+  const post = detail[0];
+  // console.log(post);
+  const renderRelations = (title, items) => {
+    return (
+      <div>
+        <h4>{title}</h4>
+        {((items && items) || []).map((item) => (
+          <RelationSlider key={item} item={item} />
+        ))}
       </div>
-    ));
-    renderThumbnail = item_acf.slider_images.map((data, index) => (
-      <div key={index} className={"slick-slide"}>
-        <img
-          className={"object-cover slick-slide-image h-40 w-full"}
-          src={data.image.url}
-          alt={data.image.alt}
-        />
-      </div>
-    ));
-  } else {
-    renderBrandItems = products.map((product, index) => (
-      <div key={index} className={"h-64"}>
-        <div className={"font-medium text-black text-xl mb-4"}>
-          {product.product_name}
-        </div>
-        <div>
-          <img src={product.product_image.url} />
-        </div>
-      </div>
-    ));
-  }
+    );
+  };
 
   return (
     <Layout>
-      <ReactFullpage
-        paddingTop={"116px"}
-        scrollOverflow={false}
-        onLeave={(origin, destination, direction) => {}}
-        render={({ state, fullpageApi }) => {
-          return (
-            <div id="fullpage">
-              <div className="section">
-                <div
-                  className={
-                    "itemDetails flex flex-row items-center justify-between md:flex-col sm:flex-col"
-                  }
-                >
-                  <div
-                    className={
-                      "itemDetailsTexts w-1/2 pl-48 pr-24 md:w-full md:pl-10 md:pb-10 xl:pl-24 sm:px-12 sm:w-full"
-                    }
-                  >
-                    {slugQuery !== "brands" ? (
-                      <div>
-                        <h2 className={"py-4 font-medium"}>
-                          #{subcategory[0].name}
-                        </h2>
-                        <div
-                          className={"text-xl"}
-                          dangerouslySetInnerHTML={{ __html: item_acf.editor }}
+      <div className="relative">
+        <ReactFullpage
+          anchors={anchors}
+          navigationPosition={"left"}
+          navigation
+          navigationTooltips={anchors}
+          scrollOverflow={true}
+          paddingTop={"116px"}
+          render={({ state, fullpageApi }) => {
+            return (
+              <div id="fullpage">
+                <div className="section categories">
+                  <div className="capabilitiesPage">
+                    <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
+                      <div className="brands">
+                        <SliderSubCategories
+                          data={industries}
+                          querySlug={querySlug}
+                          language={language}
                         />
                       </div>
-                    ) : (
-                      <div style={{ paddingTop: "116px" }}>
-                        <div className={"mb-8"}>
-                          <img src={item_acf.brand_image.url} />
-                        </div>
-                        <div
-                          className={"text-lg pb-10"}
-                          dangerouslySetInnerHTML={{
-                            __html: products.map(
-                              (product) => product.product_about
-                            ),
-                          }}
-                        />
-                      </div>
-                    )}
+                    </div>
                   </div>
-                  <div
-                    className={
-                      "itemDetailsImages w-1/2 relative md:w-full sm:w-full"
-                    }
-                  >
-                    {slugQuery !== "brands" ? (
-                      <div className={"relative"}>
-                        <Slider
-                          {...settingsMain}
-                          asNavFor={nav2}
-                          ref={(slider) => setSlider1(slider)}
-                        >
-                          {renderImages}
-                        </Slider>
-                        <div
-                          className={"thumbnailSlide absolute w-full bottom-0"}
-                        >
-                          <Slider
-                            {...settingsThumbs}
-                            asNavFor={nav1}
-                            ref={(slider) => setSlider2(slider)}
-                            slidesToShow={3}
-                            swipeToSlide={true}
-                            focusOnSelect={true}
-                          >
-                            {renderThumbnail}
-                          </Slider>
-                        </div>
+                </div>
+
+                <div className="section odd category-item">
+                  <div className="xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
+                    <div className="flex">
+                      <div className="w-1/2 flex flex-col justify-center flex-center mr-16">
+                        <span className="block mb-20">
+                          #{post.title.rendered}
+                        </span>
+                        <p>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: post.content.rendered,
+                            }}
+                          />
+                        </p>
                       </div>
-                    ) : (
-                      <div>
-                        <img
-                          src={item_acf.brand_thumbnail.url}
-                          className={
-                            "object-contain object-center h-body w-full"
-                          }
+                      <div className="w-1/2">
+                        <ItemDetailsWithGallery
+                          images={Object.values(post.acf)}
                         />
                       </div>
-                    )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="section category-brand">
+                  <div className="pr-32 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-16 sm:pr-8 bg-white">
+                    {renderRelations("Brands", post.acf.brands)}
+                    {renderRelations("Capabilities", post.acf.capabilities)}
                   </div>
                 </div>
               </div>
-              {slugQuery === "brands" ? (
-                <div className="section">
-                  <div className={"brandsProducts px-40 flex flex-col"}>
-                    <div className={"self-end mb-10"}>
-                      <img src={subcategory.brand_image.url} />
-                    </div>
-                    <Slider {...settingsProductItems}>
-                      {renderBrandItems}
-                    </Slider>
-                  </div>
-                </div>
-              ) : null}
-            </div>
-          );
-        }}
-      />
+            );
+          }}
+        />
+      </div>
     </Layout>
   );
 };
 
 Item.getInitialProps = async (ctx) => {
-  const query = ctx.query.lang;
-  const slugQuery = ctx.query.categories;
-  const itemQuery = ctx.query.item;
-  const fetcher = (url) => axios.get(url).then((res) => res.data);
-  let subcategory;
+  const lang = ctx.query.lang;
+  const querySlug = ctx.query.categories;
+  const slug = ctx.query.item;
 
-  if (slugQuery !== "brands") {
-    subcategory = await fetcher(
-      `${Config.apiUrl}/wp/v2/navigation_menus?slug=${itemQuery}&${
-        query === "mn" ? "?lang=" + query : ""
-      }`
-    );
-  } else {
-    const brands = await fetcher(
-      `${Config.apiUrl}/wp/v2/navigation_menus?slug=${slugQuery}&${
-        query === "mn" ? "?lang=" + query : ""
-      }`
-    );
+  const industries = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=111&per_page=100&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
 
-    brands[0].acf.brands.forEach((el) => {
-      if (el.slug === itemQuery) {
-        subcategory = el;
-        return;
-      } else {
-        if (ctx.res) {
-          ctx.res.statusCode = 404;
-        }
-      }
-    });
-  }
+  const detail = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
 
-  return { subcategory, slugQuery, itemQuery };
+  const brands = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  return { industries, detail, querySlug };
 };
 
 export default Item;

@@ -244,3 +244,25 @@
     }
   }
 }
+
+.section.categories {
+  .image-wrapper {
+    height: 450px;
+  }
+  .slick-prev,
+  .slick-next {
+    top: 104.8%;
+  }
+  .slick-next {
+    transform: initial;
+  }
+  .title {
+    font-size: 20px;
+  }
+}
+
+.category-item {
+  p {
+    margin-bottom: 1em;
+  }
+}

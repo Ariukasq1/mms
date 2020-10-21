@@ -2,91 +2,55 @@ import React from "react";
 import Link from "next/link";
 import arrowImage from "../public/images/arrow.svg";
 import Slider from "react-slick";
-const settings = {
-  className: "center",
-  infinite: false,
-  autoplay: true,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  rows: 1,
-  slidesPerRow: 1,
-  responsive: [
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        initialSlide: 2,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
+import { getData, sliderSettings } from "../utils";
+
 const SliderSubCategories = (props) => {
   return (
-    <Slider {...settings} className="h-full">
+    <Slider {...sliderSettings} className="h-full">
       {props.data.map((category, index) => {
-        const cat = category.acf;
-        const image = cat.thumbnail_image;
         return (
           <div key={index}>
-            <div className={"flex flex-col"}>
+            <div className="title text-black font-medium">
+              {category.title.rendered}
+            </div>
+            <p
+              className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}
+            >
               <div
-                className={"text-lg text-black font-medium"}
-                style={{
-                  fontWeight: "bold",
-                  fontSize: 24,
-                  lineHeight: 2,
-                  opacity: 0.5,
+                dangerouslySetInnerHTML={{
+                  __html: category.excerpt.rendered,
                 }}
-              >
-                {category.name}
-              </div>
-              <p
-                className={
-                  "capabilitiesPageBody truncate-2-lines text-base mt-4"
-                }
-                style={{ fontSize: 17 }}
-              >
-                {category.description}
-              </p>
+              />
+            </p>
+            <Link
+              href={{
+                pathname: `/[portfolio]/[item]`,
+                query: { lang: props.language },
+              }}
+              as={`/${props.querySlug}/${category.slug}?lang=${props.language}#2`}
+            >
+              <a className="my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
+                Read more
+                <img className="object-contain ml-4" src={arrowImage} />
+              </a>
+            </Link>
+            <div>
               <Link
                 href={{
                   pathname: `/[portfolio]/[item]`,
                   query: { lang: props.language },
                 }}
-                as={`${props.querySlug}/${category.slug}?lang=${props.language}`}
+                as={`/${props.querySlug}/${category.slug}?lang=${props.language}#2`}
               >
-                <a
-                  className="my-4 text-sm w-auto bg-transparent text-black  lowercase hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
-                  style={{ fontWeight: "bold", opacity: 0.7 }}
-                >
-                  read more
-                  <img className="object-contain ml-4" src={arrowImage} />
+                <a>
+                  <div className="w-full image-wrapper">
+                    <img
+                      src={getData(category._embedded, "image")}
+                      alt={category.title.rendered}
+                    />
+                  </div>
                 </a>
               </Link>
-              <div className="w-full">
-                <img
-                  src={image.url}
-                  className="object-cover w-full h-86 xl:h-80"
-                  alt={image.alt}
-                />
-              </div>
             </div>
           </div>
         );

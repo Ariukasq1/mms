@@ -21,7 +21,7 @@ class Brands extends React.Component {
             render={({ state, fullpageApi }) => {
               return (
                 <div id="fullpage">
-                  <div className={"section"}>
+                  <div className="section">
                     <div style={{ width: "80%", margin: "0 auto" }}>
                       <BrandsComponent
                         brands={brands}

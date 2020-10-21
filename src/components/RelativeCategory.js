@@ -48,6 +48,7 @@ const settings = {
     },
   ],
 };
+
 const RelativeCategory = ({ category, child, querySlug }) => {
   const { language } = mainStore();
   const renderCategories = child.map((data, index) => {
@@ -79,6 +80,7 @@ const RelativeCategory = ({ category, child, querySlug }) => {
       </div>
     );
   });
+
   return (
     <div
       className="justify-start items-start brands mb-10 sm:ml-10 sm:mr-4"
