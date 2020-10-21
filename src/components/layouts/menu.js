@@ -32,6 +32,8 @@ const MenuComponent = () => {
       return "/[categories]";
     } else if (item.slug === "industries") {
       return "/[categories]";
+    } else if (item.slug === "portfolio") {
+      return "/[categories]";
     } else if (item.slug === "brands") {
       return "/brands";
     } else return `/${item.slug}`;
@@ -42,6 +44,8 @@ const MenuComponent = () => {
       return "/[categories]/[items]";
     } else if (item.slug === "industries") {
       return "/[categories]/[items]";
+    } else if (item.slug === "portfolio") {
+      return "/portfolio/[items]";
     } else if (item.slug === "brands") {
       return "/[categories]/[items]";
     } else return `/${item.slug}`;

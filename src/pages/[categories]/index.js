@@ -1,18 +1,13 @@
 import React from "react";
 import Layout from "../../components/layouts/Layout";
-import BrandsComponent from "../../components/BrandsComponent";
 import { Config } from "../../config";
-import axios from "axios";
-import { configureLanguage } from "../../utils/language";
 import mainStore from "../../stores";
 import ReactFullpage from "../../lib/fullpage";
-import RelativeCategory from "../../components/RelativeCategory";
 import SliderSubCategories from "../../components/SliderSubCategories";
-import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
 import { fetcher } from "../../utils";
 
 const anchors = ["1", "2", "3"];
-const Categories = ({ industries, querySlug }) => {
+const Categories = ({ posts, querySlug }) => {
   const { language } = mainStore();
 
   return (
@@ -36,7 +31,7 @@ const Categories = ({ industries, querySlug }) => {
                           <h2>{querySlug}</h2>
                         </div>
                         <SliderSubCategories
-                          data={industries}
+                          data={posts}
                           querySlug={querySlug}
                           language={language}
                         />
@@ -56,17 +51,16 @@ const Categories = ({ industries, querySlug }) => {
 Categories.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
   const querySlug = ctx.query.categories;
-  const categories = querySlug === "capabilities" ? 110 : 111;
+  const catId =
+    querySlug === "capabilities" ? 110 : querySlug === "portfolio" ? 194 : 111;
 
-  const industries = await fetcher(
-    `${
-      Config.apiUrl
-    }/wp/v2/posts?_embed&categories=${categories}&per_page=100&${
+  const posts = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=100&${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
-  return { industries, querySlug };
+  return { posts, querySlug };
 };
 
 export default Categories;

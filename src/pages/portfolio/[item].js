@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../../components/layouts/Layout";
 import ReactFullpage from "../../lib/fullpage";
+import mainStore from "../../stores";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
 import { Config } from "../../config";
 import { configureLanguage } from "../../utils/language";
@@ -8,6 +9,8 @@ import axios from "axios";
 import Slider from "react-slick";
 import styled from "styled-components";
 import arrowImage from "../../public/images/arrow.svg";
+import { fetcher } from "../../utils";
+import SliderSubCategories from "../../components/SliderSubCategories";
 
 const settings = {
   infinite: true,
@@ -114,31 +117,32 @@ const Portfolio = styled.div`
   }
 `;
 
-const Item = ({ subcategory }) => {
-  const portfolio = subcategory[0].acf.portfolio;
-  const renderGallery = (portfolio) => {
-    return portfolio.map((item, index) => (
-      <div key={index}>
-        <Gallery
-          item={item}
-          style={{ height: "300px", width: "100%" }}
-          className={
-            "portfolioGallery flex flex-col justify-center items-center text-center pb-12"
-          }
-        >
-          <div className={"text-white p-10"}>{item.name}</div>
-          <a
-            className={
-              "portfolioGalleryButton text-white text-sm opacity-0 transition duration-500 ease-in-out flex flex-row hover:text-gray-300"
-            }
-          >
-            {item.button}
-            <img className="object-contain ml-4" src={arrowImage} />
-          </a>
-        </Gallery>
-      </div>
-    ));
-  };
+const Item = ({ posts, querySlug, detail }) => {
+  const { language } = mainStore();
+  // const portfolio = subcategory[0].acf.portfolio;
+  // const renderGallery = (portfolio) => {
+  //   return portfolio.map((item, index) => (
+  //     <div key={index}>
+  //       <Gallery
+  //         item={item}
+  //         style={{ height: "300px", width: "100%" }}
+  //         className={
+  //           "portfolioGallery flex flex-col justify-center items-center text-center pb-12"
+  //         }
+  //       >
+  //         <div className={"text-white p-10"}>{item.name}</div>
+  //         <a
+  //           className={
+  //             "portfolioGalleryButton text-white text-sm opacity-0 transition duration-500 ease-in-out flex flex-row hover:text-gray-300"
+  //           }
+  //         >
+  //           {item.button}
+  //           <img className="object-contain ml-4" src={arrowImage} />
+  //         </a>
+  //       </Gallery>
+  //     </div>
+  //   ));
+  // };
 
   return (
     <Layout>
@@ -147,15 +151,24 @@ const Item = ({ subcategory }) => {
         navigation
         paddingTop={"116px"}
         scrollOverflow={false}
-        onLeave={(origin, destination, direction) => {
-          // console.log("onLeave event", {origin, destination, direction});
-        }}
         render={({ state, fullpageApi }) => {
-          // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
-
           return (
             <div id="fullpage">
-              <div className={"section"}>
+              <div className="section categories">
+                <div className="capabilitiesPage">
+                  <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
+                    <div className="brands">
+                      <SliderSubCategories
+                        data={posts}
+                        querySlug={querySlug}
+                        language={language}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="section">hi</div>
+              {/* <div className={"section"}>
                 <ItemDetailsWithGallery subcategory={subcategory} />
               </div>
               <div className={"section"}>
@@ -172,7 +185,7 @@ const Item = ({ subcategory }) => {
                     {renderGallery(portfolio.portfolios)}
                   </Slider>
                 </Portfolio>
-              </div>
+              </div> */}
             </div>
           );
         }}
@@ -182,16 +195,29 @@ const Item = ({ subcategory }) => {
 };
 
 Item.getInitialProps = async (ctx) => {
-  const language = configureLanguage(ctx);
-  const query = ctx.query.lang;
-  const itemQuery = ctx.query.item;
-  const fetcher = (url) => axios.get(url).then((res) => res.data);
-  const subcategory = await fetcher(
-    `${Config.apiUrl}/wp/v2/navigation_menus?slug=${itemQuery}&${
-      query === "mn" ? "?lang=" + query : ""
+  const lang = ctx.query.lang;
+  const querySlug = ctx.query.categories;
+  const slug = ctx.query.item;
+
+  const posts = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=194&per_page=100&${
+      lang === "mn" ? "?lang=" + lang : ""
     }`
   );
-  return { subcategory };
+
+  const detail = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  const brands = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  return { posts, detail, querySlug };
 };
 
 export default Item;
