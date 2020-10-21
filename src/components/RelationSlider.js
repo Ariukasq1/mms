@@ -64,10 +64,9 @@ class RelationSlider extends React.Component {
 
   render() {
     const { item } = this.props;
-    console.log(item, this.state.brand);
+
     return (
       <div className="justify-start items-start brands sm:ml-10 sm:mr-4">
-        kk
         {/* <div className="header">
           <h2>Brands</h2>
           {instance}
@@ -82,7 +81,7 @@ class RelationSlider extends React.Component {
 
 RelationSlider.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
-  console.log("awefeawf");
+
   const detail = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&id=${ctx.query}&${
       lang === "mn" ? "?lang=" + lang : ""

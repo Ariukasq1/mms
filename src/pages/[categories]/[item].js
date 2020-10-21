@@ -5,14 +5,14 @@ import mainStore from "../../stores";
 import ReactFullpage from "../../lib/fullpage";
 import SliderSubCategories from "../../components/SliderSubCategories";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
-import { fetcher } from "../../utils";
+import { fetcher, getData } from "../../utils";
 import RelationSlider from "../../components/RelationSlider";
 
 const anchors = ["1", "2", "3"];
 const Item = ({ industries, detail, querySlug }) => {
   const { language } = mainStore();
   const post = detail[0];
-  // console.log(post);
+
   const renderRelations = (title, items) => {
     return (
       <div>
@@ -52,12 +52,14 @@ const Item = ({ industries, detail, querySlug }) => {
                 </div>
 
                 <div className="section odd category-item">
-                  <div className="xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
+                  <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
                     <div className="flex">
                       <div className="w-1/2 flex flex-col justify-center flex-center mr-16">
-                        <span className="block mb-20">
-                          #{post.title.rendered}
-                        </span>
+                        <b>
+                          <span className="block mb-20">
+                            #{post.title.rendered}
+                          </span>
+                        </b>
                         <p>
                           <div
                             dangerouslySetInnerHTML={{
@@ -67,16 +69,24 @@ const Item = ({ industries, detail, querySlug }) => {
                         </p>
                       </div>
                       <div className="w-1/2">
-                        <ItemDetailsWithGallery
-                          images={Object.values(post.acf)}
-                        />
+                        {Object.values(post.acf).length === 0 ? (
+                          <img
+                            className="object-cover object-center h-body w-full"
+                            src={getData(post._embedded, "image")}
+                            alt={post.title.rendered}
+                          />
+                        ) : (
+                          <ItemDetailsWithGallery
+                            images={Object.values(post.acf)}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="section category-brand">
-                  <div className="pr-32 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-16 sm:pr-8 bg-white">
+                  <div className="pr-32 pl-24 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-16 sm:pr-8 bg-white">
                     {renderRelations("Brands", post.acf.brands)}
                     {renderRelations("Capabilities", post.acf.capabilities)}
                   </div>
@@ -94,9 +104,12 @@ Item.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
   const querySlug = ctx.query.categories;
   const slug = ctx.query.item;
+  const categories = querySlug === "capabilities" ? 110 : 111;
 
   const industries = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=111&per_page=100&${
+    `${
+      Config.apiUrl
+    }/wp/v2/posts?_embed&categories=${categories}&per_page=100&${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );

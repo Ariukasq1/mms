@@ -12,15 +12,7 @@ import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
 import { fetcher } from "../../utils";
 
 const anchors = ["1", "2", "3"];
-const Categories = ({
-  industries,
-  categories,
-  querySlug,
-  relativeCategory,
-  relative_child,
-  relativeCategory1,
-  relative_child1,
-}) => {
+const Categories = ({ industries, querySlug }) => {
   const { language } = mainStore();
 
   return (
@@ -34,13 +26,15 @@ const Categories = ({
           scrollOverflow={true}
           paddingTop={"116px"}
           render={({ state, fullpageApi }) => {
-            console.log(industries);
             return (
               <div id="fullpage">
                 <div className="section categories">
                   <div className="capabilitiesPage">
                     <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
                       <div className="brands">
+                        <div className="header">
+                          <h2>{querySlug}</h2>
+                        </div>
                         <SliderSubCategories
                           data={industries}
                           querySlug={querySlug}
@@ -50,28 +44,6 @@ const Categories = ({
                     </div>
                   </div>
                 </div>
-
-                {/* <ItemDetailsWithGallery
-                  subcategory={categories}
-                  style={{ height: 500 }}
-                />
-
-                <div className="section">
-                  <div
-                    className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12"
-                    style={{ flexBasis: "50%", marginTop: 116 }}
-                  >
-                    <RelativeCategory
-                      category={relativeCategory1}
-                      child={relative_child1}
-                    />
-                    <RelativeCategory
-                      category={relativeCategory}
-                      child={relative_child}
-                      querySlug={querySlug}
-                    />
-                  </div>
-                </div> */}
               </div>
             );
           }}
@@ -84,9 +56,12 @@ const Categories = ({
 Categories.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
   const querySlug = ctx.query.categories;
+  const categories = querySlug === "capabilities" ? 110 : 111;
 
   const industries = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=111&per_page=100&${
+    `${
+      Config.apiUrl
+    }/wp/v2/posts?_embed&categories=${categories}&per_page=100&${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
