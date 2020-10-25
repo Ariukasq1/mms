@@ -413,6 +413,128 @@
   }
 }
 
+.section.what-we-do {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .image-background {
+    background: $primary-color;
+    flex-shrink: 0;
+  }
+}
+
+.section.timeline {
+  .history {
+    &:before {
+      content: "-";
+      right: 0;
+      left: 0;
+      height: 1px;
+      top: 50%;
+      position: absolute;
+      background: #707070;
+    }
+  }
+
+  .slick-prev,
+  .slick-next {
+    width: 50px;
+    height: 50px;
+    transition: all ease 0.3s;
+
+    &:before {
+      content: ">";
+      color: #333;
+      font-size: 50px;
+      transition: all ease 0.3s;
+    }
+
+    &:hover {
+      &:before {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .slick-prev:before {
+    content: "<";
+  }
+
+  .slick-disabled {
+    display: none !important;
+  }
+
+  .slick-slide {
+    position: relative;
+    height: 600px;
+
+    .history-item {
+      display: flex !important;
+      padding: 0 1em;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 19.35em;
+
+      &:before {
+        content: url("/images/timeline-arrow.png");
+        display: inline-block;
+      }
+
+      h3 {
+        position: absolute;
+        top: -90px;
+        font-size: 36px;
+        width: 80px;
+        text-align: center;
+        line-height: 30px;
+
+        > span {
+          font-size: 24px;
+        }
+      }
+
+      .content {
+        border-bottom: 1px solid #bbb;
+        margin: 0 15px;
+        padding: 20px 0 10px;
+        line-height: 22px;
+      }
+    }
+
+    &:nth-child(2n) {
+      .history-item {
+        flex-direction: column-reverse;
+        top: 5.9em;
+
+        h3 {
+          bottom: -90px;
+          top: auto;
+        }
+
+        &:before {
+          transform: rotate(180deg);
+        }
+
+        .content {
+          border-top: 1px solid #bbb;
+          border-bottom: 0;
+          margin: 0 15px;
+          padding: 10px 0 20px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}
+
+.share-container {
+  svg {
+    width: 20px;
+  }
+}
+
 @keyframes bounce-1 {
   0% {
     transform: translateY(0);

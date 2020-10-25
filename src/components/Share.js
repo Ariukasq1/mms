@@ -7,49 +7,40 @@ import {
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled from "styled-components";
 
-
-const Logo = styled.a`
-  margin-left: 20px;
-`;
 class Share extends React.Component {
-
-  
   render() {
     const { path, title = "" } = this.props;
 
     return (
-      <div className="share-container" style={{ marginTop: 10, backgroundColor: "#262626" }}>
-        <Logo
+      <div className="share-container flex mt-20">
+        <a
           href="https://www.facebook.com/mmsengineer"
-          className="facebook social"
+          className="facebook social mr-20"
         >
           <FontAwesomeIcon icon={faFacebook} size="1x" />
-        </Logo>
-        <Logo
+        </a>
+        <a
           href="https://www.facebook.com/mmsengineer"
-          className="twitter social"
+          className="twitter social mr-20"
         >
           <FontAwesomeIcon icon={faTwitter} size="1x" />
-        </Logo>
-        <Logo
+        </a>
+        <a
           href="https://www.facebook.com/mmsengineer"
-          className="instagram social"
+          className="instagram social mr-20"
         >
           <FontAwesomeIcon icon={faInstagram} size="1x" />
-        </Logo>
-        <Logo
+        </a>
+        <a
           href="https://www.facebook.com/mmsengineer"
-          className="linkedin social"
+          className="linkedin social mr-20"
         >
           <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
-        </Logo>
+        </a>
       </div>
     );
   }
 }
-
-
 
 export default Share;

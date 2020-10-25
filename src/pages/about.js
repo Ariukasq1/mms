@@ -1,22 +1,87 @@
 import React from "react";
+import Slider from "react-slick";
+import moment from "moment";
 import Layout from "../components/layouts/Layout";
 import Footer from "../components/layouts/footer";
 import ReactFullpage from "../lib/fullpage";
-import axios from "axios";
 import { Config } from "../config";
-import { configureLanguage } from "../utils/language";
+import { fetcher, getData } from "../utils";
 
-const About = ({ about, contact }) => {
-  const { details, what_we_do, background_image } = about[0].acf.about;
+const settings = {
+  infinite: false,
+  speed: 500,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
 
-  const renderCards = (item) => (
-    <div className={" w-1/2 p-3 px-16 sm:w-full sm:px-2"}>
-      <div className={"flex flex-row bg-white  items-center p-5"}>
-        <img className={"sm:w-16 sm:h-16"} src={item.image.url} />
-        <p className={"ml-10 sm:ml-4 font-bold"}>{item.title}</p>
+const About = ({ contact, posts, services, histories }) => {
+  const post = posts[0];
+  const service = services[0];
+
+  const renderCards = (item) => {
+    if (!item.image && !item.description) {
+      return null;
+    }
+
+    return (
+      <div className={" w-1/2 p-3 px-16 sm:w-full sm:px-2"}>
+        <div className={"flex flex-row bg-white  items-center p-5"}>
+          <div className="image-background flex w-20 h-20 mr-4 rounded-full">
+            <img
+              className={"sm:w-16 sm:h-16 rounded-full w-20 h-20"}
+              src={item.image}
+            />
+          </div>
+          <p className={"ml-10 sm:ml-4 font-medium text-base"}>
+            {item.description}
+          </p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
+
+  const renderTimeline = (history) => {
+    const { year } = history.acf;
+
+    return (
+      <div className="history-item">
+        <h3>
+          {moment(year).format("YYYY")}{" "}
+          <span>{moment(year).format("MMM")}</span>
+        </h3>
+        <p className="text-center content text-base">
+          <div dangerouslySetInnerHTML={{ __html: history.content.rendered }} />
+        </p>
+      </div>
+    );
+  };
 
   return (
     <Layout>
@@ -25,136 +90,76 @@ const About = ({ about, contact }) => {
         navigation
         scrollOverflow={true}
         paddingTop={"116px"}
-        onLeave={(origin, destination, direction) => {}}
         render={({ state, fullpageApi }) => {
           return (
             <div id="fullpage">
-              <div className={"section"} style={{ background: "whitesmoke" }}>
+              <div className="section about-us">
                 <div
                   className={
-                    "px-40 flex flex-row justify-center items-stretch sm:flex-col sm:px-16"
+                    "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:px-16"
                   }
                 >
-                  <div className={"w-1/2 sm:w-full py-24 sm:py-2"}>
+                  <div className={"w-1/2 mr-16"}>
                     <img
-                      className={"h-auto object-cover"}
-                      src={details.image.url}
+                      className={"h-auto object-cover w-full"}
+                      src={getData(post._embedded, "image")}
                     />
                   </div>
-                  <div
-                    className={" w-1/2  pl-20 py-24 sm:py-2 sm:w-full sm:pl-0"}
-                  >
-                    <h2 className={"font-medium mb-8"}>{details.title}</h2>
-                    <div
-                      className={"careerDetails text-lg pr-20 sm:pr-0"}
-                      dangerouslySetInnerHTML={{ __html: details.editor }}
-                    />
+                  <div className={" w-1/2 flex align-center"}>
+                    <div>
+                      <h2 className={"font-medium mb-8 text-xl"}>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: post.title.rendered,
+                          }}
+                        />
+                      </h2>
+                      <div
+                        className={"careerDetails text-lg pr-20 sm:pr-0"}
+                        dangerouslySetInnerHTML={{
+                          __html: post.content.rendered,
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
               <div
-                className={"section "}
-                style={{ backgroundImage: `url(${background_image.url})` }}
+                className="section what-we-do"
+                style={{
+                  backgroundImage: `url(${getData(
+                    service._embedded,
+                    "image"
+                  )})`,
+                }}
               >
-                <div className={"px-16 px-72 xl:px-24 2xl:px-40 sm:px-12"}>
-                  <h2 className={"text-white mb-8 "}>{what_we_do.name}</h2>
-                </div>
-                <div
-                  className={
-                    "flex flex-wrap sm:flex-col px-72 xl:px-24 2xl:px-40 sm:px-12"
-                  }
-                >
-                  {what_we_do.items.map((item) => renderCards(item))}
-                </div>
-              </div>
-              <div className={"section"}>
-                {/* <div className={"flex justify-center items-center"}>
-                                    <ul className="timeline">
-                                        <li>
-                                            <div>
-                                                <p>description event #1</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <p>description event #2</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <p>description event #4</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <p>description event #5</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <p>description event #6</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div> */}
-
-                <div className="container">
-                  <ol className="ps-timeline">
-                    <li>
-                      <div className="img-handler-top">
-                        <img
-                          src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_03.png"
-                          alt=""
-                        />
-                      </div>
-                      <div className="ps-bot">
-                        Do you have a recent injury or long term pain?
-                      </div>
-                      <span className="ps-sp-top">01</span>
-                    </li>
-                    <li>
-                      <div className="img-handler-bot">
-                        <img
-                          src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_13.png"
-                          alt=""
-                        />
-                      </div>
-                      <div className="ps-top">
-                        Have you tried Physiotherapy, Chiropractor or your GP
-                        without the pain free results?
-                      </div>
-                      <span className="ps-sp-bot">02</span>
-                    </li>
-                    <li>
-                      <div className="img-handler-top">
-                        <img
-                          src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_05.png"
-                          alt=""
-                        />
-                      </div>
-                      <div className="ps-bot">
-                        Let Physology assess and treat your pain with our
-                        trusted revolusionary approach.
-                      </div>
-                      <span className="ps-sp-top">03</span>
-                    </li>
-                    <li>
-                      <div className="img-handler-bot">
-                        <img
-                          src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_10.png"
-                          alt=""
-                        />
-                      </div>
-                      <div className="ps-top">
-                        Join our happy family of pain free clients.
-                      </div>
-                      <span className="ps-sp-bot">04</span>
-                    </li>
-                  </ol>
+                <div className="auto-overflow">
+                  <div className={"px-48"}>
+                    <h2 className={"text-white mb-8 text-xl font-medium"}>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: service.title.rendered,
+                        }}
+                      />
+                    </h2>
+                  </div>
+                  <div className={"flex flex-wrap sm:flex-col px-32"}>
+                    {Object.values(service.acf).map((item) =>
+                      renderCards(item)
+                    )}
+                  </div>
                 </div>
               </div>
-              <div></div>
-              <div className={"section "}>
+              <div className="section timeline">
+                <div className="px-40 relative">
+                  <div className="history relative">
+                    <Slider {...settings} className="h-full">
+                      {histories.map((history) => renderTimeline(history))}
+                    </Slider>
+                  </div>
+                </div>
+              </div>
+              <div className="section footer">
                 <Footer data={contact} />
               </div>
             </div>
@@ -166,21 +171,33 @@ const About = ({ about, contact }) => {
 };
 
 About.getInitialProps = async (ctx) => {
-  const language = configureLanguage(ctx);
+  const lang = ctx.query.lang;
 
-  const query = ctx.query.lang;
-  const fetcher = (url) => axios.get(url).then((res) => res.data);
-  const about = await fetcher(
-    `${Config.apiUrl}/wp/v2/navigation_menus?slug=about&${
-      query === "mn" ? "?lang=" + query : ""
-    }`
-  );
   const contact = await fetcher(
     `${Config.apiUrl}/wp/v2/navigation_menus?slug=contact&${
-      query === "mn" ? "?lang=" + query : ""
+      lang === "mn" ? "?lang=" + lang : ""
     }`
   );
-  return { about, contact };
+
+  const posts = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=207&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  const services = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=208&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  const histories = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=209&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  return { contact, posts, services, histories };
 };
 
 export default About;

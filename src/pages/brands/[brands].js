@@ -6,31 +6,12 @@ import arrow from "../../public/images/arrow.svg";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import ReactFullpage from "../../lib/fullpage";
-import { fetcher, getData } from "../../utils";
-
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <img
-      src={arrow}
-      className={className}
-      style={{ ...style, display: "block" }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <img
-      src={arrow}
-      className={className}
-      style={{ ...style, display: "block", transform: "rotate(180deg)" }}
-      onClick={onClick}
-    />
-  );
-}
+import {
+  fetcher,
+  getData,
+  SampleNextArrow,
+  SamplePrevArrow,
+} from "../../utils";
 
 class Brands extends React.Component {
   render() {
