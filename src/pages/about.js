@@ -6,7 +6,6 @@ import axios from "axios";
 import { Config } from "../config";
 import { configureLanguage } from "../utils/language";
 
-
 const About = ({ about, contact }) => {
   const { details, what_we_do, background_image } = about[0].acf.about;
 

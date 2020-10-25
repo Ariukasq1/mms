@@ -79,18 +79,6 @@
       animation-duration: 1s;
       animation-timing-function: linear;
     }
-
-    @keyframes bounce-1 {
-      0% {
-        transform: translateY(0);
-      }
-      20% {
-        transform: translateY(-50px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
   }
 }
 
@@ -385,7 +373,7 @@
 
   .usage {
     z-index: 3;
-    max-height: 800px;
+    max-height: 70vh;
     overflow: auto;
   }
 
@@ -396,5 +384,43 @@
 
   .round-img {
     flex-shrink: 0;
+  }
+
+  .material {
+    transition: all ease 0.3s;
+
+    &:hover {
+      background-color: #eaf2ff;
+    }
+  }
+}
+
+.section.project-details {
+  span {
+    text-transform: uppercase;
+    font-size: 13px;
+    color: $primary-color;
+  }
+
+  h4 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  p {
+    max-height: 70vh;
+    overflow: auto;
+  }
+}
+
+@keyframes bounce-1 {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

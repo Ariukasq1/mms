@@ -114,7 +114,7 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
     return (
       <div
         className={
-          "flex flex-row  rounded-none overflow-hidden my-4 border border-solid border-menuTextColor bg-white "
+          "flex flex-row  rounded-none overflow-hidden my-4 border border-solid border-menuTextColor bg-white material"
         }
       >
         <div className={"flex justify-center items-center round-img"}>
@@ -199,9 +199,7 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                   <div className="flex">
                     <div className="w-1/2 flex flex-col justify-center flex-center mr-16">
                       <b>
-                        <span className="block mb-20">
-                          {post.title.rendered}
-                        </span>
+                        <span className="block">{post.title.rendered}</span>
                       </b>
                       <h4 className="mb-20">
                         <div
@@ -210,7 +208,7 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                           }}
                         />
                       </h4>
-                      <p>
+                      <p className="text-base">
                         <div
                           dangerouslySetInnerHTML={{
                             __html: projectDetail.content.rendered,
