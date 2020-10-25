@@ -1,26 +1,26 @@
 import React from "react";
-import Layout from "../../components/layouts/Layout";
-import ReactFullpage from "../../lib/fullpage";
-import mainStore from "../../stores";
-import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
-import { Config } from "../../config";
-import { configureLanguage } from "../../utils/language";
+import Layout from "../../../components/layouts/Layout";
+import ReactFullpage from "../../../lib/fullpage";
+import mainStore from "../../../stores";
+import ItemDetailsWithGallery from "../../../components/ItemDetailsWithGallery";
+import { Config } from "../../../config";
+import { configureLanguage } from "../../../utils/language";
 import axios from "axios";
 import Slider from "react-slick";
 import Link from "next/link";
-import arrowImage from "../../public/images/arrow-white.svg";
+import arrowImage from "../../../public/images/arrow-white.svg";
 import {
   fetcher,
   getData,
   SampleNextArrow,
   SamplePrevArrow,
-} from "../../utils";
-import SliderSubCategories from "../../components/SliderSubCategories";
+} from "../../../utils";
+import SliderSubCategories from "../../../components/SliderSubCategories";
 
-const Item = ({ posts, detail, projects }) => {
+const Detail = ({ posts, detail, projects }) => {
   const post = detail[0];
   const { language } = mainStore();
-
+  console.log(detail);
   const settings = {
     infinite: true,
     slidesToShow: 4,
@@ -98,12 +98,17 @@ const Item = ({ posts, detail, projects }) => {
             <div dangerouslySetInnerHTML={{ __html: project.title.rendered }} />
           </h4>
           <div className="flex align-center more">
-            <a
-              className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
-              href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+            <Link
+              href={{
+                pathname: `/portfolio/detail`,
+                query: { lang: language },
+              }}
+              as={`/portfolio/${project.slug}?lang=${language}#3`}
             >
-              Read more
-            </a>
+              <a className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
+                Read more
+              </a>
+            </Link>
             <img src={arrowImage} />
           </div>
         </div>
@@ -178,7 +183,7 @@ const Item = ({ posts, detail, projects }) => {
   );
 };
 
-Item.getInitialProps = async (ctx) => {
+Detail.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
   const slug = ctx.query.item;
 
@@ -193,17 +198,17 @@ Item.getInitialProps = async (ctx) => {
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
+  console.log("kk", detail);
+  // const catId =
+  //   detail[0].categories.length !== 0 ? detail[0].categories[1] : 195;
 
-  const catId =
-    detail[0].categories.length !== 0 ? detail[0].categories[1] : 195;
-
-  const projects = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=100&${
-      lang === "mn" ? "?lang=" + lang : ""
-    }`
-  );
+  // const projects = await fetcher(
+  //   `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=100&${
+  //     lang === "mn" ? "?lang=" + lang : ""
+  //   }`
+  // );
 
   return { posts, detail, projects };
 };
 
-export default Item;
+export default Detail;

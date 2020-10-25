@@ -1,23 +1,29 @@
+@media only screen and (max-width: 1500px) {
+  .section.projects .project {
+    height: 200px;
+  }
+}
+
 @media only screen and (min-width: 961px) {
-	.row {
-		width: calc(100% + 30px);
-		display: flex;
-		flex-wrap: wrap;
-		box-sizing: border-box;
-		margin: 0 -20px;
-	}
-	.md3 {
-		flex-grow: 0;
-		max-width: 25%;
-		flex-basis: 25%;
-		padding: 0 20px;
-		box-sizing: inherit;
-	}
-	.md9 {
-		flex-grow: 0;
-		max-width: 75%;
-		flex-basis: 75%;
-		padding: 0 20px;
-		box-sizing: inherit;
-	}
+  .row {
+    width: calc(100% + 30px);
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 0 -20px;
+  }
+  .md3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+    padding: 0 20px;
+    box-sizing: inherit;
+  }
+  .md9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+    padding: 0 20px;
+    box-sizing: inherit;
+  }
 }

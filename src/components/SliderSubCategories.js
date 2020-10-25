@@ -6,6 +6,16 @@ import { getData, sliderSettings } from "../utils";
 
 const SliderSubCategories = (props) => {
   const renderContent = props.data.map((category, index) => {
+    if (
+      (category.categories !== 0 &&
+        category.categories.includes(194) &&
+        category.acf &&
+        category.acf.interiors) ||
+      category.acf.exteriors
+    ) {
+      return null;
+    }
+
     return (
       <div className="cat-item" key={index}>
         <div className="title text-black font-medium">
@@ -52,7 +62,7 @@ const SliderSubCategories = (props) => {
     );
   });
 
-  if (props.data.length < 4) {
+  if (props.data.length <= 4) {
     return <div className="flex without-scroll">{renderContent}</div>;
   }
 

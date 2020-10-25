@@ -1,23 +1,18 @@
 import React from "react";
-import Layout from "../../components/layouts/Layout";
-import ReactFullpage from "../../lib/fullpage";
-import mainStore from "../../stores";
-import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
-import { Config } from "../../config";
-import { configureLanguage } from "../../utils/language";
+import Layout from "../components/layouts/Layout";
+import ReactFullpage from "../lib/fullpage";
+import mainStore from "../stores";
+import ItemDetailsWithGallery from "../components/ItemDetailsWithGallery";
+import { Config } from "../config";
+import { configureLanguage } from "../utils/language";
 import axios from "axios";
 import Slider from "react-slick";
 import Link from "next/link";
-import arrowImage from "../../public/images/arrow-white.svg";
-import {
-  fetcher,
-  getData,
-  SampleNextArrow,
-  SamplePrevArrow,
-} from "../../utils";
-import SliderSubCategories from "../../components/SliderSubCategories";
+import arrowImage from "../public/images/arrow-white.svg";
+import { fetcher, getData, SampleNextArrow, SamplePrevArrow } from "../utils";
+import SliderSubCategories from "../components/SliderSubCategories";
 
-const Item = ({ posts, detail, projects }) => {
+const Detail = ({ posts, detail, projects }) => {
   const post = detail[0];
   const { language } = mainStore();
 
@@ -98,12 +93,17 @@ const Item = ({ posts, detail, projects }) => {
             <div dangerouslySetInnerHTML={{ __html: project.title.rendered }} />
           </h4>
           <div className="flex align-center more">
-            <a
-              className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
-              href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+            <Link
+              href={{
+                pathname: `/portfolio/detail`,
+                query: { lang: language },
+              }}
+              as={`/portfolio/${project.slug}?lang=${language}#3`}
             >
-              Read more
-            </a>
+              <a className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
+                Read more
+              </a>
+            </Link>
             <img src={arrowImage} />
           </div>
         </div>
@@ -170,6 +170,45 @@ const Item = ({ posts, detail, projects }) => {
                   </div>
                 </div>
               </div>
+              <div className="section odd project-details">
+                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:px-24">
+                  <div className="flex">
+                    <div className="w-1/2 flex flex-col justify-center flex-center mr-16">
+                      <b>
+                        <span className="block mb-20">
+                          {post.title.rendered}
+                        </span>
+                      </b>
+                      <p>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: post.content.rendered,
+                          }}
+                        />
+                      </p>
+                    </div>
+                    <div className="w-1/2">
+                      hi
+                      {/* {Object.values(post.acf).length === 0 ? (
+                          <img
+                            className="object-cover object-center h-body w-full"
+                            src={getData(post._embedded, "image")}
+                            alt={post.title.rendered}
+                          />
+                        ) : (
+                          <ItemDetailsWithGallery
+                            images={Object.values(post.acf)}
+                          />
+                        )} */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="section project-usage">
+                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:px-24">
+                  hi
+                </div>
+              </div>
             </div>
           );
         }}
@@ -178,9 +217,10 @@ const Item = ({ posts, detail, projects }) => {
   );
 };
 
-Item.getInitialProps = async (ctx) => {
+Detail.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
-  const slug = ctx.query.item;
+  const parentSlug = ctx.query.parentSlug;
+  const slug = ctx.query.slug;
 
   const posts = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=194&per_page=100&${
@@ -189,7 +229,7 @@ Item.getInitialProps = async (ctx) => {
   );
 
   const detail = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${parentSlug}&${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
@@ -206,4 +246,4 @@ Item.getInitialProps = async (ctx) => {
   return { posts, detail, projects };
 };
 
-export default Item;
+export default Detail;

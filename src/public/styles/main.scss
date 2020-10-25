@@ -128,7 +128,7 @@ a:hover {
 }
 
 .fp-viewing-section1 #fp-nav ul li a span {
-  background: white;
+  background: white !important;
 }
 
 .fp-viewing-section2 #fp-nav ul li a span {
@@ -149,6 +149,11 @@ a:hover {
 
 #fp-nav ul {
   margin-left: 20px !important;
+}
+
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  background: $primary-color !important;
 }
 
 section {

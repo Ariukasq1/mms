@@ -1,13 +1,13 @@
-// base
+//main
 @import "./base/mixins.scss";
 @import "./base/variables.scss";
 @import "./base/general.scss";
 @import "./base/header.scss";
 @import "./base/footer.scss";
-@import "./base/responsiveness.scss";
-
-//main
-@import "./main.scss";
 
 // components
+@import "./main.scss";
 @import "./components/home.scss";
+
+// responsive
+@import "./base/responsiveness.scss";
