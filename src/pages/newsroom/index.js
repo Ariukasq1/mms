@@ -63,17 +63,14 @@ const Index = ({ newsroom, news, page }) => {
       </Link>
     </div>
   );
+
   return (
     <Layout>
       <ReactFullpage
         navigationPosition={"left"}
         navigation
         paddingTop={"116px"}
-        onLeave={(origin, destination, direction) => {
-          // console.log("onLeave event", {origin, destination, direction});
-        }}
         render={({ state, fullpageApi }) => {
-          // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
           return (
             <div id="fullpage">
               <div

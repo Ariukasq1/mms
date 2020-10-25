@@ -12,8 +12,9 @@ import arrowImage from "../public/images/arrow-white.svg";
 import { fetcher, getData, SampleNextArrow, SamplePrevArrow } from "../utils";
 import SliderSubCategories from "../components/SliderSubCategories";
 
-const Detail = ({ posts, detail, projects }) => {
+const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
   const post = detail[0];
+  const projectDetail = projectDetails[0];
   const { language } = mainStore();
 
   const settings = {
@@ -93,23 +94,46 @@ const Detail = ({ posts, detail, projects }) => {
             <div dangerouslySetInnerHTML={{ __html: project.title.rendered }} />
           </h4>
           <div className="flex align-center more">
-            <Link
-              href={{
-                pathname: `/portfolio/detail`,
-                query: { lang: language },
-              }}
-              as={`/portfolio/${project.slug}?lang=${language}#3`}
+            <a
+              className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
+              href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
             >
-              <a className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
-                Read more
-              </a>
-            </Link>
+              Read more
+            </a>
             <img src={arrowImage} />
           </div>
         </div>
       </div>
     </div>
   ));
+
+  const renderInteriorExterior = (item) => {
+    const material = materials.filter((material) => material.id === item);
+    const selectedMaterial = material[0];
+
+    return (
+      <div
+        className={
+          "flex flex-row  rounded-none overflow-hidden my-4 border border-solid border-menuTextColor bg-white "
+        }
+      >
+        <div className={"flex justify-center items-center round-img"}>
+          <img
+            className={"w-20 h-20 rounded-full m-4"}
+            src={selectedMaterial.acf.image}
+          />
+        </div>
+        <div className={"interiorTexts flex flex-col justify-center"}>
+          <div className={"font-medium text-black"}>
+            {selectedMaterial.name}
+          </div>
+          <div className={"mr-6 leading-6 sm:mr-2"}>
+            {selectedMaterial.description}
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <Layout>
@@ -170,7 +194,7 @@ const Detail = ({ posts, detail, projects }) => {
                   </div>
                 </div>
               </div>
-              <div className="section odd project-details">
+              <div className="section project-details">
                 <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:px-24">
                   <div className="flex">
                     <div className="w-1/2 flex flex-col justify-center flex-center mr-16">
@@ -179,36 +203,67 @@ const Detail = ({ posts, detail, projects }) => {
                           {post.title.rendered}
                         </span>
                       </b>
+                      <h4 className="mb-20">
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: projectDetail.title.rendered,
+                          }}
+                        />
+                      </h4>
                       <p>
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: post.content.rendered,
+                            __html: projectDetail.content.rendered,
                           }}
                         />
                       </p>
                     </div>
                     <div className="w-1/2">
-                      hi
-                      {/* {Object.values(post.acf).length === 0 ? (
-                          <img
-                            className="object-cover object-center h-body w-full"
-                            src={getData(post._embedded, "image")}
-                            alt={post.title.rendered}
-                          />
-                        ) : (
-                          <ItemDetailsWithGallery
-                            images={Object.values(post.acf)}
-                          />
-                        )} */}
+                      {Object.values(projectDetail.acf).length === 0 ? (
+                        <img
+                          className="object-cover object-center h-body w-full"
+                          src={getData(projectDetail._embedded, "image")}
+                          alt={projectDetail.title.rendered}
+                        />
+                      ) : (
+                        <ItemDetailsWithGallery
+                          images={Object.values(projectDetail.acf)}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="section project-usage">
-                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:px-24">
-                  hi
+              {projectDetail.acf.length !== 0 && (
+                <div className="section portfolio-usage">
+                  <div className="usage relative">
+                    <div
+                      className={
+                        "px-72 flex flex-row justify-center xl:px-20 2xl:px-40 md:px-20 md:flex-col lg:px-20 sm:flex-col sm:px-10"
+                      }
+                    >
+                      <div
+                        className={
+                          "w-1/2 flex flex-col mr-12 md:mr-2 md:ml-2 sm:mr-0"
+                        }
+                      >
+                        <h2 className={"uppercase text-white"}>Interiors</h2>
+                        {(projectDetail.acf || {}).interiors.map((interior) => {
+                          return renderInteriorExterior(interior);
+                        })}
+                      </div>
+                      <div
+                        className={"w-1/2 flex flex-col ml-12 md:ml-2 sm:ml-0"}
+                      >
+                        <h2 className={"uppercase text-white"}>Exteriors</h2>
+                        {(projectDetail.acf || {}).exteriors.map((exterior) => {
+                          return renderInteriorExterior(exterior);
+                        })}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           );
         }}
@@ -243,7 +298,15 @@ Detail.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { posts, detail, projects };
+  const projectDetails = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  const materials = await fetcher(`${Config.apiUrl}/wp/v2/materials`);
+
+  return { posts, detail, projects, projectDetails, materials };
 };
 
 export default Detail;

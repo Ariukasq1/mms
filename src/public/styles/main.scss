@@ -73,6 +73,25 @@ a:hover {
   color: #5d7db8;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 8px;
+  transition: all ease 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
 //common-wp styles
 .alignleft {
   float: left;
