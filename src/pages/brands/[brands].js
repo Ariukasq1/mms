@@ -62,7 +62,7 @@ class Brands extends React.Component {
         },
       ],
     };
-
+    const { language } = mainStore;
     const { products, items, posts } = this.props;
     const brand = items ? items[0] : {};
     const { logo, about, what_we_offer_with, capabilities, industries } =
@@ -84,14 +84,16 @@ class Brands extends React.Component {
 
     const renderProducts = products.map((product, index) => (
       <div key={index} className="brand-p-item mb-20">
-        <a>
-          <div className="font-medium text-black text-xl mb-4 title">
-            {product.title.rendered}
-          </div>
-          <div className="image-wrapper">
-            <img src={getData(product._embedded, "image")} />
-          </div>
-        </a>
+        <Link href={`/brands/${product.slug}?lang=${language}`} passHref>
+          <a>
+            <div className="font-medium text-black text-xl mb-4 title">
+              {product.title.rendered}
+            </div>
+            <div className="image-wrapper">
+              <img src={getData(product._embedded, "image")} />
+            </div>
+          </a>
+        </Link>
       </div>
     ));
 
@@ -110,7 +112,7 @@ class Brands extends React.Component {
                     style={{ flexBasis: "50%", paddingLeft: "14rem" }}
                   >
                     <div className={"mb-8"}>
-                      <img src={logo.url} alt="brand-logo" />
+                      <img src={logo && logo.url} alt="brand-logo" />
                     </div>
 
                     <div

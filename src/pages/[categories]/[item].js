@@ -7,6 +7,7 @@ import SliderSubCategories from "../../components/SliderSubCategories";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
 import { fetcher, getData } from "../../utils";
 import RelationSlider from "../../components/RelationSlider";
+import { PocketIcon } from "react-share";
 
 const anchors = ["1", "2", "3"];
 const Item = ({ postItems, detail, querySlug, posts }) => {
@@ -76,7 +77,7 @@ const Item = ({ postItems, detail, querySlug, posts }) => {
                         </p>
                       </div>
                       <div className="w-1/2">
-                        {Object.values(post.acf).length === 0 ? (
+                        {!post.acf.image_1 ? (
                           <img
                             className="object-cover object-center h-body w-full"
                             src={getData(post._embedded, "image")}

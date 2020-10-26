@@ -11,7 +11,7 @@ function Header({ title, image }) {
   return (
     <>
       <Head>
-        <title>{title || "MMS"}</title>
+        <title>{title || "MMS"} - MyMonSource LLC</title>
         <meta charSet="UTF-8" />
         <meta name="keywords" content="wp, gerege" />
         <meta name="description" content="MMS - Description" />
