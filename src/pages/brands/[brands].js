@@ -15,7 +15,6 @@ import {
 
 class Brands extends React.Component {
   render() {
-    const { language } = mainStore;
     const settingsProductItems = {
       infinite: true,
       slidesToShow: 4,

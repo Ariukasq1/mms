@@ -7,11 +7,11 @@ function Footer({ data }) {
     <footer className={"bg-contact text-white h-screen"}>
       <div
         className={
-          "flex flex-row justify-evenly px-72 py-40 xl:px-24 sm:px-12 sm:flex-col "
+          "flex flex-row justify-evenly px-40 py-40 xl:px-24 sm:px-12 sm:flex-col "
         }
         style={{ backgroundColor: "#262626" }}
       >
-        <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"}>
+        <div className={"flex flex-col w-1/3 px-8 sm:w-full sm:px-4"}>
           <h2 className={"text-lg font-bold text-white"}>Contacts</h2>
           <div className={"flex flex-row"}>
             <p className={"text-lg  text-white"}>Tel: </p> &emsp;
@@ -28,7 +28,7 @@ function Footer({ data }) {
 
           <Share />
         </div>
-        <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"}>
+        <div className={"flex flex-col w-1/3 px-8 sm:w-full sm:px-4"}>
           <div className={"flex flex-col mb-10 sm:w-full"}>
             <h2 className={"text-lg font-bold text-white"}>
               {address.office.name}
@@ -52,7 +52,7 @@ function Footer({ data }) {
             </p>
           </div>
         </div>
-        <div className={"flex flex-col w-1/3 px-16 sm:w-full sm:px-4"}>
+        <div className={"flex flex-col w-1/3 px-8 sm:w-full sm:px-4"}>
           <h2 className={"text-lg font-bold text-white"}>Please contact us</h2>
           <form className={"relative w-full"}>
             <div className={"relative w-full my-4"}>

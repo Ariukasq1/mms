@@ -1,65 +1,167 @@
-import React from 'react';
+import React from "react";
+import Slider from "react-slick";
+import Link from "next/link";
 import Layout from "../../components/layouts/Layout";
-import ScrollableBox, {useDefaultLipClassNames} from "react-scrollable-box";
-import axios from "axios";
-import {Config} from "../../config";
+import mainStore from "../../stores";
+import { Config } from "../../config";
 import ReactFullpage from "../../lib/fullpage";
-import {configureLanguage} from "../../utils/language";
+import {
+  fetcher,
+  getData,
+  SampleNextArrow,
+  SamplePrevArrow,
+} from "../../utils";
 
-const News = ({item}) => {
-    const lipClassNames = useDefaultLipClassNames();
-    const {title, editor, image} = item[0].acf
+const settings = {
+  infinite: false,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  initialSlide: 0,
+  rows: 2,
+  autoplay: false,
+  autoplaySpeed: 3000,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      },
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
+
+const News = ({ details, news }) => {
+  const { language } = mainStore();
+  const post = details[0];
+
+  const renderNews = news.map((n, index) => {
     return (
-        <Layout>
-            <ReactFullpage
-                navigationPosition={"left"}
-                paddingTop={"116px"}
-                scrollOverflow={true}
-                onLeave={(origin, destination, direction) => {
-                    // console.log("onLeave event", {origin, destination, direction});
-                }}
-                render={({state, fullpageApi}) => {
-                    // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
+      <div key={index}>
+        <div className="newsBox mb-20 pr-8">
+          <Link
+            href={{
+              pathname: "/newsroom/[news]#1",
+              query: { news: news.slug },
+            }}
+            as={`/newsroom/${n.slug}?lang=${language}#1`}
+          >
+            <a>
+              <div className="image-wrapper">
+                <img src={getData(n._embedded, "image")} />
+              </div>
+              <div className="font-medium text-base text-sm mb-4 title leading-5 mt-10">
+                {n.title.rendered}
+              </div>
+            </a>
+          </Link>
+        </div>
+      </div>
+    );
+  });
 
-                    return (
-                        <div id="fullpage homeScreen">
-                            <div className="section">
-                                <div className={"px-40 flex flex-row justify-center items-center"}>
-                                    <div className={"w-1/2"}>
-                                        <img className={"h-auto object-cover"} src={image.url}/>
-                                    </div>
-                                    <div className={" w-1/2  pl-20 "}>
-                                        <h2 className={"mb-10 font-medium text-sm"}>#News</h2>
-                                        <h2 className={"mb-4 font-bold text-sm"}>{title}</h2>
-                                        <ScrollableBox
-                                            {...lipClassNames}
-                                            style={{maxHeight: '400px', overflow: 'auto'}}
-                                        >
-                                            <div className={"careerDetails text-xl pr-20"}
-                                                 dangerouslySetInnerHTML={{__html: editor}}/>
-                                        </ScrollableBox>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                }}
-        />
-
-</Layout>
-)
-    ;
+  return (
+    <Layout>
+      <ReactFullpage
+        navigationPosition={"left"}
+        navigation
+        paddingTop={"116px"}
+        render={({ state, fullpageApi }) => {
+          return (
+            <div id="fullpage homeScreen">
+              <div className="section news-detail">
+                <div
+                  className={
+                    "pl-40 pr-12 flex flex-row justify-center items-center"
+                  }
+                >
+                  <div className={"w-1/2 pr-16"}>
+                    <div className="h-full w-full overflow-hidden">
+                      <img
+                        className="w-full object-cover"
+                        src={getData(post._embedded, "image")}
+                      />
+                    </div>
+                  </div>
+                  <div className={"w-1/2 auto-overflow"}>
+                    <h2 className={"mb-10 font-medium text-sm"}>#News</h2>
+                    <h2 className={"mb-4 font-bold text-xl"}>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: post.title.rendered,
+                        }}
+                      />
+                    </h2>
+                    <div className="content">
+                      <div
+                        className={"text-base pr-20"}
+                        dangerouslySetInnerHTML={{
+                          __html: post.content.rendered,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="section odd otherNews">
+                <div className="pl-40 pr-12">
+                  <div className="header">
+                    <h2>Related news</h2>
+                  </div>
+                  <div className="brands news-slider">
+                    <Slider {...settings}>{renderNews}</Slider>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        }}
+      />
+    </Layout>
+  );
 };
 
 News.getInitialProps = async (ctx) => {
-    const language = configureLanguage(ctx);
+  const lang = ctx.query.lang;
+  const slug = ctx.query.news;
 
-    const query = ctx.query.lang
-    const newsQuery = ctx.query.news
-    console.log(ctx.query)
-    const fetcher = url => axios.get(url).then(res => res.data)
-    const item = await fetcher(`${Config.apiUrl}/wp/v2/posts?slug=${newsQuery}&${query === 'mn' ? '?lang=' + query : ''}`)
-    return {item}
-}
+  const details = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  const news = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=1&per_page=20&lang=${
+      lang === "mn" ? lang : ""
+    }`
+  );
+
+  return { details, news };
+};
 
 export default News;
