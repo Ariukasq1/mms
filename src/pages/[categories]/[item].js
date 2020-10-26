@@ -60,8 +60,9 @@ const Item = ({ industries, detail, querySlug }) => {
                             #{post.title.rendered}
                           </span>
                         </b>
-                        <p>
+                        <p className="auto-overflow">
                           <div
+                            className="text-base"
                             dangerouslySetInnerHTML={{
                               __html: post.content.rendered,
                             }}

@@ -52,14 +52,14 @@ const About = ({ contact, posts, services, histories }) => {
 
     return (
       <div className={" w-1/2 p-3 px-16 sm:w-full sm:px-2"}>
-        <div className={"flex flex-row bg-white  items-center p-5"}>
+        <div className={"flex flex-row bg-white items-center p-5"}>
           <div className="image-background flex w-20 h-20 mr-4 rounded-full">
             <img
               className={"sm:w-16 sm:h-16 rounded-full w-20 h-20"}
               src={item.image}
             />
           </div>
-          <p className={"ml-10 sm:ml-4 font-medium text-base"}>
+          <p className={"ml-10 sm:ml-4 font-medium text-base m-0"}>
             {item.description}
           </p>
         </div>
