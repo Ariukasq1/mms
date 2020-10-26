@@ -250,11 +250,6 @@
   }
 }
 
-.category-item {
-  p {
-    margin-bottom: 1em;
-  }
-}
 .without-scroll {
   .cat-item {
     padding: 0 18px;
@@ -618,6 +613,25 @@
     .title {
       height: 40px;
       overflow: hidden;
+    }
+  }
+}
+
+.section.human-resource {
+  .feature-icon {
+    width: 70px;
+    height: 60px;
+  }
+  .feature-item {
+    transition: all ease 0.3s;
+
+    &:hover {
+      background: $primary-color;
+      color: #fff;
+
+      .feature-icon img {
+        filter: invert(1);
+      }
     }
   }
 }

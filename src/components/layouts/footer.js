@@ -4,7 +4,7 @@ import Share from "../Share";
 function Footer({ data }) {
   const { contacts, address } = data[0].acf;
   return (
-    <footer className={"bg-contact text-white h-screen"}>
+    <footer className={"bg-contact relative text-white h-screen"}>
       <div
         className={
           "flex flex-row justify-evenly px-40 py-40 xl:px-24 sm:px-12 sm:flex-col "
