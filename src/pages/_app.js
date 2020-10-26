@@ -4,7 +4,6 @@ import "@fortawesome/fontawesome-free/js/all.min";
 import "antd/dist/antd.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "react-scrollable-box/lib/default.css";
 import "../public/styles/tailwind.css";
 import "../public/styles/styles.scss";
 import Router from "next/router";
