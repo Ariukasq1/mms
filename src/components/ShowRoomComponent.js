@@ -29,16 +29,16 @@ const ShowRoomComponent = ({ data }) => {
                   <div className="sub-title p-5 leading-4 text-base font-semibold sm:p-2 sm:text-sm">
                     {item.title}
                   </div>
-                  <Link
+                  {/* <Link
                     href={{
                       pathname: `${data.slug}`,
                       query: { lang: language },
                     }}
-                  >
-                    <a className="p-5 text-xs font-light text-gray-300 sm:p-2">
-                      #Showroom
-                    </a>
-                  </Link>
+                  > */}
+                  <a className="p-5 text-xs font-light text-gray-300 sm:p-2">
+                    #Showroom
+                  </a>
+                  {/* </Link> */}
                 </>
               }
               key={i}
@@ -49,7 +49,7 @@ const ShowRoomComponent = ({ data }) => {
               >
                 <img
                   className="object-cover h-full w-full"
-                  src={item.image.url}
+                  src={item.image && item.image}
                 />
                 <div className="tab-content mt-50">
                   <div className="ml-10 showRoomTag text-black font-bold sm:ml-8 sm:text-base">
@@ -63,20 +63,20 @@ const ShowRoomComponent = ({ data }) => {
                       dangerouslySetInnerHTML={{ __html: item.description }}
                     />
                   </div>
-                  <Link
+                  {/* <Link
                     href={{
                       pathname: `${data.slug}`,
                       query: { lang: language },
                     }}
+                  > */}
+                  <a
+                    className="ml-10 w-auto bg-transparent text-black text-base lowercase hover:text-menuTextColor flex flex-row sm:ml-8"
+                    style={{ fontWeight: "bold" }}
                   >
-                    <a
-                      className="ml-10 w-auto bg-transparent text-black text-base lowercase hover:text-menuTextColor flex flex-row sm:ml-8"
-                      style={{ fontWeight: "bold" }}
-                    >
-                      read more
-                      <img className="object-contain ml-4" src={arrowImage} />
-                    </a>
-                  </Link>
+                    read more
+                    <img className="object-contain ml-4" src={arrowImage} />
+                  </a>
+                  {/* </Link> */}
                 </div>
               </div>
             </TabPane>

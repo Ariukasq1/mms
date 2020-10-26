@@ -42,7 +42,7 @@ const IndustryComponent = ({ data }) => {
                 >
                   <img
                     className="object-cover mb-24 xl:mb-12  sm:w-48 sm:m-auto sm:my-8 lg:w-3/4 lg:mb-12 xl:w-5/6"
-                    src={item.image.url}
+                    src={item.image && item.image}
                     alt="image"
                   />
                   <div className="text-base sm:w-full sm:px-16 sm:pr-8 md:w-full lg:w-3/4 xl:w-5/6">

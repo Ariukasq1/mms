@@ -8,7 +8,7 @@ import { fetcher, getData } from "../../utils";
 const Index = ({ career, jobs }) => {
   const post = career[0];
   const job = jobs[0];
-  console.log(job);
+
   const renderHrFeatures = (item, index) => (
     <div className="p-4 mb-20 feature-item bg-white" key={index}>
       <div className="feature-icon mb-20">
