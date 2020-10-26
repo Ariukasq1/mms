@@ -2,12 +2,8 @@ import React from "react";
 import Layout from "../../components/layouts/Layout";
 import ReactFullpage from "../../lib/fullpage";
 import mainStore from "../../stores";
-import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
 import { Config } from "../../config";
-import { configureLanguage } from "../../utils/language";
-import axios from "axios";
 import Slider from "react-slick";
-import Link from "next/link";
 import arrowImage from "../../public/images/arrow-white.svg";
 import {
   fetcher,

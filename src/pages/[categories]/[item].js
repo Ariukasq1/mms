@@ -7,7 +7,6 @@ import SliderSubCategories from "../../components/SliderSubCategories";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
 import { fetcher, getData } from "../../utils";
 import RelationSlider from "../../components/RelationSlider";
-import { PocketIcon } from "react-share";
 
 const anchors = ["1", "2", "3"];
 const Item = ({ postItems, detail, querySlug, posts }) => {

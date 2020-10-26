@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "../../components/layouts/Layout";
 import ReactFullpage from "../../lib/fullpage";
-import axios from "axios";
 import { Config } from "../../config";
 import { fetcher, getData } from "../../utils";
 

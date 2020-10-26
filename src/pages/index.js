@@ -2,12 +2,12 @@ import React from "react";
 import Layout from "../components/layouts/Layout";
 import ReactFullpage from "../lib/fullpage";
 import { Config } from "../config";
-import axios from "axios";
 import HomeSlider from "../components/layouts/HomeSlider";
 import CapabilitiesComponent from "../components/CapabilitiesComponent";
 import IndustryComponent from "../components/IndustryComponent";
 import ShowRoomComponent from "../components/ShowRoomComponent";
 import BrandsComponent from "../components/BrandsComponent";
+import { fetcher } from "../utils";
 
 const Index = ({ sliders, home_screen_items, brands, brandCategories }) => {
   const anchors = ["section1", "section2", "section3", "section4", "section5"];
@@ -73,7 +73,6 @@ const Index = ({ sliders, home_screen_items, brands, brandCategories }) => {
 
 Index.getInitialProps = async (ctx) => {
   const query = ctx.query.lang;
-  const fetcher = (url) => axios.get(url).then((res) => res.data);
 
   const sliders = await fetcher(
     `${Config.apiUrl}/wp/v2/sliders${query === "mn" ? "?lang=" + query : ""}`
