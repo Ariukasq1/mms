@@ -391,6 +391,12 @@
   }
 }
 
+.brand-p-item .title {
+  line-height: 22px;
+  max-height: 45px;
+  overflow: hidden;
+}
+
 .section.project-details {
   span {
     text-transform: uppercase;
@@ -634,6 +640,16 @@
         filter: invert(1);
       }
     }
+  }
+}
+
+.section.category-brand {
+  .slick-prev,
+  .slick-next {
+    top: 100%;
+  }
+  .slick-next {
+    transform: inherit;
   }
 }
 

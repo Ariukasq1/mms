@@ -9,17 +9,23 @@ import { fetcher, getData } from "../../utils";
 import RelationSlider from "../../components/RelationSlider";
 
 const anchors = ["1", "2", "3"];
-const Item = ({ industries, detail, querySlug }) => {
+const Item = ({ postItems, detail, querySlug, posts }) => {
   const { language } = mainStore();
   const post = detail[0];
+  const { brands, capabilities, industries } = post.acf || {};
+
+  const hasRelation =
+    (brands || []).length !== 0 ||
+    (capabilities || []).length !== 0 ||
+    (industries || []).length !== 0
+      ? true
+      : false;
 
   const renderRelations = (title, items) => {
     return (
       <div>
-        <h4>{title}</h4>
-        {((items && items) || []).map((item) => (
-          <RelationSlider key={item} item={item} />
-        ))}
+        <h4 className="mb-20 font-semibold text-xl capitalize">{title}</h4>
+        <RelationSlider items={items} querySlug={title} posts={posts} />
       </div>
     );
   };
@@ -42,7 +48,7 @@ const Item = ({ industries, detail, querySlug }) => {
                     <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
                       <div className="brands">
                         <SliderSubCategories
-                          data={industries}
+                          data={postItems}
                           querySlug={querySlug}
                           language={language}
                         />
@@ -86,12 +92,18 @@ const Item = ({ industries, detail, querySlug }) => {
                   </div>
                 </div>
 
-                <div className="section category-brand">
-                  <div className="pr-32 pl-24 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-16 sm:pr-8 bg-white">
-                    {renderRelations("Brands", post.acf.brands)}
-                    {renderRelations("Capabilities", post.acf.capabilities)}
+                {hasRelation && (
+                  <div className="section category-brand">
+                    <div className="px-40 bg-white">
+                      {(brands || []).length !== 0 &&
+                        renderRelations("brands", brands)}
+                      {(capabilities || []).length !== 0 &&
+                        renderRelations("capabilities", capabilities)}
+                      {(industries || []).length !== 0 &&
+                        renderRelations("industries", industries)}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             );
           }}
@@ -107,7 +119,7 @@ Item.getInitialProps = async (ctx) => {
   const slug = ctx.query.item;
   const categories = querySlug === "capabilities" ? 110 : 111;
 
-  const industries = await fetcher(
+  const postItems = await fetcher(
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=${categories}&per_page=100&${
@@ -121,13 +133,13 @@ Item.getInitialProps = async (ctx) => {
     }`
   );
 
-  const brands = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
+  const posts = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&per_page=100&${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
-  return { industries, detail, querySlug };
+  return { postItems, detail, querySlug, posts };
 };
 
 export default Item;

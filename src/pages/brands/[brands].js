@@ -12,6 +12,7 @@ import {
   SampleNextArrow,
   SamplePrevArrow,
 } from "../../utils";
+import RelationSlider from "../../components/RelationSlider";
 
 class Brands extends React.Component {
   render() {
@@ -62,9 +63,24 @@ class Brands extends React.Component {
       ],
     };
 
-    const { products, items } = this.props;
+    const { products, items, posts } = this.props;
     const brand = items ? items[0] : {};
-    const { logo, about, what_we_offer_with } = brand.acf || {};
+    const { logo, about, what_we_offer_with, capabilities, industries } =
+      brand.acf || {};
+
+    const hasRelation =
+      (capabilities || []).length !== 0 || (industries || []).length !== 0
+        ? true
+        : false;
+
+    const renderRelations = (title, items) => {
+      return (
+        <div>
+          <h4 className="mb-20 font-semibold text-xl capitalize">{title}</h4>
+          <RelationSlider items={items} querySlug={title} posts={posts} />
+        </div>
+      );
+    };
 
     const renderProducts = products.map((product, index) => (
       <div key={index} className="brand-p-item mb-20">
@@ -82,8 +98,9 @@ class Brands extends React.Component {
     return (
       <Layout>
         <ReactFullpage
+          navigationPosition={"left"}
           paddingTop={"116px"}
-          scrollOverflow={false}
+          navigation
           render={({ state, fullpageApi }) => {
             return (
               <div id="fullpage">
@@ -108,7 +125,7 @@ class Brands extends React.Component {
                       >
                         <img src={getData(brand._embedded, "image")} />
                       </div>
-                      <div className="w-2/3 relative md:w-full sm:w-full">
+                      <div className="w-2/3 relative md:w-full sm:w-full auto-overflow">
                         <div className={"itemDetailsTexts pr-24"}>
                           <h3 className="mb-10">
                             About <span> {brand.title.rendered}</span>{" "}
@@ -142,6 +159,17 @@ class Brands extends React.Component {
                     <Slider {...settingsProductItems}>{renderProducts}</Slider>
                   </div>
                 </div>
+
+                {hasRelation && (
+                  <div className="section category-brand">
+                    <div className="px-40 bg-white">
+                      {(capabilities || []).length !== 0 &&
+                        renderRelations("capabilities", capabilities)}
+                      {(industries || []).length !== 0 &&
+                        renderRelations("industries", industries)}
+                    </div>
+                  </div>
+                )}
               </div>
             );
           }}
@@ -161,15 +189,19 @@ Brands.getInitialProps = async (ctx) => {
     }`
   );
 
-  const categories = (items[0] || []).categories;
-
   const products = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=175&${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
-  return { items, products };
+  const posts = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&per_page=100&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  return { items, products, posts };
 };
 
 export default Brands;

@@ -17,7 +17,7 @@ const SliderSubCategories = (props) => {
     }
 
     return (
-      <div className="cat-item" key={index}>
+      <div className="cat-item bg-white" key={index}>
         <div className="title text-black font-medium">
           {category.title.rendered}
         </div>
@@ -61,6 +61,10 @@ const SliderSubCategories = (props) => {
       </div>
     );
   });
+
+  if (!props.data || props.data.length === 0) {
+    return null;
+  }
 
   if (props.data.length <= 4) {
     return <div className="flex without-scroll">{renderContent}</div>;

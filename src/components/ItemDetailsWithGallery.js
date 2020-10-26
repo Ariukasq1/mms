@@ -16,7 +16,6 @@ const ItemDetailsWithGallery = ({ images }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: ".slider-for",
-    // dots: true,
     centerMode: true,
     swipeToSlide: true,
     focusOnSelect: true,
