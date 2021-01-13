@@ -11,8 +11,14 @@ import RelationSlider from "../../components/RelationSlider";
 const anchors = ["1", "2", "3"];
 const Item = ({ postItems, detail, querySlug, posts }) => {
   const { language } = mainStore();
+
+  if (!detail || detail.length === 0) {
+    return null;
+  }
+
   const post = detail[0];
-  const { brands, capabilities, industries } = post.acf || {};
+
+  const { brands, capabilities, industries } = (post && post.acf) || {};
 
   const hasRelation =
     (brands || []).length !== 0 ||
@@ -66,14 +72,14 @@ const Item = ({ postItems, detail, querySlug, posts }) => {
                             #{post.title.rendered}
                           </span>
                         </b>
-                        <p className="auto-overflow">
+                        <div className="auto-overflow">
                           <div
                             className="text-base"
                             dangerouslySetInnerHTML={{
                               __html: post.content.rendered,
                             }}
                           />
-                        </p>
+                        </div>
                       </div>
                       <div className="w-1/2">
                         {!post.acf.image_1 ? (
@@ -123,19 +129,19 @@ Item.getInitialProps = async (ctx) => {
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=${categories}&per_page=100&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const detail = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const posts = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&per_page=100&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 

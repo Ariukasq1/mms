@@ -12,7 +12,7 @@ const RelationSlider = ({ posts, items, querySlug }) => {
     return items.map((item) => {
       const post = posts.filter((post) => post.id === item)[0];
 
-      if (Object.keys(post).length === 0) {
+      if (!post || Object.keys(post).length === 0) {
         return null;
       }
 

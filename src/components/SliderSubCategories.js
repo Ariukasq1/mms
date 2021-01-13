@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import arrowImage from "../public/images/arrow.svg";
 import Slider from "react-slick";
-import { getData, sliderSettings } from "../utils";
+import { getData, sliderSettings, __ } from "../utils";
 
 const SliderSubCategories = (props) => {
   const renderContent = props.data.map((category, index) => {
@@ -21,13 +21,13 @@ const SliderSubCategories = (props) => {
         <div className="title text-black font-medium">
           {category.title.rendered}
         </div>
-        <p className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
+        <div className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
           <div
             dangerouslySetInnerHTML={{
               __html: category.excerpt.rendered,
             }}
           />
-        </p>
+        </div>
         <Link
           href={{
             pathname: `/[portfolio]/[item]`,
@@ -36,7 +36,7 @@ const SliderSubCategories = (props) => {
           as={`/${props.querySlug}/${category.slug}?lang=${props.language}#2`}
         >
           <a className="my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
-            Read more
+            {__("Read more")}
             <img className="object-contain ml-4" src={arrowImage} />
           </a>
         </Link>

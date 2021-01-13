@@ -1,5 +1,17 @@
 import axios from "axios";
 import arrow from "./public/images/arrow.svg";
+import T from "i18n-react";
+
+export const setLocale = (currentLanguage, callback) => {
+  import(`./locales/${currentLanguage}.json`)
+    .then((data) => {
+      const translations = data.default;
+      T.setTexts(translations);
+
+      callback && callback();
+    })
+    .catch((e) => console.log(e)); // tslint:disable-line
+};
 
 export const getData = (object, type) => {
   switch (type) {
@@ -35,8 +47,21 @@ export const prefixer = (url) => {
   return `/${url}`;
 };
 
+export const __ = (key, options) => {
+  const translation = T.translate(key, options);
+
+  if (!translation) {
+    return "";
+  }
+
+  return translation.toString();
+};
+
 export const fetcher = (url) => {
-  return axios.get(url).then((res) => res.data);
+  return axios
+    .get(encodeURI(url))
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
 };
 
 export const SampleNextArrow = (props) => {

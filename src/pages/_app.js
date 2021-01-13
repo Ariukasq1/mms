@@ -13,6 +13,7 @@ import axios from "axios";
 import { Config } from "../config";
 import DataContext from "../components/DataContext";
 import "./style.css";
+import { setLocale } from "../utils";
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();
@@ -24,7 +25,15 @@ Router.events.on("routeChangeComplete", () => {
 
 Router.events.on("routeChangeError", () => NProgress.done());
 
-function MyApp({ Component, pageProps, top_menu, bottom_menu }) {
+function MyApp({ Component, pageProps, top_menu, bottom_menu, lang }) {
+  const [isLangSetted, setLangState] = React.useState(false);
+
+  if (!isLangSetted) {
+    setLocale(lang === "mn" ? "mn" : "en", () => {
+      setLangState(true);
+    });
+  }
+
   return (
     <DataContext.Provider value={{ top_menu, bottom_menu }}>
       <div className="next">
@@ -44,7 +53,8 @@ MyApp.getInitialProps = async (appContext) => {
   const bottom_menu = await fetcher(
     `${Config.menuUrl}/nav-menu${query === "mn" ? "?lang=" + query : ""}`
   );
-  return { ...appProps, top_menu, bottom_menu };
+
+  return { ...appProps, top_menu, bottom_menu, lang: query };
 };
 
 export default MyApp;
