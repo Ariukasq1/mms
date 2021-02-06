@@ -51,7 +51,7 @@ const About = ({ contact, posts, services, histories }) => {
     }
 
     return (
-      <div className={" w-1/2 p-3 px-16 sm:w-full sm:px-2"}>
+      <div className={" w-1/3 p-3 px-4 sm:w-full sm:px-3"}>
         <div className={"flex flex-row bg-white items-center p-5"}>
           <div className="image-background flex w-20 h-20 mr-4 rounded-full">
             <img
@@ -64,6 +64,26 @@ const About = ({ contact, posts, services, histories }) => {
           </p>
         </div>
       </div>
+    );
+  };
+
+  const renderWhatWeDo = () => {
+    console.log(service);
+    return (
+      <>
+        <div className={"p-3 px-4 sm:w-full sm:px-3"}>
+          <div className={"flex flex-row bg-white items-center p-5"}>
+            <h4>{service.acf.group_1.title}</h4>
+            <p className={"ml-10 sm:ml-4 font-medium text-base m-0"}>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: service.acf.group_1.description,
+                }}
+              />
+            </p>
+          </div>
+        </div>
+      </>
     );
   };
 
@@ -134,7 +154,7 @@ const About = ({ contact, posts, services, histories }) => {
                 }}
               >
                 <div className="auto-overflow">
-                  <div className={"px-48"}>
+                  <div className={"px-32"}>
                     <h2 className={"text-white mb-8 text-xl font-medium"}>
                       <div
                         dangerouslySetInnerHTML={{
@@ -144,9 +164,7 @@ const About = ({ contact, posts, services, histories }) => {
                     </h2>
                   </div>
                   <div className={"flex flex-wrap sm:flex-col px-32"}>
-                    {Object.values(service.acf).map((item) =>
-                      renderCards(item)
-                    )}
+                    {renderWhatWeDo()}
                   </div>
                 </div>
               </div>
