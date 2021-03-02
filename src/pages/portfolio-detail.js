@@ -291,9 +291,7 @@ Detail.getInitialProps = async (ctx) => {
   const slug = ctx.query.slug;
 
   const posts = await fetcher(
-    `${
-      Config.apiUrl
-    }/wp/v2/posts?_embed&categories=194&per_page=40&filter[orderby]=id&order=desc${
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=194&per_page=40${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
@@ -305,12 +303,10 @@ Detail.getInitialProps = async (ctx) => {
   );
 
   const catId =
-    detail[0].categories.length !== 0 ? detail[0].categories[1] : 195;
+    detail[0].categories.length !== 0 ? detail[0].categories[0] : 195;
 
   const projects = await fetcher(
-    `${
-      Config.apiUrl
-    }/wp/v2/posts?_embed&categories=${catId}&per_page=40&filter[orderby]=id&order=asc${
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=40${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
