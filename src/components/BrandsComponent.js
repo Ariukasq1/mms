@@ -32,20 +32,16 @@ class BrandsComponent extends React.Component {
     const { language } = mainStore;
     const { filteredBrands } = this.state;
 
-    return filteredBrands.map((brand, index) => {
+    const content = filteredBrands.map((brand, index) => {
       const { logo } = brand.acf || {};
 
       return (
         <div className="single-brand" key={index}>
           <div className="logo-wrapper">
-            <img
-              src={logo.url}
-              className="object-contain h-full"
-              alt={logo.name}
-            />
+            <img src={logo} className="object-contain h-full" alt="logo" />
           </div>
           <Link href={`/brands/${brand.slug}?lang=${language}`} passHref>
-            <a className="more flex">
+            <a className="more text-base text-black font-normal flex">
               Read more
               <img className="object-contain ml-4" src={arrow} />
             </a>
@@ -60,6 +56,16 @@ class BrandsComponent extends React.Component {
         </div>
       );
     });
+
+    if (filteredBrands.length >= 5) {
+      return (
+        <Slider {...sliderSettings} className="h-full">
+          {content}
+        </Slider>
+      );
+    }
+
+    return <div class="grid grid-cols-4 gap-6">{content}</div>;
   }
 
   render() {
@@ -101,9 +107,7 @@ class BrandsComponent extends React.Component {
           <h2>Brands</h2>
           {instance}
         </div>
-        <Slider {...sliderSettings} className="h-full">
-          {this.renderBrands()}
-        </Slider>
+        {this.renderBrands()}
       </div>
     );
   }

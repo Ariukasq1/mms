@@ -9,6 +9,7 @@ class Brands extends React.Component {
   render() {
     const { brands, brandCategories } = this.props;
     const anchors = ["1", "2", "3"];
+    console.log(brands);
     return (
       <Layout>
         <div className="relative">
@@ -22,7 +23,7 @@ class Brands extends React.Component {
               return (
                 <div id="fullpage">
                   <div className="section">
-                    <div style={{ width: "80%", margin: "0 auto" }}>
+                    <div style={{ width: "85%", margin: "0 auto" }}>
                       <BrandsComponent
                         brands={brands}
                         brandCategories={brandCategories}
