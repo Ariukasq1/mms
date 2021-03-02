@@ -35,7 +35,7 @@ const SliderSubCategories = (props) => {
           }}
           as={`/${props.querySlug}/${category.slug}?lang=${props.language}#2`}
         >
-          <a className="my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
+          <a className="my-4 text-base w-auto bg-transparent text-black font-normal hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
             {__("Read more")}
             <img className="object-contain ml-4" src={arrowImage} />
           </a>

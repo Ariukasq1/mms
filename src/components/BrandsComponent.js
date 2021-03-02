@@ -73,7 +73,9 @@ class BrandsComponent extends React.Component {
           onClick={this.filterBrand.bind(this, 0)}
           href="/brands?lang=en"
         >
-          #All brands
+          <div className="flex">
+            <div>#</div>All brands
+          </div>
         </li>
         {brandCategories.map((category) => (
           <li
@@ -81,7 +83,10 @@ class BrandsComponent extends React.Component {
             className={brandId === category.id ? "active" : null}
             onClick={this.filterBrand.bind(this, category.id)}
           >
-            #{category.name}
+            <div className="flex">
+              <div>#</div>
+              {category.name}
+            </div>
           </li>
         ))}
       </ul>

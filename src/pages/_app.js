@@ -1,18 +1,16 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "@fortawesome/fontawesome-free/js/all.min";
 import "antd/dist/antd.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../public/styles/tailwind.css";
-import "../public/styles/styles.scss";
+import "../public/styles/style.min.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import App from "next/app";
 import axios from "axios";
 import { Config } from "../config";
 import DataContext from "../components/DataContext";
-import "./style.css";
 import { setLocale } from "../utils";
 
 Router.events.on("routeChangeStart", () => {

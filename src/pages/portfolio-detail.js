@@ -9,6 +9,46 @@ import arrowImage from "../public/images/arrow-white.svg";
 import { fetcher, getData, SampleNextArrow, SamplePrevArrow } from "../utils";
 import SliderSubCategories from "../components/SliderSubCategories";
 
+const renderProjects = (projects, post, language) => {
+  return (projects || []).map((project) => {
+    if (project.categories.length >= 2) {
+      return null;
+    }
+
+    return (
+      <div key={project.id}>
+        <a
+          href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+        >
+          <div
+            className="project flex justify-center align-center row-span-2 col-span-1 relative"
+            style={{
+              backgroundImage: `url(${getData(project._embedded, "image")})`,
+            }}
+          >
+            <div className="content">
+              <h4>
+                <div
+                  dangerouslySetInnerHTML={{ __html: project.title.rendered }}
+                />
+              </h4>
+              <div className="flex align-center more">
+                <a
+                  className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
+                  href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+                >
+                  Read more
+                </a>
+                <img src={arrowImage} />
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    );
+  });
+};
+
 const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
   const post = detail[0];
   const projectDetail = projectDetails[0];
@@ -77,38 +117,6 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
       },
     ],
   };
-
-  const renderProjects = projects.map((project) => (
-    <div key={project.id}>
-      <a
-        href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
-      >
-        <div
-          className="project flex justify-center align-center row-span-2 col-span-1 relative"
-          style={{
-            backgroundImage: `url(${getData(project._embedded, "image")})`,
-          }}
-        >
-          <div className="content">
-            <h4>
-              <div
-                dangerouslySetInnerHTML={{ __html: project.title.rendered }}
-              />
-            </h4>
-            <div className="flex align-center more">
-              <a
-                className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
-                href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
-              >
-                Read more
-              </a>
-              <img src={arrowImage} />
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-  ));
 
   const renderInteriorExterior = (item) => {
     const material = materials.filter((material) => material.id === item);
@@ -191,7 +199,7 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                       </div>
                     ) : (
                       <div className="grid grid-cols-4 px-10">
-                        {renderProjects}
+                        {renderProjects(projects, post, language)}
                       </div>
                     )}
                   </div>
@@ -249,17 +257,21 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                         }
                       >
                         <h2 className={"uppercase text-white"}>Interiors</h2>
-                        {(projectDetail.acf || {}).interiors.map((interior) => {
-                          return renderInteriorExterior(interior);
-                        })}
+                        {((projectDetail.acf || {}).interiors || []).map(
+                          (interior) => {
+                            return renderInteriorExterior(interior);
+                          }
+                        )}
                       </div>
                       <div
                         className={"w-1/2 flex flex-col ml-12 md:ml-2 sm:ml-0"}
                       >
                         <h2 className={"uppercase text-white"}>Exteriors</h2>
-                        {(projectDetail.acf || {}).exteriors.map((exterior) => {
-                          return renderInteriorExterior(exterior);
-                        })}
+                        {((projectDetail.acf || {}).exteriors || []).map(
+                          (exterior) => {
+                            return renderInteriorExterior(exterior);
+                          }
+                        )}
                       </div>
                     </div>
                   </div>
@@ -279,7 +291,9 @@ Detail.getInitialProps = async (ctx) => {
   const slug = ctx.query.slug;
 
   const posts = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=194&per_page=100&${
+    `${
+      Config.apiUrl
+    }/wp/v2/posts?_embed&categories=194&per_page=40&filter[orderby]=id&order=desc${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
@@ -294,7 +308,9 @@ Detail.getInitialProps = async (ctx) => {
     detail[0].categories.length !== 0 ? detail[0].categories[1] : 195;
 
   const projects = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=100&${
+    `${
+      Config.apiUrl
+    }/wp/v2/posts?_embed&categories=${catId}&per_page=40&filter[orderby]=id&order=asc${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );

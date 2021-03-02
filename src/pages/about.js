@@ -68,7 +68,6 @@ const About = ({ contact, posts, services, histories }) => {
   };
 
   const renderWhatWeDo = () => {
-    console.log(service);
     return (
       <>
         <div className={"p-3 px-4 sm:w-full sm:px-3"}>

@@ -5,29 +5,17 @@ import { Config } from "../config";
 import HomeSlider from "../components/layouts/HomeSlider";
 import CapabilitiesComponent from "../components/CapabilitiesComponent";
 import IndustryComponent from "../components/IndustryComponent";
-import ShowRoomComponent from "../components/ShowRoomComponent";
 import BrandsComponent from "../components/BrandsComponent";
 import { fetcher } from "../utils";
 
-const Index = ({ sliders, home_screen_items, brands, brandCategories }) => {
+const Index = ({
+  sliders,
+  brands,
+  brandCategories,
+  capability,
+  industries,
+}) => {
   const anchors = ["section1", "section2", "section3", "section4", "section5"];
-  let capabilities;
-  let industry;
-  let showroom;
-
-  home_screen_items.filter(function (item) {
-    switch (item.slug) {
-      case "capabilities":
-        capabilities = item;
-        break;
-      case "industries":
-        industry = item;
-        break;
-      case "showroom":
-        showroom = item;
-        break;
-    }
-  });
 
   return (
     <Layout>
@@ -46,13 +34,10 @@ const Index = ({ sliders, home_screen_items, brands, brandCategories }) => {
                   <HomeSlider sliders={sliders} />
                 </div>
                 <div className="section capabilities">
-                  <CapabilitiesComponent data={capabilities} />
+                  <CapabilitiesComponent data={capability[0]} />
                 </div>
                 <div className="section industry">
-                  <IndustryComponent data={industry} />
-                </div>
-                <div className="section showroom">
-                  <ShowRoomComponent data={showroom} />
+                  <IndustryComponent industries={industries} />
                 </div>
                 <div className="section brands bg-white">
                   <div className="ml-32">
@@ -75,11 +60,9 @@ Index.getInitialProps = async (ctx) => {
   const query = ctx.query.lang;
 
   const sliders = await fetcher(
-    `${Config.apiUrl}/wp/v2/sliders${query === "mn" ? "?lang=" + query : ""}`
-  );
-
-  const home_screen_items = await fetcher(
-    `${Config.apiUrl}/wp/v2/home_screen_items${
+    `${
+      Config.apiUrl
+    }/wp/v2/posts?_embed&categories=215&filter[orderby]=id&order=asc${
       query === "mn" ? "?lang=" + query : ""
     }`
   );
@@ -91,12 +74,33 @@ Index.getInitialProps = async (ctx) => {
   );
 
   const brands = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=100&${
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=20&${
       query === "mn" ? "?lang=" + query : ""
     }`
   );
 
-  return { sliders, query, home_screen_items, brandCategories, brands };
+  const capability = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=216&${
+      query === "mn" ? "?lang=" + query : ""
+    }`
+  );
+
+  const industries = await fetcher(
+    `${
+      Config.apiUrl
+    }/wp/v2/posts?_embed&categories=111&filter[orderby]=id&order=asc${
+      query === "mn" ? "?lang=" + query : ""
+    }`
+  );
+
+  return {
+    sliders,
+    query,
+    brandCategories,
+    brands,
+    capability,
+    industries,
+  };
 };
 
 export default Index;

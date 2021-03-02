@@ -25,7 +25,7 @@ const Categories = ({ posts, querySlug }) => {
               <div id="fullpage">
                 <div className="section categories">
                   <div className="capabilitiesPage">
-                    <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
+                    <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
                       <div className="brands">
                         <div className="header">
                           <h2>{querySlug}</h2>
@@ -55,7 +55,9 @@ Categories.getInitialProps = async (ctx) => {
     querySlug === "capabilities" ? 110 : querySlug === "portfolio" ? 194 : 111;
 
   const posts = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=100&${
+    `${
+      Config.apiUrl
+    }/wp/v2/posts?_embed&categories=${catId}&per_page=40&filter[orderby]=id&order=asc${
       lang === "mn" ? "lang=" + lang : ""
     }`
   );

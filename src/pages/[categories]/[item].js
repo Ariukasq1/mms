@@ -51,7 +51,7 @@ const Item = ({ postItems, detail, querySlug, posts }) => {
               <div id="fullpage">
                 <div className="section categories">
                   <div className="capabilitiesPage">
-                    <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
+                    <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
                       <div className="brands">
                         <SliderSubCategories
                           data={postItems}
@@ -68,7 +68,7 @@ const Item = ({ postItems, detail, querySlug, posts }) => {
                     <div className="flex">
                       <div className="w-1/2 flex flex-col justify-center flex-center mr-16">
                         <b>
-                          <span className="block mb-20">
+                          <span className="block text-lg mb-20">
                             #{post.title.rendered}
                           </span>
                         </b>
@@ -128,7 +128,7 @@ Item.getInitialProps = async (ctx) => {
   const postItems = await fetcher(
     `${
       Config.apiUrl
-    }/wp/v2/posts?_embed&categories=${categories}&per_page=100&${
+    }/wp/v2/posts?_embed&categories=${categories}&per_page=40&filter[orderby]=id&order=asc${
       lang === "mn" ? "lang=" + lang : ""
     }`
   );

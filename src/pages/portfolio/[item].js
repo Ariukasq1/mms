@@ -13,6 +13,46 @@ import {
 } from "../../utils";
 import SliderSubCategories from "../../components/SliderSubCategories";
 
+const renderProjects = (projects, post, language) => {
+  return (projects || []).map((project) => {
+    if (project.categories.length >= 2) {
+      return null;
+    }
+
+    return (
+      <div key={project.id}>
+        <a
+          href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+        >
+          <div
+            className="project flex justify-center align-center row-span-2 col-span-1 relative"
+            style={{
+              backgroundImage: `url(${getData(project._embedded, "image")})`,
+            }}
+          >
+            <div className="content">
+              <h4>
+                <div
+                  dangerouslySetInnerHTML={{ __html: project.title.rendered }}
+                />
+              </h4>
+              <div className="flex align-center more">
+                <a
+                  className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
+                  href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+                >
+                  Read more
+                </a>
+                <img src={arrowImage} />
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    );
+  });
+};
+
 const Item = ({ posts, detail, projects }) => {
   const post = detail[0];
   const { language } = mainStore();
@@ -81,38 +121,6 @@ const Item = ({ posts, detail, projects }) => {
     ],
   };
 
-  const renderProjects = projects.map((project) => (
-    <div key={project.id}>
-      <a
-        href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
-      >
-        <div
-          className="project flex justify-center align-center row-span-2 col-span-1 relative"
-          style={{
-            backgroundImage: `url(${getData(project._embedded, "image")})`,
-          }}
-        >
-          <div className="content">
-            <h4>
-              <div
-                dangerouslySetInnerHTML={{ __html: project.title.rendered }}
-              />
-            </h4>
-            <div className="flex align-center more">
-              <a
-                className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
-                href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
-              >
-                Read more
-              </a>
-              <img src={arrowImage} />
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-  ));
-
   return (
     <Layout>
       <ReactFullpage
@@ -160,13 +168,13 @@ const Item = ({ posts, detail, projects }) => {
                     </p>
                   </div>
                   <div>
-                    {projects.length > 8 ? (
+                    {(projects || []).length > 8 ? (
                       <div className="brands pl-12 pr-32 project-slider">
                         <Slider {...settings}>{renderProjects}</Slider>
                       </div>
                     ) : (
                       <div className="grid grid-cols-4 px-10">
-                        {renderProjects}
+                        {renderProjects(projects, post, language)}
                       </div>
                     )}
                   </div>
