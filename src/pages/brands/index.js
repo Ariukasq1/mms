@@ -9,7 +9,7 @@ class Brands extends React.Component {
   render() {
     const { brands, brandCategories } = this.props;
     const anchors = ["1", "2", "3"];
-    console.log(brands);
+
     return (
       <Layout>
         <div className="relative">

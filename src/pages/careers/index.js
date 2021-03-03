@@ -2,29 +2,63 @@ import React from "react";
 import Layout from "../../components/layouts/Layout";
 import ReactFullpage from "../../lib/fullpage";
 import { Config } from "../../config";
-import { fetcher, getData } from "../../utils";
+import mainStore from "../../stores";
+import { fetcher, getData, __ } from "../../utils";
+import Link from "next/link";
 
-const Index = ({ career, jobs }) => {
-  const post = career[0];
-  const job = jobs[0];
+const Index = ({ career }) => {
+  const { language } = mainStore();
+  // const post = career[0];
+  // const job = jobs[0];
 
-  const renderHrFeatures = (item, index) => (
-    <div className="p-4 mb-20 feature-item bg-white" key={index}>
-      <div className="feature-icon mb-20">
-        <img className="w-full h-full" src={item.image} />
+  // const renderJob = (item, index) => (
+  //   <div key={index} className="flex items-center mb-8">
+  //     <div className="w-12 mr-8">
+  //       <img className={"h-12"} src={item.icon} />
+  //     </div>
+  //     <p className={"text-base"}>{item.text}</p>
+  //   </div>
+  // );
+
+  const renderValues = () => (
+    <div className="px-72 auto-overflow">
+      <div className="header">
+        <h2>{__("Human resource")}</h2>
       </div>
-      <p className="font-semibold mb-10 text-lg">{item.title}</p>
+      <div className="grid grid-cols-4 gap-12">
+        {career.map((item) => (
+          <div key={item.id} className="bg-white pb-5">
+            <Link
+              href={{
+                pathname: `/[careers]/[item]`,
+                query: { lang: language },
+              }}
+              as={`/careers/${item.slug}?lang=${language}#2`}
+            >
+              <a>
+                <div className="card">
+                  <div className="bg-wrapper flex align-center justify-center">
+                    <img src={getData(item._embedded, "image")} alt="image" />
+                  </div>
+                  <div className="content p-6">
+                    <h4 className="font-semibold text-menuTextColor mb-10 text-lg">
+                      {item.title.rendered}
+                    </h4>
 
-      <p className={"text-sm leading-5"}>{item.description}</p>
-    </div>
-  );
-
-  const renderJob = (item, index) => (
-    <div key={index} className="flex items-center mb-8">
-      <div className="w-12 mr-8">
-        <img className={"h-12"} src={item.icon} />
+                    <p className={"text-base leading-5 mb-0"}>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: item.content.rendered,
+                        }}
+                      />
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </Link>
+          </div>
+        ))}
       </div>
-      <p className={"text-base"}>{item.text}</p>
     </div>
   );
 
@@ -36,20 +70,9 @@ const Index = ({ career, jobs }) => {
         paddingTop={"116px"}
         render={({ state, fullpageApi }) => {
           return (
-            <div id="fullpage">
-              <div className="section human-resource">
-                <div className="px-40 auto-overflow">
-                  <div className="header">
-                    <h2>Human resource</h2>
-                  </div>
-                  <div className="grid grid-cols-4">
-                    {Object.values(post.acf).map((item, index) =>
-                      renderHrFeatures(item, index)
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="section odd careers">
+            <div id="fullpage career-page">
+              <div className="section main-values">{renderValues()}</div>
+              {/* <div className="section odd careers">
                 <div
                   className={"px-40 flex flex-row justify-center items-center"}
                 >
@@ -98,7 +121,7 @@ const Index = ({ career, jobs }) => {
                     )}
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           );
         }}
@@ -111,18 +134,14 @@ Index.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const career = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=211&${
+    `${
+      Config.apiUrl
+    }/wp/v2/posts?_embed&categories=211&filter[orderby]=id&order=asc${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
-  const jobs = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=212&${
-      lang === "mn" ? "?lang=" + lang : ""
-    }`
-  );
-
-  return { career, jobs };
+  return { career };
 };
 
 export default Index;
