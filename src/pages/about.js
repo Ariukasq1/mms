@@ -6,7 +6,10 @@ import Footer from "../components/layouts/footer";
 import ReactFullpage from "../lib/fullpage";
 import { Config } from "../config";
 import { fetcher, getData } from "../utils";
+import { Tabs } from "antd";
+import AboutDetail from "./AboutDetail";
 
+const { TabPane } = Tabs;
 const settings = {
   infinite: false,
   speed: 500,
@@ -41,46 +44,28 @@ const settings = {
   ],
 };
 
-const About = ({ contact, posts, services, histories }) => {
+const About = ({ contact, posts, services, histories, categories }) => {
+  const [activeId, setactiveId] = React.useState(categories[0].id);
   const post = posts[0];
   const service = services[0];
 
-  const renderCards = (item) => {
-    if (!item.image && !item.description) {
-      return null;
-    }
-
-    return (
-      <div className={" w-1/3 p-3 px-4 sm:w-full sm:px-3"}>
-        <div className={"flex flex-row bg-white items-center p-5"}>
-          <div className="image-background flex w-20 h-20 mr-4 rounded-full">
-            <img
-              className={"sm:w-16 sm:h-16 rounded-full w-20 h-20"}
-              src={item.image}
-            />
-          </div>
-          <p className={"ml-10 sm:ml-4 font-medium text-base m-0"}>
-            {item.description}
-          </p>
-        </div>
-      </div>
-    );
+  const onTabChange = (key) => {
+    setactiveId(key);
   };
 
   const renderWhatWeDo = () => {
     return (
       <>
-        <div className={"p-3 px-4 sm:w-full sm:px-3"}>
-          <div className={"flex flex-row bg-white items-center p-5"}>
-            <h4>{service.acf.group_1.title}</h4>
-            <p className={"ml-10 sm:ml-4 font-medium text-base m-0"}>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: service.acf.group_1.description,
-                }}
-              />
-            </p>
-          </div>
+        <div className="about-detail-content w-full">
+          <Tabs tabPosition="left" onChange={onTabChange}>
+            {categories.map((cat) => {
+              return (
+                <TabPane key={cat.id} tab={cat.name}>
+                  <AboutDetail catId={activeId} />
+                </TabPane>
+              );
+            })}
+          </Tabs>
         </div>
       </>
     );
@@ -126,7 +111,11 @@ const About = ({ contact, posts, services, histories }) => {
                   </div>
                   <div className={" w-1/2 flex align-center"}>
                     <div>
-                      <h2 className={"font-medium mb-8 text-xl"}>
+                      <h2
+                        className={
+                          "text-menuTextColor leading-8 font-bold text-2xl mb-10"
+                        }
+                      >
                         <div
                           dangerouslySetInnerHTML={{
                             __html: post.title.rendered,
@@ -144,7 +133,7 @@ const About = ({ contact, posts, services, histories }) => {
                 </div>
               </div>
               <div
-                className="section what-we-do"
+                className="section odd what-we-do"
                 style={{
                   backgroundImage: `url(${getData(
                     service._embedded,
@@ -154,7 +143,11 @@ const About = ({ contact, posts, services, histories }) => {
               >
                 <div className="auto-overflow">
                   <div className={"px-32"}>
-                    <h2 className={"text-white mb-8 text-xl font-medium"}>
+                    <h2
+                      className={
+                        "text-menuTextColor leading-8 font-bold text-2xl mb-30"
+                      }
+                    >
                       <div
                         dangerouslySetInnerHTML={{
                           __html: service.title.rendered,
@@ -214,7 +207,13 @@ About.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { contact, posts, services, histories };
+  const categories = await fetcher(
+    `${Config.apiUrl}/wp/v2/categories?parent=208&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  return { contact, posts, services, histories, categories };
 };
 
 export default About;
