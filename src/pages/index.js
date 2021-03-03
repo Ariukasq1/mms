@@ -62,7 +62,7 @@ Index.getInitialProps = async (ctx) => {
   const sliders = await fetcher(
     `${
       Config.apiUrl
-    }/wp/v2/posts?_embed&categories=215&filter[orderby]=id&order=asc${
+    }/wp/v2/posts?_embed&categories=215&filter[orderby]=id&order=asc&${
       query === "mn" ? "?lang=" + query : ""
     }`
   );
@@ -88,7 +88,7 @@ Index.getInitialProps = async (ctx) => {
   const industries = await fetcher(
     `${
       Config.apiUrl
-    }/wp/v2/posts?_embed&categories=111&filter[orderby]=id&order=asc${
+    }/wp/v2/posts?_embed&categories=111&filter[orderby]=id&order=asc&${
       query === "mn" ? "?lang=" + query : ""
     }`
   );

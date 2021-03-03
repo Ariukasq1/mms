@@ -57,7 +57,7 @@ Categories.getInitialProps = async (ctx) => {
   const posts = await fetcher(
     `${
       Config.apiUrl
-    }/wp/v2/posts?_embed&categories=${catId}&per_page=40&filter[orderby]=id&order=asc${
+    }/wp/v2/posts?_embed&categories=${catId}&per_page=40&filter[orderby]=id&order=asc&${
       lang === "mn" ? "lang=" + lang : ""
     }`
   );

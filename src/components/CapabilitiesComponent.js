@@ -23,7 +23,7 @@ const CapabilitiesComponent = ({ data }) => {
         </div>
         <Link
           href={{ pathname: `/[categories]`, query: { lang: language } }}
-          as={`${data.slug}?lang=${language}`}
+          as={`capabilities?lang=${language}`}
         >
           <a className="bg-transparent hover:bg-menuTextColor text-black text-lg font-semibold hover:text-white py-2 px-4 border border-menuTextColor hover:border-transparent rounded">
             {__("Read more")}

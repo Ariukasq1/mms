@@ -136,7 +136,7 @@ Index.getInitialProps = async (ctx) => {
   const career = await fetcher(
     `${
       Config.apiUrl
-    }/wp/v2/posts?_embed&categories=211&filter[orderby]=id&order=asc${
+    }/wp/v2/posts?_embed&categories=211&filter[orderby]=id&order=asc&${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );

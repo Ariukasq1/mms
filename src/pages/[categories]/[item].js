@@ -128,7 +128,7 @@ Item.getInitialProps = async (ctx) => {
   const postItems = await fetcher(
     `${
       Config.apiUrl
-    }/wp/v2/posts?_embed&categories=${categories}&per_page=40&filter[orderby]=id&order=asc${
+    }/wp/v2/posts?_embed&categories=${categories}&per_page=40&filter[orderby]=id&order=asc&${
       lang === "mn" ? "lang=" + lang : ""
     }`
   );
