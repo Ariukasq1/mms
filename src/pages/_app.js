@@ -1,5 +1,6 @@
 import React from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import "../public/styles/fontawesome/css/all.min.css";
+import "../public/styles/cf7/cf7-smart-grid.min.css";
 import "antd/dist/antd.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
