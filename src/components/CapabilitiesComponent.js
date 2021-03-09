@@ -9,7 +9,8 @@ const CapabilitiesComponent = ({ data }) => {
   return (
     <div className="capabilities flex xl:flex-row sm:flex-col justify-between items-center">
       <div
-        className="capabilitiesTexts pr-32 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-16 sm:pr-8 bg-white animate__animated animate__bounce"
+        className="capabilitiesTexts pr-32 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-16 sm:pr-8 bg-white"
+        data-aos="fade-up"
         style={{ flexBasis: "50%", paddingLeft: "14rem" }}
       >
         <div className="capabilitiesTag text-black font-bold sm:text-base">

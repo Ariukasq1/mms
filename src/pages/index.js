@@ -7,6 +7,7 @@ import CapabilitiesComponent from "../components/CapabilitiesComponent";
 import IndustryComponent from "../components/IndustryComponent";
 import BrandsComponent from "../components/BrandsComponent";
 import { fetcher } from "../utils";
+import FullPage from "../components/FullPage";
 
 const Index = ({
   sliders,
@@ -15,40 +16,31 @@ const Index = ({
   capability,
   industries,
 }) => {
-  const anchors = ["section1", "section2", "section3", "section4", "section5"];
-
   return (
     <Layout>
       <div className="relative">
-        <ReactFullpage
-          anchors={anchors}
-          navigationPosition={"left"}
-          navigation
-          paddingTop={"116px"}
-          scrollOverflow={true}
-          render={() => {
-            return (
-              <div id="fullpage homeScreen">
-                <div className="section slider">
-                  <HomeSlider sliders={sliders} />
-                </div>
-                <div className="section capabilities">
-                  <CapabilitiesComponent data={capability[0]} />
-                </div>
-                <div className="section industry">
-                  <IndustryComponent industries={industries} />
-                </div>
-                <div className="section brands bg-white">
-                  <div className="ml-32">
-                    <BrandsComponent
-                      brands={brands}
-                      brandCategories={brandCategories}
-                    />
-                  </div>
+        <FullPage
+          children={
+            <div id="fullpage homeScreen">
+              <div className="section slider">
+                <HomeSlider sliders={sliders} />
+              </div>
+              <div className="section capabilities">
+                <CapabilitiesComponent data={capability[0]} />
+              </div>
+              <div className="section industry">
+                <IndustryComponent industries={industries} />
+              </div>
+              <div className="section brands bg-white">
+                <div className="ml-32">
+                  <BrandsComponent
+                    brands={brands}
+                    brandCategories={brandCategories}
+                  />
                 </div>
               </div>
-            );
-          }}
+            </div>
+          }
         />
       </div>
     </Layout>

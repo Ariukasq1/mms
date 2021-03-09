@@ -9,6 +9,8 @@ import "../public/styles/style.min.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import App from "next/app";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import axios from "axios";
 import { Config } from "../config";
 import DataContext from "../components/DataContext";
@@ -32,6 +34,11 @@ function MyApp({ Component, pageProps, top_menu, bottom_menu, lang }) {
       setLangState(true);
     });
   }
+
+  React.useEffect(() => {
+    AOS.init({ duration: 1500 });
+    AOS.refresh();
+  }, []);
 
   return (
     <DataContext.Provider value={{ top_menu, bottom_menu }}>

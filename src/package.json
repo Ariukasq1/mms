@@ -19,6 +19,7 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "antd": "^4.5.1",
+    "aos": "^2.3.4",
     "axios": "^0.19.2",
     "core-js": "2",
     "express": "^4.17.1",
