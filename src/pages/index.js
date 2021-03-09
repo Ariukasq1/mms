@@ -26,8 +26,7 @@ const Index = ({
           navigation
           paddingTop={"116px"}
           scrollOverflow={true}
-          onLeave={(origin, destination, direction) => {}}
-          render={({ state, fullpageApi }) => {
+          render={() => {
             return (
               <div id="fullpage homeScreen">
                 <div className="section slider">

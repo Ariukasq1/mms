@@ -4,69 +4,65 @@
 
 /** Black */
 @font-face {
-  font-family: "SFCompactDisplay";
+  font-family: "Raleway";
   font-weight: 900;
-  src: url("../fonts/SF-Compact-Display-Black.otf");
+  src: url("../fonts/Raleway-Black.ttf");
 }
 
 /** Bold */
 @font-face {
-  font-family: "SFCompactDisplay";
+  font-family: "Raleway";
   font-weight: 700;
-  src: url("../fonts/SF-Compact-Display-Bold.otf");
+  src: url("../fonts/Raleway-Bold.ttf");
 }
 
 /** Heavy */
 @font-face {
-  font-family: "SFCompactDisplay";
+  font-family: "Raleway";
   font-weight: 800;
-  src: url("../fonts/SF-Compact-Display-Heavy.otf");
+  src: url("../fonts/Raleway-ExtraBold.ttf");
 }
 
 /** Light */
 @font-face {
-  font-family: "SFCompactDisplay";
+  font-family: "Raleway";
   font-weight: 200;
-  src: url("../fonts/SF-Compact-Display-Light.otf");
+  src: url("../fonts/Raleway-Light.ttf");
 }
 
 /** Medium */
 @font-face {
-  font-family: "SFCompactDisplay";
+  font-family: "Raleway";
   font-weight: 500;
-  src: url("../fonts/SF-Compact-Display-Medium.otf");
+  src: url("../fonts/Raleway-Medium.ttf");
 }
 
 /** Regular */
 @font-face {
-  font-family: "SFCompactDisplay";
+  font-family: "Raleway";
   font-weight: 400;
-  src: url("../fonts/SF-Compact-Display-Regular.otf");
+  src: url("../fonts/Raleway-Regular.ttf");
 }
 
 /** Semibold */
 @font-face {
-  font-family: "SFCompactDisplay";
+  font-family: "Raleway";
   font-weight: 600;
-  src: url("../fonts/SF-Compact-Display-Semibold.otf");
+  src: url("../fonts/Raleway-SemiBold.ttf");
 }
 
 /** Thin */
 @font-face {
-  font-family: "SFCompactDisplay";
+  font-family: "Raleway";
   font-weight: 100;
-  src: url("../fonts/SF-Compact-Display-Thin.otf");
+  src: url("../fonts/Raleway-Thin.ttf");
 }
 
 /** UltraLight */
 @font-face {
-  font-family: "SFCompactDisplay";
+  font-family: "Raleway";
   font-weight: 50;
-  src: url("../fonts/SF-Compact-Display-Ultralight.otf");
-}
-
-body {
-  font-family: "SFCompactDisplay", sans-serif;
+  src: url("../fonts/Raleway-ExtraLight.ttf");
 }
 
 a:hover {

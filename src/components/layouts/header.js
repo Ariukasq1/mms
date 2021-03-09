@@ -48,6 +48,11 @@ function Header({ title, image }) {
         <meta name="twitter:creator" content="@your-site-twitter-name" />
         <meta name="twitter:image:alt" content="Gerege WP Template" />
         <link rel="shortcut icon" id="favicon" href="/favicon.ico"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
     </>
   );
