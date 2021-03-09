@@ -2,7 +2,6 @@
 .slider {
   .text {
     width: 50%;
-    padding-right: 40px;
 
     .title {
       font-size: 80px;
@@ -13,7 +12,7 @@
     .desc {
       margin: 0;
       font-size: 24px;
-      font-weight: 300;
+      font-weight: 500;
       opacity: 0.8;
     }
   }
@@ -24,7 +23,12 @@
 }
 
 .industry {
-  .ant-tabs-left {
+  .ant-tabs {
+    .ant-tabs-nav-list {
+      margin-top: 16%;
+      height: 100%;
+    }
+
     .ant-tabs-nav {
       flex-basis: 50%;
     }
@@ -55,6 +59,7 @@
     .ant-tabs-tab {
       height: 90px;
       padding: 0 !important;
+      background: #fff;
 
       &.ant-tabs-tab-active .title {
         color: #00488d;
@@ -72,19 +77,16 @@
     }
   }
 
-  .capabilitiesImage {
-    img {
-      max-height: 400px;
-      margin-left: auto;
-      margin-right: auto;
+  .ant-tabs-content-holder {
+    .desc {
       animation-name: bounce-1;
       animation-duration: 1s;
-      border-radius: 5px;
       animation-timing-function: linear;
     }
-    .desc {
-      min-height: 140px;
-    }
+  }
+
+  .heading-tag {
+    top: 5rem;
   }
 }
 

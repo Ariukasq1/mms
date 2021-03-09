@@ -41,7 +41,7 @@ export default class AboutDetail extends React.Component {
           } gap-4`}
         >
           {items.map((item, index) => (
-            <div key={index} className="supply-item flex flex-col align-center">
+            <div key={index} className="supply-item flex flex-col items-center">
               <div className="wrapper mb-5">
                 <img
                   src={item.icon ? item.icon : "/images/check.png"}

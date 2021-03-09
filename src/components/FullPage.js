@@ -15,9 +15,14 @@ export default class FullPage extends React.Component {
 
   render() {
     const { children } = this.props;
+    const anchors = Array.from(
+      { length: 10 },
+      (_, index) => `section${index + 1}`
+    );
 
     return (
       <ReactFullpage
+        anchors={anchors}
         navigationPosition={"left"}
         navigation
         paddingTop={"116px"}

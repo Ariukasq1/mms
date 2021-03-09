@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../components/layouts/Layout";
-import ReactFullpage from "../lib/fullpage";
 import { Config } from "../config";
 import HomeSlider from "../components/layouts/HomeSlider";
 import CapabilitiesComponent from "../components/CapabilitiesComponent";
@@ -8,6 +7,7 @@ import IndustryComponent from "../components/IndustryComponent";
 import BrandsComponent from "../components/BrandsComponent";
 import { fetcher } from "../utils";
 import FullPage from "../components/FullPage";
+import Footer from "../components/layouts/footer";
 
 const Index = ({
   sliders,
@@ -15,6 +15,7 @@ const Index = ({
   brandCategories,
   capability,
   industries,
+  contact,
 }) => {
   return (
     <Layout>
@@ -39,6 +40,9 @@ const Index = ({
                   />
                 </div>
               </div>
+              <div className="section footer">
+                <Footer contact={contact} />
+              </div>
             </div>
           }
         />
@@ -48,31 +52,31 @@ const Index = ({
 };
 
 Index.getInitialProps = async (ctx) => {
-  const query = ctx.query.lang;
+  const lang = ctx.query.lang;
 
   const sliders = await fetcher(
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=215&filter[orderby]=id&order=asc&${
-      query === "mn" ? "?lang=" + query : ""
+      lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
   const brandCategories = await fetcher(
     `${Config.apiUrl}/wp/v2/categories?parent=112&${
-      query === "mn" ? "?lang=" + query : ""
+      lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
   const brands = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=20&${
-      query === "mn" ? "?lang=" + query : ""
+      lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
   const capability = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=216&${
-      query === "mn" ? "?lang=" + query : ""
+      lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
@@ -80,17 +84,23 @@ Index.getInitialProps = async (ctx) => {
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=111&filter[orderby]=id&order=asc&${
-      query === "mn" ? "?lang=" + query : ""
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  const contact = await fetcher(
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235&${
+      lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
   return {
     sliders,
-    query,
     brandCategories,
     brands,
     capability,
     industries,
+    contact,
   };
 };
 

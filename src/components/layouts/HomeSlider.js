@@ -17,61 +17,72 @@ const HomeSlider = ({ sliders }) => {
   }
 
   const renderSlider = sliders.map((slider, index) => {
-    const sliderObj = slider.acf;
-    const sliderTitle = sliderObj.body.text;
-    const sliderFontColor = sliderObj.body.font_color;
-    const sliderDesc = sliderObj.body.description;
-    const sliderImage = sliderObj.image;
+    const {
+      body,
+      image,
+      background_color,
+      position_of_image,
+      position_of_text,
+    } = slider.acf || {};
+
+    const { text, description, font_color } = body || {};
 
     return (
       <div key={index}>
         <div
           style={{
             background:
-              sliderObj.position_of_image &&
-              sliderObj.position_of_image === "full width"
-                ? `url(${sliderImage})`
-                : sliderObj.background_color,
+              position_of_image && position_of_image === "full width"
+                ? `url(${image})`
+                : background_color,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
+            justifyContent:
+              position_of_image === "full width"
+                ? position_of_text === "right"
+                  ? "flex-end"
+                  : position_of_text || "left"
+                : "space-between",
           }}
-          className={`wrapper h-body sm:px-10 sm:flex-col px-56 md:px-24 lg:px-20 justify-between sm:justify-evenly  ${
-            sliderObj.position_of_image === "right"
+          className={`h-body sm:px-10 sm:flex-col px-56 md:px-24 lg:px-20 flex  justify-between items-center sm:justify-evenly  ${
+            position_of_image === "right"
               ? "flex-row"
-              : "flex-row-reverse"
+              : position_of_image === "left" && "flex-row-reverse"
           }`}
         >
           <div
             className={`text mr-10 sm:ml-8 sm:mr-0 md:m-0`}
+            data-aos="fade-down"
             style={{
               width:
-                sliderObj.position_of_image &&
-                sliderObj.position_of_image === "full width" &&
+                position_of_image &&
+                position_of_image === "full width" &&
                 "62%",
+              textAlign: position_of_text || "left",
             }}
           >
             <div
               className="title text-left  leading-snug 2xl:w-full text-7xl sm:text-4xl sm:w-full  sm:mb-0 sm:mx-0 md:mx-0 md:w-full md:leading-none lg:w-full xl:w-full mb-20"
-              dangerouslySetInnerHTML={{ __html: sliderTitle }}
+              dangerouslySetInnerHTML={{ __html: text }}
               style={{
-                color: sliderFontColor,
+                color: font_color,
+                textAlign: position_of_text || "left",
               }}
             />
             <div
               className="desc mx-10 text-xl sm:mx-0 md:mx-0"
-              dangerouslySetInnerHTML={{ __html: sliderDesc }}
+              dangerouslySetInnerHTML={{ __html: description }}
               style={{
-                color: sliderFontColor,
+                color: font_color,
               }}
             />
           </div>
-          {sliderObj.position_of_image &&
-            sliderObj.position_of_image !== "full width" && (
-              <div className="image w-4/7 sm:ml-8">
-                <img src={sliderImage} alt="cover image" />
-              </div>
-            )}
+          {position_of_image && position_of_image !== "full width" && (
+            <div className="image w-4/7 sm:ml-8">
+              <img src={image} alt="cover image" />
+            </div>
+          )}
         </div>
       </div>
     );

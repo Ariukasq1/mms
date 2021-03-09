@@ -140,7 +140,7 @@ const MenuComponent = () => {
             </div>
             <div className={"bottomMenuSearchMenu flex flex-row  "}>
               <a className={"mx-4"}>
-                <i className="fa fa-search" aria-hidden="true" />
+                <i className="fas fa-search" aria-hidden="true" />
               </a>
               <a onClick={showDrawer} className={"mx-4 my-auto"}>
                 <img src={burger} />

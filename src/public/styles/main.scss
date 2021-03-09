@@ -1,70 +1,3 @@
-/*---------------------------------------------------------------------------*
- * SF UI Display
- *---------------------------------------------------------------------------*/
-
-/** Black */
-@font-face {
-  font-family: "Raleway";
-  font-weight: 900;
-  src: url("../fonts/Raleway-Black.ttf");
-}
-
-/** Bold */
-@font-face {
-  font-family: "Raleway";
-  font-weight: 700;
-  src: url("../fonts/Raleway-Bold.ttf");
-}
-
-/** Heavy */
-@font-face {
-  font-family: "Raleway";
-  font-weight: 800;
-  src: url("../fonts/Raleway-ExtraBold.ttf");
-}
-
-/** Light */
-@font-face {
-  font-family: "Raleway";
-  font-weight: 200;
-  src: url("../fonts/Raleway-Light.ttf");
-}
-
-/** Medium */
-@font-face {
-  font-family: "Raleway";
-  font-weight: 500;
-  src: url("../fonts/Raleway-Medium.ttf");
-}
-
-/** Regular */
-@font-face {
-  font-family: "Raleway";
-  font-weight: 400;
-  src: url("../fonts/Raleway-Regular.ttf");
-}
-
-/** Semibold */
-@font-face {
-  font-family: "Raleway";
-  font-weight: 600;
-  src: url("../fonts/Raleway-SemiBold.ttf");
-}
-
-/** Thin */
-@font-face {
-  font-family: "Raleway";
-  font-weight: 100;
-  src: url("../fonts/Raleway-Thin.ttf");
-}
-
-/** UltraLight */
-@font-face {
-  font-family: "Raleway";
-  font-weight: 50;
-  src: url("../fonts/Raleway-ExtraLight.ttf");
-}
-
 a:hover {
   color: #5d7db8;
 }
@@ -147,24 +80,9 @@ a:hover {
   overflow: auto;
 }
 
-.fp-viewing-section1 #fp-nav ul li a span {
-  background: white !important;
-}
-
-.fp-viewing-section2 #fp-nav ul li a span {
-  background: $primary-color;
-}
-
-.fp-viewing-section3 #fp-nav ul li a span {
-  background: $primary-color;
-}
-
-.fp-viewing-section4 #fp-nav ul li a span {
-  background: $primary-color;
-}
-
+.fp-viewing-section1 #fp-nav ul li a span,
 .fp-viewing-section5 #fp-nav ul li a span {
-  background: $primary-color;
+  background: white !important;
 }
 
 #fp-nav ul {
@@ -206,8 +124,6 @@ section {
 
 .wrapper {
   display: flex;
-  //height: 100vh;
-  //padding-top: 116px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -240,6 +156,28 @@ section {
 }
 .ant-carousel {
   margin: auto;
+}
+.heading-tag {
+  color: $color-yellow;
+}
+.heading-title {
+  line-height: 3rem;
+}
+.btn-gradient {
+  background-image: linear-gradient(
+    to right,
+    #004a8f 0%,
+    #617fb9 51%,
+    #004a8f 100%
+  );
+  color: $color-white !important;
+  background-size: 200% auto;
+  transition-duration: 0.3s;
+  transition: all ease 0.3s;
+
+  &:hover {
+    background-position: right center;
+  }
 }
 
 //.slick-slider {

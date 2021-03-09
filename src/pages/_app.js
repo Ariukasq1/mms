@@ -1,5 +1,4 @@
 import React from "react";
-import "../public/styles/fontawesome/css/all.min.css";
 import "../public/styles/cf7/cf7-smart-grid.min.css";
 import "antd/dist/antd.css";
 import "slick-carousel/slick/slick.css";
@@ -36,7 +35,7 @@ function MyApp({ Component, pageProps, top_menu, bottom_menu, lang }) {
   }
 
   React.useEffect(() => {
-    AOS.init({ duration: 1500 });
+    AOS.init({ duration: 1000 });
     AOS.refresh();
   }, []);
 

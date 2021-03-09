@@ -109,7 +109,7 @@ const About = ({ contact, posts, services, histories, categories }) => {
                       src={getData(post._embedded, "image")}
                     />
                   </div>
-                  <div className={" w-1/2 flex align-center"}>
+                  <div className={" w-1/2 flex items-center"}>
                     <div>
                       <h2
                         className={
@@ -170,7 +170,7 @@ const About = ({ contact, posts, services, histories, categories }) => {
                 </div>
               </div>
               <div className="section footer">
-                <Footer data={contact} />
+                <Footer contact={contact} />
               </div>
             </div>
           );

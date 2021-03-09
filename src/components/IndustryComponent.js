@@ -15,54 +15,61 @@ const IndustryComponent = ({ industries }) => {
   }
 
   return (
-    <div className="industry flex flex-row justify-between items-center sm:flex-col">
-      <div className="industryTexts pl-64 pr-40 xl:pl-24 lg:pr-12 lg:pl-24 sm:px-16 sm:pr-8 md:pl-24 md:pr-4 ">
-        <div className="industryTag text-black font-bold sm:text-base mb-20">
-          #{__("industries")}
-        </div>
-        <Tabs defaultActiveKey="1" tabPosition="left">
-          {industries.map((item, i) => {
-            if (!item.title.rendered) {
-              return null;
-            }
-
-            return (
-              <TabPane
-                tab={
-                  <div className="title">
-                    {item.title.rendered}
-                    <img className="image-icon" src={arrowImage} />
-                  </div>
-                }
-                key={i}
-              >
-                <div
-                  className="capabilitiesImage  md:pr-8"
-                  style={{ flexBasis: "50%" }}
-                >
-                  <img
-                    className="object-cover mb-8 xl:mb-8  sm:w-48 sm:m-auto sm:my-8 lg:w-3/4 lg:mb-8 xl:w-5/6"
-                    src={getData(item._embedded, "image")}
-                    alt="image"
-                  />
-                  <div className="desc text-lg sm:text-base,w-full sm:px-16 sm:pr-8 md:w-full lg:w-3/4 xl:w-5/6">
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: item.excerpt.rendered,
-                      }}
-                    />
-                  </div>
-                </div>
-              </TabPane>
-            );
-          })}
-        </Tabs>
-        <Link href={{ pathname: `/[categories]`, query: { lang: language } }}>
-          <a className="bg-transparent hover:bg-menuTextColor text-black text-sm font-semibold hover:text-white py-2 px-8 border border-menuTextColor hover:border-transparent rounded">
-            {__("Read more")}
-          </a>
-        </Link>
+    <div className="industry relative justify-between items-center">
+      <div className="heading-tag capitalize text-xl font-bold pl-48 top-16 absolute sm:text-lg">
+        {__("industries")}
       </div>
+      <Tabs defaultActiveKey="0" tabPosition="left">
+        {industries.map((item, i) => {
+          if (!item.title.rendered) {
+            return null;
+          }
+
+          return (
+            <TabPane
+              key={i}
+              tab={
+                <div
+                  className="title pl-48"
+                  data-aos="fade-right"
+                  data-aos-easing="ease"
+                  data-aos-delay={`${i}00`}
+                  data-aos-duration="3000"
+                  data-aos-offset="300"
+                >
+                  {item.title.rendered}
+                  <img className="image-icon" src={arrowImage} />
+                </div>
+              }
+            >
+              <div
+                className="w-full h-body relative md:pr-8"
+                style={{
+                  flexBasis: "50%",
+                  backgroundImage: `url(${getData(item._embedded, "image")})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              >
+                <div className="bg-black opacity-50 absolute inset-0" />
+                <div className="desc text-lg p-40 pr-32 text-white overflow-ellipsis overflow-hidden font-medium relative h-80 sm:text-base,w-full sm:px-16 sm:pr-8 md:w-full lg:w-3/4 xl:w-5/6">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: item.content.rendered,
+                    }}
+                  />
+                </div>
+              </div>
+            </TabPane>
+          );
+        })}
+      </Tabs>
+      <Link href={{ pathname: `/[categories]`, query: { lang: language } }}>
+        <a className="text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48">
+          {__("Read more")}
+        </a>
+      </Link>
     </div>
   );
 };

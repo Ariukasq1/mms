@@ -37,7 +37,7 @@ const Index = ({ career }) => {
             >
               <a>
                 <div className="card">
-                  <div className="bg-wrapper flex align-center justify-center">
+                  <div className="bg-wrapper flex items-center justify-center">
                     <img src={getData(item._embedded, "image")} alt="image" />
                   </div>
                   <div className="content p-6">

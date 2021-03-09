@@ -21,7 +21,7 @@ const renderProjects = (projects, post, language) => {
           href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
         >
           <div
-            className="project flex justify-center align-center row-span-2 col-span-1 relative"
+            className="project flex justify-center items-center row-span-2 col-span-1 relative"
             style={{
               backgroundImage: `url(${getData(project._embedded, "image")})`,
             }}
@@ -32,7 +32,7 @@ const renderProjects = (projects, post, language) => {
                   dangerouslySetInnerHTML={{ __html: project.title.rendered }}
                 />
               </h4>
-              <div className="flex align-center more">
+              <div className="flex items-center more">
                 <a
                   className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
                   href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
