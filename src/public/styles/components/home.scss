@@ -189,33 +189,31 @@
 }
 
 .brands {
+  .fp-tableCell {
+    vertical-align: inherit;
+  }
   .category-wrapper {
     list-style: none;
     padding: 0;
 
     li {
-      display: flex;
-      align-items: center;
-      margin-right: 20px;
-      max-width: 200px;
-      min-width: 105px;
-      font-size: 16px;
-      text-transform: lowercase;
-      font-weight: 500;
-      padding: 10px 12px;
       line-height: 22px;
       cursor: pointer;
       transition: all ease 0.3s;
 
       &.active {
-        border: 1px solid $primary-color;
-        color: $primary-color;
-        border-radius: 2px;
+        background: linear-gradient(to right, #8da0cd 2%, #004280 82%);
+        font-weight: 600;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       &:hover {
         color: $primary-color;
       }
+    }
+    span:last-child {
+      display: none;
     }
   }
   .single-brand {
@@ -246,6 +244,26 @@
         object-fit: cover;
       }
     }
+  }
+  .slick-slide {
+    padding: 0 15px;
+  }
+
+  .slick-prev {
+    left: 67%;
+    top: auto;
+    bottom: -40px;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .slick-next {
+    top: auto;
+    right: 25%;
+    bottom: -40px;
+    transform: initial;
+    width: auto !important;
+    height: auto !important;
   }
 }
 

@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import arrow from "../public/images/arrow.svg";
 import mainStore from "../stores";
 import Link from "next/link";
-import { getData, sliderSettings } from "../utils";
+import { getData, sliderSettings, __ } from "../utils";
 
 class BrandsComponent extends React.Component {
   constructor(props) {
@@ -72,28 +72,31 @@ class BrandsComponent extends React.Component {
     const { brandCategories } = this.props;
     const { brandId } = this.state;
 
-    const instance = (
-      <ul className="flex category-wrapper mb-40">
+    const categories = (
+      <ul className="flex justify-center category-wrapper mb-20">
         <li
-          className={brandId === 0 ? "active" : null}
+          className={`text-sm font-medium py-2 px-3 ${
+            brandId === 0 ? "active" : ""
+          }`}
           onClick={this.filterBrand.bind(this, 0)}
           href="/brands?lang=en"
         >
-          <div className="flex">
-            <div>#</div>All brands
-          </div>
+          {__("All brands")}
         </li>
+        <span className="py-2 font-bold">/</span>
         {brandCategories.map((category) => (
-          <li
-            key={category.id}
-            className={brandId === category.id ? "active" : null}
-            onClick={this.filterBrand.bind(this, category.id)}
-          >
-            <div className="flex">
-              <div>#</div>
+          <>
+            <li
+              key={category.id}
+              className={`text-sm font-medium p-2 ${
+                brandId === category.id ? "active" : ""
+              }`}
+              onClick={this.filterBrand.bind(this, category.id)}
+            >
               {category.name}
-            </div>
-          </li>
+            </li>
+            <span className="py-2 font-bold">/</span>
+          </>
         ))}
       </ul>
     );
@@ -103,9 +106,14 @@ class BrandsComponent extends React.Component {
         className="justify-start items-start brands sm:ml-10 sm:mr-4"
         style={{ backgroundColor: "white" }}
       >
-        <div className="header">
-          <h2>Brands</h2>
-          {instance}
+        <div className="text-center">
+          <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+            {__("Brands")}
+          </div>
+          <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+            {__("Our products")}
+          </div>
+          {categories}
         </div>
         {this.renderBrands()}
       </div>

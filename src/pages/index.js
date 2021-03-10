@@ -32,8 +32,8 @@ const Index = ({
               <div className="section industry">
                 <IndustryComponent industries={industries} />
               </div>
-              <div className="section brands bg-white">
-                <div className="ml-32">
+              <div className="section brands">
+                <div className="ml-32 mr-16 mt-20">
                   <BrandsComponent
                     brands={brands}
                     brandCategories={brandCategories}
