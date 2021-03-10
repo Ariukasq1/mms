@@ -1,9 +1,24 @@
-footer {
-  background: #eee;
+.section.footer {
+  .bg-contact {
+    .socials {
+      a {
+        span {
+          width: 3rem;
+          height: 3rem;
+          line-height: 3rem;
+          font-size: 1.4rem;
+          border-radius: 50px;
+          margin-right: 10px;
+          transition: background-color 0.2s ease-in-out;
+        }
 
-  .copyright { 
-    opacity: .9;
-
-    img { width: 110px; }
+        &:hover {
+          span {
+            background-color: $color-white;
+            color: $text-color;
+          }
+        }
+      }
+    }
   }
 }

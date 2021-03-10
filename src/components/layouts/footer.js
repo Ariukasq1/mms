@@ -4,6 +4,11 @@ import {
   PrinterOutlined,
   MailOutlined,
   HomeOutlined,
+  FacebookOutlined,
+  InstagramOutlined,
+  YoutubeOutlined,
+  TwitterOutlined,
+  LinkedinOutlined,
 } from "@ant-design/icons";
 import { __ } from "../../utils";
 
@@ -69,14 +74,14 @@ class Footer extends React.Component {
               &emsp;
               <p className={"text-lg  text-white"}> {email}</p>
             </div>
-            <div className={"flex flex-row socials"}>
+            <div className={"flex flex-row socials mt-20"}>
               {facebook && (
                 <a
                   className="flex items-center justify-center"
                   href={facebook}
                   target="_blank"
                 >
-                  <i className="fab fa-facebook-f" aria-hidden="true"></i>
+                  <FacebookOutlined />
                 </a>
               )}
               {instagram && (
@@ -85,7 +90,7 @@ class Footer extends React.Component {
                   href={instagram}
                   target="_blank"
                 >
-                  <i className="fab fa-instagram" aria-hidden="true"></i>
+                  <InstagramOutlined />
                 </a>
               )}
               {linkedin && (
@@ -94,7 +99,7 @@ class Footer extends React.Component {
                   href={linkedin}
                   target="_blank"
                 >
-                  <i className="fab fa-linkedin-in" aria-hidden="true"></i>
+                  <LinkedinOutlined twoToneColor="#eb2f96" />
                 </a>
               )}
               {youtube && (
@@ -103,7 +108,7 @@ class Footer extends React.Component {
                   href={youtube}
                   target="_blank"
                 >
-                  <i className="fab fa-youtube" aria-hidden="true"></i>
+                  <YoutubeOutlined />
                 </a>
               )}
               {twitter && (
@@ -112,7 +117,7 @@ class Footer extends React.Component {
                   href={twitter}
                   target="_blank"
                 >
-                  <i className="fab fa-twitter" aria-hidden="true"></i>
+                  <TwitterOutlined />
                 </a>
               )}
             </div>
