@@ -1,9 +1,11 @@
 import React from "react";
 import axios from "axios";
+import CountUp from "react-countup";
+import VisibilitySensor from "react-visibility-sensor";
 import { Config } from "../../config";
 import { getData } from "../../utils";
 
-class ItemDetail extends React.Component {
+class ItemFacts extends React.Component {
   constructor(props) {
     super(props);
 
@@ -87,38 +89,61 @@ class ItemDetail extends React.Component {
     }
 
     return (
-      <div className="category-item">
-        <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
-          <div className="flex">
-            <div className="w-1/2 flex flex-col mx-12 mt-20">
-              {this.renderSupport(post.acf)}
-            </div>
-            <div className="w-1/2">
-              <div
-                className="item-image bg-cover bg-no-repeat h-body object-cover object-center cursor-pointer relative"
-                style={{
-                  backgroundImage: `url(${getData(post._embedded, "image")})`,
-                }}
-              >
-                <div className="inner-content">
-                  <div className="inner-content-overlay absolute inset-0" />
-                  <div className="inner-content-detail text-white absolute">
-                    <h2 className="block text-2xl font-bold capitalize text-white mb-4">
-                      {post.title && post.title.rendered}
-                    </h2>
-                    <div className="auto-overflow mb-4">
-                      <div
-                        className="text-lg font-medium"
-                        dangerouslySetInnerHTML={{
-                          __html: post.content && post.content.rendered,
-                        }}
-                      />
+      <div
+        className="item-facts h-body object-cover bg-no-repear bg-cover text-white relative z-0"
+        style={{
+          backgroundImage: `url(${
+            post && post.acf && (post.acf || {}).bg_image
+          })`,
+        }}
+      >
+        <div className="px-40 flex itens-center justify-center h-full">
+          <div className="grid gap-0 grid-cols-2 my-4">
+            {Object.entries((post && post.acf) || {}).map(([key, value]) => {
+              if (!key.includes("group")) {
+                return null;
+              }
+
+              return (
+                <div
+                  className="fact-item flex items-center justify-center py-8 px-40"
+                  key={key}
+                >
+                  <div className="flex flex-col items-center text-center align-center">
+                    <img
+                      className="w-20 mb-4 icon"
+                      src={value.icon}
+                      alt="image"
+                    />
+                    <div className="desc leading-5 text-lg font-semibold">
+                      {value.upper_text}
                     </div>
-                    <div className="divider block bg-white" />
+                    <div className="font-extrabold text-5xl fact-text">
+                      {!Number(value.number) ? (
+                        value.number
+                      ) : (
+                        <CountUp
+                          start={0}
+                          end={Number(value.number)}
+                          separator=","
+                          duration={3}
+                        >
+                          {({ countUpRef, start }) => (
+                            <VisibilitySensor onChange={start} delayedCall>
+                              <span ref={countUpRef} />
+                            </VisibilitySensor>
+                          )}
+                        </CountUp>
+                      )}
+                      <span className="ml-4">{value.number_format}</span>
+                    </div>
+                    <div className="desc leading-5 text-lg font-semibold">
+                      {value.bottom_text}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -126,4 +151,4 @@ class ItemDetail extends React.Component {
   }
 }
 
-export default ItemDetail;
+export default ItemFacts;

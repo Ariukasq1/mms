@@ -6,6 +6,8 @@ import SliderSubCategories from "../../components/SliderSubCategories";
 import { fetcher } from "../../utils";
 import FullPage from "../../components/FullPage";
 import ItemDetail from "./detail";
+import ItemFacts from "./facts";
+import ItemRelations from "./relations";
 
 const Categories = ({ posts, querySlug, lang }) => {
   const [showDetail, setShowDetail] = useState(false);
@@ -40,15 +42,31 @@ const Categories = ({ posts, querySlug, lang }) => {
                   </div>
                 </div>
               </div>
-              {/* {showDetail && ( */}
-              <div className="section odd item-detail">
-                <ItemDetail
-                  currentItemId={currentItemId}
-                  showDetail={showDetail}
-                  lang={lang}
-                />
-              </div>
-              {/* )} */}
+              {showDetail && (
+                <>
+                  <div className="section odd item-detail">
+                    <ItemDetail
+                      currentItemId={currentItemId}
+                      showDetail={showDetail}
+                      lang={lang}
+                    />
+                  </div>
+                  <div className="section facts">
+                    <ItemFacts
+                      currentItemId={currentItemId}
+                      showDetail={showDetail}
+                      lang={lang}
+                    />
+                  </div>
+                  <div className="section relations">
+                    <ItemRelations
+                      currentItemId={currentItemId}
+                      showDetail={showDetail}
+                      lang={lang}
+                    />
+                  </div>
+                </>
+              )}
             </div>
           }
         />

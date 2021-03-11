@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import mainStore from "../stores";
 import Link from "next/link";
 import { getData, sliderSettings } from "../utils";
-import { Config } from "../config";
 
 const RelationSlider = ({ posts, items, querySlug }) => {
   const renderItems = () => {
@@ -17,7 +16,7 @@ const RelationSlider = ({ posts, items, querySlug }) => {
       }
 
       return (
-        <div key={post.id} className="brand-p-item mb-20">
+        <div key={post.id} className="brand-p-item mb-8">
           <Link
             href={{
               pathname: `/[portfolio]/[item]`,
@@ -25,7 +24,7 @@ const RelationSlider = ({ posts, items, querySlug }) => {
             }}
             as={`/${querySlug}/${post.slug}?lang=${language}#2`}
           >
-            <a>
+            <a rel="noopener">
               <div className="font-medium text-black text-xl mb-4 title">
                 {post.title.rendered}
               </div>
