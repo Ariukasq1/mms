@@ -1,4 +1,8 @@
 .section.item-detail {
+  .fp-tableCell {
+    vertical-align: inherit;
+  }
+
   .category-item {
     .item-image {
       transition-property: transform;
@@ -47,6 +51,7 @@
         img {
           margin-bottom: 10px;
           width: 70px;
+          max-height: 70px;
           transition: filter 0.3s ease-in-out;
         }
 

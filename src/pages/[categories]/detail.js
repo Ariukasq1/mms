@@ -50,12 +50,15 @@ class ItemDetail extends React.Component {
 
     return (
       <div className="support">
-        <h2 className="text-3xl capitalize font-bold text-menuTextColor mb-8">
+        <h2 className="text-3xl capitalize font-bold text-menuTextColor mb-12">
           {supports && supports.title}
         </h2>
         <div className="support-content grid gap-6 grid-cols-4">
           {(datas || []).map((data, index) => {
-            if (data.includes("<p><!-- wp:list --></p>")) {
+            if (
+              data.includes("<ul") ||
+              data.includes("<p><!-- /wp:list --></p>")
+            ) {
               return null;
             }
 
@@ -84,7 +87,7 @@ class ItemDetail extends React.Component {
       <div className="category-item">
         <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
           <div className="flex">
-            <div className="w-1/2 flex flex-col justify-center flex-center mx-12">
+            <div className="w-1/2 flex flex-col mx-12 mt-20">
               {this.renderSupport(post.acf)}
             </div>
             <div className="w-1/2">
