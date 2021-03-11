@@ -50,7 +50,7 @@ class ItemDetail extends React.Component {
 
     return (
       <div className="support">
-        <h2 className="text-3xl capitalize font-bold text-menuTextColor mb-12">
+        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12">
           {supports && supports.title}
         </h2>
         <div className="support-content grid gap-6 grid-cols-4">
@@ -63,7 +63,10 @@ class ItemDetail extends React.Component {
             }
 
             return (
-              <div className="icon-wrapper mb-4" key={index}>
+              <div
+                className="icon-wrapper bg-white flex items-center justify-center rounded-md mb-4"
+                key={index}
+              >
                 <div
                   className="flex flex-col items-center text-base text-center font-medium px-6 leading-5"
                   dangerouslySetInnerHTML={{ __html: data }}

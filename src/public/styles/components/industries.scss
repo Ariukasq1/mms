@@ -48,17 +48,26 @@
 
     .support-content {
       .icon-wrapper {
+        box-shadow: 0 0 5px rgba(127, 123, 123, 0.1);
+        padding: 20px 0;
+        transition: all ease 0.3s;
+
         img {
-          margin-bottom: 10px;
+          margin-bottom: 15px;
           width: 70px;
           max-height: 70px;
           transition: filter 0.3s ease-in-out;
         }
 
         &:hover {
+          box-shadow: 0 0 10px -2px rgba(127, 123, 123, 0.9);
+          background: $primary-color;
+          color: $color-white;
+
           img {
-            filter: brightness(1) invert(0.1) sepia(0.6) hue-rotate(160deg)
-              saturate(2500%);
+            // filter: brightness(1) invert(0.1) sepia(0.6) hue-rotate(160deg)
+            //   saturate(2500%);
+            filter: invert(1);
           }
         }
       }
