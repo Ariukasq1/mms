@@ -48,22 +48,14 @@ const SliderSubCategories = (props) => {
           <img className="object-contain w-10 ml-4" src={arrowImage} />
         </a>
         <div>
-          <Link
-            href={{
-              pathname: `/portfolio/[item]`,
-              query: { lang: props.language },
-            }}
-            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
-          >
-            <a>
-              <div className="w-full image-wrapper">
-                <img
-                  src={getData(post._embedded, "image")}
-                  alt={post.title.rendered}
-                />
-              </div>
-            </a>
-          </Link>
+          <a onClick={onClick.bind(this, post.id)}>
+            <div className="w-full image-wrapper">
+              <img
+                src={getData(post._embedded, "image")}
+                alt={post.title.rendered}
+              />
+            </div>
+          </a>
         </div>
       </div>
     );
