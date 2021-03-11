@@ -36,7 +36,7 @@ class BrandsComponent extends React.Component {
       const { logo } = brand.acf || {};
 
       return (
-        <div className="single-brand" key={index}>
+        <div key={index} className="single-brand">
           <div className="logo-wrapper">
             <img src={logo} className="object-contain h-full" alt="logo" />
           </div>
@@ -75,7 +75,7 @@ class BrandsComponent extends React.Component {
     const categories = (
       <ul className="flex justify-center category-wrapper mb-20">
         <li
-          className={`text-sm font-medium py-2 px-3 ${
+          className={`text-base font-medium py-2 px-3 ${
             brandId === 0 ? "active" : ""
           }`}
           onClick={this.filterBrand.bind(this, 0)}
@@ -85,10 +85,10 @@ class BrandsComponent extends React.Component {
         </li>
         <span className="py-2 font-bold">/</span>
         {brandCategories.map((category) => (
-          <>
+          <React.Fragment key={category.id}>
             <li
               key={category.id}
-              className={`text-sm font-medium p-2 ${
+              className={`text-base font-medium p-2 ${
                 brandId === category.id ? "active" : ""
               }`}
               onClick={this.filterBrand.bind(this, category.id)}
@@ -96,7 +96,7 @@ class BrandsComponent extends React.Component {
               {category.name}
             </li>
             <span className="py-2 font-bold">/</span>
-          </>
+          </React.Fragment>
         ))}
       </ul>
     );

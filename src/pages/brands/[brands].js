@@ -257,7 +257,7 @@ Brands.getInitialProps = async (ctx) => {
 
   const items = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&slug=${query}&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=mn" : "lang="
     }`
   );
 
@@ -265,13 +265,13 @@ Brands.getInitialProps = async (ctx) => {
 
   const products = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=mn" : "lang="
     }`
   );
 
   const posts = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&per_page=100&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=mn" : "lang="
     }`
   );
 

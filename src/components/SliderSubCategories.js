@@ -1,58 +1,65 @@
 import React from "react";
 import Link from "next/link";
-import arrowImage from "../public/images/arrow.svg";
+import arrowImage from "../public/images/arrow-blue.svg";
 import Slider from "react-slick";
 import { getData, sliderSettings, __ } from "../utils";
 
 const SliderSubCategories = (props) => {
-  const renderContent = props.data.map((category, index) => {
+  const onClick = (postId) => {
+    props.getCurrentItemId(postId, props.fullPageApi);
+  };
+
+  const renderContent = props.data.map((post, index) => {
     if (
-      (category.categories !== 0 &&
-        category.categories.includes(194) &&
-        category.acf &&
-        category.acf.interiors) ||
-      category.acf.exteriors
+      (post.categories !== 0 &&
+        post.categories.includes(194) &&
+        post.acf &&
+        post.acf.interiors) ||
+      post.acf.exteriors
     ) {
       return null;
     }
 
     return (
-      <div className="cat-item bg-white" key={index}>
+      <div
+        className="cat-item bg-white"
+        key={index}
+        data-aos="fade-down"
+        data-aos-easing="ease"
+        data-aos-delay={`${index * 300}`}
+        data-aos-duration="2000"
+        data-aos-offset="300"
+      >
         <div className="title text-black font-medium">
-          {category.title.rendered}
+          {post.title.rendered}
         </div>
         <div className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
           <div
             dangerouslySetInnerHTML={{
-              __html: category.excerpt.rendered,
+              __html: post.excerpt.rendered,
             }}
           />
         </div>
-        <Link
-          href={{
-            pathname: `/[portfolio]/[item]`,
-            query: { lang: props.language },
-          }}
-          as={`/${props.querySlug}/${category.slug}?lang=${props.language}#2`}
+        <a
+          className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4"
+          onClick={onClick.bind(this, post.id)}
         >
-          <a className="my-4 text-base w-auto bg-transparent text-black font-normal hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
-            {__("Read more")}
-            <img className="object-contain ml-4" src={arrowImage} />
-          </a>
-        </Link>
+          {__("Read more")}
+          <img className="object-contain w-10 ml-4" src={arrowImage} />
+        </a>
         <div>
           <Link
             href={{
-              pathname: `/[portfolio]/[item]`,
+              pathname: `/portfolio/[item]`,
               query: { lang: props.language },
             }}
-            as={`/${props.querySlug}/${category.slug}?lang=${props.language}#2`}
+            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
           >
             <a>
               <div className="w-full image-wrapper">
                 <img
-                  src={getData(category._embedded, "image")}
-                  alt={category.title.rendered}
+                  src={getData(post._embedded, "image")}
+                  alt={post.title.rendered}
                 />
               </div>
             </a>

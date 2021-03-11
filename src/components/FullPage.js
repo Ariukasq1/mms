@@ -2,7 +2,7 @@ import React from "react";
 import ReactFullpage from "../lib/fullpage";
 
 export default class FullPage extends React.Component {
-  onAnimate = (type) => {
+  onAnimation = (type) => {
     const animateElement = document.getElementsByClassName("aos-init");
 
     var i;
@@ -11,6 +11,14 @@ export default class FullPage extends React.Component {
         ? animateElement[i].classList.remove("aos-animate")
         : animateElement[i].classList.add("aos-animate");
     }
+  };
+
+  onLeave = (origin, destination, direction) => {
+    this.onAnimation("leave");
+  };
+
+  afterLoad = (origin, destination, direction) => {
+    this.onAnimation("afterLoad");
   };
 
   render() {
@@ -27,8 +35,8 @@ export default class FullPage extends React.Component {
         navigation
         paddingTop={"116px"}
         parallax={true}
-        onLeave={this.onAnimate.bind(this, "leave")}
-        afterLoad={this.onAnimate.bind(this, "load")}
+        onLeave={this.onLeave.bind(this)}
+        afterLoad={this.afterLoad.bind(this)}
         scrollOverflow={true}
         render={() => children}
       />

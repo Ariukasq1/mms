@@ -21,6 +21,7 @@ const Index = ({
     <Layout>
       <div className="relative">
         <FullPage
+          page="home"
           children={
             <div id="fullpage homeScreen">
               <div className="section slider">

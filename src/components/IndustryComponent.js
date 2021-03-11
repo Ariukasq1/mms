@@ -32,9 +32,9 @@ const IndustryComponent = ({ industries }) => {
                 <div
                   className="title pl-48"
                   data-aos="fade-right"
-                  data-aos-easing="ease"
-                  data-aos-delay={`${i}00`}
-                  data-aos-duration="3000"
+                  data-aos-easing="ease-in"
+                  data-aos-delay={i * 150}
+                  data-aos-duration="2000"
                   data-aos-offset="300"
                 >
                   {item.title.rendered}

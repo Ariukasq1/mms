@@ -80,11 +80,6 @@ a:hover {
   overflow: auto;
 }
 
-.fp-viewing-section1 #fp-nav ul li a span,
-.fp-viewing-section5 #fp-nav ul li a span {
-  background: white !important;
-}
-
 #fp-nav ul {
   margin-left: 20px !important;
 }
@@ -177,6 +172,19 @@ section {
 
   &:hover {
     background-position: right center;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #8da0cd 2%, #0053a0 35%);
+  font-weight: 600;
+  transition-duration: 0.3s;
+  transition: all ease 0.3s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    background-position: 100px;
   }
 }
 
