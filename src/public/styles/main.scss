@@ -134,13 +134,14 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.2);
+    transform-origin: 50% 100%;
     transition: all 0.3s ease-in-out;
   }
 
   &:hover {
-    > img {
-      margin-left: -30px;
+    > img,
+    .no-product .icon-wrapper {
+      transform: scale(1.05);
     }
   }
 }
@@ -339,6 +340,13 @@ label {
   left: 26px;
   top: -4px;
   background: #262626;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #8da0cd 2%, #004280 82%);
+  font-weight: 600;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .section.odd {

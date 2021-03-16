@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import arrowImage from "../public/images/arrow-blue.svg";
 import Slider from "react-slick";
 import { getData, sliderSettings, __ } from "../utils";

@@ -36,7 +36,7 @@ export default class AboutDetail extends React.Component {
         </h2>
 
         <div
-          class={`grid grid-cols-${
+          className={`grid grid-cols-${
             post.slug.includes("supply") ? "9" : "3"
           } gap-4`}
         >

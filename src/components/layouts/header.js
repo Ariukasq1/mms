@@ -50,7 +50,7 @@ function Header({ title, image }) {
         <link rel="shortcut icon" id="favicon" href="/favicon.ico"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Balsamiq+Sans:ital,wght@0,700;1,400&display=swap"
           rel="stylesheet"
         />
       </Head>

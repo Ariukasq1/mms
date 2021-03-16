@@ -1,0 +1,139 @@
+import React from "react";
+import { getData, __ } from "../../utils";
+
+class BrandDetail extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      post: {},
+    };
+  }
+
+  render() {
+    const { items } = this.props;
+
+    const brand = items ? items[0] : {};
+    const {
+      logo,
+      about,
+      brochure,
+      slogan,
+      country,
+      founded_year,
+      advantage,
+      additional,
+      certificate,
+    } = brand.acf || {};
+
+    return (
+      <div className="brand-detail-wrapper h-full">
+        <div className="h-full relative grid grid-cols-3 ">
+          <div
+            className="col-item p-16 bg-cover bg-center  bg-no-repeat h-body object-cover object-center cursor-pointer relative "
+            style={{
+              backgroundImage: `url(${getData(brand._embedded, "image")})`,
+            }}
+          >
+            <div className="about-brand p-10" data-aos="flip-down">
+              <div className="sub-heading font-bold text-xl">
+                <span className="inline-block"></span>
+                {__("Brands")}
+              </div>
+              <div className={"mb-8 logo flex justify-center"}>
+                <img className="mt-8" src={logo && logo} alt="brand-logo" />
+              </div>
+              <div className="slogan mb-8 text-center">
+                {slogan && (
+                  <div className="slo relative w-full text-2xl heading-tag font-bold uppercase mb-8 ">
+                    <blockquote className="border-0">
+                      <span className="mt-8">
+                        {slogan}
+                        <div className="flex justify-center text-wrapper">
+                          {country && (
+                            <div className="text text-lg font-medium country">
+                              <i className="flex flex-col gradient-text font-medium  capitalize">
+                                <div className="mb-2">{__("Country")}:</div>
+                                {country}
+                              </i>
+                            </div>
+                          )}
+                          {founded_year && (
+                            <div className="text text-lg font-medium year">
+                              <i className="flex gradient-text font-medium justify-center flex-col capitalize">
+                                <div className="mb-2">
+                                  {__("Founded year")}:
+                                </div>
+                                <div>{founded_year}</div>
+                              </i>
+                            </div>
+                          )}
+                        </div>
+                      </span>
+                    </blockquote>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="col-item p-16">
+            <div className={"itemDetailsTexts"}>
+              <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
+                {__("About")}{" "}
+                <span>
+                  {" "}
+                  <div
+                    className="inline-block"
+                    dangerouslySetInnerHTML={{ __html: brand.title.rendered }}
+                  />
+                </span>{" "}
+              </h3>
+              <div
+                className={"text-lg pb-10 auto-overflow"}
+                dangerouslySetInnerHTML={{
+                  __html: about,
+                }}
+              />
+            </div>
+            {certificate && (
+              <div className="certification absolute bottom-0">
+                <div className="text-base font-bold text-menuTextColor mb-3">
+                  {__("Certification & Accreditations:")}
+                </div>
+                <img className="w-full" src={certificate} alt="certificate" />
+              </div>
+            )}
+          </div>
+          <div className="col-item p-16">
+            <div className={"itemDetailsTexts"}>
+              <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
+                <span>
+                  {" "}
+                  <div
+                    className="inline-block"
+                    dangerouslySetInnerHTML={{ __html: brand.title.rendered }}
+                  />
+                </span>{" "}
+                {__("Details")}
+              </h3>
+              <div
+                className={"text-lg pb-10 auto-overflow"}
+                dangerouslySetInnerHTML={{
+                  __html: advantage,
+                }}
+              />
+              <div
+                className={"text-lg pb-10 auto-overflow"}
+                dangerouslySetInnerHTML={{
+                  __html: additional,
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default BrandDetail;
