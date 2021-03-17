@@ -27,14 +27,6 @@ export default class AboutDetail extends React.Component {
 
     return (
       <div className="auto-overflow pl-10">
-        <h2 className={"text-menuTextColor leading-8 font-bold text-2xl mb-30"}>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: post.title.rendered,
-            }}
-          />
-        </h2>
-
         <div
           className={`grid grid-cols-${
             post.slug.includes("supply") ? "9" : "3"
