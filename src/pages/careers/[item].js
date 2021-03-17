@@ -143,6 +143,130 @@ const renderCulture = (items, currentId, currentTitle) => {
   });
 };
 
+const renderVacancies = (items, currentId, currentTitle) => {
+  return (
+    <div className={`section vacancies`}>
+      {items.map((item) => {
+        if (item.id === currentId) {
+          return null;
+        }
+
+        return (
+          <div className="flex">
+            <div className="w-1/2">
+              {!item.acf.image_1 ? (
+                <img
+                  className="object-cover object-center h-body w-full"
+                  src={getData(item._embedded, "image")}
+                  alt={currentTitle}
+                />
+              ) : (
+                <ItemDetailsWithGallery
+                  images={Object.entries(item.acf || {}).map(([key, value]) => {
+                    if (key.includes("group")) {
+                      return null;
+                    }
+
+                    return value;
+                  })}
+                />
+              )}
+            </div>
+            <div className="w-1/2 p-20">
+              <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+                {currentTitle}
+              </div>
+              <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+                <div
+                  dangerouslySetInnerHTML={{ __html: item.title.rendered }}
+                />
+              </div>
+              <div className="auto-overflow">
+                <div
+                  className="text-base"
+                  dangerouslySetInnerHTML={{
+                    __html: item.content.rendered,
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const renderProcess = (items, currentId, currentTitle) => {
+  return (
+    <div className={`section vacancies item-detail`}>
+      <div className="category-item">
+        <div className="flex">
+          <div className="w-1/2">
+            <div
+              className="item-image bg-cover bg-no-repeat h-body object-cover object-center cursor-pointer relative"
+              style={{
+                backgroundImage: `url(${getData(items[1]._embedded, "image")})`,
+              }}
+            >
+              <div className="inner-content">
+                <div className="inner-content-overlay absolute inset-0" />
+                <div className="inner-content-detail text-white absolute">
+                  <h2 className="block text-2xl font-bold capitalize text-white mb-4">
+                    {items[1].title && items[1].title.rendered}
+                  </h2>
+                  <div className="auto-overflow mb-4">
+                    <div
+                      className="text-lg font-medium"
+                      dangerouslySetInnerHTML={{
+                        __html: items[1].content && items[1].content.rendered,
+                      }}
+                    />
+                  </div>
+                  <div className="divider block bg-white" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-1/2 p-20">
+            <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+              {currentTitle}
+            </div>
+            <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+              <div
+                dangerouslySetInnerHTML={{ __html: items[2].title.rendered }}
+              />
+            </div>
+            <div className="auto-overflow">
+              <div
+                className="text-base"
+                dangerouslySetInnerHTML={{
+                  __html: items[2].content.rendered,
+                }}
+              />
+              {items[2].acf.length !== 0 && (
+                <div class="grid gap-4 grid-cols-2">
+                  {Object.values(items[2].acf).map((data, index) => (
+                    <div className="" key={index}>
+                      <span className="gradient-text text-6xl leading-normal">
+                        {index + 1}.
+                      </span>
+                      <h4 className="font-semibold text-xl mb-3">
+                        {data.title}
+                      </h4>
+                      <p className="text-base">{data.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Item = ({ career, items, detail }) => {
   const { language } = mainStore();
 
@@ -261,6 +385,10 @@ const Item = ({ career, items, detail }) => {
               ? renderFaq()
               : post.slug === "why-mms"
               ? renderCulture(items, post.id, post.title.rendered)
+              : post.slug === "open-vacancy"
+              ? renderVacancies(items, post.id, post.title.rendered)
+              : post.slug === "selection-process"
+              ? renderProcess(items, post.id, post.title.rendered)
               : null}
           </div>
         }
