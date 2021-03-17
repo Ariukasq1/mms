@@ -7,29 +7,45 @@ import { fetcher, getData, __ } from "../../utils";
 import Link from "next/link";
 import { Collapse } from "antd";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
+import FullPage from "../../components/FullPage";
 
 const { Panel } = Collapse;
 
-const renderSections = (items, currentId, currentTitle) => {
+const renderCulture = (items, currentId, currentTitle) => {
   return items.map((item) => {
     if (item.id === currentId) {
       return null;
     }
 
-    const renderContent = (item) =>
-      item.slug.includes("benefits") ? (
-        <div className="px-32 flex flex-col mt-32 mr-16">
-          <b>
-            <span className="block text-lg mb-20">#{currentTitle}</span>
-            <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-xl">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: item.title.rendered,
-                }}
-              />
-            </h3>
-          </b>
-          <div className="auto-overflow benefits">
+    const renderContent = (item) => (
+      <div className="flex">
+        <div className="w-1/2">
+          {!item.acf.image_1 ? (
+            <img
+              className="object-cover object-center h-body w-full"
+              src={getData(item._embedded, "image")}
+              alt={currentTitle}
+            />
+          ) : (
+            <ItemDetailsWithGallery
+              images={Object.entries(item.acf || {}).map(([key, value]) => {
+                if (key.includes("group")) {
+                  return null;
+                }
+
+                return value;
+              })}
+            />
+          )}
+        </div>
+        <div className="w-1/2 p-20">
+          <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+            {currentTitle}
+          </div>
+          <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+            <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+          </div>
+          <div className="auto-overflow">
             <div
               className="text-base"
               dangerouslySetInnerHTML={{
@@ -38,55 +54,89 @@ const renderSections = (items, currentId, currentTitle) => {
             />
           </div>
         </div>
-      ) : (
-        <>
-          <div className="w-1/2 flex flex-col flex-center mt-32 mr-16">
-            <b>
-              <span className="block text-lg mb-20">#{currentTitle}</span>
-              <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-xl">
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: item.title.rendered,
-                  }}
-                />
-              </h3>
-            </b>
+      </div>
+    );
+
+    const renderDetails = () => {
+      return item.slug.includes("1-1") ? (
+        <div
+          className="h-body object-cover relative  bg-center bg-no-repeat bg-cover"
+          style={{
+            backgroundImage: `url(${getData(item._embedded, "image")})`,
+          }}
+        >
+          <div className="bg-black opacity-40 absolute inset-0" />
+          <div
+            className="flex flex-col h-full items-center justify-center text-white z-1 relative"
+            data-aos="zoom-in"
+          >
+            <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+              {currentTitle}
+            </div>
+            <div
+              className="heading-title capitalize text-6xl mt-4 mb-8 px-64 font-bold sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1"
+              style={{ lineHeight: "4rem" }}
+            >
+              <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+            </div>
+            <p className="text-2xl font-medium">
+              <div
+                dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
+              />
+            </p>
+          </div>
+        </div>
+      ) : item.slug.includes("benefits") ? (
+        <div className="benefits flex">
+          <div className="w-1/2 flex flex-col flex-center pl-40 pr-20 py-20">
+            <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+              {currentTitle}
+            </div>
+            <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+              <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+            </div>
             <div className="auto-overflow">
               <div
-                className="text-base"
+                className="text-lg"
                 dangerouslySetInnerHTML={{
                   __html: item.content.rendered,
                 }}
               />
+              <div className="grid gap-4 mt-8 grid-cols-4">
+                {Object.values(item.acf).map((data, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center text-center flex-col mb-6"
+                    data-aos="zoom-in"
+                    data-aos-easing="ease"
+                    data-aos-delay={`${index * 250}`}
+                    data-aos-duration="2000"
+                    data-aos-offset="300"
+                  >
+                    <img className="mb-4" src={data.icon} alt="icon" />
+                    <p className="text-base font-semibold leading-snug">
+                      {data.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <div className="w-1/2">
-            {!item.acf.image_1 ? (
-              <img
-                className="object-cover object-center h-body w-full"
-                src={getData(item._embedded, "image")}
-                alt={currentTitle}
-              />
-            ) : (
-              <ItemDetailsWithGallery images={Object.values(item.acf)} />
-            )}
+            <img
+              className="object-cover object-center h-body w-full"
+              src={getData(item._embedded, "image")}
+              alt={currentTitle}
+            />
           </div>
-        </>
+        </div>
+      ) : (
+        renderContent(item)
       );
-
-    const renderDetails = () => (
-      <div className="px-40">
-        <div className="flex">{renderContent(item)}</div>
-      </div>
-    );
+    };
 
     return (
-      <div
-        key={item.id}
-        className={`section ${
-          !item.slug.includes("benefits") && "odd"
-        } details`}
-      >
+      <div key={item.id} className={`section details`}>
         {renderDetails()}
       </div>
     );
@@ -104,12 +154,23 @@ const Item = ({ career, items, detail }) => {
 
   const renderValues = () => (
     <div className="px-72 auto-overflow">
-      <div className="header">
-        <h2>{__("Human resource")}</h2>
+      <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+        {__("human resource")}
+      </div>
+      <div className="heading-title capitalize text-4xl mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+        {__("We put company culture first")}
       </div>
       <div className="grid grid-cols-4 gap-12">
-        {career.map((item) => (
-          <div key={item.id} className="bg-white pb-5">
+        {career.map((item, index) => (
+          <div
+            key={item.id}
+            className="bg-white pb-5"
+            data-aos="fade-down"
+            data-aos-easing="ease"
+            data-aos-delay={`${index * 250}`}
+            data-aos-duration="2000"
+            data-aos-offset="300"
+          >
             <Link
               href={{
                 pathname: `/[careers]/[item]`,
@@ -123,7 +184,7 @@ const Item = ({ career, items, detail }) => {
                     <img src={getData(item._embedded, "image")} alt="image" />
                   </div>
                   <div className="content p-6">
-                    <h4 className="font-semibold text-menuTextColor mb-10 text-lg">
+                    <h4 className="font-semibold text-menuTextColor mb-3 text-lg">
                       {item.title.rendered}
                     </h4>
 
@@ -192,20 +253,17 @@ const Item = ({ career, items, detail }) => {
 
   return (
     <Layout>
-      <ReactFullpage
-        navigationPosition={"left"}
-        navigation
-        paddingTop={"116px"}
-        render={({ state, fullpageApi }) => {
-          return (
-            <div id="fullpage career-page">
-              <div className="section main-values">{renderValues()}</div>
-              {post.slug === "faqs"
-                ? renderFaq()
-                : renderSections(items, post.id, post.title.rendered)}
-            </div>
-          );
-        }}
+      <FullPage
+        children={
+          <div id="fullpage career-page">
+            <div className="section main-values">{renderValues()}</div>
+            {post.slug === "faqs"
+              ? renderFaq()
+              : post.slug === "why-mms"
+              ? renderCulture(items, post.id, post.title.rendered)
+              : null}
+          </div>
+        }
       />
     </Layout>
   );

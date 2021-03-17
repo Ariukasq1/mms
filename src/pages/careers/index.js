@@ -5,6 +5,7 @@ import { Config } from "../../config";
 import mainStore from "../../stores";
 import { fetcher, getData, __ } from "../../utils";
 import Link from "next/link";
+import FullPage from "../../components/FullPage";
 
 const Index = ({ career }) => {
   const { language } = mainStore();
@@ -22,12 +23,23 @@ const Index = ({ career }) => {
 
   const renderValues = () => (
     <div className="px-72 auto-overflow">
-      <div className="header">
-        <h2>{__("Human resource")}</h2>
+      <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+        {__("human resource")}
+      </div>
+      <div className="heading-title capitalize text-4xl mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+        {__("We put company culture first")}
       </div>
       <div className="grid grid-cols-4 gap-12">
-        {career.map((item) => (
-          <div key={item.id} className="bg-white pb-5">
+        {career.map((item, index) => (
+          <div
+            key={item.id}
+            className="bg-white pb-5"
+            data-aos="fade-down"
+            data-aos-easing="ease"
+            data-aos-delay={`${index * 250}`}
+            data-aos-duration="2000"
+            data-aos-offset="300"
+          >
             <Link
               href={{
                 pathname: `/[careers]/[item]`,
@@ -41,7 +53,7 @@ const Index = ({ career }) => {
                     <img src={getData(item._embedded, "image")} alt="image" />
                   </div>
                   <div className="content p-6">
-                    <h4 className="font-semibold text-menuTextColor mb-10 text-lg">
+                    <h4 className="font-semibold text-menuTextColor mb-3 text-lg">
                       {item.title.rendered}
                     </h4>
 
@@ -64,15 +76,11 @@ const Index = ({ career }) => {
 
   return (
     <Layout>
-      <ReactFullpage
-        navigationPosition={"left"}
-        navigation
-        paddingTop={"116px"}
-        render={({ state, fullpageApi }) => {
-          return (
-            <div id="fullpage career-page">
-              <div className="section main-values">{renderValues()}</div>
-              {/* <div className="section odd careers">
+      <FullPage
+        children={
+          <div id="fullpage career-page">
+            <div className="section main-values">{renderValues()}</div>
+            {/* <div className="section odd careers">
                 <div
                   className={"px-40 flex flex-row justify-center items-center"}
                 >
@@ -122,9 +130,8 @@ const Index = ({ career }) => {
                   </div>
                 </div>
               </div> */}
-            </div>
-          );
-        }}
+          </div>
+        }
       />
     </Layout>
   );
