@@ -333,15 +333,12 @@ const Item = ({ career, items, detail }) => {
     return (
       <div className="section faq">
         <div className="px-72">
-          <b>
-            <h3 className="mb-20 text-menuTextColor leading-8 font-bold text-xl">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: post.title.rendered,
-                }}
-              />
-            </h3>
-          </b>
+          <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+            {__("Human Resource")}
+          </div>
+          <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+            <div dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+          </div>
           <Collapse defaultActiveKey={["2169"]} accordion>
             {items.map((item) => {
               if (item.id === post.id) {
