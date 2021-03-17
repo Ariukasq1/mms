@@ -1,15 +1,6 @@
 import React from "react";
-import { PictureOutlined } from "@ant-design/icons";
-import Slider from "react-slick";
 import axios from "axios";
 import { Config } from "../../config";
-import {
-  fetcher,
-  getData,
-  SampleNextArrow,
-  SamplePrevArrow,
-  __,
-} from "../../utils";
 import Products from "./products";
 
 class ProductDetail extends React.Component {
@@ -48,7 +39,7 @@ class ProductDetail extends React.Component {
   }
 
   render() {
-    return <Products items={this.state.items} />;
+    return <Products items={this.state.items} onClick={this.props.onClick} />;
   }
 }
 

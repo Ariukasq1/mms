@@ -245,7 +245,7 @@ const renderProcess = (items, currentId, currentTitle) => {
                 }}
               />
               {items[2].acf.length !== 0 && (
-                <div class="grid gap-4 grid-cols-2">
+                <div className="grid gap-4 grid-cols-2">
                   {Object.values(items[2].acf).map((data, index) => (
                     <div className="" key={index}>
                       <span className="gradient-text text-6xl leading-normal">

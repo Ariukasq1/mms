@@ -65,7 +65,7 @@ class BrandsComponent extends React.Component {
       );
     }
 
-    return <div class="grid grid-cols-4 gap-6">{content}</div>;
+    return <div className="grid grid-cols-4 gap-6">{content}</div>;
   }
 
   render() {

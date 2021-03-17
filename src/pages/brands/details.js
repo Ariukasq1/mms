@@ -96,7 +96,10 @@ class BrandDetail extends React.Component {
               />
             </div>
             {certificate && (
-              <div className="certification absolute bottom-0">
+              <div
+                className="certification absolute"
+                style={{ bottom: "2rem" }}
+              >
                 <div className="text-base font-bold text-menuTextColor mb-3">
                   {__("Certification & Accreditations:")}
                 </div>

@@ -1,28 +1,25 @@
 import React from "react";
-import { PictureOutlined } from "@ant-design/icons";
-import Slider from "react-slick";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
-import {
-  fetcher,
-  getData,
-  SampleNextArrow,
-  SamplePrevArrow,
-  __,
-} from "../../utils";
+import { fetcher, __ } from "../../utils";
 import RelationSlider from "../../components/RelationSlider";
 import FullPage from "../../components/FullPage";
 import BrandDetail from "./details";
 import Products from "./products";
 import ProductDetail from "./productDetail";
+import ProductModal from "./productModal";
 
 class Brands extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      showDetail: false,
       showProduct: false,
+      showProductDetail: false,
       currentProduct: "",
+      currentProductDetail: "",
+      productDetail: "",
     };
   }
 
@@ -35,9 +32,38 @@ class Brands extends React.Component {
     });
   };
 
+  onProductClick = (currentProductDetail) => {
+    this.setState({ showProductDetail: true }, () => {
+      if (this.state.showProductDetail) {
+        window.fullpage_api.moveTo(4, 0);
+        this.setState({ currentProductDetail });
+      }
+    });
+  };
+
+  onDetailClick = (productDetail) => {
+    console.log(productDetail);
+
+    if (productDetail.count !== 0) {
+      this.setState({ showDetail: true }, () => {
+        if (this.state.showDetail) {
+          window.fullpage_api.moveTo(5, 0);
+          this.setState({ productDetail });
+        }
+      });
+    }
+  };
+
   render() {
     const { items, posts, categories } = this.props;
-    const { showProduct, currentProduct } = this.state;
+    const {
+      showProduct,
+      currentProduct,
+      currentProductDetail,
+      showProductDetail,
+      showDetail,
+      productDetail,
+    } = this.state;
     const brand = items ? items[0] : {};
     const { capabilities, industries } = brand.acf || {};
 
@@ -91,7 +117,47 @@ class Brands extends React.Component {
                       &nbsp;
                       {__("Products")}
                     </h2>
-                    <ProductDetail currentItemId={currentProduct.id} />
+                    <ProductDetail
+                      currentItemId={currentProduct.id}
+                      onClick={this.onProductClick}
+                    />
+                  </div>
+                </div>
+              )}
+              {showProductDetail && (
+                <div className="section" id="content">
+                  <div className={"brandsProducts px-40 flex flex-col"}>
+                    <h2 className="text-menuTextColor">
+                      <div
+                        className="inline-block"
+                        dangerouslySetInnerHTML={{
+                          __html: currentProductDetail.name,
+                        }}
+                      />
+                      &nbsp;
+                      {__("Products")}
+                    </h2>
+                    <ProductDetail
+                      currentItemId={currentProductDetail.id}
+                      onClick={this.onDetailClick}
+                    />
+                  </div>
+                </div>
+              )}
+              {showDetail && (
+                <div className="section last" id="content">
+                  <div className={"brandsProducts px-40 flex flex-col"}>
+                    <h2 className="text-menuTextColor">
+                      <div
+                        className="inline-block"
+                        dangerouslySetInnerHTML={{
+                          __html: productDetail.name,
+                        }}
+                      />
+                      &nbsp;
+                      {__("Products")}
+                    </h2>
+                    <ProductModal currentItemId={productDetail.id} />
                   </div>
                 </div>
               )}
