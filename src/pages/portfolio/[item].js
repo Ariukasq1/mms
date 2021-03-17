@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import arrowImageBlue from "../../public/images/arrow-blue.svg";
 import Layout from "../../components/layouts/Layout";
 import ReactFullpage from "../../lib/fullpage";
 import mainStore from "../../stores";
@@ -7,11 +9,84 @@ import Slider from "react-slick";
 import arrowImage from "../../public/images/arrow-white.svg";
 import {
   fetcher,
+  __,
   getData,
   SampleNextArrow,
   SamplePrevArrow,
 } from "../../utils";
-import SliderSubCategories from "../../components/SliderSubCategories";
+
+const SliderSubCategories = (props) => {
+  const renderContent = props.data.map((post, index) => {
+    if (
+      (post.categories !== 0 &&
+        post.categories.includes(194) &&
+        post.acf &&
+        post.acf.interiors) ||
+      post.acf.exteriors
+    ) {
+      return null;
+    }
+
+    return (
+      <div
+        className="cat-item bg-white"
+        key={index}
+        data-aos="fade-down"
+        data-aos-easing="ease"
+        data-aos-delay={`${index * 300}`}
+        data-aos-duration="2000"
+        data-aos-offset="300"
+      >
+        <div className="title text-black font-medium">
+          {post.title.rendered}
+        </div>
+        <div className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: post.excerpt.rendered,
+            }}
+          />
+        </div>
+        <Link
+          href={{
+            pathname: `/[portfolio]/[item]`,
+            query: { lang: props.language },
+          }}
+          as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
+        >
+          <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4">
+            {__("Read more")}
+            <img className="object-contain w-10 ml-4" src={arrowImageBlue} />
+          </a>
+        </Link>
+        <div>
+          <Link
+            href={{
+              pathname: `/[portfolio]/[item]`,
+              query: { lang: props.language },
+            }}
+            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
+          >
+            <a>
+              <div className="w-full image-wrapper">
+                <img
+                  src={getData(post._embedded, "image")}
+                  alt={post.title.rendered}
+                />
+              </div>
+            </a>
+          </Link>
+        </div>
+      </div>
+    );
+  });
+
+  if (!props.data || props.data.length === 0) {
+    return null;
+  }
+
+  return <div className="flex without-scroll">{renderContent}</div>;
+};
 
 const renderProjects = (projects, post, language) => {
   return (projects || []).map((project) => {
@@ -135,6 +210,9 @@ const Item = ({ posts, detail, projects }) => {
                 <div className="capabilitiesPage">
                   <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
                     <div className="brands">
+                      <div className="header">
+                        <h2>Portfolio</h2>
+                      </div>
                       <SliderSubCategories
                         data={posts}
                         querySlug="portfolio"
@@ -151,8 +229,8 @@ const Item = ({ posts, detail, projects }) => {
                 }}
               >
                 <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:px-24">
-                  <div className="desc mb-40">
-                    <h4 className="mb-20">
+                  <div className="desc mb-10">
+                    <h4 className="mb-5">
                       <div
                         dangerouslySetInnerHTML={{
                           __html: post.title.rendered,
@@ -193,7 +271,9 @@ Item.getInitialProps = async (ctx) => {
   const slug = ctx.query.item;
 
   const posts = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=194&per_page=20&${
+    `${
+      Config.apiUrl
+    }/wp/v2/posts?_embed&categories=194&per_page=20&filter[orderby]=id&order=asc&${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );

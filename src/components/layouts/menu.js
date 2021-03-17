@@ -33,7 +33,7 @@ const MenuComponent = () => {
     } else if (item.slug === "industries") {
       return "/[categories]";
     } else if (item.slug === "portfolio") {
-      return "/[categories]";
+      return "/portfolio";
     } else if (item.slug === "brands") {
       return "/brands";
     } else return `/${item.slug}`;
