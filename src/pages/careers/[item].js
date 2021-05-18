@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../../components/layouts/Layout";
-import ReactFullpage from "../../lib/fullpage";
+import Footer from "../../components/layouts/footer";
 import { Config } from "../../config";
 import mainStore from "../../stores";
 import { fetcher, getData, __ } from "../../utils";
@@ -267,7 +267,7 @@ const renderProcess = (items, currentId, currentTitle) => {
   );
 };
 
-const Item = ({ career, items, detail }) => {
+const Item = ({ career, items, detail, contact }) => {
   const { language } = mainStore();
 
   if (!detail || detail.length === 0) {
@@ -387,6 +387,9 @@ const Item = ({ career, items, detail }) => {
               : post.slug === "selection-process"
               ? renderProcess(items, post.id, post.title.rendered)
               : null}
+            <div className="section footer">
+              <Footer contact={contact} />
+            </div>
           </div>
         }
       />
@@ -402,6 +405,12 @@ Item.getInitialProps = async (ctx) => {
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=211&filter[orderby]=id&order=asc&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  const contact = await fetcher(
+    `${Config.apiUrl}/wp/v2/navigation_menus?slug=contact&${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
@@ -429,7 +438,7 @@ Item.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { career, jobs, detail, items };
+  return { career, jobs, detail, items, contact };
 };
 
 export default Item;
