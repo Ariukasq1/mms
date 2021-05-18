@@ -1,56 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { Modal, Button } from "antd";
+import Link from "next/link";
 import { DownloadOutlined } from "@ant-design/icons";
 import { Config } from "../../config";
-import { getData, SampleNextArrow, SamplePrevArrow, __ } from "../../utils";
-
-const settingsProductItems = {
-  infinite: true,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  initialSlide: 0,
-  rows: 2,
-  autoplay: false,
-  autoplaySpeed: 3000,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        initialSlide: 2,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
+import { getData, __ } from "../../utils";
 
 class ProductModal extends React.Component {
   constructor(props) {
@@ -99,6 +53,7 @@ class ProductModal extends React.Component {
 
   render() {
     const { items, showModal, currentItem } = this.state;
+    const { pdf_file } = currentItem.acf || {};
 
     const content = (items || []).map((product, index) => {
       return (
@@ -125,12 +80,10 @@ class ProductModal extends React.Component {
       );
     });
 
-    if ((items || []).length > 8) {
-      return <Slider {...settingsProductItems}>{content}</Slider>;
-    }
+    console.log(currentItem);
 
     return (
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-6 gap-6">
         {content}
         {currentItem && (
           <Modal
@@ -139,10 +92,27 @@ class ProductModal extends React.Component {
             onOk={this.onShowModal}
             onCancel={this.onShowModal}
           >
-            <img src={getData(currentItem._embedded, "image")} alt="product" />
-            <Button type="primary" shape="round" icon={<DownloadOutlined />}>
-              Download PDF
-            </Button>
+            <img
+              className="product-image"
+              src={getData(currentItem._embedded, "image")}
+              alt="product"
+            />
+            {currentItem.content && (
+              <p>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: currentItem.content.rendered,
+                  }}
+                />
+              </p>
+            )}
+            {pdf_file && (
+              <Button type="primary" shape="round" icon={<DownloadOutlined />}>
+                <a href={pdf_file} target="_blank" download>
+                  Download PDF
+                </a>
+              </Button>
+            )}
           </Modal>
         )}
       </div>
