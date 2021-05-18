@@ -132,44 +132,32 @@ const Item = ({ posts, detail, projects }) => {
   const post = detail[0];
   const { language } = mainStore();
 
-  const settings = {
+  const settingsItems = {
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
-    speed: 500,
-    rows: !post.content.rendered ? 2 : 2,
-    slidesPerRow: 1,
+    rows: 2,
+    autoplay: false,
+    autoplaySpeed: 3000,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
-        breakpoint: 1400,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          rows: 2,
+          slidesToScroll: 3,
           infinite: true,
-          slidesPerRow: 1,
           dots: true,
         },
       },
       {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          rows: 2,
-          infinite: true,
-          slidesPerRow: 1,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
+        breakpoint: 800,
         settings: {
           slidesToShow: 2,
-          rows: 2,
+          slidesToScroll: 2,
           infinite: true,
-          slidesPerRow: 1,
           dots: true,
         },
       },
@@ -177,20 +165,15 @@ const Item = ({ posts, detail, projects }) => {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          rows: 2,
-          infinite: true,
-          slidesPerRow: 1,
-          dots: true,
+          slidesToScroll: 2,
+          initialSlide: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          rows: 1,
-          infinite: true,
-          slidesPerRow: 1,
-          dots: true,
+          slidesToScroll: 1,
         },
       },
     ],
@@ -248,7 +231,9 @@ const Item = ({ posts, detail, projects }) => {
                   <div>
                     {(projects || []).length > 8 ? (
                       <div className="brands pl-12 pr-32 project-slider">
-                        <Slider {...settings}>{renderProjects}</Slider>
+                        <Slider {...settingsItems}>
+                          {renderProjects(projects, post, language)}
+                        </Slider>
                       </div>
                     ) : (
                       <div className="grid grid-cols-4 px-10">
