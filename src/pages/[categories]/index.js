@@ -9,6 +9,26 @@ import ItemDetail from "./detail";
 import ItemFacts from "./facts";
 import ItemRelations from "./relations";
 
+const FactsSection = (posts, currentItemId, showDetail, lang) => {
+  if (
+    posts.filter(
+      (post) => post.acf && Object.keys(post.acf).includes("group_1")
+    ).length === 0
+  ) {
+    return null;
+  }
+
+  return (
+    <div className="section facts">
+      <ItemFacts
+        currentItemId={currentItemId}
+        showDetail={showDetail}
+        lang={lang}
+      />
+    </div>
+  );
+};
+
 const Categories = ({ posts, querySlug, lang }) => {
   const [showDetail, setShowDetail] = useState(false);
   const [currentItemId, setCurrentItemId] = useState(null);
@@ -51,13 +71,7 @@ const Categories = ({ posts, querySlug, lang }) => {
                       lang={lang}
                     />
                   </div>
-                  <div className="section facts">
-                    <ItemFacts
-                      currentItemId={currentItemId}
-                      showDetail={showDetail}
-                      lang={lang}
-                    />
-                  </div>
+                  {FactsSection(posts, currentItemId, showDetail, lang)}
                   <div className="section relations">
                     <ItemRelations
                       currentItemId={currentItemId}

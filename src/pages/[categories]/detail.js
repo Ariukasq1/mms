@@ -47,11 +47,17 @@ class ItemDetail extends React.Component {
   renderSupport(acf) {
     const { supports } = acf || {};
     const datas = supports && supports.desc.split("<li>");
+    const noFilter =
+      supports &&
+      supports.title === "Professional material supply" &&
+      "noFilter";
 
     return (
       <div className="support">
         <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12">
-          {supports && supports.title}
+          {supports && (
+            <div dangerouslySetInnerHTML={{ __html: supports.title }} />
+          )}
         </h2>
         <div className="support-content grid gap-6 grid-cols-4">
           {(datas || []).map((data, index) => {
@@ -64,7 +70,7 @@ class ItemDetail extends React.Component {
 
             return (
               <div
-                className="icon-wrapper bg-white flex items-center justify-center rounded-md mb-4"
+                className={`icon-wrapper bg-white flex justify-center rounded-md mb-4 ${noFilter}`}
                 key={index}
               >
                 <div
@@ -95,7 +101,7 @@ class ItemDetail extends React.Component {
             </div>
             <div className="w-1/2">
               <div
-                className="item-image bg-cover bg-no-repeat h-body object-cover object-center cursor-pointer relative"
+                className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative"
                 style={{
                   backgroundImage: `url(${getData(post._embedded, "image")})`,
                 }}
@@ -104,7 +110,13 @@ class ItemDetail extends React.Component {
                   <div className="inner-content-overlay absolute inset-0" />
                   <div className="inner-content-detail text-white absolute">
                     <h2 className="block text-2xl font-bold capitalize text-white mb-4">
-                      {post.title && post.title.rendered}
+                      {post.title && (
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: post.title.rendered,
+                          }}
+                        />
+                      )}
                     </h2>
                     <div className="auto-overflow mb-4">
                       <div

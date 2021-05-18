@@ -280,6 +280,10 @@
   }
   .title {
     font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 240px;
   }
 }
 
@@ -289,6 +293,10 @@
   .cat-item {
     padding: 0 18px;
     flex: 1 0 21%;
+
+    &:first-child {
+      padding-left: 0;
+    }
   }
 }
 
@@ -313,7 +321,7 @@
   }
 
   .project {
-    height: 300px;
+    height: 250px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

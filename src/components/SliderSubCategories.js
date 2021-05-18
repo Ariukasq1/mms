@@ -29,9 +29,10 @@ const SliderSubCategories = (props) => {
         data-aos-duration="2000"
         data-aos-offset="300"
       >
-        <div className="title text-black font-medium">
-          {post.title.rendered}
-        </div>
+        <div
+          className="title text-black font-medium"
+          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+        />
         <div className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
           <div
             dangerouslySetInnerHTML={{

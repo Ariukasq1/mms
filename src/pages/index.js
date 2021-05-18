@@ -59,25 +59,25 @@ Index.getInitialProps = async (ctx) => {
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=215&filter[orderby]=id&order=asc&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const brandCategories = await fetcher(
     `${Config.apiUrl}/wp/v2/categories?parent=112&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const brands = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=20&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const capability = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=216&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
@@ -85,13 +85,13 @@ Index.getInitialProps = async (ctx) => {
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=111&filter[orderby]=id&order=asc&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const contact = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=235&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 

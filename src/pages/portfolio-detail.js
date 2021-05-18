@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import arrowImage from "../public/images/arrow-white.svg";
 import { fetcher, getData, SampleNextArrow, SamplePrevArrow } from "../utils";
 import SliderSubCategories from "../components/SliderSubCategories";
+import Material from "./Material";
 
 const renderProjects = (projects, post, language) => {
   return (projects || []).map((project) => {
@@ -49,7 +50,7 @@ const renderProjects = (projects, post, language) => {
   });
 };
 
-const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
+const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
   const post = detail[0];
   const projectDetail = projectDetails[0];
   const { language } = mainStore();
@@ -118,34 +119,6 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
     ],
   };
 
-  const renderInteriorExterior = (item) => {
-    const material = materials.filter((material) => material.id === item);
-    const selectedMaterial = material[0];
-
-    return (
-      <div
-        className={
-          "flex flex-row  rounded-none overflow-hidden my-4 border border-solid border-menuTextColor bg-white material"
-        }
-      >
-        <div className={"flex justify-center items-center round-img"}>
-          <img
-            className={"w-20 h-20 rounded-full m-4"}
-            src={selectedMaterial.acf.image}
-          />
-        </div>
-        <div className={"interiorTexts flex flex-col justify-center"}>
-          <div className={"font-medium text-black"}>
-            {selectedMaterial.name}
-          </div>
-          <div className={"mr-6 leading-6 sm:mr-2"}>
-            {selectedMaterial.description}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <Layout>
       <ReactFullpage
@@ -160,6 +133,9 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                 <div className="capabilitiesPage">
                   <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
                     <div className="brands">
+                      <div className="header">
+                        <h2>Portfolio</h2>
+                      </div>
                       <SliderSubCategories
                         data={posts}
                         querySlug="portfolio"
@@ -176,15 +152,15 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                 }}
               >
                 <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:px-24">
-                  <div className="desc mb-40">
-                    <h4 className="mb-20">
+                  <div className="desc mb-10">
+                    <h4 className="mb-5">
                       <div
                         dangerouslySetInnerHTML={{
                           __html: post.title.rendered,
                         }}
                       />
                     </h4>
-                    <p className="text-base">
+                    <p className="text-base m-0">
                       <div
                         dangerouslySetInnerHTML={{
                           __html: post.content.rendered,
@@ -193,7 +169,7 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                     </p>
                   </div>
                   <div>
-                    {projects.length > 8 ? (
+                    {(projects || []).length > 8 ? (
                       <div className="brands pl-12 pr-32 project-slider">
                         <Slider {...settings}>{renderProjects}</Slider>
                       </div>
@@ -212,7 +188,7 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                       <b>
                         <span className="block">{post.title.rendered}</span>
                       </b>
-                      <h4 className="mb-20">
+                      <h4 className="mb-5">
                         <div
                           dangerouslySetInnerHTML={{
                             __html: projectDetail.title.rendered,
@@ -228,7 +204,8 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                       </p>
                     </div>
                     <div className="w-1/2">
-                      {Object.values(projectDetail.acf).length === 0 ? (
+                      {Object.values(projectDetail.acf).length === 0 ||
+                      !projectDetail.acf.image_1 ? (
                         <img
                           className="object-cover object-center h-body w-full"
                           src={getData(projectDetail._embedded, "image")}
@@ -243,34 +220,25 @@ const Detail = ({ posts, detail, projects, projectDetails, materials }) => {
                   </div>
                 </div>
               </div>
+
               {projectDetail.acf.length !== 0 && (
                 <div className="section portfolio-usage">
                   <div className="usage relative">
                     <div
                       className={
-                        "px-72 flex flex-row justify-center xl:px-20 2xl:px-40 md:px-20 md:flex-col lg:px-20 sm:flex-col sm:px-10"
+                        "px-72 flex flex-col justify-center xl:px-20 2xl:px-40 md:px-20 md:flex-col lg:px-20 sm:flex-col sm:px-10"
                       }
                     >
-                      <div
-                        className={
-                          "w-1/2 flex flex-col mr-12 md:mr-2 md:ml-2 sm:mr-0"
-                        }
-                      >
-                        <h2 className={"uppercase text-white"}>Interiors</h2>
-                        {((projectDetail.acf || {}).interiors || []).map(
-                          (interior) => {
-                            return renderInteriorExterior(interior);
-                          }
-                        )}
-                      </div>
-                      <div
-                        className={"w-1/2 flex flex-col ml-12 md:ml-2 sm:ml-0"}
-                      >
-                        <h2 className={"uppercase text-white"}>Exteriors</h2>
-                        {((projectDetail.acf || {}).exteriors || []).map(
-                          (exterior) => {
-                            return renderInteriorExterior(exterior);
-                          }
+                      <h2 className={"uppercase text-white mb-10"}>Products</h2>
+                      <div className="grid grid-cols-3 gap-8">
+                        {((projectDetail.acf || {}).products || []).map(
+                          (product) => (
+                            <Material
+                              key={product}
+                              productId={product}
+                              lang={lang}
+                            />
+                          )
                         )}
                       </div>
                     </div>
@@ -317,9 +285,7 @@ Detail.getInitialProps = async (ctx) => {
     }`
   );
 
-  const materials = await fetcher(`${Config.apiUrl}/wp/v2/materials`);
-
-  return { posts, detail, projects, projectDetails, materials };
+  return { posts, detail, projects, projectDetails, lang };
 };
 
 export default Detail;
