@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { Modal, Button } from "antd";
-import Link from "next/link";
 import { DownloadOutlined } from "@ant-design/icons";
 import { Config } from "../../config";
 import { getData, __ } from "../../utils";
@@ -80,41 +79,46 @@ class ProductModal extends React.Component {
       );
     });
 
-    console.log(currentItem);
-
     return (
-      <div className="grid grid-cols-6 gap-6">
-        {content}
-        {currentItem && (
-          <Modal
-            title={currentItem.title && currentItem.title.rendered}
-            visible={showModal}
-            onOk={this.onShowModal}
-            onCancel={this.onShowModal}
-          >
-            <img
-              className="product-image"
-              src={getData(currentItem._embedded, "image")}
-              alt="product"
-            />
-            {currentItem.content && (
-              <p>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: currentItem.content.rendered,
-                  }}
-                />
-              </p>
-            )}
-            {pdf_file && (
-              <Button type="primary" shape="round" icon={<DownloadOutlined />}>
+      <div className="product-overflow">
+        <div className="grid grid-cols-6 gap-6">
+          {content}
+          {currentItem && (
+            <Modal
+              title={currentItem.title && currentItem.title.rendered}
+              visible={showModal}
+              footer={null}
+              onOk={this.onShowModal}
+              onCancel={this.onShowModal}
+            >
+              <img
+                className="product-image"
+                src={getData(currentItem._embedded, "image")}
+                alt="product"
+              />
+              {currentItem.content && (
+                <p>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: currentItem.content.rendered,
+                    }}
+                  />
+                </p>
+              )}
+              {pdf_file && (
                 <a href={pdf_file} target="_blank" download>
-                  Download PDF
+                  <Button
+                    type="primary"
+                    shape="round"
+                    icon={<DownloadOutlined />}
+                  >
+                    Download PDF
+                  </Button>
                 </a>
-              </Button>
-            )}
-          </Modal>
-        )}
+              )}
+            </Modal>
+          )}
+        </div>
       </div>
     );
   }

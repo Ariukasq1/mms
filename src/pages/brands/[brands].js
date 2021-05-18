@@ -8,6 +8,8 @@ import BrandDetail from "./details";
 import Products from "./products";
 import ProductDetail from "./productDetail";
 import ProductModal from "./productModal";
+import { DownloadOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 
 class Brands extends React.Component {
   constructor(props) {
@@ -42,8 +44,6 @@ class Brands extends React.Component {
   };
 
   onDetailClick = (productDetail) => {
-    console.log(productDetail);
-
     if (productDetail.count !== 0) {
       this.setState({ showDetail: true }, () => {
         if (this.state.showDetail) {
@@ -64,6 +64,7 @@ class Brands extends React.Component {
       showDetail,
       productDetail,
     } = this.state;
+
     const brand = items ? items[0] : {};
     const { capabilities, industries } = brand.acf || {};
 
@@ -91,23 +92,42 @@ class Brands extends React.Component {
               </div>
               <div className="section odd">
                 <div className={"brandsProducts px-40 flex flex-col"}>
-                  <h2 className="text-menuTextColor">
-                    <div
-                      className="inline-block"
-                      dangerouslySetInnerHTML={{
-                        __html: brand.title.rendered,
-                      }}
-                    />
-                    &nbsp;
-                    {__("Products")}
-                  </h2>
+                  <div className="flex items-center justify-between mb-8">
+                    <h2 className="text-menuTextColor mr-5">
+                      <div
+                        className="inline-block"
+                        dangerouslySetInnerHTML={{
+                          __html: brand.title.rendered,
+                        }}
+                      />
+                      &nbsp;
+                      {__("Products")}
+                    </h2>
+                    {brand.acf && brand.acf.brochure && (
+                      <a
+                        className="flex items-center text-blue-600 font-medium"
+                        href={brand.acf.brochure}
+                        target="_blank"
+                        download
+                      >
+                        <Button
+                          type="primary"
+                          shape="round"
+                          icon={<DownloadOutlined />}
+                        >
+                          {__("Download brochure")}
+                        </Button>
+                      </a>
+                    )}
+                  </div>
                   <Products items={categories} onClick={this.onClick} />
                 </div>
               </div>
+
               {showProduct && (
                 <div className="section" id="content">
                   <div className={"brandsProducts px-40 flex flex-col"}>
-                    <h2 className="text-menuTextColor">
+                    <h2 className="text-menuTextColor mb-8">
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
@@ -124,10 +144,11 @@ class Brands extends React.Component {
                   </div>
                 </div>
               )}
+
               {showProductDetail && (
                 <div className="section" id="content">
                   <div className={"brandsProducts px-40 flex flex-col"}>
-                    <h2 className="text-menuTextColor">
+                    <h2 className="text-menuTextColor mb-8">
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
@@ -144,10 +165,11 @@ class Brands extends React.Component {
                   </div>
                 </div>
               )}
+
               {showDetail && (
-                <div className="section last" id="content">
+                <div className="section odd" id="content">
                   <div className={"brandsProducts px-40 flex flex-col"}>
-                    <h2 className="text-menuTextColor">
+                    <h2 className="text-menuTextColor mb-8">
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
