@@ -73,7 +73,7 @@ const Categories = ({ posts, querySlug, lang }) => {
                     />
                   </div>
                   {FactsSection(posts, currentItemId, showDetail, lang)}
-                  <div className="section">
+                  <div className="section additional">
                     <Additional
                       currentItemId={currentItemId}
                       showDetail={showDetail}

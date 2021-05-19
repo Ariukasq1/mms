@@ -117,7 +117,52 @@
   }
 }
 
-.section.relations {
+.section.additional {
+  h4 {
+    color: #00498e;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding-left: 65px;
+    line-height: 25px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .content {
+    max-height: 800px;
+    overflow: auto;
+
+    ol {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+
+    ul {
+      list-style: circle;
+      padding-left: 20px;
+    }
+
+    img {
+      height: 50px;
+    }
+  }
+
+  .odd {
+    background-color: rgba(240, 240, 240, 0.6);
+
+    &:first-child {
+      .content {
+        padding-left: 6rem;
+      }
+    }
+  }
+}
+
+.section.relations,
+.section.additional {
   .fp-tableCell {
     vertical-align: inherit;
   }
