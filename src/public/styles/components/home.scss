@@ -198,6 +198,7 @@
     li {
       line-height: 22px;
       cursor: pointer;
+      text-transform: capitalize;
       transition: all ease 0.3s;
 
       &.active {

@@ -5,7 +5,6 @@ import { getData, sliderSettings, __ } from "../utils";
 
 const SliderSubCategories = (props) => {
   const onClick = (postId) => {
-    console.log(props.getCurrentItemId);
     props.getCurrentItemId(postId, props.fullPageApi);
   };
 

@@ -127,16 +127,34 @@ class Brands extends React.Component {
               {showProduct && (
                 <div className="section" id="content">
                   <div className={"brandsProducts px-40 flex flex-col"}>
-                    <h2 className="text-menuTextColor mb-8">
-                      <div
-                        className="inline-block"
-                        dangerouslySetInnerHTML={{
-                          __html: currentProduct.name,
-                        }}
-                      />
-                      &nbsp;
-                      {__("Products")}
-                    </h2>
+                    <div className="flex items-center justify-between mb-8">
+                      <h2 className="text-menuTextColor mr-5">
+                        <div
+                          className="inline-block"
+                          dangerouslySetInnerHTML={{
+                            __html: currentProduct.name,
+                          }}
+                        />
+                        &nbsp;
+                        {__("Products")}
+                      </h2>
+                      {currentProduct.acf && currentProduct.acf.pdf_file && (
+                        <a
+                          className="flex items-center text-blue-600 font-medium"
+                          href={currentProduct.acf.pdf_file}
+                          target="_blank"
+                          download
+                        >
+                          <Button
+                            type="primary"
+                            shape="round"
+                            icon={<DownloadOutlined />}
+                          >
+                            {__("Download brochure")}
+                          </Button>
+                        </a>
+                      )}
+                    </div>
                     <ProductDetail
                       currentItemId={currentProduct.id}
                       onClick={this.onProductClick}
@@ -148,16 +166,35 @@ class Brands extends React.Component {
               {showProductDetail && (
                 <div className="section" id="content">
                   <div className={"brandsProducts px-40 flex flex-col"}>
-                    <h2 className="text-menuTextColor mb-8">
-                      <div
-                        className="inline-block"
-                        dangerouslySetInnerHTML={{
-                          __html: currentProductDetail.name,
-                        }}
-                      />
-                      &nbsp;
-                      {__("Products")}
-                    </h2>
+                    <div className="flex items-center justify-between mb-8">
+                      <h2 className="text-menuTextColor mr-5">
+                        <div
+                          className="inline-block"
+                          dangerouslySetInnerHTML={{
+                            __html: currentProductDetail.name,
+                          }}
+                        />
+                        &nbsp;
+                        {__("Products")}
+                      </h2>
+                      {currentProductDetail.acf &&
+                        currentProductDetail.acf.pdf_file && (
+                          <a
+                            className="flex items-center text-blue-600 font-medium"
+                            href={currentProductDetail.acf.pdf_file}
+                            target="_blank"
+                            download
+                          >
+                            <Button
+                              type="primary"
+                              shape="round"
+                              icon={<DownloadOutlined />}
+                            >
+                              {__("Download brochure")}
+                            </Button>
+                          </a>
+                        )}
+                    </div>
                     <ProductDetail
                       currentItemId={currentProductDetail.id}
                       onClick={this.onDetailClick}
