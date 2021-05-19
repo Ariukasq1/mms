@@ -8,6 +8,7 @@ import FullPage from "../../components/FullPage";
 import ItemDetail from "./detail";
 import ItemFacts from "./facts";
 import ItemRelations from "./relations";
+import Additional from "./additional";
 
 const FactsSection = (posts, currentItemId, showDetail, lang) => {
   if (
@@ -72,6 +73,13 @@ const Categories = ({ posts, querySlug, lang }) => {
                     />
                   </div>
                   {FactsSection(posts, currentItemId, showDetail, lang)}
+                  <div className="section">
+                    <Additional
+                      currentItemId={currentItemId}
+                      showDetail={showDetail}
+                      lang={lang}
+                    />
+                  </div>
                   <div className="section relations">
                     <ItemRelations
                       currentItemId={currentItemId}
