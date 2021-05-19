@@ -1250,7 +1250,6 @@ label {
 .brandsProducts h2 {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 30px;
 }
 .brandsProducts .slick-arrow {
   width: 40px;
@@ -1430,7 +1429,7 @@ label {
   padding: 0 2.5rem;
 }
 .section.projects .desc p {
-  max-height: 200px;
+  max-height: 140px;
   overflow: auto;
   margin: 0;
 }
@@ -1801,6 +1800,11 @@ label {
   line-height: 18px;
   margin-bottom: 15px;
   font-size: 16px;
+}
+
+.product-image {
+  max-height: 400px;
+  margin: 0 auto;
 }
 
 .section.brand-detail .brand-detail-wrapper .col-item .about-brand {
