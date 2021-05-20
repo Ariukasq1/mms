@@ -225,6 +225,32 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                   </div>
                 </div>
               </div>
+              <div className="section">
+                <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
+                  <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full">
+                    <div className="flex flex-col mx-12 mt-20">
+                      <h2
+                        className="text-2xl capitalize font-bold text-menuTextColor mb-8"
+                        dangerouslySetInnerHTML={{
+                          __html: post.title.rendered,
+                        }}
+                      />
+                      <div
+                        className="text-base"
+                        dangerouslySetInnerHTML={{
+                          __html: post.content.rendered,
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        className="object-cover object-center h-body w-full"
+                        src={getData(post._embedded, "image")}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div
                 className="section projects"
                 style={{

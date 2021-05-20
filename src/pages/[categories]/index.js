@@ -30,6 +30,26 @@ const FactsSection = (posts, currentItemId, showDetail, lang) => {
   );
 };
 
+const AdditionSection = (posts, currentItemId, showDetail, lang) => {
+  if (
+    posts.filter(
+      (post) => post.acf && Object.keys(post.acf).includes("group_1")
+    ).length === 0
+  ) {
+    return null;
+  }
+
+  return (
+    <div className="section additional">
+      <Additional
+        currentItemId={currentItemId}
+        showDetail={showDetail}
+        lang={lang}
+      />
+    </div>
+  );
+};
+
 const Categories = ({ posts, querySlug, lang }) => {
   const [showDetail, setShowDetail] = useState(false);
   const [currentItemId, setCurrentItemId] = useState(null);
@@ -73,13 +93,7 @@ const Categories = ({ posts, querySlug, lang }) => {
                     />
                   </div>
                   {FactsSection(posts, currentItemId, showDetail, lang)}
-                  <div className="section additional">
-                    <Additional
-                      currentItemId={currentItemId}
-                      showDetail={showDetail}
-                      lang={lang}
-                    />
-                  </div>
+                  {AdditionSection(posts, currentItemId, showDetail, lang)}
                   <div className="section relations">
                     <ItemRelations
                       currentItemId={currentItemId}

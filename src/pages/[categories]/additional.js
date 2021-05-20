@@ -90,7 +90,7 @@ class Additional extends React.Component {
       <div
         data-aos="fade-down"
         data-aos-easing="ease"
-        data-aos-delay={`${index * 300}`}
+        data-aos-delay={`${index * 100}`}
         data-aos-duration="2000"
         data-aos-offset="300"
         className="h-full mx-12 mt-20 content text-base relative"
