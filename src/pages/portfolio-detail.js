@@ -240,13 +240,6 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                         }}
                       />
                     </h4>
-                    <p className="text-base m-0">
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: post.content.rendered,
-                        }}
-                      />
-                    </p>
                   </div>
                   <div>
                     {(projects || []).length > 8 ? (
