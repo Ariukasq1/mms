@@ -205,6 +205,30 @@ const Item = ({ posts, detail, projects }) => {
                   </div>
                 </div>
               </div>
+              <div className="section">
+                <div className="pl-28 xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
+                  <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full">
+                    <div>
+                      <div>
+                        <h4
+                        className="text-3xl my-8"
+                        dangerouslySetInnerHTML={{
+                          __html: post.title.rendered,
+                        }}
+                       />
+                       <div 
+                        dangerouslySetInnerHTML={{
+                          __html: post.content.rendered,
+                        }}
+                      />
+                      </div>
+                    </div>
+                    <div>
+                      <img className="object-cover object-center h-body w-full" src={getData(post._embedded, "image")} />
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div
                 className="section projects"
                 style={{
@@ -220,13 +244,6 @@ const Item = ({ posts, detail, projects }) => {
                         }}
                       />
                     </h4>
-                    <p className="text-base m-0">
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: post.content.rendered,
-                        }}
-                      />
-                    </p>
                   </div>
                   <div>
                     {(projects || []).length > 8 ? (
