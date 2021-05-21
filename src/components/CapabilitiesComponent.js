@@ -15,11 +15,8 @@ const CapabilitiesComponent = ({ data }) => {
         data-aos-delay={`0`}
         style={{ flexBasis: "50%" }}
       >
-        <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+        <div className="heading-tag capitalize text-3xl font-bold mb-10 sm:text-lg">
           {__("capabilities")}
-        </div>
-        <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
-          <div dangerouslySetInnerHTML={{ __html: data.title.rendered }} />
         </div>
         <div className="capabilitiesBody mb-10 text-lg sm:text-base">
           <div dangerouslySetInnerHTML={{ __html: data.content.rendered }} />

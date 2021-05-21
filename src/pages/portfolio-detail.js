@@ -214,7 +214,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                   <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
                     <div className="brands">
                       <div className="header">
-                        <h2>Portfolio</h2>
+                        <h2>{__("Portfolio")}</h2>
                       </div>
                       <SliderSubCategories
                         data={posts}

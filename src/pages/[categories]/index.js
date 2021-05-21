@@ -40,6 +40,7 @@ const Categories = ({ posts, querySlug, lang }) => {
     setShowDetail(true);
   };
 
+
   return (
     <Layout>
       <div className="relative">

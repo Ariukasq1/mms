@@ -25,7 +25,7 @@ export default class AboutDetail extends React.Component {
   renderSupply(post) {
     const items = Object.values(post.acf);
 
-console.log(post)
+console.log("end bn", post)
 
     return (
       <div className="auto-overflow pl-10">
