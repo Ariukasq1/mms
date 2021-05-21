@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../components/layouts/Layout";
 import ReactFullpage from "../../lib/fullpage";
 import { Config } from "../../config";
@@ -10,6 +10,7 @@ import {
   getData,
   SampleNextArrow,
   SamplePrevArrow,
+  __,
 } from "../../utils";
 
 const settings = {
@@ -75,8 +76,13 @@ const settings = {
   ],
 };
 
-const Index = ({ newsroom }) => {
+const Index = ({ newsroom, categories }) => {
   const { language } = mainStore();
+  const [catId, setCatId] = useState(948);
+
+  const onClick = (value) => {
+    setCatId(value);
+  };
 
   const renderNews = (news) => {
     return (
@@ -109,6 +115,44 @@ const Index = ({ newsroom }) => {
     );
   };
 
+  const renderCategory = () => {
+    return (
+      <ul className="flex justify-center category-wrapper mb-10">
+        {categories.map((category) => (
+          <React.Fragment key={category.id}>
+            <li
+              className={`text-base font-medium p-2 ${
+                catId === category.id ? "active" : ""
+              }`}
+              onClick={() => onClick(category.id)}
+            >
+              {category.name}
+            </li>
+            <span className="py-2 font-bold">/</span>
+          </React.Fragment>
+        ))}
+      </ul>
+    );
+  };
+
+  const renderPosts = () => {
+    const filteredNews = newsroom.filter((news) =>
+      news.categories.includes(catId)
+    );
+
+    return filteredNews.length > 7 ? (
+      <div className="brands news-slider">
+        <Slider {...settings}>
+          {filteredNews.map((news) => renderNews(news))}
+        </Slider>
+      </div>
+    ) : (
+      <div className="grid grid-cols-4">
+        {filteredNews.map((news) => renderNews(news))}
+      </div>
+    );
+  };
+
   return (
     <Layout>
       <ReactFullpage
@@ -119,21 +163,13 @@ const Index = ({ newsroom }) => {
           return (
             <div id="fullpage">
               <div className="section px-56 xl:px-56 lg:px-56 md:px-56 sm:px-24 news">
-                <div className="header">
-                  <h2>Newsroom</h2>
+                <div className="brands text-center">
+                  <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+                    {__("Newsroom")}
+                  </div>
+                  {renderCategory()}
                 </div>
-
-                {newsroom.length > 7 ? (
-                  <div className="brands news-slider">
-                    <Slider {...settings}>
-                      {newsroom.map((news) => renderNews(news))}
-                    </Slider>
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-4">
-                    {newsroom.map((news) => renderNews(news))}
-                  </div>
-                )}
+                {renderPosts()}
               </div>
             </div>
           );
@@ -152,7 +188,13 @@ Index.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { newsroom };
+  const categories = await fetcher(
+    `${Config.apiUrl}/wp/v2/categories?parent=1&${
+      query === "mn" ? "lang=" + query : ""
+    }`
+  );
+
+  return { newsroom, categories };
 };
 
 export default Index;

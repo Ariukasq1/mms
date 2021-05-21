@@ -1,13 +1,13 @@
 import React from "react";
 import Layout from "../../components/layouts/Layout";
-import ReactFullpage from "../../lib/fullpage";
+import Footer from "../../components/layouts/footer";
 import { Config } from "../../config";
 import mainStore from "../../stores";
 import { fetcher, getData, __ } from "../../utils";
 import Link from "next/link";
 import FullPage from "../../components/FullPage";
 
-const Index = ({ career }) => {
+const Index = ({ career, contact }) => {
   const { language } = mainStore();
 
   const renderValues = () => (
@@ -69,6 +69,9 @@ const Index = ({ career }) => {
         children={
           <div id="fullpage career-page">
             <div className="section main-values">{renderValues()}</div>
+            <div className="section footer">
+              <Footer contact={contact} />
+            </div>
           </div>
         }
       />
@@ -87,7 +90,13 @@ Index.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { career };
+  const contact = await fetcher(
+    `${Config.apiUrl}/wp/v2/navigation_menus?slug=contact&${
+      lang === "mn" ? "?lang=" + lang : ""
+    }`
+  );
+
+  return { career, contact };
 };
 
 export default Index;

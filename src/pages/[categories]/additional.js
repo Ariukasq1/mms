@@ -85,46 +85,46 @@ class Additional extends React.Component {
     );
   }
 
+  renderContent(group, index) {
+    return (
+      <div
+        data-aos="fade-down"
+        data-aos-easing="ease"
+        data-aos-delay={`${index * 100}`}
+        data-aos-duration="2000"
+        data-aos-offset="300"
+        className="h-full mx-12 mt-20 content text-base relative"
+      >
+        <img
+          className="absolute"
+          src={`images/industry${index}.png`}
+          alt="icon-i"
+        />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: group,
+          }}
+        />
+      </div>
+    );
+  }
+
   render() {
     const { post = {} } = this.state;
-
-    if (this.props.showDetail && Object.keys(post).length !== 0) {
-      window.fullpage_api.moveTo(2, 0);
-    }
     const { additional } = post.acf || {};
 
     return (
-      <div className="category-item">
-           <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
-             <div className="grid grid-flow-col grid-cols-3 grid-rows-1 gap-4 w-full">
-              <div className="w-4/5">
-              {additional && 
-                <div
-                  dangerouslySetInnerHTML={{
-                  __html: additional.group
-                                }}
-                />
-              }
-              </div>
-              <div className="w-4/5">
-              {additional && 
-                <div
-                  dangerouslySetInnerHTML={{
-                  __html: additional.group_1
-                                }}
-                />
-              }
-              </div>
-              <div className="w-4/5">
-              {additional && 
-                <div
-                  dangerouslySetInnerHTML={{
-                  __html: additional.group_2
-                                }}
-                />
-              }
-              </div>
-           </div>
+      <div className="category-item h-full">
+        <div className="grid grid-cols-3 h-full">
+          <div className="odd">
+            {additional && this.renderContent(additional.group, 1)}
+          </div>
+          <div className="">
+            {additional && this.renderContent(additional.group_1, 2)}
+          </div>
+          <div className="odd">
+            {additional && this.renderContent(additional.group_2, 3)}
+          </div>
         </div>
       </div>
     );

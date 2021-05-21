@@ -77,11 +77,6 @@ class ItemRelations extends React.Component {
 
   render() {
     const { post = {} } = this.state;
-
-    if (this.props.showDetail && Object.keys(post).length !== 0) {
-      window.fullpage_api.moveTo(2, 0);
-    }
-
     const { brands, capabilities, industries } = (post && post.acf) || {};
 
     return (

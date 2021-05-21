@@ -90,7 +90,7 @@ const About = ({ contact, posts, services, histories, categories }) => {
         <React.Fragment key={category.id}>
           <li
             key={category.id}
-            className={`text-base font-medium p-2 ${
+            className={`text-lg font-medium p-2 ${
               activeId === category.id ? "active" : ""
             }`}
             onClick={onTabChange.bind(this, category.id)}
