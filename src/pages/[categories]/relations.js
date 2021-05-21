@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Config } from "../../config";
 import RelationSlider from "../../components/RelationSlider";
+import { __ } from "../../utils";
 
 class ItemRelations extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class ItemRelations extends React.Component {
     return (
       <div>
         <h4 className="mb-4 heading-tag capitalize text-xl font-bold">
-          {title}
+          {__(title)}
         </h4>
         <RelationSlider
           items={items}
@@ -82,13 +83,13 @@ class ItemRelations extends React.Component {
     return (
       <div className="px-40 py-10 item-relations">
         <h2 className="text-menuTextColor font-bold text-2xl capitalize mb-8">
-          Relations
+          {__("Relations")}
         </h2>
-        {(brands || []).length !== 0 && this.renderRelations("brands", brands)}
+        {(brands || []).length !== 0 && this.renderRelations("Brands", brands)}
         {(capabilities || []).length !== 0 &&
-          this.renderRelations("capabilities", capabilities)}
+          this.renderRelations("Capabilities", capabilities)}
         {(industries || []).length !== 0 &&
-          this.renderRelations("industries", industries)}
+          this.renderRelations("Industries", industries)}
       </div>
     );
   }
