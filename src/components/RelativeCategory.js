@@ -1,7 +1,7 @@
 import React from "react";
-import mainStore from "../stores";
 import Link from "next/link";
 import Slider from "react-slick";
+import { getLangParam } from "../utils";
 
 const settings = {
   className: "center",
@@ -50,7 +50,8 @@ const settings = {
 };
 
 const RelativeCategory = ({ category, child, querySlug }) => {
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
+
   const renderCategories = child.map((data, index) => {
     const cat = data.acf;
     const image = cat.thumbnail_image;
@@ -60,7 +61,7 @@ const RelativeCategory = ({ category, child, querySlug }) => {
           <Link
             href={{
               pathname: `${category.slug}/${data.slug}`,
-              query: { lang: language },
+              query: { lang: currentLanguage },
             }}
           >
             <a>

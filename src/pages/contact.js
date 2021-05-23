@@ -7,7 +7,7 @@ import { fetcher } from "../utils";
 const Contact = ({ contact }) => {
   return (
     <Layout>
-      <Footer data={contact} />
+      <Footer contact={contact} />
     </Layout>
   );
 };
@@ -16,8 +16,8 @@ Contact.getInitialProps = async (ctx) => {
   const query = ctx.query.lang;
 
   const contact = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235${
-      query === "mn" ? "?lang=" + query : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235&${
+      query === "mn" ? "lang=" + query : ""
     }`
   );
 

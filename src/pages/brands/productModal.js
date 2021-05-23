@@ -112,7 +112,7 @@ class ProductModal extends React.Component {
                     shape="round"
                     icon={<DownloadOutlined />}
                   >
-                    Download PDF
+                    {__("Download PDF")}
                   </Button>
                 </a>
               )}

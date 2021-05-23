@@ -1,9 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
 import arrow from "../public/images/arrow-blue.svg";
-import mainStore from "../stores";
 import Link from "next/link";
-import { getData, sliderSettings, __ } from "../utils";
+import { getData, sliderSettings, __, getLangParam } from "../utils";
 
 class BrandsComponent extends React.Component {
   constructor(props) {
@@ -29,7 +28,7 @@ class BrandsComponent extends React.Component {
   };
 
   renderBrands() {
-    const { language } = mainStore;
+    const currentLanguage = getLangParam();
     const { filteredBrands } = this.state;
 
     const content = filteredBrands.map((brand, index) => {
@@ -40,7 +39,7 @@ class BrandsComponent extends React.Component {
           <div className="logo-wrapper">
             <img src={logo} className="object-contain h-full" alt="logo" />
           </div>
-          <Link href={`/brands/${brand.slug}?lang=${language}`} passHref>
+          <Link href={`/brands/${brand.slug}?lang=${currentLanguage}`} passHref>
             <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4">
               {__("Read more")}
               <img className="object-contain w-10 ml-4" src={arrow} />

@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
-import mainStore from "../../stores";
 import ReactFullpage from "../../lib/fullpage";
 import SliderSubCategories from "../../components/SliderSubCategories";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
@@ -10,7 +9,7 @@ import RelationSlider from "../../components/RelationSlider";
 
 const anchors = ["1", "2", "3"];
 const Item = ({ postItems, detail, querySlug, posts }) => {
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
 
   if (!detail || detail.length === 0) {
     return null;
@@ -56,7 +55,7 @@ const Item = ({ postItems, detail, querySlug, posts }) => {
                         <SliderSubCategories
                           data={postItems}
                           querySlug={querySlug}
-                          language={language}
+                          language={currentLanguage}
                         />
                       </div>
                     </div>

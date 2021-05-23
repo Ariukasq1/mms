@@ -1,14 +1,12 @@
 import React from "react";
 import { Tabs } from "antd";
 import arrowImage from "../public/images/arrow.svg";
-import mainStore from "../stores";
 import Link from "next/link";
 
 const { TabPane } = Tabs;
 
 const ShowRoomComponent = ({ data }) => {
   const items = Object.values(data.acf);
-  const { language } = mainStore();
 
   if (!items || items.length === 0) {
     return null;
@@ -32,7 +30,7 @@ const ShowRoomComponent = ({ data }) => {
                   {/* <Link
                     href={{
                       pathname: `${data.slug}`,
-                      query: { lang: language },
+                      query: { lang: currentLanguage },
                     }}
                   > */}
                   <a className="p-5 text-xs font-light text-gray-300 sm:p-2">
@@ -66,7 +64,7 @@ const ShowRoomComponent = ({ data }) => {
                   {/* <Link
                     href={{
                       pathname: `${data.slug}`,
-                      query: { lang: language },
+                      query: { lang: currentLanguage },
                     }}
                   > */}
                   <a

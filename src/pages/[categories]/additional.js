@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { Config } from "../../config";
-import { getData } from "../../utils";
 
 class Additional extends React.Component {
   constructor(props) {
@@ -111,7 +110,7 @@ class Additional extends React.Component {
 
   render() {
     const { post = {} } = this.state;
-    const { additional = {} } = post.acf;
+    const { additional } = post.acf || {};
 
     return (
       <div className="category-item h-full">

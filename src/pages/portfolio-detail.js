@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Layout from "../components/layouts/Layout";
 import ReactFullpage from "../lib/fullpage";
-import mainStore from "../stores";
 import ItemDetailsWithGallery from "../components/ItemDetailsWithGallery";
 import { Config } from "../config";
 import Slider from "react-slick";
@@ -14,6 +13,7 @@ import {
   getData,
   SampleNextArrow,
   SamplePrevArrow,
+  getLangParam,
 } from "../utils";
 import Material from "./Material";
 
@@ -133,7 +133,7 @@ const renderProjects = (projects, post, language) => {
 const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
   const post = detail[0];
   const projectDetail = projectDetails[0];
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
 
   const settingsItems = {
     infinite: true,
@@ -219,7 +219,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                       <SliderSubCategories
                         data={posts}
                         querySlug="portfolio"
-                        language={language}
+                        language={currentLanguage}
                       />
                     </div>
                   </div>
@@ -271,12 +271,12 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                     {(projects || []).length > 8 ? (
                       <div className="brands pl-12 pr-32 project-slider">
                         <Slider {...settingsItems}>
-                          {renderProjects(projects, post, language)}
+                          {renderProjects(projects, post, currentLanguage)}
                         </Slider>
                       </div>
                     ) : (
                       <div className="grid grid-cols-4 px-10">
-                        {renderProjects(projects, post, language)}
+                        {renderProjects(projects, post, currentLanguage)}
                       </div>
                     )}
                   </div>
@@ -330,7 +330,9 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                         "px-72 flex flex-col justify-center xl:px-20 2xl:px-40 md:px-20 md:flex-col lg:px-20 sm:flex-col sm:px-10"
                       }
                     >
-                      <h2 className={"uppercase text-white mb-10"}>Products</h2>
+                      <h2 className={"uppercase text-white mb-10"}>
+                        {__("Products")}
+                      </h2>
                       <div className="grid grid-cols-3 gap-8">
                         {((projectDetail.acf || {}).products || []).map(
                           (product) => (
@@ -363,13 +365,13 @@ Detail.getInitialProps = async (ctx) => {
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=194&per_page=20&filter[orderby]=id&order=asc&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const detail = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&slug=${parentSlug}&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
@@ -377,14 +379,14 @@ Detail.getInitialProps = async (ctx) => {
     detail[0].categories.length !== 0 ? detail[0].categories[0] : 195;
 
   const projects = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=40${
-      lang === "mn" ? "?lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=40&${
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const projectDetails = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 

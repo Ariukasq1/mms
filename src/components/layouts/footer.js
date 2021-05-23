@@ -20,21 +20,26 @@ class Footer extends React.Component {
       return null;
     }
 
-    return items.map((item, index) => (
-      <div key={index} className={"flex flex-col mb-10 sm:w-full"}>
-        <h2 className={"text-lg font-bold text-white mb-8"}>{item.name}</h2>
-        <p className={"text-lg  flex items-baseline text-pink-100"}>
-          {" "}
-          <HomeOutlined className="pr-2" /> {item.address}
-        </p>
-      </div>
-    ));
+    return items.map((item, index) => {
+      if (!item.name) {
+        return null;
+      }
+
+      return (
+        <div key={index} className={"flex flex-col mb-10 sm:w-full"}>
+          <h2 className={"text-lg font-bold text-white mb-8"}>{item.name}</h2>
+          <p className={"text-lg  flex items-baseline text-pink-100"}>
+            <HomeOutlined className="pr-2" /> {item.address}
+          </p>
+        </div>
+      );
+    });
   }
 
   render() {
     const { contact } = this.props;
 
-    if (contact.length === 0) {
+    if (!contact || contact.length === 0) {
       return null;
     }
 
@@ -140,7 +145,7 @@ class Footer extends React.Component {
                   type="text"
                   id="fname"
                   name="firstname"
-                  placeholder="Enter full name"
+                  placeholder={__("Enter full name")}
                   required
                 />
               </div>
@@ -154,7 +159,7 @@ class Footer extends React.Component {
                   type="text"
                   id="email"
                   name="email"
-                  placeholder="Enter email"
+                  placeholder={__("Enter email")}
                   required
                 />
               </div>
@@ -167,7 +172,7 @@ class Footer extends React.Component {
                   className={"h-40"}
                   id="Message"
                   name="message"
-                  placeholder="Enter text"
+                  placeholder={__("Enter text")}
                   required
                 />
               </div>

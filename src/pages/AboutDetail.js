@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Config } from "../config";
+import { getLangParam } from "../utils";
 
 export default class AboutDetail extends React.Component {
   constructor(props) {
@@ -12,8 +13,14 @@ export default class AboutDetail extends React.Component {
   }
 
   componentDidMount() {
+    const currentLanguage = getLangParam();
+
     axios
-      .get(`${Config.apiUrl}/wp/v2/posts?_embed&categories=${this.props.catId}`)
+      .get(
+        `${Config.apiUrl}/wp/v2/posts?_embed&categories=${this.props.catId}&${
+          currentLanguage === "mn" ? "lang=mn" : "lang="
+        }`
+      )
       .then((res) =>
         this.setState({
           post: res.data[0],
@@ -32,22 +39,33 @@ export default class AboutDetail extends React.Component {
             post.slug.includes("supply") ? "9" : "3"
           } gap-4`}
         >
-          {items.map((item, index) => (
-            <div key={index} className="supply-item flex flex-col items-center">
-              <div className="wrapper mb-5">
-                <img
-                  src={item.icon ? item.icon : "/images/check.png"}
-                  alt="icon"
-                />
+          {items.map((item, index) => {
+            if (!item) {
+              return null;
+            }
+
+            return (
+              <div
+                key={index}
+                className="supply-item flex flex-col items-center"
+              >
+                <div className="wrapper mb-5">
+                  <img
+                    src={item.icon ? item.icon : "/images/check.png"}
+                    alt="icon"
+                  />
+                </div>
+                <h5
+                  style={{ minHeight: post.slug.includes("supply") && "54px" }}
+                >
+                  {item.name}
+                </h5>
+                <p>
+                  <div dangerouslySetInnerHTML={{ __html: item.desc }} />
+                </p>
               </div>
-              <h5 style={{ minHeight: post.slug.includes("supply") && "54px" }}>
-                {item.name}
-              </h5>
-              <p>
-                <div dangerouslySetInnerHTML={{ __html: item.desc }} />
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     );

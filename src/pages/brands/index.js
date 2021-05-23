@@ -33,17 +33,17 @@ class Brands extends React.Component {
 }
 
 Brands.getInitialProps = async (ctx) => {
-  const query = ctx.query.lang;
+  const lang = ctx.query.lang;
 
   const brandCategories = await fetcher(
     `${Config.apiUrl}/wp/v2/categories?parent=112&${
-      query === "mn" ? "?lang=" + query : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const brands = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=100&${
-      query === "mn" ? "?lang=" + query : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=80&${
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 

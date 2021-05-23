@@ -1,13 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
-import mainStore from "../stores";
 import Link from "next/link";
-import { getData, sliderSettings } from "../utils";
+import { getData, sliderSettings, getLangParam } from "../utils";
 
 const RelationSlider = ({ posts, items, querySlug }) => {
-  const renderItems = () => {
-    const { language } = mainStore;
+  const currentLanguage = getLangParam();
 
+  const renderItems = () => {
     return items.map((item) => {
       const post = posts.filter((post) => post.id === item)[0];
 
@@ -20,9 +19,9 @@ const RelationSlider = ({ posts, items, querySlug }) => {
           <Link
             href={{
               pathname: `/[portfolio]/[item]`,
-              query: { lang: language },
+              query: { lang: currentLanguage },
             }}
-            as={`/${querySlug}/${post.slug}?lang=${language}#2`}
+            as={`/${querySlug}/${post.slug}?lang=${currentLanguage}#2`}
           >
             <a rel="noopener">
               <div className="font-medium text-black text-xl mb-4 title">

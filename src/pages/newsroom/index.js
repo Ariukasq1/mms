@@ -11,6 +11,7 @@ import {
   SampleNextArrow,
   SamplePrevArrow,
   __,
+  getLangParam,
 } from "../../utils";
 
 const settings = {
@@ -77,7 +78,7 @@ const settings = {
 };
 
 const Index = ({ newsroom, categories }) => {
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
   const [catId, setCatId] = useState(948);
 
   const onClick = (value) => {
@@ -99,7 +100,7 @@ const Index = ({ newsroom, categories }) => {
                 pathname: "/newsroom/[news]",
                 query: { news: news.slug },
               }}
-              as={`/newsroom/${news.slug}?lang=${language}`}
+              as={`/newsroom/${news.slug}?lang=${currentLanguage}`}
             >
               <a
                 className={

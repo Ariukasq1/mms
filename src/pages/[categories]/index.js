@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
-import mainStore from "../../stores";
 import SliderSubCategories from "../../components/SliderSubCategories";
-import { fetcher } from "../../utils";
+import { fetcher, __ } from "../../utils";
 import FullPage from "../../components/FullPage";
 import ItemDetail from "./detail";
 import ItemFacts from "./facts";
@@ -53,13 +52,12 @@ const AdditionSection = (posts, currentItemId, showDetail, lang) => {
 const Categories = ({ posts, querySlug, lang }) => {
   const [showDetail, setShowDetail] = useState(false);
   const [currentItemId, setCurrentItemId] = useState(null);
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
 
   const getCurrentItemId = (currentItemId) => {
     setCurrentItemId(currentItemId);
     setShowDetail(true);
   };
-
 
   return (
     <Layout>
@@ -72,13 +70,13 @@ const Categories = ({ posts, querySlug, lang }) => {
                   <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
                     <div className="brands">
                       <div className="header">
-                        <h2>{querySlug}</h2>
+                        <h2>{__(querySlug)}</h2>
                       </div>
                       <SliderSubCategories
                         data={posts}
                         getCurrentItemId={getCurrentItemId}
                         querySlug={querySlug}
-                        language={language}
+                        language={currentLanguage}
                       />
                     </div>
                   </div>

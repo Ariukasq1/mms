@@ -3,7 +3,7 @@ import Layout from "../../components/layouts/Layout";
 import Footer from "../../components/layouts/footer";
 import { Config } from "../../config";
 import mainStore from "../../stores";
-import { fetcher, getData, __ } from "../../utils";
+import { fetcher, getData, __, getLangParam } from "../../utils";
 import Link from "next/link";
 import { Collapse } from "antd";
 import moment from "moment";
@@ -277,17 +277,23 @@ const renderProcess = (items, currentId, currentTitle) => {
               />
               {items[2].acf.length !== 0 && (
                 <div className="grid gap-4 grid-cols-2">
-                  {Object.values(items[2].acf).map((data, index) => (
-                    <div className="" key={index}>
-                      <span className="gradient-text text-6xl leading-normal">
-                        {index + 1}.
-                      </span>
-                      <h4 className="font-semibold text-xl mb-3">
-                        {data.title}
-                      </h4>
-                      <p className="text-base">{data.desc}</p>
-                    </div>
-                  ))}
+                  {Object.values(items[2].acf).map((data, index) => {
+                    if (!data) {
+                      return null;
+                    }
+
+                    return (
+                      <div className="" key={index}>
+                        <span className="gradient-text text-6xl leading-normal">
+                          {index + 1}.
+                        </span>
+                        <h4 className="font-semibold text-xl mb-3">
+                          {data.title}
+                        </h4>
+                        <p className="text-base">{data.desc}</p>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -299,7 +305,7 @@ const renderProcess = (items, currentId, currentTitle) => {
 };
 
 const Item = ({ career, items, detail, contact, jobs, lang }) => {
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
 
   if (!detail || detail.length === 0) {
     return null;
@@ -329,9 +335,9 @@ const Item = ({ career, items, detail, contact, jobs, lang }) => {
             <Link
               href={{
                 pathname: `/[careers]/[item]`,
-                query: { lang: language },
+                query: { lang: currentLanguage },
               }}
-              as={`/careers/${item.slug}?lang=${language}#2`}
+              as={`/careers/${item.slug}?lang=${currentLanguage}#2`}
             >
               <a>
                 <div className="card">
@@ -436,13 +442,13 @@ Item.getInitialProps = async (ctx) => {
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=211&filter[orderby]=id&order=asc&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const contact = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235${
-      lang === "mn" ? "?lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235&${
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
@@ -464,8 +470,8 @@ Item.getInitialProps = async (ctx) => {
   );
 
   const jobs = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=949${
-      lang === "mn" ? "?lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=949&${
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 

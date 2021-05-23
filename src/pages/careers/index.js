@@ -2,13 +2,12 @@ import React from "react";
 import Layout from "../../components/layouts/Layout";
 import Footer from "../../components/layouts/footer";
 import { Config } from "../../config";
-import mainStore from "../../stores";
-import { fetcher, getData, __ } from "../../utils";
+import { fetcher, getData, __, getLangParam } from "../../utils";
 import Link from "next/link";
 import FullPage from "../../components/FullPage";
 
 const Index = ({ career, contact }) => {
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
 
   const renderValues = () => (
     <div className="px-72 auto-overflow">
@@ -32,9 +31,9 @@ const Index = ({ career, contact }) => {
             <Link
               href={{
                 pathname: `/[careers]/[item]`,
-                query: { lang: language },
+                query: { lang: currentLanguage },
               }}
-              as={`/careers/${item.slug}?lang=${language}#2`}
+              as={`/careers/${item.slug}?lang=${currentLanguage}#2`}
             >
               <a>
                 <div className="card">
@@ -86,13 +85,13 @@ Index.getInitialProps = async (ctx) => {
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=211&filter[orderby]=id&order=asc&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const contact = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235${
-      query === "mn" ? "?lang=" + query : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235&${
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 

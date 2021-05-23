@@ -1,10 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import mainStore from "../stores";
-import { __, getData } from "../utils";
+import { __, getData, getLangParam } from "../utils";
 
 const CapabilitiesComponent = ({ data }) => {
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
 
   return (
     <div className="capabilities flex flex-row-reverse xl:flex-row sm:flex-col justify-between items-center">
@@ -16,14 +15,14 @@ const CapabilitiesComponent = ({ data }) => {
         style={{ flexBasis: "50%" }}
       >
         <div className="heading-tag capitalize text-3xl font-bold mb-10 sm:text-lg">
-          {__("capabilities")}
+          {__("Capabilities")}
         </div>
         <div className="capabilitiesBody mb-10 text-lg sm:text-base">
           <div dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
         </div>
         <Link
-          href={{ pathname: `/[categories]`, query: { lang: language } }}
-          as={`capabilities?lang=${language}`}
+          href={{ pathname: `/[categories]`, query: { lang: currentLanguage } }}
+          as={`capabilities?lang=${currentLanguage}`}
         >
           <a className="text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10">
             {__("Read more")}

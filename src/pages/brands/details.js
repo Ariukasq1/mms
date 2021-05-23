@@ -101,7 +101,7 @@ class BrandDetail extends React.Component {
                 style={{ bottom: "2rem" }}
               >
                 <div className="text-base font-bold text-menuTextColor mb-3">
-                  {__("Certification & Accreditations:")}
+                  {__("Certification & Accreditations")}:
                 </div>
                 <img className="w-full" src={certificate} alt="certificate" />
               </div>
@@ -111,7 +111,6 @@ class BrandDetail extends React.Component {
             <div className={"itemDetailsTexts"}>
               <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
                 <span>
-                  {" "}
                   <div
                     className="inline-block"
                     dangerouslySetInnerHTML={{ __html: brand.title.rendered }}

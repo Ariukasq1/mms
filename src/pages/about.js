@@ -185,32 +185,32 @@ About.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const contact = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235${
-      query === "mn" ? "?lang=" + query : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235&${
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const posts = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=207&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const services = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=208&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const histories = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=209&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const categories = await fetcher(
     `${Config.apiUrl}/wp/v2/categories?parent=208&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 

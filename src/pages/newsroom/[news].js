@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "react-slick";
 import Link from "next/link";
 import Layout from "../../components/layouts/Layout";
-import mainStore from "../../stores";
 import { Config } from "../../config";
 import ReactFullpage from "../../lib/fullpage";
 import {
@@ -10,6 +9,8 @@ import {
   getData,
   SampleNextArrow,
   SamplePrevArrow,
+  getLangParam,
+  __,
 } from "../../utils";
 
 const settings = {
@@ -56,7 +57,7 @@ const settings = {
 };
 
 const News = ({ details, news }) => {
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
   const post = details[0];
 
   const renderNews = news.map((n, index) => {
@@ -68,7 +69,7 @@ const News = ({ details, news }) => {
               pathname: "/newsroom/[news]#1",
               query: { news: news.slug },
             }}
-            as={`/newsroom/${n.slug}?lang=${language}#1`}
+            as={`/newsroom/${n.slug}?lang=${currentLanguage}#1`}
           >
             <a>
               <div className="image-wrapper">
@@ -108,7 +109,9 @@ const News = ({ details, news }) => {
                     </div>
                   </div>
                   <div className={"w-1/2 auto-overflow"}>
-                    <h2 className={"mb-10 font-medium text-sm"}>#News</h2>
+                    <h2 className={"mb-10 font-medium text-sm"}>
+                      #{__("News")}
+                    </h2>
                     <h2 className={"mb-4 font-bold text-xl"}>
                       <div
                         dangerouslySetInnerHTML={{
@@ -130,7 +133,7 @@ const News = ({ details, news }) => {
               <div className="section odd otherNews">
                 <div className="pl-40 pr-12">
                   <div className="header">
-                    <h2>Related news</h2>
+                    <h2>{__("Related news")}</h2>
                   </div>
                   <div className="brands news-slider">
                     <Slider {...settings}>{renderNews}</Slider>

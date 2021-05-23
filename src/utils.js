@@ -88,6 +88,11 @@ export const SamplePrevArrow = (props) => {
   );
 };
 
+export const getLangParam = () =>
+  typeof window !== "undefined" && window.location.href.indexOf("=mn") > -1
+    ? "mn"
+    : "en";
+
 export const sliderSettings = {
   infinite: true,
   slidesToShow: 4,

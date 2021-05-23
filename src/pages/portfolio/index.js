@@ -2,8 +2,7 @@ import React from "react";
 import arrowImage from "../../public/images/arrow-blue.svg";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
-import mainStore from "../../stores";
-import { fetcher, __, getData } from "../../utils";
+import { fetcher, __, getData, getLangParam } from "../../utils";
 import FullPage from "../../components/FullPage";
 import Link from "next/link";
 
@@ -81,7 +80,7 @@ const SliderSubCategories = (props) => {
 };
 
 const Portfolio = ({ posts }) => {
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
 
   return (
     <Layout>
@@ -99,7 +98,7 @@ const Portfolio = ({ posts }) => {
                       <SliderSubCategories
                         data={posts}
                         querySlug="portfolio"
-                        language={language}
+                        language={currentLanguage}
                       />
                     </div>
                   </div>

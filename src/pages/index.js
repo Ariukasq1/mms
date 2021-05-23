@@ -70,7 +70,7 @@ Index.getInitialProps = async (ctx) => {
   );
 
   const brands = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=20&${
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=112&per_page=80&${
       lang === "mn" ? "lang=" + lang : ""
     }`
   );

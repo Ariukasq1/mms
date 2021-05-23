@@ -1,14 +1,13 @@
 import React from "react";
 import { Tabs } from "antd";
 import arrowImage from "../public/images/arrow-blue.svg";
-import mainStore from "../stores";
 import Link from "next/link";
-import { __, getData } from "../utils";
+import { __, getData, getLangParam } from "../utils";
 
 const { TabPane } = Tabs;
 
 const IndustryComponent = ({ industries }) => {
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
 
   if (!industries || industries.length === 0) {
     return null;
@@ -17,7 +16,7 @@ const IndustryComponent = ({ industries }) => {
   return (
     <div className="industry relative justify-between items-center">
       <div className="heading-tag capitalize text-xl font-bold pl-48 top-16 absolute sm:text-lg">
-        {__("industries")}
+        {__("Industries")}
       </div>
       <Tabs defaultActiveKey="0" tabPosition="left">
         {industries.map((item, i) => {
@@ -65,7 +64,9 @@ const IndustryComponent = ({ industries }) => {
           );
         })}
       </Tabs>
-      <Link href={{ pathname: `/[categories]`, query: { lang: language } }}>
+      <Link
+        href={{ pathname: `/[categories]`, query: { lang: currentLanguage } }}
+      >
         <a className="text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48">
           {__("Read more")}
         </a>

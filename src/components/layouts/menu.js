@@ -88,27 +88,23 @@ const MenuComponent = () => {
               )}
             </div>
             <div className={"topMenuLanguage mr-4"}>
-              <Link href={{ query: { lang: "en" } }}>
-                <a
-                  onClick={() => setLanguage("en")}
-                  className={`mr-1 ${
-                    language === "en" ? "font-bold text-menuTextColor" : ""
-                  }`}
-                >
-                  EN
-                </a>
-              </Link>
+              <a
+                href="?lang="
+                className={`mr-1 ${
+                  language === "en" ? "font-bold text-menuTextColor" : ""
+                }`}
+              >
+                EN
+              </a>
               <span>/</span>
-              <Link href={{ query: { lang: "mn" } }}>
-                <a
-                  onClick={() => setLanguage("mn")}
-                  className={`ml-1 ${
-                    language === "mn" ? "font-bold text-menuTextColor" : ""
-                  }`}
-                >
-                  MN
-                </a>
-              </Link>
+              <a
+                href="?lang=mn"
+                className={`ml-1 ${
+                  language === "mn" ? "font-bold text-menuTextColor" : ""
+                }`}
+              >
+                MN
+              </a>
             </div>
           </div>
           <div

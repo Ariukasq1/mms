@@ -3,7 +3,6 @@ import Link from "next/link";
 import arrowImageBlue from "../../public/images/arrow-blue.svg";
 import Layout from "../../components/layouts/Layout";
 import ReactFullpage from "../../lib/fullpage";
-import mainStore from "../../stores";
 import { Config } from "../../config";
 import Slider from "react-slick";
 import arrowImage from "../../public/images/arrow-white.svg";
@@ -13,6 +12,7 @@ import {
   getData,
   SampleNextArrow,
   SamplePrevArrow,
+  getLangParam,
 } from "../../utils";
 
 const SliderSubCategories = (props) => {
@@ -97,7 +97,7 @@ const renderProjects = (projects, post, language) => {
     return (
       <div key={project.id}>
         <a
-          href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+          href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#4`}
         >
           <div
             className="project flex justify-center items-center row-span-2 col-span-1 relative"
@@ -114,9 +114,9 @@ const renderProjects = (projects, post, language) => {
               <div className="flex items-center more">
                 <a
                   className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
-                  href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+                  href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#4`}
                 >
-                  Read more
+                  {__("Read more")}
                 </a>
                 <img src={arrowImage} />
               </div>
@@ -130,7 +130,7 @@ const renderProjects = (projects, post, language) => {
 
 const Item = ({ posts, detail, projects }) => {
   const post = detail[0];
-  const { language } = mainStore();
+  const currentLanguage = getLangParam();
 
   const settingsItems = {
     infinite: true,
@@ -199,7 +199,7 @@ const Item = ({ posts, detail, projects }) => {
                       <SliderSubCategories
                         data={posts}
                         querySlug="portfolio"
-                        language={language}
+                        language={currentLanguage}
                       />
                     </div>
                   </div>
@@ -251,12 +251,12 @@ const Item = ({ posts, detail, projects }) => {
                     {(projects || []).length > 8 ? (
                       <div className="brands pl-12 pr-32 project-slider">
                         <Slider {...settingsItems}>
-                          {renderProjects(projects, post, language)}
+                          {renderProjects(projects, post, currentLanguage)}
                         </Slider>
                       </div>
                     ) : (
                       <div className="grid grid-cols-4 px-10">
-                        {renderProjects(projects, post, language)}
+                        {renderProjects(projects, post, currentLanguage)}
                       </div>
                     )}
                   </div>
@@ -278,13 +278,13 @@ Item.getInitialProps = async (ctx) => {
     `${
       Config.apiUrl
     }/wp/v2/posts?_embed&categories=194&per_page=20&filter[orderby]=id&order=asc&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const detail = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
@@ -293,7 +293,7 @@ Item.getInitialProps = async (ctx) => {
 
   const projects = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=20&${
-      lang === "mn" ? "?lang=" + lang : ""
+      lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
