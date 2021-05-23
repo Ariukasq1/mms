@@ -4,7 +4,7 @@ import { Config } from "../../config";
 import ReactFullpage from "../../lib/fullpage";
 import SliderSubCategories from "../../components/SliderSubCategories";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
-import { fetcher, getData } from "../../utils";
+import { fetcher, getData, getLangParam } from "../../utils";
 import RelationSlider from "../../components/RelationSlider";
 
 const anchors = ["1", "2", "3"];

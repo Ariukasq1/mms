@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import SliderSubCategories from "../../components/SliderSubCategories";
-import { fetcher, __ } from "../../utils";
+import { fetcher, __, getLangParam } from "../../utils";
 import FullPage from "../../components/FullPage";
 import ItemDetail from "./detail";
 import ItemFacts from "./facts";
