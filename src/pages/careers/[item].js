@@ -6,6 +6,7 @@ import mainStore from "../../stores";
 import { fetcher, getData, __ } from "../../utils";
 import Link from "next/link";
 import { Collapse } from "antd";
+import moment from "moment";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
 import FullPage from "../../components/FullPage";
 
@@ -143,51 +144,82 @@ const renderCulture = (items, currentId, currentTitle) => {
   });
 };
 
-const renderVacancies = (items, currentId, currentTitle) => {
+const renderJobs = (job, lang) => {
+  console.log(job);
   return (
-    <div className={`section vacancies`}>
+    <div
+      key={job.id}
+      className="relative job-item mb-8"
+      style={{
+        backgroundImage: `url(${getData(job._embedded, "image")})`,
+      }}
+    >
+      <div className="content absolute p-5 bottom-0 right-0 left-0">
+        <h4
+          className={
+            "text-base font-medium leading-5 text-white w-full flex items-end h-full overflow-hidden"
+          }
+        >
+          {job.title.rendered}
+        </h4>
+        <i className="mb-10 date">{moment(job.date).format("ll")}</i>
+      </div>
+    </div>
+  );
+};
+
+const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
+  return (
+    <div className={`section vacancies item-detail`}>
       {items.map((item) => {
         if (item.id === currentId) {
           return null;
         }
 
         return (
-          <div className="flex">
-            <div className="w-1/2">
-              {!item.acf.image_1 ? (
-                <img
-                  className="object-cover object-center h-body w-full"
-                  src={getData(item._embedded, "image")}
-                  alt={currentTitle}
-                />
-              ) : (
-                <ItemDetailsWithGallery
-                  images={Object.entries(item.acf || {}).map(([key, value]) => {
-                    if (key.includes("group")) {
-                      return null;
-                    }
-
-                    return value;
-                  })}
-                />
-              )}
-            </div>
-            <div className="w-1/2 p-20">
-              <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
-                {currentTitle}
+          <div className="category-item">
+            <div className="flex">
+              <div className="w-3/5 p-20">
+                <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+                  {currentTitle}
+                </div>
+                <div className="auto-overflow">
+                  <div className="open-vacancy mt-5">
+                    {jobs.map((job) => renderJobs(job, lang))}
+                  </div>
+                </div>
               </div>
-              <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+              <div className="w-2/5">
                 <div
-                  dangerouslySetInnerHTML={{ __html: item.title.rendered }}
-                />
-              </div>
-              <div className="auto-overflow">
-                <div
-                  className="text-base"
-                  dangerouslySetInnerHTML={{
-                    __html: item.content.rendered,
+                  className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative"
+                  style={{
+                    backgroundImage: `url(${getData(item._embedded, "image")})`,
                   }}
-                />
+                >
+                  <div className="inner-content">
+                    <div className="inner-content-overlay absolute inset-0" />
+                    <div className="inner-content-detail text-white absolute">
+                      <h2 className="block text-2xl font-bold capitalize text-white mb-4">
+                        {item.title && (
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: item.title.rendered,
+                            }}
+                          />
+                        )}
+                      </h2>
+                      <div className="auto-overflow mb-4">
+                        <div
+                          className="text-lg font-medium"
+                          dangerouslySetInnerHTML={{
+                            __html: item.content && item.content.rendered,
+                          }}
+                        />
+                      </div>
+                      <div className="divider block bg-white" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -267,7 +299,7 @@ const renderProcess = (items, currentId, currentTitle) => {
   );
 };
 
-const Item = ({ career, items, detail, contact }) => {
+const Item = ({ career, items, detail, contact, jobs, lang }) => {
   const { language } = mainStore();
 
   if (!detail || detail.length === 0) {
@@ -383,7 +415,7 @@ const Item = ({ career, items, detail, contact }) => {
               : post.slug === "why-mms"
               ? renderCulture(items, post.id, post.title.rendered)
               : post.slug === "open-vacancy"
-              ? renderVacancies(items, post.id, post.title.rendered)
+              ? renderVacancies(items, post.id, post.title.rendered, jobs, lang)
               : post.slug === "selection-process"
               ? renderProcess(items, post.id, post.title.rendered)
               : null}
@@ -433,12 +465,12 @@ Item.getInitialProps = async (ctx) => {
   );
 
   const jobs = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=212${
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=949${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );
 
-  return { career, jobs, detail, items, contact };
+  return { career, jobs, detail, items, contact, lang };
 };
 
 export default Item;

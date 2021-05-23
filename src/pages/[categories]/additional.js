@@ -111,7 +111,7 @@ class Additional extends React.Component {
 
   render() {
     const { post = {} } = this.state;
-    const { additional } = post.acf || {};
+    const { additional = {} } = post.acf;
 
     return (
       <div className="category-item h-full">
