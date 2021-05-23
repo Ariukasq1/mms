@@ -16,10 +16,11 @@ Contact.getInitialProps = async (ctx) => {
   const query = ctx.query.lang;
 
   const contact = await fetcher(
-    `${Config.apiUrl}/wp/v2/navigation_menus?slug=contact&${
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235${
       query === "mn" ? "?lang=" + query : ""
     }`
   );
+
   return { contact };
 };
 

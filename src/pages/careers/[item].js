@@ -145,7 +145,6 @@ const renderCulture = (items, currentId, currentTitle) => {
 };
 
 const renderJobs = (job, lang) => {
-  console.log(job);
   return (
     <div
       key={job.id}
@@ -442,7 +441,7 @@ Item.getInitialProps = async (ctx) => {
   );
 
   const contact = await fetcher(
-    `${Config.apiUrl}/wp/v2/navigation_menus?slug=contact&${
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235${
       lang === "mn" ? "?lang=" + lang : ""
     }`
   );

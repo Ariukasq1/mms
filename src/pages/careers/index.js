@@ -91,8 +91,8 @@ Index.getInitialProps = async (ctx) => {
   );
 
   const contact = await fetcher(
-    `${Config.apiUrl}/wp/v2/navigation_menus?slug=contact&${
-      lang === "mn" ? "?lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235${
+      query === "mn" ? "?lang=" + query : ""
     }`
   );
 
