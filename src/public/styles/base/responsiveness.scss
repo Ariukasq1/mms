@@ -70,6 +70,12 @@
 @media only screen and (min-width: 1025px) and (max-width: 1366px){
   .industry{
     .ant-tabs{
+      .ant-tabs-tab-btn{
+        .title {
+          font-size: 60px;
+        }
+      }
+
       .ant-tabs-tab {
         height: 70px;
       } 
@@ -98,6 +104,12 @@
 @media only screen and (max-width: 1024px) and (min-width: 769px){
   .industry{
     .ant-tabs{
+      .ant-tabs-tab-btn{
+        .title {
+          font-size: 50px;
+        }
+      }
+
       .ant-tabs-tab {
         height: 60px;
       }
@@ -146,6 +158,12 @@
 
     .ant-tabs{
       display: block;
+
+      .ant-tabs-tab-btn{
+        .title {
+          font-size: 50px;
+        }
+      }
 
       .ant-tabs-tab {
         height: 38px;
@@ -206,6 +224,12 @@
 @media only screen and (max-width: 480px){
   .industry{
       .ant-tabs{
+        .ant-tabs-tab-btn{
+          .title {
+            font-size: 30px;
+          }
+        }
+
         .ant-tabs-nav-list{
           margin-bottom: 30px;
         }
@@ -354,6 +378,9 @@
   } 
   .brands{
     .single-brand{
+      .bg-img-wrapper {
+        max-width: 250px;
+      }
       .bg-img-wrapper {
         height: 150px;
       }
