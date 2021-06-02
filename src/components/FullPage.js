@@ -33,7 +33,7 @@ export default class FullPage extends React.Component {
         anchors={anchors}
         navigationPosition={"left"}
         navigation
-        paddingTop={"116px"}
+        // paddingTop={width ? "116px" : "66px"}
         parallax={true}
         onLeave={this.onLeave.bind(this)}
         afterLoad={this.afterLoad.bind(this)}

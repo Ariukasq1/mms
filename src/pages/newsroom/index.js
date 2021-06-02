@@ -159,7 +159,7 @@ const Index = ({ newsroom, categories }) => {
       <ReactFullpage
         navigationPosition={"left"}
         navigation
-        paddingTop={"116px"}
+        // paddingTop={"116px"}
         render={({ state, fullpageApi }) => {
           return (
             <div id="fullpage">

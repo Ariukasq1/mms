@@ -15,7 +15,7 @@ const IndustryComponent = ({ industries }) => {
 
   return (
     <div className="industry relative justify-between items-center">
-      <div className="heading-tag capitalize text-xl font-bold pl-48 top-16 absolute sm:text-lg">
+      <div className="heading-tag capitalize text-2xl font-bold pl-48 top-16 absolute sm:text-lg xl:pl-28 lg:pl-24 md:pl-16 sm:pl-16">
         {__("Industries")}
       </div>
       <Tabs defaultActiveKey="0" tabPosition="left">
@@ -29,7 +29,7 @@ const IndustryComponent = ({ industries }) => {
               key={i}
               tab={
                 <div
-                  className="title pl-48"
+                  className="title pl-48 text-7xl xl:text-5xl xl:p-28 lg:text-5xl lg:p-24 md:text-4xl md:p-16 sm:text-4xl sm:pl-16"
                   data-aos="fade-right"
                   data-aos-easing="ease-in"
                   data-aos-delay={i * 150}
@@ -52,7 +52,7 @@ const IndustryComponent = ({ industries }) => {
                 }}
               >
                 <div className="bg-black opacity-50 absolute inset-0" />
-                <div className="desc text-lg p-40 pr-32 text-white overflow-ellipsis overflow-hidden font-medium relative h-80 sm:text-base,w-full sm:px-16 sm:pr-8 md:w-full lg:w-3/4 xl:w-5/6">
+                <div className="desc text-lg p-40 pr-32 text-white overflow-ellipsis overflow-hidden font-medium relative h-80 sm:text-base,w-full sm:pl-16 sm:pr-10 sm:text-sm sm:py-8 md:w-full md:py-20 md:pl-16 md:pl-10 md:text-sm lg:w-9/10 lg:px-24 lg:py-40 xl:w-7/8">
                   <div
                     dangerouslySetInnerHTML={{
                       __html: item.content.rendered,
@@ -67,7 +67,7 @@ const IndustryComponent = ({ industries }) => {
       <Link
         href={{ pathname: `/[categories]`, query: { lang: currentLanguage } }}
       >
-        <a className="text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48">
+        <a className="Industries-btn text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48 sm:ml-16 md:m-0" >
           {__("Read more")}
         </a>
       </Link>

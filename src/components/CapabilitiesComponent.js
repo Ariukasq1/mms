@@ -17,7 +17,7 @@ const CapabilitiesComponent = ({ data }) => {
         <div className="heading-tag capitalize text-3xl font-bold mb-10 sm:text-lg">
           {__("Capabilities")}
         </div>
-        <div className="capabilitiesBody mb-10 text-lg sm:text-base">
+        <div className="capabilitiesBody mb-10 text-lg ">
           <div dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
         </div>
         <Link
@@ -30,7 +30,7 @@ const CapabilitiesComponent = ({ data }) => {
         </Link>
       </div>
       <div
-        className="capabilitiesImage w-full h-body sm:hidden"
+        className="capabilitiesImage w-full h-body"
         style={{ flexBasis: "50%" }}
       >
         <img

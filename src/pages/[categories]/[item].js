@@ -44,7 +44,7 @@ const Item = ({ postItems, detail, querySlug, posts }) => {
           navigation
           navigationTooltips={anchors}
           scrollOverflow={true}
-          paddingTop={"116px"}
+          // paddingTop={"116px"}
           render={({ state, fullpageApi }) => {
             return (
               <div id="fullpage">

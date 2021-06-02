@@ -113,9 +113,9 @@ export const sliderSettings = {
       },
     },
     {
-      breakpoint: 800,
+      breakpoint: 768,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 2,
         infinite: true,
         dots: true,
@@ -124,9 +124,9 @@ export const sliderSettings = {
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 2,
-        initialSlide: 2,
+        // initialSlide: 2,
       },
     },
     {

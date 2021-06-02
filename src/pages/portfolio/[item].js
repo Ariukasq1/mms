@@ -184,7 +184,7 @@ const Item = ({ posts, detail, projects }) => {
       <ReactFullpage
         navigationPosition={"left"}
         navigation
-        paddingTop={"116px"}
+        // paddingTop={"116px"}
         scrollOverflow={false}
         render={({ state, fullpageApi }) => {
           return (
