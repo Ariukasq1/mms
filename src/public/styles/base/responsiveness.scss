@@ -42,6 +42,13 @@
 .fp-scrollable, .fp-scroller {
   overflow: visible;
 }
+.history{
+  .slick-slider{
+    .slick-prev, .slick-next { 
+      top: 49.5% !important;
+    }
+  }
+}
 @media only screen and (min-width: 1451px){
   .slider{
     .text{
@@ -396,4 +403,5 @@
       }
     }
   }
+  
 }

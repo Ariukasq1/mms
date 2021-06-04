@@ -2116,6 +2116,10 @@ label {
   overflow: visible;
 }
 
+.history .slick-slider .slick-prev, .history .slick-slider .slick-next {
+  top: 49.5% !important;
+}
+
 @media only screen and (min-width: 1451px) {
   .slider .text .title {
     font-size: 80px;
