@@ -19,8 +19,24 @@ const renderCulture = (items, currentId, currentTitle) => {
     }
 
     const renderContent = (item) => (
-      <div className="flex">
-        <div className="w-1/2">
+      <div className="flex md:block sm:block">
+        <div className="w-1/2 p-20 md:w-full sm:w-full sm:p-10">
+          <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+            {currentTitle}
+          </div>
+          <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+            <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+          </div>
+          <div className="auto-overflow">
+            <div
+              className="text-base"
+              dangerouslySetInnerHTML={{
+                __html: item.content.rendered,
+              }}
+            />
+          </div>
+        </div>
+        <div className="w-1/2 md:w-full sm:w-full">
           {!item.acf.image_1 ? (
             <img
               className="object-cover object-center h-body w-full"
@@ -38,22 +54,6 @@ const renderCulture = (items, currentId, currentTitle) => {
               })}
             />
           )}
-        </div>
-        <div className="w-1/2 p-20">
-          <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
-            {currentTitle}
-          </div>
-          <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
-            <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
-          </div>
-          <div className="auto-overflow">
-            <div
-              className="text-base"
-              dangerouslySetInnerHTML={{
-                __html: item.content.rendered,
-              }}
-            />
-          </div>
         </div>
       </div>
     );
@@ -75,12 +75,12 @@ const renderCulture = (items, currentId, currentTitle) => {
               {currentTitle}
             </div>
             <div
-              className="heading-title capitalize text-6xl mt-4 mb-8 px-64 font-bold sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1"
+              className="heading-title text-center capitalize text-6xl mt-4 mb-8 px-64 font-bold sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 md:px-20 sm:px-10"
               style={{ lineHeight: "4rem" }}
             >
               <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
             </div>
-            <p className="text-2xl font-medium">
+            <p className="text-2xl font-medium sm:px-10 text-center md:px-20">
               <div
                 dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
               />
@@ -88,8 +88,8 @@ const renderCulture = (items, currentId, currentTitle) => {
           </div>
         </div>
       ) : item.slug.includes("benefits") ? (
-        <div className="benefits flex">
-          <div className="w-1/2 flex flex-col flex-center pl-40 pr-20 py-20">
+        <div className="benefits flex md:block sm:block lg:block">
+          <div className="w-1/2 flex flex-col flex-center pl-40 pr-20 py-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:pl-14 md:pr-8 md:pb-10 sm:pl-12 sm:pr-8 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-5 sm:pt-5">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
@@ -103,7 +103,7 @@ const renderCulture = (items, currentId, currentTitle) => {
                   __html: item.content.rendered,
                 }}
               />
-              <div className="grid gap-4 mt-8 grid-cols-4">
+              <div className="grid gap-4 mt-8 grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2">
                 {Object.values(item.acf).map((data, index) => (
                   <div
                     key={index}
@@ -123,7 +123,7 @@ const renderCulture = (items, currentId, currentTitle) => {
               </div>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="w-1/2 lg:w-full md:w-full sm:w-full">
             <img
               className="object-cover object-center h-body w-full"
               src={getData(item._embedded, "image")}
@@ -177,18 +177,18 @@ const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
 
         return (
           <div className="category-item">
-            <div className="flex">
-              <div className="w-3/5 p-20">
+            <div className="flex md:block sm:block">
+              <div className="w-3/5 p-20 md:w-full md:pb-5 sm:w-full sm:p-10">
                 <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
                   {currentTitle}
                 </div>
                 <div className="auto-overflow">
-                  <div className="open-vacancy mt-5">
+                  <div className="flex flex-wrap md:flex-nowrap md:mt-5 sm:flex-nowrap">
                     {jobs.map((job) => renderJobs(job, lang))}
                   </div>
                 </div>
               </div>
-              <div className="w-2/5">
+              <div className="w-2/5 md:w-full sm:w-full">
                 <div
                   className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative"
                   style={{
@@ -232,8 +232,47 @@ const renderProcess = (items, currentId, currentTitle) => {
   return (
     <div className={`section vacancies item-detail`}>
       <div className="category-item">
-        <div className="flex">
-          <div className="w-1/2">
+        <div className="flex lg:block md:block sm:block xl:block">
+        <div className="w-1/2 p-20 lg:w-full md:w-full sm:w-full xl:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:pl-12 sm:py-5 sm:pr-5">
+            <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
+              {currentTitle}
+            </div>
+            <div className="heading-title capitalize text-5xl mt-4 mb-8 md:text-4xl sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+              <div
+                dangerouslySetInnerHTML={{ __html: items[2].title.rendered }}
+              />
+            </div>
+            <div className="auto-overflow">
+              <div
+                className="text-base"
+                dangerouslySetInnerHTML={{
+                  __html: items[2].content.rendered,
+                }}
+              />
+              {items[2].acf.length !== 0 && (
+                <div className="grid gap-4 grid-cols-2">
+                  {Object.values(items[2].acf).map((data, index) => {
+                    if (!data) {
+                      return null;
+                    }
+
+                    return (
+                      <div className="" key={index}>
+                        <span className="gradient-text text-6xl leading-normal md:text-4xl sm:text-3xl">
+                          {index + 1}.
+                        </span>
+                        <h4 className="font-semibold text-xl mb-3 md:text-base md:text-base sm:text-base">
+                          {data.title}
+                        </h4>
+                        <p className="text-base md:text-sm sm:text-sm">{data.desc}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="w-1/2 lg:w-full md:w-full sm:w-full xl:w-full">
             <div
               className="item-image bg-cover bg-no-repeat h-body object-cover object-center cursor-pointer relative"
               style={{
@@ -259,45 +298,7 @@ const renderProcess = (items, currentId, currentTitle) => {
               </div>
             </div>
           </div>
-          <div className="w-1/2 p-20">
-            <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
-              {currentTitle}
-            </div>
-            <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
-              <div
-                dangerouslySetInnerHTML={{ __html: items[2].title.rendered }}
-              />
-            </div>
-            <div className="auto-overflow">
-              <div
-                className="text-base"
-                dangerouslySetInnerHTML={{
-                  __html: items[2].content.rendered,
-                }}
-              />
-              {items[2].acf.length !== 0 && (
-                <div className="grid gap-4 grid-cols-2">
-                  {Object.values(items[2].acf).map((data, index) => {
-                    if (!data) {
-                      return null;
-                    }
-
-                    return (
-                      <div className="" key={index}>
-                        <span className="gradient-text text-6xl leading-normal">
-                          {index + 1}.
-                        </span>
-                        <h4 className="font-semibold text-xl mb-3">
-                          {data.title}
-                        </h4>
-                        <p className="text-base">{data.desc}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -314,14 +315,14 @@ const Item = ({ career, items, detail, contact, jobs, lang }) => {
   const post = detail[0];
 
   const renderValues = () => (
-    <div className="px-72 auto-overflow">
+    <div className="px-72 auto-overflow  lg:px-20 md:px-10 sm:px-12 xl:px-28">
       <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
         {__("human resource")}
       </div>
       <div className="heading-title capitalize text-4xl mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
         {__("We put company culture first")}
       </div>
-      <div className="grid grid-cols-4 gap-12">
+      <div className="grid grid-cols-4 gap-12 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {career.map((item, index) => (
           <div
             key={item.id}
@@ -369,7 +370,7 @@ const Item = ({ career, items, detail, contact, jobs, lang }) => {
   const renderFaq = () => {
     return (
       <div className="section faq">
-        <div className="px-72">
+        <div className="px-72 xl:px-24 lg:pl-24 lg:pr-10 md:pl-20 md:pr-10 sm:pl-12 sm:pr-8">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {__("Human Resource")}
           </div>

@@ -10,14 +10,14 @@ const Index = ({ career, contact }) => {
   const currentLanguage = getLangParam();
 
   const renderValues = () => (
-    <div className="px-72 auto-overflow">
+    <div className="px-72 auto-overflow xl:px-28 lg:px-20 md:px-10 sm:px-12">
       <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
         {__("human resource")}
       </div>
       <div className="heading-title capitalize text-4xl mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
         {__("We put company culture first")}
       </div>
-      <div className="grid grid-cols-4 gap-12">
+      <div className="grid grid-cols-4 gap-12 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {career.map((item, index) => (
           <div
             key={item.id}
