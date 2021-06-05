@@ -49,6 +49,15 @@
     }
   }
 }
+.brands{
+  .slick-list{
+    .slick-track{
+      .slick-slide{
+      padding: 0;
+      }
+    }
+  }
+}
 @media only screen and (min-width: 1451px){
   .slider{
     .text{
@@ -231,6 +240,8 @@
       }
     }
   }
+
+  
 }
 
 @media only screen and (max-width: 480px){
@@ -337,6 +348,11 @@
       }
     }
   } 
+  .brands{
+      .slick-prev{
+        left: 60%;
+      }
+    }
 }
 
 @media only screen and (max-width: 320px){
@@ -408,5 +424,11 @@
       }
     }
   }
-  
+  .news-slider{
+    .slick-slider{
+      .slick-prev{
+        left: 60%;
+      }
+    }
+  }
 }
