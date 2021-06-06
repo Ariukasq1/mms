@@ -124,6 +124,18 @@
   }
 }
 
+.projects-wrapper{
+  &:nth-child(1){
+    .brands{
+      .slick-slider{
+        .slick-next{
+          right: 20%;
+        }
+      }
+    }
+  } 
+}
+
 @media only screen and (max-width: 1024px) and (min-width: 769px){
   .industry{
     .ant-tabs{
@@ -196,6 +208,18 @@
         }
       }
     }
+  }
+
+  .projects-wrapper{
+    &:nth-child(1){
+      .brands{
+        .slick-slider{
+          .slick-next{
+            right: 20%;
+          }
+        }
+      }
+    } 
   }
 }
 
@@ -278,8 +302,8 @@
   .section.facts {
     .fact-item {
       &:nth-child(1),
-    &:nth-child(2) {
-      border-bottom: 1px solid #fff;
+      &:nth-child(2) {
+        border-bottom: 1px solid #fff;
     }
 
     &:nth-child(odd) {
@@ -303,6 +327,8 @@
       }
     }
   }
+
+  
 }
 
 @media only screen and (max-width: 480px){
@@ -443,6 +469,18 @@
         }
       }
     }
+
+    .projects-wrapper{
+      &:nth-child(1){
+        .brands{
+          .slick-slider{
+            .slick-next{
+              right: 8%;
+            }
+          }
+        }
+      } 
+    }
 }
 
 @media only screen and (max-width: 320px){
@@ -549,5 +587,17 @@
         height: 130px;
       }
     }
+  }
+
+  .projects-wrapper{
+    &:nth-child(1){
+      .brands{
+        .slick-slider{
+          .slick-next{
+            right: 6%;
+          }
+        }
+      }
+    } 
   }
 }

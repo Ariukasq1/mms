@@ -206,9 +206,9 @@ const Item = ({ posts, detail, projects }) => {
                 </div>
               </div>
               <div className="section">
-                <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
-                  <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full">
-                    <div className="flex flex-col mx-12 mt-20">
+                <div className="pl-24 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0">
+                  <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full lg:block md:block sm:block">
+                    <div className="flex flex-col mx-12 mt-20 lg:pl-12 lg:mr-2 lg:mt-5 md:pl-10 md:mr-2 md:mt-5 sm:pl-3 sm:mr-2 sm:mt-5 lg:mb-5 md:mb-5 sm:mb-5 xl:mt-5">
                       <h2
                         className="text-2xl capitalize font-bold text-menuTextColor mb-8"
                         dangerouslySetInnerHTML={{
@@ -237,7 +237,7 @@ const Item = ({ posts, detail, projects }) => {
                   backgroundImage: `url(${getData(post._embedded, "image")})`,
                 }}
               >
-                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:px-24">
+                <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:pl-16 lg:pl-16 sm:pl-10 sm:pr-5">
                   <div className="desc mb-10">
                     <h4 className="mb-5">
                       <div
@@ -249,7 +249,7 @@ const Item = ({ posts, detail, projects }) => {
                   </div>
                   <div>
                     {(projects || []).length > 8 ? (
-                      <div className="brands pl-12 pr-32 project-slider">
+                      <div className="brands pl-12 pr-32 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-5 sm:pl-5 sm:pr-0">
                         <Slider {...settingsItems}>
                           {renderProjects(projects, post, currentLanguage)}
                         </Slider>

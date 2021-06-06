@@ -2160,6 +2160,10 @@ label {
     height: 200px;
   }
 }
+.projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
+  right: 20%;
+}
+
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
   .industry .ant-tabs .ant-tabs-tab-btn .title {
     font-size: 50px;
@@ -2203,6 +2207,10 @@ label {
   }
 
   .item-relations > div .brands .slick-slider .slick-next {
+    right: 20%;
+  }
+
+  .projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
     right: 20%;
   }
 }
@@ -2368,6 +2376,10 @@ label {
   .brand-p-item a .image-wrapper {
     height: 150px;
   }
+
+  .projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
+    right: 8%;
+  }
 }
 @media only screen and (max-width: 320px) {
   .slider .text .title {
@@ -2443,6 +2455,10 @@ label {
 
   .brand-p-item a .image-wrapper {
     height: 130px;
+  }
+
+  .projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
+    right: 6%;
   }
 }
 
