@@ -10,7 +10,7 @@ const Index = ({ career, contact }) => {
   const currentLanguage = getLangParam();
 
   const renderValues = () => (
-    <div className="px-72 auto-overflow xl:px-28 lg:px-20 md:px-10 sm:px-12">
+    <div className="px-72  xl:px-28 lg:px-20 md:px-10 sm:px-12">
       <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
         {__("human resource")}
       </div>
