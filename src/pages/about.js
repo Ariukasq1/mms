@@ -111,23 +111,23 @@ const About = ({ contact, posts, services, histories, categories }) => {
             <div className="section about-us">
               <div
                 className={
-                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:px-16"
+                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:pl-16 sm:pr-6 lg:block md:block md:pl-24 md:pl-16"
                 }
               >
-                <div className={"w-1/2 mr-16"} data-aos="fade-right">
+                <div className={"w-1/2 mr-16 lg:mr-0 lg:w-full md:w-full sm:w-full"} data-aos="fade-right">
                   <img
                     className={"h-auto object-cover w-full"}
                     src={getData(post._embedded, "image")}
                   />
                 </div>
                 <div
-                  className={" w-1/2 flex items-center"}
+                  className={" w-1/2 flex items-center lg:w-full md:w-full sm:w-full"}
                   data-aos="fade-left"
                 >
                   <div>
                     <h2
                       className={
-                        "text-menuTextColor leading-8 font-bold text-2xl mb-10"
+                        "text-menuTextColor leading-8 font-bold text-2xl mb-10 lg:mt-10 sm:mb-3"
                       }
                     >
                       <div
@@ -137,7 +137,7 @@ const About = ({ contact, posts, services, histories, categories }) => {
                       />
                     </h2>
                     <div
-                      className={"careerDetails text-lg pr-20 sm:pr-0"}
+                      className={"careerDetails text-lg pr-20 sm:pr-0 lg:pr-0 md:pr-0 sm:text-base"}
                       dangerouslySetInnerHTML={{
                         __html: post.content.rendered,
                       }}
@@ -148,7 +148,7 @@ const About = ({ contact, posts, services, histories, categories }) => {
             </div>
             <div className="section what-we-do">
               <div className="auto-overflow">
-                <div className="text-center brands">
+                <div className="text-center brands sm:px-10">
                   <div className="heading-tag capitalize text-xl mt-20 font-bold sm:text-lg">
                     {__("What we do")}
                   </div>
@@ -157,13 +157,13 @@ const About = ({ contact, posts, services, histories, categories }) => {
                   </div>
                   {cats}
                 </div>
-                <div className={"flex flex-wrap sm:flex-col px-32"}>
+                <div className={"flex flex-wrap sm:flex-col px-32 lg:px-20 md:px-10 sm:px-4"}>
                   {renderWhatWeDo()}
                 </div>
               </div>
             </div>
             <div className="section timeline">
-              <div className="px-40 relative">
+              <div className="px-40 relative xl:px-24 lg:px-20 md:px-16 sm:px-12">
                 <div className="history relative">
                   <Slider {...settings} className="h-full">
                     {histories.map((history) => renderTimeline(history))}

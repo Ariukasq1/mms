@@ -18,7 +18,7 @@ const SliderSubCategories = (props) => {
 
     return (
       <div
-        className="cat-item bg-white"
+        className="cat-item bg-white md:mb-10 sm:mb-10"
         key={index}
         data-aos="fade-down"
         data-aos-easing="ease"
@@ -76,7 +76,7 @@ const SliderSubCategories = (props) => {
   }
 
   if (props.data.length <= 4) {
-    return <div className="flex without-scroll">{renderContent}</div>;
+    return <div className="flex without-scroll lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">{renderContent}</div>;
   }
 
   return (

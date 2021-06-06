@@ -40,12 +40,12 @@
     "react-slick": "^0.27.1",
     "react-visibility-sensor": "^5.1.1",
     "slick-carousel": "^1.8.1",
-    "tailwindcss": "^1.6.0",
     "tailwindcss-truncate-multiline": "^1.0.3",
     "wpapi": "^1.2.1",
     "zustand": "^3.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.6",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.16.0",
@@ -55,6 +55,8 @@
     "eslint-plugin-react-hooks": "^2.0.1",
     "file-loader": "^6.0.0",
     "normalize.css": "^8.0.1",
-    "prettier": ">= 1.13.0"
+    "postcss": "^7.0.35",
+    "prettier": ">= 1.13.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2"
   }
 }

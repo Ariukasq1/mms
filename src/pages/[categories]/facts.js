@@ -54,8 +54,8 @@ class ItemFacts extends React.Component {
           })`,
         }}
       >
-        <div className="px-40 flex itens-center justify-center h-full">
-          <div className="grid gap-0 grid-cols-2 my-4">
+        <div className="px-40 flex itens-center justify-center h-full lg:pl-20 lg:pr-5 md:pl-10 md:pr-5 sm:pr-5 sm:pl-10 sm:py-10">
+          <div className="grid gap-0 grid-cols-2 my-4 md:grid-cols-1 sm:grid-cols-1">
             {Object.entries((post && post.acf) || {}).map(([key, value]) => {
               if (!key.includes("group")) {
                 return null;
@@ -63,7 +63,7 @@ class ItemFacts extends React.Component {
 
               return (
                 <div
-                  className="fact-item flex items-center justify-center py-8 px-40"
+                  className="fact-item flex items-center justify-center py-8 px-40 md:p-5 sm:p-5"
                   key={key}
                 >
                   <div className="flex flex-col items-center text-center align-center">
@@ -75,7 +75,7 @@ class ItemFacts extends React.Component {
                     <div className="desc leading-5 text-lg font-semibold">
                       {value.upper_text}
                     </div>
-                    <div className="font-extrabold text-5xl fact-text">
+                    <div className="font-extrabold text-5xl fact-text lg:text-4xl md:text-2xl sm:text-xl">
                       {!Number(value.number) ? (
                         value.number
                       ) : (

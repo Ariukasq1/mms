@@ -149,7 +149,7 @@ const Index = ({ newsroom, categories }) => {
       </div>
     ) : (
       <div className="grid grid-cols-4">
-        {filteredNews.map((news) => renderNews(news))}
+           {filteredNews.map((news) => renderNews(news))}
       </div>
     );
   };
@@ -159,11 +159,11 @@ const Index = ({ newsroom, categories }) => {
       <ReactFullpage
         navigationPosition={"left"}
         navigation
-        paddingTop={"116px"}
+        // paddingTop={"116px"}
         render={({ state, fullpageApi }) => {
           return (
             <div id="fullpage">
-              <div className="section px-56 xl:px-56 lg:px-56 md:px-56 sm:px-24 news">
+              <div className="section px-56 xl:px-24 lg:px-20 md:px-20 sm:pl-14 sm:pr-6  news">
                 <div className="brands text-center">
                   <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
                     {__("Newsroom")}

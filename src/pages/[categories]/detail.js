@@ -12,12 +12,12 @@ class ItemDetail extends React.Component {
 
     return (
       <div className="support">
-        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12">
+        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12 md:pl-20">
           {supports && (
             <div dangerouslySetInnerHTML={{ __html: supports.title }} />
           )}
         </h2>
-        <div className="support-content grid gap-6 grid-cols-4">
+        <div className="support-content grid gap-6 grid-cols-4 lg:gap-4 md:gap-2 md:pr-5 md:pl-20 sm:grid-cols-2 md:grid-cols-3">
           {(datas || []).map((data, index) => {
             if (
               data.includes("<ul") ||
@@ -54,12 +54,12 @@ class ItemDetail extends React.Component {
 
     return (
       <div className="category-item">
-        <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
-          <div className="flex">
-            <div className="w-1/2 flex flex-col mx-12 mt-20">
+        <div className="pl-24 xl:pl-12 md:pl-0 sm:px-0 lg:px-0" >
+          <div className="flex md:block sm:block lg:block">
+            <div className="w-1/2 flex flex-col mx-12 mt-20 lg:ml-0 lg:mr-5 lg:mt-5 md:mt-5 lg:w-full md:w-full md:mx-0 sm:w-full xl:mt-5 lg:px-20 sm:px-10 sm:m-0">
               {this.renderSupport(post.acf)}
             </div>
-            <div className="w-1/2">
+            <div className="w-1/2 md:w-full sm:w-full lg:w-full">
               <div
                 className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative"
                 style={{

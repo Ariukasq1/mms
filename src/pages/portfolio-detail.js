@@ -204,7 +204,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
       <ReactFullpage
         navigationPosition={"left"}
         navigation
-        paddingTop={"116px"}
+        // paddingTop={"116px"}
         scrollOverflow={false}
         render={({ state, fullpageApi }) => {
           return (

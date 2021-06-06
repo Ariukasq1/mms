@@ -20,7 +20,7 @@ const SliderSubCategories = (props) => {
 
     return (
       <div
-        className="cat-item bg-white"
+        className="cat-item bg-white lg:mb-5 md:mb-5 sm:mb-5"
         key={index}
         data-aos="fade-down"
         data-aos-easing="ease"
@@ -76,7 +76,7 @@ const SliderSubCategories = (props) => {
     return null;
   }
 
-  return <div className="flex without-scroll">{renderContent}</div>;
+  return <div className="flex without-scroll  lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">{renderContent}</div>;
 };
 
 const Portfolio = ({ posts }) => {
@@ -90,7 +90,7 @@ const Portfolio = ({ posts }) => {
             <div id="fullpage">
               <div className="section categories">
                 <div className="capabilitiesPage">
-                  <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
+                  <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:pl-12 sm:pr-5">
                     <div className="brands">
                       <div className="header">
                         <h2>{__("Portfolio")}</h2>

@@ -63,7 +63,7 @@ const HomeSlider = ({ sliders }) => {
             }}
           >
             <div
-              className="title text-left  leading-snug 2xl:w-full text-7xl sm:text-4xl sm:w-full  sm:mb-0 sm:mx-0 md:mx-0 md:w-full md:leading-none lg:w-full xl:w-full mb-20"
+              className=" text-left leading-snug text-7xl 2xl:w-full lg:text-5xl sm:text-4xl md:text-5xl sm:w-full  xl:text-6xl sm:mb-0 sm:mx-0 md:mx-0 md:w-full md:leading-none lg:w-full xl:w-full mb-20 title"
               dangerouslySetInnerHTML={{ __html: text }}
               style={{
                 color: font_color,
@@ -71,7 +71,7 @@ const HomeSlider = ({ sliders }) => {
               }}
             />
             <div
-              className="desc mx-10 text-xl sm:mx-0 md:mx-0"
+              className=" mx-10 text-xl w-full sm:mx-0 md:mx-0 desc"
               dangerouslySetInnerHTML={{ __html: description }}
               style={{
                 color: font_color,
