@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import SliderSubCategories from "../../components/SliderSubCategories";
@@ -42,16 +42,8 @@ const AdditionSection = (posts, detail, lang) => {
 };
 
 const Item = ({ posts, detail, querySlug, lang }) => {
-  const [showDetail, setShowDetail] = useState(false);
-  const [currentItemId, setCurrentItemId] = useState(null);
   const currentLanguage = getLangParam();
-  console.log(detail);
-  // const getCurrentItemId = (currentItemId) => {
-  //   setCurrentItemId(currentItemId);
-  //   setShowDetail(true);
-  //   console.log("i am cuurent item id");
-  // };
-  // console.log("isChange", showDetail);
+
   return (
     <Layout>
       <div className="relative">
@@ -68,7 +60,6 @@ const Item = ({ posts, detail, querySlug, lang }) => {
                       <SliderSubCategories
                         pathname="[categories]"
                         data={posts}
-                        // getCurrentItemId={getCurrentItemId}
                         querySlug={querySlug}
                         language={currentLanguage}
                       />
@@ -82,13 +73,7 @@ const Item = ({ posts, detail, querySlug, lang }) => {
               {FactsSection(posts, detail, lang)}
               {AdditionSection(posts, detail, lang)}
               <div className="section relations">
-                <ItemRelations
-                  currentItemId={""}
-                  showDetail={false}
-                  lang={lang}
-                  post={detail}
-                  // getCurrentItemId={getCurrentItemId}
-                />
+                <ItemRelations lang={lang} post={detail[0]} />
               </div>
             </div>
           }

@@ -3,14 +3,10 @@ import Slider from "react-slick";
 import Link from "next/link";
 import { getData, sliderSettings, getLangParam } from "../utils";
 
-const RelationSlider = ({ posts, items, querySlug, getCurrentItemId }) => {
+const RelationSlider = ({ posts, items, querySlug }) => {
   const currentLanguage = getLangParam();
 
   const renderItems = () => {
-    const onClick = (postId) => {
-      getCurrentItemId(postId);
-    };
-
     return items.map((item) => {
       const post = posts.filter((post) => post.id === item)[0];
 
@@ -18,45 +14,23 @@ const RelationSlider = ({ posts, items, querySlug, getCurrentItemId }) => {
         return null;
       }
 
-      let href = `/${querySlug}/${post.slug}?lang=${currentLanguage}`;
-
-      // if (querySlug !== "brands") {
-      //   href = `/${querySlug}?lang=${currentLanguage}#section2`;
-      // }
-
-      if (querySlug === "brands") {
-        return (
-          <div key={post.id} className="brand-p-item mb-8">
-            <Link href={href} passHref>
-              <a rel="noopener">
-                <div className="font-medium text-black text-xl mb-4 title">
-                  <div
-                    dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                  />
-                </div>
-                <div className="image-wrapper">
-                  <img src={getData(post._embedded, "image")} />
-                </div>
-              </a>
-            </Link>
-          </div>
-        );
-      }
-
       return (
         <div key={post.id} className="brand-p-item mb-8">
-          <a
-            href={`/${querySlug}?lang=${currentLanguage}#section2`}
-            rel="noopener"
-            onClick={() => onClick(post.id)}
+          <Link
+            href={`/${querySlug}/${post.slug}?lang=${currentLanguage}`}
+            passHref
           >
-            <div className="font-medium text-black text-xl mb-4 title">
-              <div dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-            </div>
-            <div className="image-wrapper">
-              <img src={getData(post._embedded, "image")} />
-            </div>
-          </a>
+            <a rel="noopener noreferer">
+              <div className="font-medium text-black text-xl mb-4 title">
+                <div
+                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                />
+              </div>
+              <div className="image-wrapper">
+                <img src={getData(post._embedded, "image")} />
+              </div>
+            </a>
+          </Link>
         </div>
       );
     });
