@@ -327,6 +327,18 @@
       }
     }
   }
+  .section.item-detail{
+    .item-image{
+      &:hover {
+        .inner-content-overlay {
+          transform: scaleY(1);
+        }
+        .inner-content-detail {
+          transform: translateY(0px);
+        }
+      }
+    }
+  }
 
   
 }
@@ -481,6 +493,17 @@
         }
       } 
     }
+
+    .section.item-detail{
+      .item-image{
+        &:hover {
+ 
+          .inner-content-detail {
+            transform: translateY(0px) !important;
+          }
+        }
+      }
+    }
 }
 
 @media only screen and (max-width: 320px){
@@ -599,5 +622,16 @@
         }
       }
     } 
+  }
+
+  .section.item-detail{
+    .item-image{
+      &:hover {
+
+        .inner-content-detail {
+          transform: translateY(0px) !important;
+        }
+      }
+    }
   }
 }

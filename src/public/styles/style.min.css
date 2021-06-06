@@ -2283,6 +2283,13 @@ label {
   .brand-p-item a .image-wrapper {
     height: 150px;
   }
+
+  .section.item-detail .item-image:hover .inner-content-overlay {
+    transform: scaleY(1);
+  }
+  .section.item-detail .item-image:hover .inner-content-detail {
+    transform: translateY(0px);
+  }
 }
 @media only screen and (max-width: 480px) {
   .industry .ant-tabs .ant-tabs-tab-btn .title {
@@ -2380,6 +2387,10 @@ label {
   .projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
     right: 8%;
   }
+
+  .section.item-detail .item-image:hover .inner-content-detail {
+    transform: translateY(0px) !important;
+  }
 }
 @media only screen and (max-width: 320px) {
   .slider .text .title {
@@ -2459,6 +2470,10 @@ label {
 
   .projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
     right: 6%;
+  }
+
+  .section.item-detail .item-image:hover .inner-content-detail {
+    transform: translateY(0px) !important;
   }
 }
 
