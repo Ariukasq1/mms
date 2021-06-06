@@ -115,6 +115,13 @@
       }
     }
   }
+  .brand-p-item{
+    a{
+      .image-wrapper{
+        height: 200px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 769px){
@@ -160,6 +167,33 @@
       }
       .desc{
         font-size: 18px;
+      }
+    }
+  }
+  .section.additional{
+    .odd:first-child{
+      .content{
+        padding-left: 0;
+      }
+    }
+  }  
+
+  .brand-p-item{
+    a{
+      .image-wrapper{
+        height: 200px;
+      }
+    }
+  }
+
+  .item-relations{
+    >div{
+      .brands{
+        .slick-slider{
+          .slick-next{
+            right: 20%;
+          }
+        }
       }
     }
   }
@@ -241,7 +275,34 @@
     }
   }
 
-  
+  .section.facts {
+    .fact-item {
+      &:nth-child(1),
+    &:nth-child(2) {
+      border-bottom: 1px solid #fff;
+    }
+
+    &:nth-child(odd) {
+      border-right: none;
+    }
+    }
+  }
+
+  .section.additional{
+    .odd:first-child{
+      .content{
+        padding-left: 0;
+      }
+    }
+  }
+
+  .brand-p-item{
+    a{
+      .image-wrapper{
+        height: 150px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 480px){
@@ -353,6 +414,35 @@
         left: 60%;
       }
     }
+
+    .section.facts {
+      .fact-item {
+        &:nth-child(1),
+      &:nth-child(2) {
+        border-bottom: 1px solid #fff;
+      }
+  
+      &:nth-child(odd) {
+        border-right: none;
+      }
+      }
+    }
+
+    .section.additional{
+      .odd:first-child{
+        .content{
+          padding-left: 0;
+        }
+      }
+    }
+
+    .brand-p-item{
+      a{
+        .image-wrapper{
+          height: 150px;
+        }
+      }
+    }
 }
 
 @media only screen and (max-width: 320px){
@@ -428,6 +518,35 @@
     .slick-slider{
       .slick-prev{
         left: 60%;
+      }
+    }
+  }
+
+  .section.facts {
+    .fact-item {
+      &:nth-child(1),
+    &:nth-child(2) {
+      border-bottom: 1px solid #fff;
+    }
+
+    &:nth-child(odd) {
+      border-right: none;
+    }
+    }
+  }
+
+  .section.additional{
+    .odd:first-child{
+      .content{
+        padding-left: 0;
+      }
+    }
+  }
+
+  .brand-p-item{
+    a{
+      .image-wrapper{
+        height: 130px;
       }
     }
   }

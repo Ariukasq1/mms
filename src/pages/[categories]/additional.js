@@ -92,7 +92,7 @@ class Additional extends React.Component {
         data-aos-delay={`${index * 100}`}
         data-aos-duration="2000"
         data-aos-offset="300"
-        className="h-full mx-12 mt-20 content text-base relative"
+        className="h-full mx-12 mt-20 content text-base relative xl:mx-4 lg:ml-16 lg:mr-4 md:ml-14 md:mr-4 sm:ml-12 sm:mr-2 sm:mt-5"
       >
         <img
           className="absolute"
@@ -114,7 +114,7 @@ class Additional extends React.Component {
 
     return (
       <div className="category-item h-full">
-        <div className="grid grid-cols-3 h-full">
+        <div className="grid grid-cols-3 h-full lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
           <div className="odd">
             {additional && this.renderContent(additional.group, 1)}
           </div>
