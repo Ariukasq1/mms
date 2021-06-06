@@ -5,61 +5,61 @@ import RelationSlider from "../../components/RelationSlider";
 import { __ } from "../../utils";
 
 class ItemRelations extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      post: {},
-      posts: [],
-    };
-  }
+  //   this.state = {
+  //     post: {},
+  //     posts: [],
+  //   };
+  // }
 
-  componentDidMount() {
-    const { currentItemId, lang } = this.props;
+  // componentDidMount() {
+  //   const { currentItemId, lang } = this.props;
 
-    axios
-      .get(
-        `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
-          currentItemId || 1054
-        }&${lang === "mn" ? "lang=mn" : "lang="}`
-      )
-      .then((res) =>
-        this.setState({
-          post: res.data[0],
-        })
-      )
-      .catch((err) => console.log(err));
+  //   axios
+  //     .get(
+  //       `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
+  //         currentItemId || 1054
+  //       }&${lang === "mn" ? "lang=mn" : "lang="}`
+  //     )
+  //     .then((res) =>
+  //       this.setState({
+  //         post: res.data[0],
+  //       })
+  //     )
+  //     .catch((err) => console.log(err));
 
-    axios
-      .get(
-        `${
-          Config.apiUrl
-        }/wp/v2/posts?_embed&categories=110,111,112&per_page=100&${
-          lang === "mn" ? "lang=mn" : "lang="
-        }`
-      )
-      .then((res) =>
-        this.setState({
-          posts: res.data,
-        })
-      )
-      .catch((err) => console.log(err));
-  }
+  //   axios
+  //     .get(
+  //       `${
+  //         Config.apiUrl
+  //       }/wp/v2/posts?_embed&categories=110,111,112&per_page=100&${
+  //         lang === "mn" ? "lang=mn" : "lang="
+  //       }`
+  //     )
+  //     .then((res) =>
+  //       this.setState({
+  //         posts: res.data,
+  //       })
+  //     )
+  //     .catch((err) => console.log(err));
+  // }
 
-  componentWillReceiveProps(nextProps) {
-    axios
-      .get(
-        `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
-          nextProps.currentItemId || 1054
-        }&${this.props.lang === "mn" ? "lang=mn" : "lang="}`
-      )
-      .then((res) =>
-        this.setState({
-          post: res.data[0],
-        })
-      )
-      .catch((err) => console.log(err));
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   axios
+  //     .get(
+  //       `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
+  //         nextProps.currentItemId || 1054
+  //       }&${this.props.lang === "mn" ? "lang=mn" : "lang="}`
+  //     )
+  //     .then((res) =>
+  //       this.setState({
+  //         post: res.data[0],
+  //       })
+  //     )
+  //     .catch((err) => console.log(err));
+  // }
 
   renderRelations = (title, items) => {
     return (
@@ -71,13 +71,14 @@ class ItemRelations extends React.Component {
           items={items}
           querySlug={title}
           posts={this.state.posts || []}
+          getCurrentItemId={this.props.getCurrentItemId}
         />
       </div>
     );
   };
 
   render() {
-    const { post = {} } = this.state;
+    const { post = {} } = this.props;
     const { brands, capabilities, industries } = (post && post.acf) || {};
 
     return (
@@ -85,11 +86,11 @@ class ItemRelations extends React.Component {
         <h2 className="text-menuTextColor font-bold text-2xl capitalize mb-8">
           {__("Relations")}
         </h2>
-        {(brands || []).length !== 0 && this.renderRelations("Brands", brands)}
+        {(brands || []).length !== 0 && this.renderRelations("brands", brands)}
         {(capabilities || []).length !== 0 &&
-          this.renderRelations("Capabilities", capabilities)}
+          this.renderRelations("capabilities", capabilities)}
         {(industries || []).length !== 0 &&
-          this.renderRelations("Industries", industries)}
+          this.renderRelations("industries", industries)}
       </div>
     );
   }

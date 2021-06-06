@@ -1,48 +1,48 @@
 import React from "react";
-import axios from "axios";
-import { Config } from "../../config";
+// import axios from "axios";
+// import { Config } from "../../config";
 import { getData } from "../../utils";
 
 class ItemDetail extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      post: {},
-    };
-  }
+  //   this.state = {
+  //     post: {},
+  //   };
+  // }
 
-  componentDidMount() {
-    const { currentItemId, lang } = this.props;
+  // componentDidMount() {
+  //   const { currentItemId, lang } = this.props;
 
-    axios
-      .get(
-        `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
-          currentItemId || 1054
-        }&${lang === "mn" ? "lang=mn" : "lang="}`
-      )
-      .then((res) =>
-        this.setState({
-          post: res.data[0],
-        })
-      )
-      .catch((err) => console.log(err));
-  }
+  //   axios
+  //     .get(
+  //       `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
+  //         currentItemId || 1054
+  //       }&${lang === "mn" ? "lang=mn" : "lang="}`
+  //     )
+  //     .then((res) =>
+  //       this.setState({
+  //         post: res.data[0],
+  //       })
+  //     )
+  //     .catch((err) => console.log(err));
+  // }
 
-  componentWillReceiveProps(nextProps) {
-    axios
-      .get(
-        `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
-          nextProps.currentItemId || 1054
-        }&${this.props.lang === "mn" ? "lang=mn" : "lang="}`
-      )
-      .then((res) =>
-        this.setState({
-          post: res.data[0],
-        })
-      )
-      .catch((err) => console.log(err));
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   axios
+  //     .get(
+  //       `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
+  //         nextProps.currentItemId || 1054
+  //       }&${this.props.lang === "mn" ? "lang=mn" : "lang="}`
+  //     )
+  //     .then((res) =>
+  //       this.setState({
+  //         post: res.data[0],
+  //       })
+  //     )
+  //     .catch((err) => console.log(err));
+  // }
 
   renderSupport(acf) {
     const { supports } = acf || {};
@@ -86,7 +86,7 @@ class ItemDetail extends React.Component {
   }
 
   render() {
-    const { post = {} } = this.state;
+    const { post = {} } = this.props;
 
     if (this.props.showDetail && Object.keys(post).length !== 0) {
       window.fullpage_api.moveTo(2, 0);
