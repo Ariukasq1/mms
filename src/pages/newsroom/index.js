@@ -148,10 +148,8 @@ const Index = ({ newsroom, categories }) => {
         </Slider>
       </div>
     ) : (
-      <div className="brands new-slider">
-        <Slider {...settings}>
+      <div className="grid grid-cols-4">
            {filteredNews.map((news) => renderNews(news))}
-        </Slider>
       </div>
     );
   };
