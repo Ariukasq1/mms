@@ -28,7 +28,7 @@ class BrandDetail extends React.Component {
 
     return (
       <div className="brand-detail-wrapper h-full">
-        <div className="h-full relative grid grid-cols-3 ">
+        <div className="relative grid grid-cols-3 2xl:h-full xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
           <div
             className="col-item p-16 bg-cover bg-center  bg-no-repeat h-body object-cover object-center cursor-pointer relative "
             style={{

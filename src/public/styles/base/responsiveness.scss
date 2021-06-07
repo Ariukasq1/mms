@@ -58,16 +58,25 @@
     }
   }
 }
+
+.what-we-do{
+  .fp-tableCell{
+    .auto-overflow{
+      max-height: 100% !important;
+    }
+  }
+}
+
 @media only screen and (min-width: 1451px){
   .slider{
     .text{
       .title{
         font-size: 80px;
       }
-      .desc{
-
-      }
     }
+  }
+  .portfolio-h-body{
+    height: calc(100vh - 66px);
   }
 }
 @media only screen and (max-width: 1450px) and (min-width: 1366px){
@@ -79,6 +88,10 @@
         }
       }
     }
+  }
+
+  .portfolio-h-body{
+    height: calc(100vh - 66px);
   }   
 }
 
@@ -121,6 +134,10 @@
         height: 200px;
       }
     }
+  }
+
+  .portfolio-h-body{
+    height: calc(100vh - 66px);
   }
 }
 

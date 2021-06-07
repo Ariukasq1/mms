@@ -2112,10 +2112,6 @@ label {
   padding-top: 116px;
 }
 
-.fp-scrollable, .fp-scroller {
-  overflow: visible;
-}
-
 .history .slick-slider .slick-prev, .history .slick-slider .slick-next {
   top: 49.5% !important;
 }
@@ -2128,10 +2124,18 @@ label {
   .slider .text .title {
     font-size: 80px;
   }
+
+  .portfolio-h-body {
+    height: calc(100vh - 66px);
+  }
 }
 @media only screen and (max-width: 1450px) and (min-width: 1366px) {
   .industry .ant-tabs .ant-tabs-tab-btn .title {
     font-size: 4rem;
+  }
+
+  .portfolio-h-body {
+    height: calc(100vh - 66px);
   }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1366px) {
@@ -2159,11 +2163,15 @@ label {
   .brand-p-item a .image-wrapper {
     height: 200px;
   }
-}
-.projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
-  right: 20%;
-}
 
+  .portfolio-h-body {
+    height: calc(100vh - 66px);
+  }
+
+  .projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
+    right: 20%;
+  }
+}
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
   .industry .ant-tabs .ant-tabs-tab-btn .title {
     font-size: 50px;
@@ -2181,6 +2189,7 @@ label {
   .footer-responsive {
     display: block;
     padding: 5rem;
+    padding-bottom: 10rem;
   }
 
   .footer-items-input {
@@ -2211,6 +2220,14 @@ label {
   }
 
   .projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
+    right: 20%;
+  }
+
+  .news-slider .slick-slider .slick-next {
+    right: 20%;
+  }
+
+  .brands-wrap .brands .slick-slider .slick-next {
     right: 20%;
   }
 }
@@ -2244,6 +2261,7 @@ label {
   .footer-responsive {
     display: block;
     padding: 4rem;
+    padding-bottom: 10rem;
   }
 
   .footer-items-input {
@@ -2326,6 +2344,7 @@ label {
   .footer-responsive {
     display: block;
     padding: 3rem;
+    padding-bottom: 10rem;
   }
 
   .footer-items-input {
@@ -2337,7 +2356,7 @@ label {
   }
 
   .h-body {
-    height: calc(100vh - 66px);
+    height: 100%;
   }
 
   .brands .slick-slide {
@@ -2391,6 +2410,10 @@ label {
   .section.item-detail .item-image:hover .inner-content-detail {
     transform: translateY(0px) !important;
   }
+
+  .brands .fp-tableCell .fp-scrollable, .brands .fp-tableCell .fp-scroller {
+    overflow: visible;
+  }
 }
 @media only screen and (max-width: 320px) {
   .slider .text .title {
@@ -2410,7 +2433,7 @@ label {
   }
 
   .h-body {
-    height: calc(100vh - 66px);
+    height: 100%;
   }
 
   .socials {
@@ -2474,6 +2497,10 @@ label {
 
   .section.item-detail .item-image:hover .inner-content-detail {
     transform: translateY(0px) !important;
+  }
+
+  .brands .fp-tableCell .fp-scrollable, .brands .fp-tableCell .fp-scroller {
+    overflow: visible;
   }
 }
 

@@ -127,6 +127,7 @@ export const sliderSettings = {
         slidesToShow: 1,
         slidesToScroll: 2,
         // initialSlide: 2,
+        dots: true,
       },
     },
     {

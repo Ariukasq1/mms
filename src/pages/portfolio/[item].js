@@ -224,7 +224,7 @@ const Item = ({ posts, detail, projects }) => {
                     </div>
                     <div>
                       <img
-                        className="object-cover object-center h-body w-full"
+                        className="object-cover object-center lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body"
                         src={getData(post._embedded, "image")}
                       />
                     </div>
