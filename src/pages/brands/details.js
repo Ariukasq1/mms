@@ -30,12 +30,12 @@ class BrandDetail extends React.Component {
       <div className="brand-detail-wrapper h-full">
         <div className="relative grid grid-cols-3 2xl:h-full xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
           <div
-            className="col-item p-16 bg-cover bg-center  bg-no-repeat h-body object-cover object-center cursor-pointer relative "
+            className="col-item p-16 bg-cover bg-center bg-no-repeat h-body object-cover object-center cursor-pointer relative sm:px-10 sm:py-14"
             style={{
               backgroundImage: `url(${getData(brand._embedded, "image")})`,
             }}
           >
-            <div className="about-brand p-10" data-aos="flip-down">
+            <div className="about-brand p-10 sm:px-4 sm:py-0" data-aos="flip-down">
               <div className="sub-heading font-bold text-xl">
                 <span className="inline-block"></span>
                 {__("Brands")}
@@ -76,7 +76,7 @@ class BrandDetail extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-item p-16">
+          <div className="col-item p-16 md:py-5 sm:pb-5 sm:pr-5 lg:pb-0">
             <div className={"itemDetailsTexts"}>
               <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
                 {__("About")}{" "}
@@ -89,7 +89,7 @@ class BrandDetail extends React.Component {
                 </span>{" "}
               </h3>
               <div
-                className={"text-lg pb-10 auto-overflow"}
+                className={"text-lg pb-10 sm:pb-5    xl:auto-overflow 2xl:auto-overflow"}
                 dangerouslySetInnerHTML={{
                   __html: about,
                 }}
@@ -97,7 +97,7 @@ class BrandDetail extends React.Component {
             </div>
             {certificate && (
               <div
-                className="certification absolute"
+                className="certification absolute lg:relative md:relative sm:relative"
                 style={{ bottom: "2rem" }}
               >
                 <div className="text-base font-bold text-menuTextColor mb-3">
@@ -107,7 +107,7 @@ class BrandDetail extends React.Component {
               </div>
             )}
           </div>
-          <div className="col-item p-16">
+          <div className="col-item p-16 md:py-5 sm:pr-5 sm:pt-0 lg:pb-0">
             <div className={"itemDetailsTexts"}>
               <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
                 <span>
@@ -119,7 +119,7 @@ class BrandDetail extends React.Component {
                 {__("Details")}
               </h3>
               <div
-                className={"text-lg pb-10 auto-overflow"}
+                className={"text-lg pb-10 2xl:auto-overflow xl:auto-overflow"}
                 dangerouslySetInnerHTML={{
                   __html: advantage,
                 }}

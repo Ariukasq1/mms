@@ -81,7 +81,7 @@ class ProductModal extends React.Component {
 
     return (
       <div className="product-overflow">
-        <div className="grid grid-cols-6 gap-6">
+        <div className="grid grid-cols-6 gap-6 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
           {content}
           {currentItem && (
             <Modal

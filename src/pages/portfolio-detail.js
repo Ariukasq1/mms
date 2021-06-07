@@ -193,7 +193,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
           rows: 1,
           infinite: true,
           slidesPerRow: 1,
-          dots: true,
+          // dots: true,
         },
       },
     ],
@@ -226,9 +226,9 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 </div>
               </div>
               <div className="section">
-                <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-24 sm:px-16">
-                  <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full">
-                    <div className="flex flex-col mx-12 mt-20">
+                <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-16 sm:px-12 sm:pr-0">
+                  <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full lg:block md:block sm:block">
+                    <div className="flex flex-col mx-12 mt-20 xl:ml-0 md:ml-0 xl:mt-5 lg:mt-5 lg:mb-10 md:mt-5 sm:mt-5 md:mb-5 sm:mb-5 sm:mr-5">
                       <h2
                         className="text-2xl capitalize font-bold text-menuTextColor mb-8"
                         dangerouslySetInnerHTML={{
@@ -244,7 +244,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                     </div>
                     <div>
                       <img
-                        className="object-cover object-center h-body w-full"
+                        className="object-cover object-center portfolio-h-body h-body w-full"
                         src={getData(post._embedded, "image")}
                       />
                     </div>
@@ -257,8 +257,8 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                   backgroundImage: `url(${getData(post._embedded, "image")})`,
                 }}
               >
-                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:px-24">
-                  <div className="desc mb-10">
+                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-16 sm:pr-0">
+                  <div className="desc mb-10 sm:mb-5">
                     <h4 className="mb-5">
                       <div
                         dangerouslySetInnerHTML={{
@@ -269,7 +269,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                   </div>
                   <div>
                     {(projects || []).length > 8 ? (
-                      <div className="brands pl-12 pr-32 project-slider">
+                      <div className="brands pl-12 pr-32 project-slider xl:pl-0 2xl:pl-0 lg:pl-0 lg:pr-5 lg:pr-10 md:pl-0 md:pr-10 sm:pr-0 sm:pl-0">
                         <Slider {...settingsItems}>
                           {renderProjects(projects, post, currentLanguage)}
                         </Slider>
@@ -283,9 +283,9 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 </div>
               </div>
               <div className="section project-details">
-                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:px-24">
-                  <div className="flex">
-                    <div className="w-1/2 flex flex-col justify-center flex-center mr-16">
+                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-14 sm:pr-5">
+                  <div className="flex lg:block md:block sm:block">
+                    <div className="w-1/2 flex flex-col justify-center flex-center mr-16 lg:w-full md:w-full sm:w-full">
                       <b>
                         <span className="block">{post.title.rendered}</span>
                       </b>
@@ -304,11 +304,11 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                         />
                       </p>
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-1/2 lg:w-full md:w-full sm:w-full lg:h-auto md:h-auto sm:h-auto">
                       {Object.values(projectDetail.acf).length === 0 ||
                       !projectDetail.acf.image_1 ? (
                         <img
-                          className="object-cover object-center h-body w-full"
+                          className="object-cover object-center portfolio-h-body h-body w-full"
                           src={getData(projectDetail._embedded, "image")}
                           alt={projectDetail.title.rendered}
                         />
@@ -333,7 +333,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                       <h2 className={"uppercase text-white mb-10"}>
                         {__("Products")}
                       </h2>
-                      <div className="grid grid-cols-3 gap-8">
+                      <div className="grid grid-cols-3 gap-8 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 ">
                         {((projectDetail.acf || {}).products || []).map(
                           (product) => (
                             <Material

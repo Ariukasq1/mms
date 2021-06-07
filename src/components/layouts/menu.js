@@ -51,6 +51,7 @@ const MenuComponent = () => {
     } else return `/${item.slug}`;
   };
 
+
   return (
     <div>
       <nav

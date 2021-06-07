@@ -2112,6 +2112,10 @@ label {
   padding-top: 116px;
 }
 
+.fp-scrollable, .fp-scroller {
+  overflow: visible;
+}
+
 .history .slick-slider .slick-prev, .history .slick-slider .slick-next {
   top: 49.5% !important;
 }
@@ -2120,25 +2124,39 @@ label {
   padding: 0;
 }
 
+.what-we-do .fp-tableCell .auto-overflow {
+  max-height: 100% !important;
+}
+
+.relative .bg-contact .footer-responsive .footer-items .socials .anticon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.relative .bg-contact .footer-responsive .footer-items .socials .anticon svg {
+  width: 40%;
+  height: 40%;
+}
+
 @media only screen and (min-width: 1451px) {
   .slider .text .title {
     font-size: 80px;
-  }
-
-  .portfolio-h-body {
-    height: calc(100vh - 66px);
   }
 }
 @media only screen and (max-width: 1450px) and (min-width: 1366px) {
   .industry .ant-tabs .ant-tabs-tab-btn .title {
     font-size: 4rem;
   }
-
-  .portfolio-h-body {
-    height: calc(100vh - 66px);
-  }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1366px) {
+  .relative .bg-contact {
+    padding-top: 116px;
+  }
+  .relative .bg-contact .footer-responsive {
+    padding-bottom: 8rem;
+  }
+
   .industry .ant-tabs .ant-tabs-tab-btn .title {
     font-size: 60px;
   }
@@ -2164,15 +2182,43 @@ label {
     height: 200px;
   }
 
-  .portfolio-h-body {
-    height: calc(100vh - 66px);
-  }
-
   .projects-wrapper:nth-child(1) .brands .slick-slider .slick-next {
     right: 20%;
   }
+
+  .footer .fp-tableCell {
+    height: 100%;
+  }
+  .footer .fp-tableCell .bg-contact {
+    height: 100%;
+  }
+  .footer .fp-tableCell .bg-contact .footer-responsive {
+    height: 100%;
+  }
+
+  .news-slider .slick-slider .slick-prev {
+    left: 63%;
+  }
+
+  .brands .single-brand .logo-wrapper img {
+    max-width: 200px;
+  }
 }
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
+  .relative {
+    overflow: hidden;
+  }
+  .relative .bg-contact {
+    padding-top: 116px;
+  }
+  .relative .bg-contact .footer-responsive {
+    padding-bottom: 8rem;
+  }
+
+  .brands .single-brand .logo-wrapper img {
+    max-width: 200px;
+  }
+
   .industry .ant-tabs .ant-tabs-tab-btn .title {
     font-size: 50px;
   }
@@ -2189,7 +2235,6 @@ label {
   .footer-responsive {
     display: block;
     padding: 5rem;
-    padding-bottom: 10rem;
   }
 
   .footer-items-input {
@@ -2223,15 +2268,55 @@ label {
     right: 20%;
   }
 
-  .news-slider .slick-slider .slick-next {
-    right: 20%;
+  .portfolio-h-body {
+    height: auto;
   }
 
-  .brands-wrap .brands .slick-slider .slick-next {
-    right: 20%;
+  .footer .fp-tableCell {
+    height: 100%;
+  }
+  .footer .fp-tableCell .bg-contact {
+    height: 100%;
+  }
+  .footer .fp-tableCell .bg-contact .footer-responsive {
+    height: 100%;
+  }
+
+  .brand-detail-wrapper .relative .col-item {
+    height: 100%;
+  }
+
+  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo:before {
+    left: 30%;
   }
 }
+.projects-wrapper .desc {
+  padding: 0px !important;
+}
+
 @media only screen and (max-width: 768px) and (min-width: 481px) {
+  .relative {
+    overflow: hidden;
+  }
+  .relative .bg-contact {
+    padding-top: 116px;
+  }
+  .relative .bg-contact .footer-responsive {
+    padding-bottom: 8rem;
+  }
+
+  .brand-detail-wrapper .relative .col-item {
+    height: 100%;
+  }
+
+  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo:before {
+    left: 23%;
+  }
+
+  .brands .single-brand .logo-wrapper img {
+    max-width: 200px;
+  }
+
   .industry .heading-tag {
     top: 1rem;
     background-color: #fff;
@@ -2261,7 +2346,6 @@ label {
   .footer-responsive {
     display: block;
     padding: 4rem;
-    padding-bottom: 10rem;
   }
 
   .footer-items-input {
@@ -2277,7 +2361,7 @@ label {
   }
 
   .fp-section.fp-table .fp-tableCell {
-    padding-top: 66px;
+    padding-top: 116px;
   }
 
   .slider .text .title {
@@ -2308,8 +2392,37 @@ label {
   .section.item-detail .item-image:hover .inner-content-detail {
     transform: translateY(0px);
   }
+
+  .portfolio-h-body {
+    height: auto;
+  }
+
+  .projects-wrapper .desc {
+    padding: 0px !important;
+  }
 }
 @media only screen and (max-width: 480px) {
+  .relative {
+    overflow-x: hidden;
+  }
+  .relative .bg-contact {
+    padding-top: 66px;
+  }
+  .relative .bg-contact .footer-responsive {
+    padding-bottom: 8rem;
+  }
+
+  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo blockquote {
+    min-width: 270px;
+    min-height: 270px;
+  }
+
+  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo:before {
+    left: 0%;
+    min-width: 120px;
+    font-size: 180px;
+  }
+
   .industry .ant-tabs .ant-tabs-tab-btn .title {
     font-size: 30px;
   }
@@ -2344,7 +2457,6 @@ label {
   .footer-responsive {
     display: block;
     padding: 3rem;
-    padding-bottom: 10rem;
   }
 
   .footer-items-input {
@@ -2356,7 +2468,7 @@ label {
   }
 
   .h-body {
-    height: 100%;
+    height: calc(100vh - 66px);
   }
 
   .brands .slick-slide {
@@ -2411,8 +2523,23 @@ label {
     transform: translateY(0px) !important;
   }
 
-  .brands .fp-tableCell .fp-scrollable, .brands .fp-tableCell .fp-scroller {
-    overflow: visible;
+  .brandsProducts h2 {
+    font-size: 25px;
+  }
+
+  .portfolio-h-body {
+    height: auto;
+  }
+
+  .brandsProducts .brand-p-item .image-wrapper {
+    height: 200px;
+  }
+  .brandsProducts .brand-p-item .title {
+    min-height: 20px;
+  }
+
+  .projects-wrapper .desc {
+    padding: 0px !important;
   }
 }
 @media only screen and (max-width: 320px) {
@@ -2433,7 +2560,7 @@ label {
   }
 
   .h-body {
-    height: 100%;
+    height: calc(100vh - 66px);
   }
 
   .socials {
@@ -2499,8 +2626,37 @@ label {
     transform: translateY(0px) !important;
   }
 
-  .brands .fp-tableCell .fp-scrollable, .brands .fp-tableCell .fp-scroller {
-    overflow: visible;
+  .portfolio-h-body {
+    height: auto;
+  }
+
+  .section.brand-detail .brand-detail-wrapper .col-item {
+    padding-right: 1rem;
+  }
+
+  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo blockquote {
+    min-width: 200px;
+    min-height: 200px;
+  }
+
+  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo:before {
+    font-size: 150px;
+    right: 100%;
+  }
+
+  .section.brand-detail .brand-detail-wrapper .col-item .logo img {
+    max-width: 10rem;
+  }
+
+  .brandsProducts .brand-p-item .image-wrapper {
+    height: 200px;
+  }
+  .brandsProducts .brand-p-item .title {
+    min-height: 20px;
+  }
+
+  .projects-wrapper .desc {
+    padding: 0px !important;
   }
 }
 

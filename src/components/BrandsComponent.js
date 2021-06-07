@@ -35,12 +35,12 @@ class BrandsComponent extends React.Component {
       const { logo } = brand.acf || {};
 
       return (
-        <div key={index} className="single-brand">
+        <div key={index} className="single-brand sm:mb-10">
           <div className="logo-wrapper">
             <img src={logo} className="object-contain h-full" alt="logo" />
           </div>
           <Link href={`/brands/${brand.slug}?lang=${currentLanguage}`} passHref>
-            <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4">
+            <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-1">
               {__("Read more")}
               <img className="object-contain w-10 ml-4" src={arrow} />
             </a>
@@ -64,7 +64,7 @@ class BrandsComponent extends React.Component {
       );
     }
 
-    return <div className="grid grid-cols-4 gap-6">{content}</div>;
+    return <div className="grid grid-cols-4 gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">{content}</div>;
   }
 
   render() {

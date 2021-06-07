@@ -224,7 +224,7 @@ const Item = ({ posts, detail, projects }) => {
                     </div>
                     <div>
                       <img
-                        className="object-cover object-center lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body"
+                        className="object-cover object-center portfolio-h-body lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body"
                         src={getData(post._embedded, "image")}
                       />
                     </div>
@@ -237,8 +237,8 @@ const Item = ({ posts, detail, projects }) => {
                   backgroundImage: `url(${getData(post._embedded, "image")})`,
                 }}
               >
-                <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:pl-16 lg:pl-16 sm:pl-10 sm:pr-5">
-                  <div className="desc mb-10">
+                <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:pl-16 lg:pl-16 sm:pl-16 sm:pr-0">
+                  <div className="desc mb-10 sm:mb-5">
                     <h4 className="mb-5">
                       <div
                         dangerouslySetInnerHTML={{
@@ -249,7 +249,7 @@ const Item = ({ posts, detail, projects }) => {
                   </div>
                   <div>
                     {(projects || []).length > 8 ? (
-                      <div className="brands pl-12 pr-32 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-5 sm:pl-5 sm:pr-0">
+                      <div className="brands pl-12 pr-32 xl:pl-0 2xl:pl-0 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-0 sm:pl-0 sm:pr-0">
                         <Slider {...settingsItems}>
                           {renderProjects(projects, post, currentLanguage)}
                         </Slider>

@@ -63,7 +63,7 @@ const News = ({ details, news }) => {
   const renderNews = news.map((n, index) => {
     return (
       <div key={index}>
-        <div className="newsBox mb-20 pr-8">
+        <div className="newsBox mb-20 lg:mb-14 md:mb-12 pr-8 sm:mb-5">
           <Link
             href={{
               pathname: "/newsroom/[news]#1",
@@ -75,7 +75,7 @@ const News = ({ details, news }) => {
               <div className="image-wrapper">
                 <img src={getData(n._embedded, "image")} />
               </div>
-              <div className="font-medium text-base text-sm mb-4 title leading-5 mt-10">
+              <div className="font-medium text-base text-sm mb-4 title leading-5 mt-5 sm:mt-2 md:mt-2 lg:mt-2 xl:mt-3">
                 {n.title.rendered}
               </div>
             </a>
@@ -90,25 +90,18 @@ const News = ({ details, news }) => {
       <ReactFullpage
         navigationPosition={"left"}
         navigation
-        paddingTop={"116px"}
+        // paddingTop={"116px"}
         render={({ state, fullpageApi }) => {
           return (
             <div id="fullpage homeScreen">
               <div className="section news-detail">
                 <div
                   className={
-                    "pl-40 pr-12 flex flex-row justify-center items-center"
+                    "pl-24 flex flex-row justify-center items-center h-full lg:block lg:pl-20 md:block sm:block sm:pl-12"
                   }
                 >
-                  <div className={"w-1/2 pr-16"}>
-                    <div className="h-full w-full overflow-hidden">
-                      <img
-                        className="w-full object-cover"
-                        src={getData(post._embedded, "image")}
-                      />
-                    </div>
-                  </div>
-                  <div className={"w-1/2 auto-overflow"}>
+                  
+                  <div className={"w-1/2 xl:auto-overflow lg:w-full md:w-full sm:w-full lg:mt-5 md:mt-5 sm:mt-5"}>
                     <h2 className={"mb-10 font-medium text-sm"}>
                       #{__("News")}
                     </h2>
@@ -121,17 +114,25 @@ const News = ({ details, news }) => {
                     </h2>
                     <div className="content">
                       <div
-                        className={"text-base pr-20"}
+                        className={"text-base pr-5"}
                         dangerouslySetInnerHTML={{
                           __html: post.content.rendered,
                         }}
                       />
                     </div>
                   </div>
+                  <div className={"w-1/2 h-full lg:w-full lg:h-auto md:w-full md:h-auto sm:w-full sm:h-auto "}>
+                    <div className="h-full w-full overflow-hidden">
+                      <img
+                        className="w-full object-cover h-full"
+                        src={getData(post._embedded, "image")}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="section odd otherNews">
-                <div className="pl-40 pr-12">
+                <div className="pl-40 pr-12 md:pl-24 md:pr-0 sm:pr-0 sm:pl-12">
                   <div className="header">
                     <h2>{__("Related news")}</h2>
                   </div>

@@ -91,9 +91,9 @@ class Brands extends React.Component {
                 <BrandDetail items={items} />
               </div>
               <div className="section odd">
-                <div className={"brandsProducts px-40 flex flex-col"}>
-                  <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-menuTextColor mr-5">
+                <div className={"brandsProducts px-40 flex flex-col xl:p-20 lg:px-24 md:px-20 sm:p-14"}>
+                  <div className="flex items-center justify-between mb-8 sm:block sm:leading-8">
+                    <h2 className="text-menuTextColor mr-5 sm:mb-5">
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
@@ -126,9 +126,9 @@ class Brands extends React.Component {
 
               {showProduct && (
                 <div className="section" id="content">
-                  <div className={"brandsProducts px-40 flex flex-col"}>
-                    <div className="flex items-center justify-between mb-8">
-                      <h2 className="text-menuTextColor mr-5">
+                  <div className={"brandsProducts px-40 flex flex-col xl:pr-16 lg:pr-8 md:pr-8 md:pl-24 sm:px-5"}>
+                    <div className="flex items-center justify-between mb-8 sm:block sm:leading-8">
+                      <h2 className="text-menuTextColor mr-5 sm:mb-5">
                         <div
                           className="inline-block"
                           dangerouslySetInnerHTML={{
@@ -155,19 +155,21 @@ class Brands extends React.Component {
                         </a>
                       )}
                     </div>
-                    <ProductDetail
-                      currentItemId={currentProduct.id}
-                      onClick={this.onProductClick}
-                    />
+                    <div className="sm:pl-20 sm:pr-5">
+                      <ProductDetail
+                        currentItemId={currentProduct.id}
+                        onClick={this.onProductClick}
+                      />  
+                    </div>
                   </div>
                 </div>
               )}
 
               {showProductDetail && (
                 <div className="section" id="content">
-                  <div className={"brandsProducts px-40 flex flex-col"}>
-                    <div className="flex items-center justify-between mb-8">
-                      <h2 className="text-menuTextColor mr-5">
+                  <div className={"brandsProducts px-40 flex flex-col xl:pr-16 md:pl-24 md:pr-8 lg:pr-8 sm:px-5"}>
+                    <div className="flex items-center justify-between mb-8 sm:block">
+                      <h2 className="text-menuTextColor mr-5 sm:leading-8">
                         <div
                           className="inline-block"
                           dangerouslySetInnerHTML={{
@@ -195,18 +197,20 @@ class Brands extends React.Component {
                           </a>
                         )}
                     </div>
-                    <ProductDetail
-                      currentItemId={currentProductDetail.id}
-                      onClick={this.onDetailClick}
-                    />
+                    <div className="sm:pl-20 sm:pr-5">
+                      <ProductDetail
+                        currentItemId={currentProductDetail.id}
+                        onClick={this.onDetailClick}
+                      />
+                    </div>
                   </div>
                 </div>
               )}
 
               {showDetail && (
                 <div className="section odd" id="content">
-                  <div className={"brandsProducts px-40 flex flex-col"}>
-                    <h2 className="text-menuTextColor mb-8">
+                  <div className={"brandsProducts px-40 flex flex-col lg:px-20 md:px-14 sm:px-12"}>
+                    <h2 className="text-menuTextColor mb-8 sm:leading-8">
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
