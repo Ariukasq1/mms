@@ -17,13 +17,10 @@ const RelationSlider = ({ posts, items, querySlug }) => {
       return (
         <div key={post.id} className="brand-p-item mb-8">
           <Link
-            href={{
-              pathname: `/[portfolio]/[item]`,
-              query: { lang: currentLanguage },
-            }}
-            as={`/${querySlug}/${post.slug}?lang=${currentLanguage}#2`}
+            href={`/${querySlug}/${post.slug}?lang=${currentLanguage}`}
+            passHref
           >
-            <a rel="noopener">
+            <a rel="noopener noreferer">
               <div className="font-medium text-black text-xl mb-4 title">
                 <div
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }}

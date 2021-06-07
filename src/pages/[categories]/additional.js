@@ -1,48 +1,6 @@
 import React from "react";
-import axios from "axios";
-import { Config } from "../../config";
 
 class Additional extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      post: {},
-    };
-  }
-
-  componentDidMount() {
-    const { currentItemId, lang } = this.props;
-
-    axios
-      .get(
-        `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
-          currentItemId || 1054
-        }&${lang === "mn" ? "lang=mn" : "lang="}`
-      )
-      .then((res) =>
-        this.setState({
-          post: res.data[0],
-        })
-      )
-      .catch((err) => console.log(err));
-  }
-
-  componentWillReceiveProps(nextProps) {
-    axios
-      .get(
-        `${Config.apiUrl}/wp/v2/posts?_embed&include[]=${
-          nextProps.currentItemId || 1054
-        }&${this.props.lang === "mn" ? "lang=mn" : "lang="}`
-      )
-      .then((res) =>
-        this.setState({
-          post: res.data[0],
-        })
-      )
-      .catch((err) => console.log(err));
-  }
-
   renderSupport(acf) {
     const { supports } = acf || {};
     const datas = supports && supports.desc.split("<li>");
@@ -96,7 +54,7 @@ class Additional extends React.Component {
       >
         <img
           className="absolute"
-          src={`images/industry${index}.png`}
+          src={`/images/industry${index}.png`}
           alt="icon-i"
         />
         <div
@@ -109,7 +67,7 @@ class Additional extends React.Component {
   }
 
   render() {
-    const { post = {} } = this.state;
+    const { post = {} } = this.props;
     const { additional } = post.acf || {};
 
     return (

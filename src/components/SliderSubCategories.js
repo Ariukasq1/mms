@@ -1,13 +1,10 @@
 import React from "react";
+import Link from "next/link";
 import arrowImage from "../public/images/arrow-blue.svg";
 import Slider from "react-slick";
 import { getData, sliderSettings, __ } from "../utils";
 
 const SliderSubCategories = (props) => {
-  const onClick = (postId) => {
-    props.getCurrentItemId(postId, props.fullPageApi);
-  };
-
   const renderContent = props.data.map((post, index) => {
     if (
       (post.categories !== 0 &&
@@ -40,22 +37,35 @@ const SliderSubCategories = (props) => {
             }}
           />
         </div>
-        <a
-          className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4"
-          onClick={onClick.bind(this, post.id)}
+        <Link
+          href={{
+            pathname: `/${props.pathname}/[item]`,
+            query: { lang: props.language },
+          }}
+          as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
         >
-          {__("Read more")}
-          <img className="object-contain w-10 ml-4" src={arrowImage} />
-        </a>
-        <div>
-          <a onClick={onClick.bind(this, post.id)}>
-            <div className="w-full image-wrapper">
-              <img
-                src={getData(post._embedded, "image")}
-                alt={post.title.rendered}
-              />
-            </div>
+          <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4">
+            {__("Read more")}
+            <img className="object-contain w-10 ml-4" src={arrowImage} />
           </a>
+        </Link>
+        <div>
+          <Link
+            href={{
+              pathname: `/${props.pathname}/[item]`,
+              query: { lang: props.language },
+            }}
+            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
+          >
+            <a>
+              <div className="w-full image-wrapper">
+                <img
+                  src={getData(post._embedded, "image")}
+                  alt={post.title.rendered}
+                />
+              </div>
+            </a>
+          </Link>
         </div>
       </div>
     );

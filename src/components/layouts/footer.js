@@ -49,7 +49,7 @@ class Footer extends React.Component {
     const { facebook, instagram, linkedin, youtube, twitter } = social || {};
 
     return (
-      <footer className={"bg-contact relative text-white xl:h-full 2xl:h-full"}>
+      <footer className={"bg-contact relative text-white"}>
         <div
           // className={
           //   "flex flex-row justify-evenly px-40 py-40 xl:px-24 flex-row sm:px-12 flex-col"
@@ -132,7 +132,11 @@ class Footer extends React.Component {
           <div className={"flex flex-col footer-items px-8 sm:w-full sm:px-4"}>
             {this.renderAddress(address)}
           </div>
-          <div className={"flex flex-col footer-items-input px-8 sm:w-full sm:px-4"}>
+          <div
+            className={
+              "flex flex-col footer-items-input px-8 sm:w-full sm:px-4"
+            }
+          >
             <h2 className={"text-lg font-bold mb-8 text-white"}>
               {__("Please contact us")}
             </h2>

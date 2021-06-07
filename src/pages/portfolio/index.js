@@ -40,7 +40,7 @@ const SliderSubCategories = (props) => {
         </div>
         <Link
           href={{
-            pathname: `/[portfolio]/[item]`,
+            pathname: `/portfolio/[item]`,
             query: { lang: props.language },
           }}
           as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
