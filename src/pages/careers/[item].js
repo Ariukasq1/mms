@@ -89,7 +89,7 @@ const renderCulture = (items, currentId, currentTitle) => {
         </div>
       ) : item.slug.includes("benefits") ? (
         <div className="benefits flex md:block sm:block lg:block">
-          <div className="w-1/2 flex flex-col flex-center pl-40 pr-20 py-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:pl-14 md:pr-8 md:pb-10 sm:pl-12 sm:pr-8 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-5 sm:pt-5">
+          <div className="w-1/2 flex flex-col flex-center pl-40 pr-20 py-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:pl-12 md:pr-8 md:pb-10 sm:pl-12 sm:pr-8 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-5 sm:pt-5">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
