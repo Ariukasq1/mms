@@ -95,6 +95,11 @@ hr {
 .top-16 {
   top: 4rem;
 }
+
+.sm\:justify-evenly {
+  justify-content: space-evenly !important;
+}
+
 //wp-main-styles
 .aligncenter {
   display: flex;
