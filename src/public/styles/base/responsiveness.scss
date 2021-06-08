@@ -59,14 +59,6 @@
   }
 }
 
-.what-we-do{
-  .fp-tableCell{
-    .auto-overflow{
-      max-height: 100% !important;
-    }
-  }
-}
-
 .relative{
   .bg-contact{
     .footer-responsive{
@@ -467,10 +459,10 @@
   .section.facts {
     .fact-item {
       &:nth-child(1),
-      &:nth-child(2) {
+      &:nth-child(2),
+      &:nth-child(3) {
         border-bottom: 1px solid #fff;
     }
-
     &:nth-child(odd) {
       border-right: none;
     }
@@ -517,6 +509,11 @@
 }
 
 @media only screen and (max-width: 480px){
+
+//   [data-aos-delay] {
+//     transition-delay: 0s !important;
+// } 
+
   .relative{
     overflow-x: hidden;
 
@@ -651,7 +648,8 @@
     .section.facts {
       .fact-item {
         &:nth-child(1),
-      &:nth-child(2) {
+      &:nth-child(2),
+      &:nth-child(3){
         border-bottom: 1px solid #fff;
       }
   

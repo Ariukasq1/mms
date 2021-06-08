@@ -24,6 +24,7 @@ const IndustryComponent = ({ industries }) => {
             return null;
           }
 
+
           return (
             <TabPane
               key={i}
@@ -33,7 +34,7 @@ const IndustryComponent = ({ industries }) => {
                   data-aos="fade-right"
                   data-aos-easing="ease-in"
                   data-aos-delay={i * 150}
-                  data-aos-duration="2000"
+                  data-aos-duration={"2000"}
                   data-aos-offset="300"
                 >
                   {item.title.rendered}

@@ -47,7 +47,7 @@ class ItemFacts extends React.Component {
 
     return (
       <div
-        className="item-facts h-body object-cover bg-no-repeat bg-cover text-white relative z-0"
+        className="section item-facts h-body object-cover bg-no-repeat bg-cover text-white relative z-0"
         style={{
           backgroundImage: `url(${
             post && post.acf && (post.acf || {}).bg_image

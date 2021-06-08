@@ -16,6 +16,8 @@ const SliderSubCategories = (props) => {
       return null;
     }
 
+const width = global.innerWidth > 480;
+
     return (
       <div
         className="cat-item bg-white md:mb-10 sm:mb-10"
@@ -23,7 +25,7 @@ const SliderSubCategories = (props) => {
         data-aos="fade-down"
         data-aos-easing="ease"
         data-aos-delay={`${index * 300}`}
-        data-aos-duration="2000"
+        data-aos-duration={width ? "2000" : "0"}
         data-aos-offset="300"
       >
         <div

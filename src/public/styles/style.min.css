@@ -2124,10 +2124,6 @@ label {
   padding: 0;
 }
 
-.what-we-do .fp-tableCell .auto-overflow {
-  max-height: 100% !important;
-}
-
 .relative .bg-contact .footer-responsive .footer-items .socials .anticon {
   width: 3rem;
   height: 3rem;
@@ -2371,7 +2367,7 @@ label {
     font-size: 15px;
   }
 
-  .section.facts .fact-item:nth-child(1), .section.facts .fact-item:nth-child(2) {
+  .section.facts .fact-item:nth-child(1), .section.facts .fact-item:nth-child(2), .section.facts .fact-item:nth-child(3) {
     border-bottom: 1px solid #fff;
   }
   .section.facts .fact-item:nth-child(odd) {
@@ -2500,7 +2496,7 @@ label {
     left: 60%;
   }
 
-  .section.facts .fact-item:nth-child(1), .section.facts .fact-item:nth-child(2) {
+  .section.facts .fact-item:nth-child(1), .section.facts .fact-item:nth-child(2), .section.facts .fact-item:nth-child(3) {
     border-bottom: 1px solid #fff;
   }
   .section.facts .fact-item:nth-child(odd) {
