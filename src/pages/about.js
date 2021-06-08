@@ -85,12 +85,12 @@ const About = ({ contact, posts, services, histories, categories }) => {
   };
 
   const cats = (
-    <ul className="flex justify-center category-wrapper mb-20">
+    <ul className="flex justify-center category-wrapper mb-20 sm:text-left">
       {categories.map((category) => (
         <React.Fragment key={category.id}>
           <li
             key={category.id}
-            className={`text-lg font-medium p-2 ${
+            className={`text-lg sm:w-full font-medium p-2 ${
               activeId === category.id ? "active" : ""
             }`}
             onClick={onTabChange.bind(this, category.id)}
@@ -148,7 +148,7 @@ const About = ({ contact, posts, services, histories, categories }) => {
             </div>
             <div className="section what-we-do">
               <div className="auto-overflow">
-                <div className="text-center brands sm:px-10">
+                <div className="text-center brands sm:pl-16 sm:pr-3">
                   <div className="heading-tag capitalize text-xl mt-20 font-bold sm:text-lg">
                     {__("What we do")}
                   </div>

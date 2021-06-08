@@ -233,7 +233,7 @@ const renderProcess = (items, currentId, currentTitle) => {
     <div className={`section vacancies item-detail`}>
       <div className="category-item">
         <div className="flex lg:block md:block sm:block xl:block">
-        <div className="w-1/2 p-20 lg:w-full md:w-full sm:w-full xl:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:pl-12 sm:py-5 sm:pr-5">
+        <div className="w-1/2 px-20 py-5 lg:w-full md:w-full sm:w-full xl:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:pl-12 sm:py-5 sm:pr-5">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
@@ -242,7 +242,7 @@ const renderProcess = (items, currentId, currentTitle) => {
                 dangerouslySetInnerHTML={{ __html: items[2].title.rendered }}
               />
             </div>
-            <div className="auto-overflow">
+            <div className="career-scroll auto-overflow">
               <div
                 className="text-base"
                 dangerouslySetInnerHTML={{
@@ -250,7 +250,7 @@ const renderProcess = (items, currentId, currentTitle) => {
                 }}
               />
               {items[2].acf.length !== 0 && (
-                <div className="grid gap-4 grid-cols-2">
+                <div className="grid gap-4 grid-cols-2 sm:grid-cols-1">
                   {Object.values(items[2].acf).map((data, index) => {
                     if (!data) {
                       return null;

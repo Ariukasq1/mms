@@ -188,27 +188,10 @@ const MenuComponent = () => {
           ) : (
             menu.bottom_menu.items.map((item, index) => (
               <div key={index} className="flex flex-col ">
-                <Link
-                  href={{
-                    pathname: pathChecker(item),
-                    query: { lang: language },
-                  }}
-                  as={`/${item.slug}?lang=${language}`}
-                >
-                  <a className={"mx-4 font-bold"}>{item.title}</a>
-                </Link>
+                  <a href={`/${item.slug}?lang=${language}`} className={"mx-4 font-bold"}>{item.title}</a>
                 <div className="flex flex-col mb-6 ml-4">
                   {item.child_items?.map((children) => (
-                    <Link
-                      key={children.ID}
-                      href={{
-                        pathname: childPathChecker(children),
-                        query: { item: `${children.slug}`, lang: language },
-                      }}
-                      as={`/${item.slug}/${children.slug}?lang=${language}`}
-                    >
-                      <a className={"mx-4"}>{children.title}</a>
-                    </Link>
+                      <a href={`/${item.slug}/${children.slug}?lang=${language}`} className={"mx-4"}>{children.title}</a>
                   ))}
                 </div>
               </div>

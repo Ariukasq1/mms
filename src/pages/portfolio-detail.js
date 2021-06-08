@@ -257,7 +257,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                   backgroundImage: `url(${getData(post._embedded, "image")})`,
                 }}
               >
-                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-16 sm:pr-0">
+                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-16 sm:pr-5">
                   <div className="desc mb-10 sm:mb-5">
                     <h4 className="mb-5">
                       <div
@@ -275,7 +275,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                         </Slider>
                       </div>
                     ) : (
-                      <div className="grid grid-cols-4 px-10">
+                      <div className="grid grid-cols-4 px-10 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:pl-0 sm:pr-5">
                         {renderProjects(projects, post, currentLanguage)}
                       </div>
                     )}
@@ -283,7 +283,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 </div>
               </div>
               <div className="section project-details">
-                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-12 sm:pr-5">
+                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-16 sm:pr-5">
                   <div className="flex lg:block md:block sm:block">
                     <div className="w-1/2 flex flex-col justify-center flex-center mr-16 lg:w-full md:w-full sm:w-full">
                       <b>

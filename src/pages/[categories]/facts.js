@@ -47,15 +47,15 @@ class ItemFacts extends React.Component {
 
     return (
       <div
-        className="section item-facts h-body object-cover bg-no-repeat bg-cover text-white relative z-0"
+        className="item-facts h-body-in object-cover bg-no-repeat bg-cover text-white relative z-0 flex"
         style={{
           backgroundImage: `url(${
             post && post.acf && (post.acf || {}).bg_image
           })`,
         }}
       >
-        <div className="px-40 flex itens-center justify-center h-full lg:pl-20 lg:pr-5 md:pl-10 md:pr-5 sm:pr-5 sm:pl-10 sm:py-10">
-          <div className="grid gap-0 grid-cols-2 my-4 md:grid-cols-1 sm:grid-cols-1">
+        <div className="px-40 flex items-center justify-center  md:h-full 2xl:h-full xl:h-full lg:pl-20 lg:pr-5 md:pl-10 md:pr-5 sm:pr-5 sm:pl-10 sm:py-10">
+          <div className="grid gap-0 grid-cols-2 my-4 2xl:my-12 md:grid-cols-1 sm:grid-cols-1">
             {Object.entries((post && post.acf) || {}).map(([key, value]) => {
               if (!key.includes("group")) {
                 return null;

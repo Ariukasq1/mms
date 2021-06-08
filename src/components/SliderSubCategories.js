@@ -16,8 +16,6 @@ const SliderSubCategories = (props) => {
       return null;
     }
 
-const width = global.innerWidth > 480;
-
     return (
       <div
         className="cat-item bg-white md:mb-10 sm:mb-10"
@@ -25,14 +23,14 @@ const width = global.innerWidth > 480;
         data-aos="fade-down"
         data-aos-easing="ease"
         data-aos-delay={`${index * 300}`}
-        data-aos-duration={width ? "2000" : "0"}
+        data-aos-duration="2000"
         data-aos-offset="300"
       >
         <div
           className="title text-black font-medium"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
-        <div className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
+        <div className={"capabilitiesPageBody truncate-2-lines text-base mt-4 sm:mt-1"}>
           <div
             dangerouslySetInnerHTML={{
               __html: post.excerpt.rendered,

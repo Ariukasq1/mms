@@ -15,7 +15,7 @@ const IndustryComponent = ({ industries }) => {
 
   return (
     <div className="industry relative justify-between items-center">
-      <div className="heading-tag capitalize text-2xl font-bold pl-48 top-16 absolute sm:text-lg xl:pl-28 lg:pl-24 md:pl-16 sm:pl-16">
+      <div className="heading-tag capitalize text-2xl font-bold pl-48 top-16 absolute sm:text-lg xl:pl-28 lg:pl-24 md:pl-16 sm:pl-12">
         {__("Industries")}
       </div>
       <Tabs defaultActiveKey="0" tabPosition="left">
@@ -30,7 +30,7 @@ const IndustryComponent = ({ industries }) => {
               key={i}
               tab={
                 <div
-                  className="title pl-48 text-7xl xl:text-5xl xl:p-28 lg:text-5xl lg:p-24 md:text-4xl md:p-16 sm:text-4xl sm:pl-16"
+                  className="title pl-48 text-7xl xl:text-5xl xl:p-28 lg:text-5xl lg:p-24 md:text-4xl md:p-16 sm:text-4xl sm:pl-12"
                   data-aos="fade-right"
                   data-aos-easing="ease-in"
                   data-aos-delay={i * 150}

@@ -34,7 +34,7 @@ class ItemRelations extends React.Component {
 
   renderRelations = (title, items) => {
     return (
-      <div>
+      <div >
         <h4 className="mb-4 heading-tag capitalize text-xl font-bold">
           {__(title)}
         </h4>
@@ -51,9 +51,10 @@ class ItemRelations extends React.Component {
     const { post } = this.props;
     const { brands, capabilities, industries } = (post && post.acf) || {};
 
+
     return (
-      <div className="px-40 py-10 item-relations xl:pl-40 xl:pr-0 lg:pl-20 lg:pr-0 md:pl-12 md:pr-0 sm:pl-10 sm:pr-0">
-        <h2 className="text-menuTextColor font-bold text-2xl capitalize mb-8">
+      <div className="px-40 py-10 item-relations xl:pl-40 xl:pr-0 lg:pl-20 lg:pr-0 md:pl-12 md:pr-0 sm:pt-2 sm:pl-10 sm:pr-0">
+        <h2 className="text-menuTextColor font-bold text-2xl capitalize mb-8 sm:mb-2">
           {__("Relations")}
         </h2>
         {(brands || []).length !== 0 && this.renderRelations("brands", brands)}

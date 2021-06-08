@@ -61,7 +61,6 @@ const settings = {
         rows: 2,
         infinite: true,
         slidesPerRow: 1,
-        dots: true,
       },
     },
     {
@@ -71,7 +70,6 @@ const settings = {
         rows: 1,
         infinite: true,
         slidesPerRow: 1,
-        dots: true,
       },
     },
   ],
