@@ -228,7 +228,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
               <div className="section">
                 <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-16 sm:px-12 sm:pr-0">
                   <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full lg:block md:block sm:block">
-                    <div className="flex flex-col mx-12 mt-20 xl:ml-0 md:ml-0 xl:mt-5 lg:mt-5 lg:mb-10 md:mt-5 sm:mt-5 md:mb-5 sm:mb-5 sm:mr-5">
+                    <div className="flex flex-col mx-12 mt-20 xl:ml-0 md:ml-0 xl:mt-5 lg:mt-5 lg:mb-10 md:mt-5 sm:ml-2 sm:mt-5 md:mb-5 sm:mb-5 sm:mr-5">
                       <h2
                         className="text-2xl capitalize font-bold text-menuTextColor mb-8"
                         dangerouslySetInnerHTML={{
@@ -283,7 +283,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 </div>
               </div>
               <div className="section project-details">
-                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-14 sm:pr-5">
+                <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-12 sm:pr-5">
                   <div className="flex lg:block md:block sm:block">
                     <div className="w-1/2 flex flex-col justify-center flex-center mr-16 lg:w-full md:w-full sm:w-full">
                       <b>
