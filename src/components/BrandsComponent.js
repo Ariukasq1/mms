@@ -57,14 +57,14 @@ class BrandsComponent extends React.Component {
     });
 
     if (filteredBrands.length >= 5) {
-      return (
-        <Slider {...sliderSettings} className="h-full">
-          {content}
-        </Slider>
-      );
+      return <Slider {...sliderSettings}>{content}</Slider>;
     }
 
-    return <div className="grid grid-cols-4 gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">{content}</div>;
+    return (
+      <div className="grid grid-cols-4 gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        {content}
+      </div>
+    );
   }
 
   render() {
@@ -72,9 +72,9 @@ class BrandsComponent extends React.Component {
     const { brandId } = this.state;
 
     const categories = (
-      <ul className="flex justify-center category-wrapper mb-20">
+      <ul className="flex justify-center category-wrapper mb-20 sm:mb-5 sm:justify-start sm:text-left">
         <li
-          className={`text-base font-medium py-2 px-3 ${
+          className={`text-base font-medium py-2 px-3 sm:pl-0 ${
             brandId === 0 ? "active" : ""
           }`}
           onClick={this.filterBrand.bind(this, 0)}
@@ -87,7 +87,7 @@ class BrandsComponent extends React.Component {
           <React.Fragment key={category.id}>
             <li
               key={category.id}
-              className={`text-base font-medium p-2 ${
+              className={`text-base font-medium p-2 sm:pl-0 ${
                 brandId === category.id ? "active" : ""
               }`}
               onClick={this.filterBrand.bind(this, category.id)}

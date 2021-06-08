@@ -100,6 +100,10 @@ hr {
   top: 4rem;
 }
 
+.sm\:justify-evenly {
+  justify-content: space-evenly !important;
+}
+
 .aligncenter {
   display: flex;
   align-items: center;
@@ -2112,16 +2116,22 @@ label {
   padding-top: 116px;
 }
 
-.fp-scrollable, .fp-scroller {
+.fp-scrollable,
+.fp-scroller {
   overflow: visible;
 }
 
-.history .slick-slider .slick-prev, .history .slick-slider .slick-next {
+.history .slick-slider .slick-prev,
+.history .slick-slider .slick-next {
   top: 49.5% !important;
 }
 
 .brands .slick-list .slick-track .slick-slide {
   padding: 0;
+}
+
+.what-we-do .fp-tableCell .auto-overflow {
+  max-height: 100% !important;
 }
 
 .relative .bg-contact .footer-responsive .footer-items .socials .anticon {
@@ -2408,6 +2418,33 @@ label {
     padding-bottom: 8rem;
   }
 
+  .brands .slick-prev,
+.brands .slick-next {
+    bottom: 10px;
+  }
+  .brands .slick-prev {
+    left: 50%;
+  }
+  .brands .slick-slide {
+    padding: 0;
+  }
+  .brands .category-wrapper > li::after {
+    content: "/";
+    padding-left: 5px;
+  }
+  .brands .category-wrapper > span {
+    display: none;
+  }
+  .brands .single-brand .logo-wrapper img {
+    max-width: 250px;
+  }
+  .brands .single-brand .bg-img-wrapper {
+    height: 150px;
+  }
+  .brands .slick-next {
+    right: 10%;
+  }
+
   .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo blockquote {
     min-width: 270px;
     min-height: 270px;
@@ -2467,22 +2504,8 @@ label {
     height: calc(100vh - 66px);
   }
 
-  .brands .slick-slide {
-    padding: 0;
-  }
-  .brands .single-brand .logo-wrapper img {
-    max-width: 250px;
-  }
-  .brands .slick-next {
-    right: 10%;
-  }
-
   .fp-section.fp-table .fp-tableCell {
     padding-top: 66px;
-  }
-
-  .brands .single-brand .bg-img-wrapper {
-    height: 150px;
   }
 
   .slider .text .title {
@@ -2492,11 +2515,7 @@ label {
     font-size: 15px;
   }
 
-  .brands .slick-prev {
-    left: 60%;
-  }
-
-  .section.facts .fact-item:nth-child(1), .section.facts .fact-item:nth-child(2), .section.facts .fact-item:nth-child(3) {
+  .section.facts .fact-item:nth-child(1), .section.facts .fact-item:nth-child(2) {
     border-bottom: 1px solid #fff;
   }
   .section.facts .fact-item:nth-child(odd) {

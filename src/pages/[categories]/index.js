@@ -4,22 +4,10 @@ import { Config } from "../../config";
 import SliderSubCategories from "../../components/SliderSubCategories";
 import { fetcher, __, getLangParam } from "../../utils";
 import FullPage from "../../components/FullPage";
-// import ItemDetail from "./detail";
-// import ItemFacts from "./facts";
-// import ItemRelations from "./relations";
-// import Additional from "./additional";
 
-const Categories = ({ posts, querySlug, lang }) => {
-  // const [showDetail, setShowDetail] = useState(false);
-  // const [currentItemId, setCurrentItemId] = useState(null);
+const Categories = ({ posts, querySlug }) => {
   const currentLanguage = getLangParam();
 
-  // const getCurrentItemId = (currentItemId) => {
-  //   setCurrentItemId(currentItemId);
-  //   setShowDetail(true);
-  //   console.log("i am cuurent item id");
-  // };
-  // console.log("isChange", showDetail);
   return (
     <Layout>
       <div className="relative">
@@ -36,7 +24,6 @@ const Categories = ({ posts, querySlug, lang }) => {
                       <SliderSubCategories
                         pathname="[categories]"
                         data={posts}
-                        // getCurrentItemId={getCurrentItemId}
                         querySlug={querySlug}
                         language={currentLanguage}
                       />
@@ -66,7 +53,7 @@ Categories.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { posts, querySlug, lang };
+  return { posts, querySlug };
 };
 
 export default Categories;
