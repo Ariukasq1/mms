@@ -359,15 +359,15 @@
   // }
   // newsiin detailiin sliderin sum shu
 
-  .history{
-    .slick-slider{
-      .slick-next{
+  .history {
+    .slick-slider {
+      .slick-next {
         right: -12px;
       }
 
-      .slick-prev{
-          left: -12px;
-          z-index: 1;
+      .slick-prev {
+        left: -12px;
+        z-index: 1;
       }
     }
   }
@@ -538,15 +538,15 @@
     }
   }
 
-  .history{
-    .slick-slider{
-      .slick-next{
+  .history {
+    .slick-slider {
+      .slick-next {
         right: -12px;
       }
 
-      .slick-prev{
-          left: -12px;
-          z-index: 1;
+      .slick-prev {
+        left: -12px;
+        z-index: 1;
       }
     }
   }
@@ -562,6 +562,10 @@
         padding-bottom: 8rem;
       }
     }
+  }
+
+  .sm\:justify-evenly {
+    justify-content: space-evenly !important;
   }
 
   .brands {
@@ -773,48 +777,47 @@
       padding: 0px !important;
     }
   }
-  .certification{
+  .certification {
     margin-top: 20px;
   }
 
-  .history{
-    .slick-slider{
-      .slick-next{
+  .history {
+    .slick-slider {
+      .slick-next {
         right: -12px;
       }
 
-      .slick-prev{
-          left: -12px;
-          z-index: 1;
+      .slick-prev {
+        left: -12px;
+        z-index: 1;
       }
     }
   }
-  .career-scroll{
+  .career-scroll {
     overflow: unset;
     max-height: none;
   }
 }
 @media only screen and (max-width: 320px) {
-
-  .career-scroll{
+  .career-scroll {
     overflow: unset;
     max-height: none;
   }
 
-  .history{
-    .slick-slider{
-      .slick-next{
+  .history {
+    .slick-slider {
+      .slick-next {
         right: -12px;
       }
 
-      .slick-prev{
-          left: -12px;
-          z-index: 1;
+      .slick-prev {
+        left: -12px;
+        z-index: 1;
       }
     }
   }
 
-  .certification{
+  .certification {
     margin-top: 20px;
   }
 
