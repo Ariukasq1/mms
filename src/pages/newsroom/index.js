@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../../components/layouts/Layout";
-import ReactFullpage from "../../lib/fullpage";
 import { Config } from "../../config";
-import mainStore from "../../stores";
 import Link from "next/link";
 import Slider from "react-slick";
 import {
@@ -13,6 +11,7 @@ import {
   __,
   getLangParam,
 } from "../../utils";
+import FullPage from "../../components/FullPage";
 
 const settings = {
   infinite: false,
@@ -147,32 +146,27 @@ const Index = ({ newsroom, categories }) => {
       </div>
     ) : (
       <div className="grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-           {filteredNews.map((news) => renderNews(news))}
+        {filteredNews.map((news) => renderNews(news))}
       </div>
     );
   };
 
   return (
     <Layout>
-      <ReactFullpage
-        navigationPosition={"left"}
-        navigation
-        // paddingTop={"116px"}
-        render={({ state, fullpageApi }) => {
-          return (
-            <div id="fullpage">
-              <div className="section px-56 xl:px-24 lg:px-20 md:px-20 sm:pl-12 sm:pr-6 news">
-                <div className="brands text-center">
-                  <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
-                    {__("Newsroom")}
-                  </div>
-                  {renderCategory()}
+      <FullPage
+        children={
+          <div id="fullpage">
+            <div className="section px-56 xl:px-24 lg:px-20 md:px-20 sm:pl-12 sm:pr-6 news">
+              <div className="brands text-center">
+                <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+                  {__("Newsroom")}
                 </div>
-                {renderPosts()}
-                </div>
+                {renderCategory()}
+              </div>
+              {renderPosts()}
             </div>
-          );
-        }}
+          </div>
+        }
       />
     </Layout>
   );

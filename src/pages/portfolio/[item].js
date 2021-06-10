@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import arrowImageBlue from "../../public/images/arrow-blue.svg";
 import Layout from "../../components/layouts/Layout";
-import ReactFullpage from "../../lib/fullpage";
 import { Config } from "../../config";
 import Slider from "react-slick";
 import arrowImage from "../../public/images/arrow-white.svg";
@@ -14,6 +13,7 @@ import {
   SamplePrevArrow,
   getLangParam,
 } from "../../utils";
+import FullPage from "../../components/FullPage";
 
 const SliderSubCategories = (props) => {
   const renderContent = props.data.map((post, index) => {
@@ -46,7 +46,7 @@ const SliderSubCategories = (props) => {
               __html: post.excerpt.rendered,
             }}
           />
-        </div >
+        </div>
         <Link
           href={{
             pathname: `/[portfolio]/[item]`,
@@ -54,8 +54,11 @@ const SliderSubCategories = (props) => {
           }}
           as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
         >
-          <div style={{display: "flex"}}>
-            <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4" style={{display:"block"}}>
+          <div style={{ display: "flex" }}>
+            <a
+              className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4"
+              style={{ display: "block" }}
+            >
               {__("Read more")}
             </a>
             <img className="object-contain w-10 ml-4" src={arrowImageBlue} />
@@ -87,7 +90,11 @@ const SliderSubCategories = (props) => {
     return null;
   }
 
-  return <div className="flex without-scroll lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">{renderContent}</div>;
+  return (
+    <div className="flex without-scroll lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">
+      {renderContent}
+    </div>
+  );
 };
 
 const renderProjects = (projects, post, language) => {
@@ -183,90 +190,84 @@ const Item = ({ posts, detail, projects }) => {
 
   return (
     <Layout>
-      <ReactFullpage
-        navigationPosition={"left"}
-        navigation
-        // paddingTop={"116px"}
-        scrollOverflow={false}
-        render={({ state, fullpageApi }) => {
-          return (
-            <div id="fullpage">
-              <div className="section categories">
-                <div className="capabilitiesPage">
-                  <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:pl-12 sm:pr-5">
-                    <div className="brands">
-                      <div className="header">
-                        <h2>{__("Portfolio")}</h2>
-                      </div>
-                      <SliderSubCategories
-                        data={posts}
-                        querySlug="portfolio"
-                        language={currentLanguage}
-                      />
+      <FullPage
+        children={
+          <div id="fullpage">
+            <div className="section categories">
+              <div className="capabilitiesPage">
+                <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:pl-12 sm:pr-5">
+                  <div className="brands">
+                    <div className="header">
+                      <h2>{__("Portfolio")}</h2>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div className="section">
-                <div className="pl-24 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0">
-                  <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full lg:block md:block sm:block">
-                    <div className="flex flex-col mx-12 mt-20 lg:pl-12 lg:mr-2 lg:mt-5 md:pl-10 md:mr-2 md:mt-5 sm:pl-3 sm:mr-2 sm:mt-5 lg:mb-5 md:mb-5 sm:mb-5 xl:mt-5">
-                      <h2
-                        className="text-2xl capitalize font-bold text-menuTextColor mb-8"
-                        dangerouslySetInnerHTML={{
-                          __html: post.title.rendered,
-                        }}
-                      />
-                      <div
-                        className="text-base"
-                        dangerouslySetInnerHTML={{
-                          __html: post.content.rendered,
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <img
-                        className="object-cover object-center portfolio-h-body lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body"
-                        src={getData(post._embedded, "image")}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="section projects"
-                style={{
-                  backgroundImage: `url(${getData(post._embedded, "image")})`,
-                }}
-              >
-                <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:pl-16 lg:pl-16 sm:pl-16 sm:pr-5">
-                  <div className="desc mb-10 sm:mb-5">
-                    <h4 className="mb-5">
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: post.title.rendered,
-                        }}
-                      />
-                    </h4>
-                  </div>
-                  <div>
-                    {(projects || []).length > 8 ? (
-                      <div className="brands pl-12 pr-32 xl:pl-0 2xl:pl-0 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-0 sm:pl-0 sm:pr-0">
-                        <Slider {...settingsItems}>
-                          {renderProjects(projects, post, currentLanguage)}
-                        </Slider>
-                      </div>
-                    ) : (
-                      <div className="grid grid-cols-4 px-10 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:pl-0 sm:pr-5">
-                        {renderProjects(projects, post, currentLanguage)}
-                      </div>
-                    )}
+                    <SliderSubCategories
+                      data={posts}
+                      querySlug="portfolio"
+                      language={currentLanguage}
+                    />
                   </div>
                 </div>
               </div>
             </div>
-          );
-        }}
+            <div className="section">
+              <div className="pl-24 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0">
+                <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full lg:block md:block sm:block">
+                  <div className="flex flex-col mx-12 mt-20 lg:pl-12 lg:mr-2 lg:mt-5 md:pl-10 md:mr-2 md:mt-5 sm:pl-3 sm:mr-2 sm:mt-5 lg:mb-5 md:mb-5 sm:mb-5 xl:mt-5">
+                    <h2
+                      className="text-2xl capitalize font-bold text-menuTextColor mb-8"
+                      dangerouslySetInnerHTML={{
+                        __html: post.title.rendered,
+                      }}
+                    />
+                    <div
+                      className="text-base"
+                      dangerouslySetInnerHTML={{
+                        __html: post.content.rendered,
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <img
+                      className="object-cover object-center portfolio-h-body lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body"
+                      src={getData(post._embedded, "image")}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="section projects"
+              style={{
+                backgroundImage: `url(${getData(post._embedded, "image")})`,
+              }}
+            >
+              <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:pl-16 lg:pl-16 sm:pl-16 sm:pr-5">
+                <div className="desc mb-10 sm:mb-5">
+                  <h4 className="mb-5">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: post.title.rendered,
+                      }}
+                    />
+                  </h4>
+                </div>
+                <div>
+                  {(projects || []).length > 8 ? (
+                    <div className="brands pl-12 pr-32 xl:pl-0 2xl:pl-0 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-0 sm:pl-0 sm:pr-0">
+                      <Slider {...settingsItems}>
+                        {renderProjects(projects, post, currentLanguage)}
+                      </Slider>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-4 px-10 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:pl-0 sm:pr-5">
+                      {renderProjects(projects, post, currentLanguage)}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        }
       />
     </Layout>
   );
