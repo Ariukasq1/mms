@@ -700,6 +700,10 @@
     height: calc(100vh - 66px);
   }
 
+  .capabilitiesImage {
+    height: auto !important;
+  }
+
   .fp-section.fp-table {
     .fp-tableCell {
       padding-top: 66px;
