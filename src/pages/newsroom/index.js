@@ -169,7 +169,7 @@ const Index = ({ newsroom, categories }) => {
                   {renderCategory()}
                 </div>
                 {renderPosts()}
-              </div>
+                </div>
             </div>
           );
         }}

@@ -46,7 +46,7 @@ const SliderSubCategories = (props) => {
               __html: post.excerpt.rendered,
             }}
           />
-        </div>
+        </div >
         <Link
           href={{
             pathname: `/[portfolio]/[item]`,
@@ -54,12 +54,14 @@ const SliderSubCategories = (props) => {
           }}
           as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
         >
-          <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4">
-            {__("Read more")}
+          <div style={{display: "flex"}}>
+            <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4" style={{display:"block"}}>
+              {__("Read more")}
+            </a>
             <img className="object-contain w-10 ml-4" src={arrowImageBlue} />
-          </a>
+          </div>
         </Link>
-        <div>
+        <div className="image">
           <Link
             href={{
               pathname: `/[portfolio]/[item]`,
@@ -85,7 +87,7 @@ const SliderSubCategories = (props) => {
     return null;
   }
 
-  return <div className="flex without-scroll">{renderContent}</div>;
+  return <div className="flex without-scroll lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">{renderContent}</div>;
 };
 
 const renderProjects = (projects, post, language) => {
@@ -191,7 +193,7 @@ const Item = ({ posts, detail, projects }) => {
             <div id="fullpage">
               <div className="section categories">
                 <div className="capabilitiesPage">
-                  <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
+                  <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:pl-12 sm:pr-5">
                     <div className="brands">
                       <div className="header">
                         <h2>{__("Portfolio")}</h2>

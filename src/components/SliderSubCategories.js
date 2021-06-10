@@ -4,6 +4,7 @@ import arrowImage from "../public/images/arrow-blue.svg";
 import Slider from "react-slick";
 import { getData, sliderSettings, __ } from "../utils";
 
+
 const SliderSubCategories = (props) => {
   const renderContent = props.data.map((post, index) => {
     if (
@@ -37,19 +38,13 @@ const SliderSubCategories = (props) => {
             }}
           />
         </div>
-        <Link
-          href={{
-            pathname: `/${props.pathname}/[item]`,
-            query: { lang: props.language },
-          }}
-          as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
-        >
-          <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4">
-            {__("Read more")}
-            <img className="object-contain w-10 ml-4" src={arrowImage} />
+        <div style={{display:"flex"}}>
+          <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4" href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`} style={{display:"block"}}>
+            {__("Read more")}     
           </a>
-        </Link>
-        <div>
+          <img className="object-contain w-10 ml-4" src={arrowImage} />
+          </div>
+        <div className="image">
           <Link
             href={{
               pathname: `/${props.pathname}/[item]`,
