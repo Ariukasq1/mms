@@ -65,13 +65,13 @@ const IndustryComponent = ({ industries }) => {
           );
         })}
       </Tabs>
-      <Link
+      {/* <Link
         href={{ pathname: `/[categories]`, query: { lang: currentLanguage } }}
-      >
-        <a className="Industries-btn text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48 sm:ml-16 md:m-0" >
+      > */}
+        <a className="Industries-btn text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48 sm:ml-16 md:m-0" href={`industries?lang=${currentLanguage}`}>
           {__("Read more")}
         </a>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 };

@@ -42,14 +42,7 @@
 .fp-scroller {
   overflow: visible;
 }
-.history {
-  .slick-slider {
-    .slick-prev,
-    .slick-next {
-      top: 49.5% !important;
-    }
-  }
-}
+
 .brands {
   .slick-list {
     .slick-track {
@@ -89,6 +82,12 @@
     }
   }
 }
+
+.item-relations {
+    height: 1000px;
+  }
+
+
 
 @media only screen and (min-width: 1451px) {
   .slider {
@@ -553,6 +552,26 @@
 }
 
 @media only screen and (max-width: 480px) {
+
+.capabilitiesPage{
+  .capabilitiesPageSlider{
+    .brands{
+      .flex{
+        .cat-item{
+          .image{
+            a{
+              .image-wrapper{
+                height: 250px;
+               }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
   .relative {
     overflow-x: hidden;
 
@@ -793,8 +812,81 @@
     overflow: unset;
     max-height: none;
   }
+
+  .section.additional {
+    .content{
+      max-height: none;
+    }
+  }
+ 
+
+  .history{
+    .slick-slider{
+      .slick-next{
+        right: -20px;
+      }
+
+      .slick-prev{
+          left: -3px;
+          z-index: 1;
+      }
+    }
+  }
+
+  .capabilitiesPageSlider{
+    .brands{
+      .flex{
+        .cat-item{
+          padding: 0px;
+        }
+      }
+    }
+  }
+
+  .item-relations {
+    height: 1200px;
+  }
 }
+
 @media only screen and (max-width: 320px) {
+  .capabilitiesPage{
+    .capabilitiesPageSlider{
+      .brands{
+        .flex{
+          .cat-item{
+            .image{
+              a{
+                .image-wrapper{
+                  height: 250px;
+                 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  .history{
+    .slick-slider{
+      .slick-next{
+        right: -20px;
+      }
+
+      .slick-prev{
+          left: -3px;
+          z-index: 1;
+      }
+    }
+  }
+
+
+  .section.additional {
+    .content{
+      max-height: none;
+    }
+  }
+
 
   .career-scroll{
     overflow: unset;
@@ -998,4 +1090,8 @@
       padding: 0px !important;
     }
   }
+  .item-relations {
+    height: 1200px;
+  }
 }
+

@@ -87,7 +87,7 @@ const SliderSubCategories = (props) => {
     return null;
   }
 
-  return <div className="flex without-scroll">{renderContent}</div>;
+  return <div className="flex without-scroll lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">{renderContent}</div>;
 };
 
 const renderProjects = (projects, post, language) => {
@@ -190,7 +190,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          rows: 1,
+          rows: 2,
           infinite: true,
           slidesPerRow: 1,
           // dots: true,

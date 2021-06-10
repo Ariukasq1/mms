@@ -2121,11 +2121,6 @@ label {
   overflow: visible;
 }
 
-.history .slick-slider .slick-prev,
-.history .slick-slider .slick-next {
-  top: 49.5% !important;
-}
-
 .brands .slick-list .slick-track .slick-slide {
   padding: 0;
 }
@@ -2143,6 +2138,10 @@ label {
 .relative .bg-contact .footer-responsive .footer-items .socials .anticon svg {
   width: 40%;
   height: 40%;
+}
+
+.item-relations {
+  height: 1200px;
 }
 
 @media only screen and (min-width: 1451px) {
@@ -2440,6 +2439,10 @@ label {
   }
 }
 @media only screen and (max-width: 480px) {
+  .capabilitiesPage .capabilitiesPageSlider .brands .flex .cat-item .image a .image-wrapper {
+    height: 250px;
+  }
+
   .relative {
     overflow-x: hidden;
   }
@@ -2605,8 +2608,48 @@ label {
     overflow: unset;
     max-height: none;
   }
+
+  .section.additional .content {
+    max-height: none;
+  }
+
+  .max-h-none {
+    max-height: none;
+  }
+
+  .history .slick-slider .slick-next {
+    right: -20px;
+  }
+  .history .slick-slider .slick-prev {
+    left: -3px;
+    z-index: 1;
+  }
+
+  .capabilitiesPageSlider .brands .flex .cat-item {
+    padding: 0px;
+  }
 }
 @media only screen and (max-width: 320px) {
+  .capabilitiesPage .capabilitiesPageSlider .brands .flex .cat-item .image a .image-wrapper {
+    height: 250px;
+  }
+
+  .history .slick-slider .slick-next {
+    right: -20px;
+  }
+  .history .slick-slider .slick-prev {
+    left: -3px;
+    z-index: 1;
+  }
+
+  .max-h-none {
+    max-height: none;
+  }
+
+  .section.additional .content {
+    max-height: none;
+  }
+
   .career-scroll {
     overflow: unset;
     max-height: none;

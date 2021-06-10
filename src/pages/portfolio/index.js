@@ -31,26 +31,20 @@ const SliderSubCategories = (props) => {
         <div className="title text-black font-medium">
           {post.title.rendered}
         </div>
-        <div className={"capabilitiesPageBody truncate-2-lines text-base mt-4"}>
+        <div className={"capabilitiesPageBody truncate-2-lines text-base mt-4 sm:mt-0"}>
           <div
             dangerouslySetInnerHTML={{
               __html: post.excerpt.rendered,
             }}
           />
         </div>
-        <Link
-          href={{
-            pathname: `/portfolio/[item]`,
-            query: { lang: props.language },
-          }}
-          as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
-        >
-          <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4">
-            {__("Read more")}
+          <div style={{display:"flex"}}>
+            <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4" style={{display:"block"}} href= {`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}>
+              {__("Read more")}
+            </a>
             <img className="object-contain w-10 ml-4" src={arrowImage} />
-          </a>
-        </Link>
-        <div>
+          </div>
+        <div className="image">
           <Link
             href={{
               pathname: `/[portfolio]/[item]`,
@@ -76,7 +70,7 @@ const SliderSubCategories = (props) => {
     return null;
   }
 
-  return <div className="flex without-scroll  lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">{renderContent}</div>;
+  return <div className="flex without-scroll lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">{renderContent}</div>;
 };
 
 const Portfolio = ({ posts }) => {
