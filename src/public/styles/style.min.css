@@ -2140,13 +2140,19 @@ label {
   height: 40%;
 }
 
-.item-relations {
-  height: 1200px;
+.slider .text {
+  width: 100%;
+}
+.slider .text .title {
+  font-size: 70px;
 }
 
 @media only screen and (min-width: 1451px) {
+  .slider .text {
+    width: 100%;
+  }
   .slider .text .title {
-    font-size: 80px;
+    font-size: 60px;
   }
 
   .h-body-in {
@@ -2184,8 +2190,11 @@ label {
     padding: 5rem;
   }
 
+  .slider .text {
+    width: 90%;
+  }
   .slider .text .title {
-    font-size: 75px;
+    font-size: 65px;
   }
   .slider .text .desc {
     font-size: 18px;
@@ -2251,6 +2260,7 @@ label {
   }
   .industry .ant-tabs .ant-tabs-tab-active .title > .image-icon {
     height: 20px;
+    margin: 7px 0 0 30px;
   }
 
   .footer-responsive {
@@ -2266,11 +2276,14 @@ label {
     width: 100%;
   }
 
+  .slider .text {
+    width: 60%;
+  }
   .slider .text .title {
-    font-size: 75px;
+    font-size: 65px;
   }
   .slider .text .desc {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .section.additional .odd:first-child .content {
@@ -2366,6 +2379,7 @@ label {
   }
   .industry .ant-tabs .ant-tabs-tab-active .title > .image-icon {
     height: 15px;
+    margin: 10px 0 0 30px;
   }
 
   .ant-tabs-tabpane {
@@ -2393,11 +2407,14 @@ label {
     padding-top: 116px;
   }
 
+  .slider .text {
+    width: 60%;
+  }
   .slider .text .title {
     font-size: 45px;
   }
   .slider .text .desc {
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .section.facts .fact-item:nth-child(1), .section.facts .fact-item:nth-child(2), .section.facts .fact-item:nth-child(3) {
@@ -2439,6 +2456,11 @@ label {
   }
 }
 @media only screen and (max-width: 480px) {
+  .industry .ant-tabs .ant-tabs-tab-active .title > .image-icon {
+    height: 15px;
+    margin: 10px 0 0 30px;
+  }
+
   .capabilitiesPage .capabilitiesPageSlider .brands .flex .cat-item .image a .image-wrapper {
     height: 250px;
   }
@@ -2543,8 +2565,12 @@ label {
     padding-top: 66px;
   }
 
+  .slider .text {
+    width: 80%;
+  }
   .slider .text .title {
-    font-size: 40px;
+    font-size: 30px;
+    margin-bottom: 10px;
   }
   .slider .text .desc {
     font-size: 15px;
@@ -2613,10 +2639,6 @@ label {
     max-height: none;
   }
 
-  .max-h-none {
-    max-height: none;
-  }
-
   .history .slick-slider .slick-next {
     right: -20px;
   }
@@ -2628,8 +2650,18 @@ label {
   .capabilitiesPageSlider .brands .flex .cat-item {
     padding: 0px;
   }
+
+  .auto-overflow {
+    max-height: unset !important;
+    overflow: unset !important;
+  }
 }
 @media only screen and (max-width: 320px) {
+  .industry .ant-tabs .ant-tabs-tab-active .title > .image-icon {
+    height: 15px;
+    margin: 10px 0 0 30px;
+  }
+
   .capabilitiesPage .capabilitiesPageSlider .brands .flex .cat-item .image a .image-wrapper {
     height: 250px;
   }
@@ -2640,10 +2672,6 @@ label {
   .history .slick-slider .slick-prev {
     left: -3px;
     z-index: 1;
-  }
-
-  .max-h-none {
-    max-height: none;
   }
 
   .section.additional .content {
@@ -2671,6 +2699,9 @@ label {
     font-size: 35px;
   }
 
+  .slider .text {
+    width: 90%;
+  }
   .slider .text .title {
     font-size: 25px;
   }
@@ -2718,13 +2749,6 @@ label {
   }
   .brands .single-brand .bg-img-wrapper {
     height: 150px;
-  }
-
-  .slider .text .title {
-    font-size: 35px;
-  }
-  .slider .text .desc {
-    font-size: 15px;
   }
 
   .news-slider .slick-slider .slick-prev {

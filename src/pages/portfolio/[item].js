@@ -184,6 +184,9 @@ const Item = ({ posts, detail, projects }) => {
   return (
     <Layout>
       <ReactFullpage
+        responsiveWidth={480}
+
+
         navigationPosition={"left"}
         navigation
         // paddingTop={"116px"}

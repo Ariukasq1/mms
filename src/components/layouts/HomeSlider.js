@@ -52,18 +52,18 @@ const HomeSlider = ({ sliders }) => {
           }`}
         >
           <div
-            className={`text mr-10 sm:ml-8 sm:mr-0 md:m-0`}
+            className={`w-10/12 text mr-10 sm:ml-8 sm:mr-0 sm:w-11/12 md:m-0`}
             data-aos="fade-down"
             style={{
               width:
                 position_of_image &&
-                position_of_image === "full width" &&
-                "62%",
+                position_of_image === "full width",
+                // "62%",
               textAlign: position_of_text || "left",
             }}
           >
             <div
-              className=" text-left leading-snug text-7xl 2xl:w-full lg:text-5xl sm:text-4xl md:text-5xl sm:w-full  xl:text-6xl sm:mb-0 sm:mx-0 md:mx-0 md:w-full md:leading-none lg:w-full xl:w-full mb-20 title"
+              className="text-left leading-snug text-6xl 2xl:w-full lg:text-5xl sm:text-4xl md:text-5xl sm:w-full  xl:text-6xl sm:mb-0 sm:mx-0 md:mx-0 md:w-full md:leading-none lg:w-full xl:w-full mb-20 title"
               dangerouslySetInnerHTML={{ __html: text }}
               style={{
                 color: font_color,

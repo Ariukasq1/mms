@@ -88,6 +88,9 @@ const News = ({ details, news }) => {
   return (
     <Layout>
       <ReactFullpage
+        responsiveWidth={480}
+
+
         navigationPosition={"left"}
         navigation
         // paddingTop={"116px"}

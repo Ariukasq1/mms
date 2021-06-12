@@ -202,6 +202,8 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
   return (
     <Layout>
       <ReactFullpage
+        responsiveWidth={480}
+
         navigationPosition={"left"}
         navigation
         // paddingTop={"116px"}
