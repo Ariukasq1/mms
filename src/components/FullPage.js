@@ -27,17 +27,17 @@ export default class FullPage extends React.Component {
       { length: 10 },
       (_, index) => `section${index + 1}`
     );
-
+    console.log("heree");
     return (
       <ReactFullpage
         anchors={anchors}
         navigationPosition={"left"}
         navigation
-        // paddingTop={width ? "116px" : "66px"}
         parallax={true}
         onLeave={this.onLeave.bind(this)}
         afterLoad={this.afterLoad.bind(this)}
         scrollOverflow={true}
+        responsiveHeight={600}
         render={() => children}
       />
     );
