@@ -7,6 +7,10 @@ a:hover {
   overflow: auto;
 }
 
+.no-overflow {
+  overflow: inherit;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

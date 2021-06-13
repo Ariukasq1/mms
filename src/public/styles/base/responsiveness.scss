@@ -53,6 +53,15 @@
   }
 }
 
+.section.otherNews .slick-slider {
+  padding: 0;
+}
+
+.news-slider .slick-prev,
+.news-slider .slick-next {
+  top: 100%;
+}
+
 .what-we-do {
   .fp-tableCell {
     .auto-overflow {

@@ -145,7 +145,7 @@ const Index = ({ newsroom, categories }) => {
         </Slider>
       </div>
     ) : (
-      <div className="grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <div className="grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:mb-20">
         {filteredNews.map((news) => renderNews(news))}
       </div>
     );

@@ -63,7 +63,7 @@ const News = ({ details, news }) => {
   const renderNews = news.map((n, index) => {
     return (
       <div key={index}>
-        <div className="newsBox mb-20 lg:mb-14 md:mb-12 pr-8 sm:mb-5">
+        <div className="newsBox mb-20 lg:mb-14 md:mb-12 pr-8 sm:mb-5 sm:pr-0">
           <Link
             href={{
               pathname: "/newsroom/[news]#1",
@@ -93,15 +93,17 @@ const News = ({ details, news }) => {
             <div className="section news-detail">
               <div
                 className={
-                  "pl-24 flex flex-row justify-center items-center h-full lg:block lg:pl-20 md:block sm:block sm:pl-12"
+                  "pl-24 flex flex-row justify-center items-center h-full lg:block lg:pl-20 md:block sm:block sm:pl-8 sm:pr-4 sm:h-auto sm:flex-col"
                 }
               >
                 <div
                   className={
-                    "w-1/2 xl:auto-overflow lg:w-full md:w-full sm:w-full lg:mt-5 md:mt-5 sm:mt-5"
+                    "w-1/2 xl:auto-overflow lg:w-full md:w-full sm:w-full lg:mt-5 md:mt-5 sm:mt-5 sm:no-overflow"
                   }
                 >
-                  <h2 className={"mb-10 font-medium text-sm"}>#{__("News")}</h2>
+                  <h2 className={"mb-10 font-medium text-sm sm:mb-5"}>
+                    #{__("News")}
+                  </h2>
                   <h2 className={"mb-4 font-bold text-xl"}>
                     <div
                       dangerouslySetInnerHTML={{
@@ -133,11 +135,11 @@ const News = ({ details, news }) => {
               </div>
             </div>
             <div className="section odd otherNews">
-              <div className="pl-40 pr-12 md:pl-24 md:pr-0 sm:pr-0 sm:pl-12">
+              <div className="pl-40 pr-12 md:pl-24 md:pr-0 sm:px-8">
                 <div className="header">
                   <h2>{__("Related news")}</h2>
                 </div>
-                <div className="brands news-slider">
+                <div className="brands news-slider sm:pb-20">
                   <Slider {...settings}>{renderNews}</Slider>
                 </div>
               </div>
