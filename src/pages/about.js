@@ -57,7 +57,10 @@ const About = ({ contact, posts, histories, categories }) => {
       }
 
       return (
-        <div key={index} className="about-detail-content w-full">
+        <div
+          key={index}
+          className="about-detail-content w-full md:mb-10 sm:mb-10"
+        >
           <AboutDetail catId={activeId} />
         </div>
       );
@@ -73,15 +76,15 @@ const About = ({ contact, posts, histories, categories }) => {
           {moment(year).format("YYYY")}{" "}
           <span>{moment(year).format("MMM")}</span>
         </h3>
-        <p className="text-center content text-base">
+        <div className="text-center desc content text-base">
           <div dangerouslySetInnerHTML={{ __html: history.content.rendered }} />
-        </p>
+        </div>
       </div>
     );
   };
 
   const cats = (
-    <ul className="flex justify-center category-wrapper mb-20 sm:text-left">
+    <ul className="flex justify-center category-wrapper mb-20 sm:text-left sm:mb-10">
       {categories.map((category) => (
         <React.Fragment key={category.id}>
           <li
@@ -107,12 +110,12 @@ const About = ({ contact, posts, histories, categories }) => {
             <div className="section about-us">
               <div
                 className={
-                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:pl-16 sm:pr-6 lg:block md:block md:pl-24 md:pl-16"
+                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:pl-8 sm:pr-6 lg:block md:block md:pl-24 md:pl-16"
                 }
               >
                 <div
                   className={
-                    "w-1/2 mr-16 lg:mr-0 lg:w-full md:w-full sm:w-full"
+                    "w-1/2 mr-16 lg:mr-0 lg:w-full md:w-full sm:w-full sm:mb-10"
                   }
                   data-aos="fade-right"
                 >
@@ -151,10 +154,10 @@ const About = ({ contact, posts, histories, categories }) => {
                 </div>
               </div>
             </div>
-            <div className="section what-we-do">
+            <div className="section what-we-do project-info">
               <div>
-                <div className="text-center brands sm:pl-16 sm:pr-3">
-                  <div className="heading-tag capitalize text-xl mt-20 font-bold sm:text-lg">
+                <div className="text-center brands sm:px-8">
+                  <div className="heading-tag capitalize text-xl mt-20 font-bold sm:text-lg sm:mt-0">
                     {__("What we do")}
                   </div>
                   <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
@@ -162,17 +165,18 @@ const About = ({ contact, posts, histories, categories }) => {
                   </div>
                   {cats}
                 </div>
-                <div
-                  className={
-                    "flex flex-wrap sm:flex-col px-32 lg:px-20 md:px-10 sm:px-4"
-                  }
-                >
+                <div className={"px-32 lg:px-20 md:px-10 sm:px-8"}>
                   {renderWhatWeDo()}
                 </div>
               </div>
             </div>
             <div className="section timeline odd">
-              <div className="px-40 relative xl:px-24 lg:px-20 md:px-16 sm:px-12">
+              <div className="text-center brands sm:px-8">
+                <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+                  {__("Our history")}
+                </div>
+              </div>
+              <div className="px-40 relative xl:px-24 lg:px-20 md:px-16 sm:px-8">
                 <div className="history relative">
                   <Slider {...settings} className="h-full">
                     {histories.map((history) => renderTimeline(history))}
@@ -180,7 +184,7 @@ const About = ({ contact, posts, histories, categories }) => {
                 </div>
               </div>
             </div>
-            <div className="section footer">
+            <div className="section project-info footer">
               <Footer contact={contact} />
             </div>
           </div>

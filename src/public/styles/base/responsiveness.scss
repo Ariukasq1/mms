@@ -575,6 +575,16 @@
     }
   }
 
+  .fp-section.fp-table.timeline {
+    .fp-tableCell {
+      padding-top: 30px;
+    }
+  }
+
+  .what-we-do .fp-tableCell {
+    height: auto !important;
+  }
+
   .industry {
     .ant-tabs {
       .ant-tabs-tab-active {
