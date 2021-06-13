@@ -46,7 +46,7 @@ const SliderSubCategories = (props) => {
           <a
             className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4"
             style={{ display: "block" }}
-            href={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
+            href={`/${props.querySlug}/${post.slug}?lang=${props.languagsectione}#section2`}
           >
             {__("Read more")}
           </a>
@@ -58,7 +58,7 @@ const SliderSubCategories = (props) => {
               pathname: `/[portfolio]/[item]`,
               query: { lang: props.language },
             }}
-            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
+            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           >
             <a>
               <div className="w-full image-wrapper">

@@ -54,7 +54,7 @@ const SliderSubCategories = (props) => {
             pathname: `/[portfolio]/[item]`,
             query: { lang: props.language },
           }}
-          as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
+          as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
         >
           <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4">
             {__("Read more")}
@@ -67,7 +67,7 @@ const SliderSubCategories = (props) => {
               pathname: `/[portfolio]/[item]`,
               query: { lang: props.language },
             }}
-            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
+            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           >
             <a>
               <div className="w-full image-wrapper">
@@ -103,7 +103,7 @@ const renderProjects = (projects, post, language) => {
     return (
       <div key={project.id}>
         <a
-          href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+          href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#section3`}
         >
           <div
             className="project flex justify-center items-center row-span-2 col-span-1 relative"
@@ -120,7 +120,7 @@ const renderProjects = (projects, post, language) => {
               <div className="flex items-center more">
                 <a
                   className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
-                  href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
+                  href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#section3`}
                 >
                   Read more
                 </a>

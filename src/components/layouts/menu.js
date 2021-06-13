@@ -214,14 +214,13 @@ const MenuComponent = () => {
             <div>Loading</div>
           ) : (
             menu.top_menu.items.map((item, index) => (
-              <Link
+              <a
                 key={index}
-                href={{ pathname: `${item.slug}`, query: { lang: language } }}
+                href={`/${item.slug}?lang=${language}`}
+                className={"px-4 font-bold border-r border-white"}
               >
-                <a className={"px-4 font-bold border-r border-white"}>
-                  {item.title}
-                </a>
-              </Link>
+                {item.title}
+              </a>
             ))
           )}
         </div>
