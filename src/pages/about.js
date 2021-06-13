@@ -5,11 +5,8 @@ import Layout from "../components/layouts/Layout";
 import Footer from "../components/layouts/footer";
 import { Config } from "../config";
 import { fetcher, getData, __ } from "../utils";
-import { Tabs } from "antd";
 import AboutDetail from "./AboutDetail";
 import FullPage from "../components/FullPage";
-
-const { TabPane } = Tabs;
 
 const settings = {
   infinite: false,
@@ -45,23 +42,22 @@ const settings = {
   ],
 };
 
-const About = ({ contact, posts, services, histories, categories }) => {
+const About = ({ contact, posts, histories, categories }) => {
   const [activeId, setactiveId] = React.useState(categories[0].id);
   const post = posts[0];
-  const service = services[0];
 
   const onTabChange = (key) => {
     setactiveId(key);
   };
 
   const renderWhatWeDo = () => {
-    return categories.map((cat) => {
+    return categories.map((cat, index) => {
       if (cat.id !== activeId) {
         return null;
       }
 
       return (
-        <div className="about-detail-content w-full">
+        <div key={index} className="about-detail-content w-full">
           <AboutDetail catId={activeId} />
         </div>
       );
@@ -72,7 +68,7 @@ const About = ({ contact, posts, services, histories, categories }) => {
     const { year } = history.acf;
 
     return (
-      <div className="history-item">
+      <div className="history-item" key={history._id}>
         <h3>
           {moment(year).format("YYYY")}{" "}
           <span>{moment(year).format("MMM")}</span>
@@ -114,14 +110,21 @@ const About = ({ contact, posts, services, histories, categories }) => {
                   "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:pl-16 sm:pr-6 lg:block md:block md:pl-24 md:pl-16"
                 }
               >
-                <div className={"w-1/2 mr-16 lg:mr-0 lg:w-full md:w-full sm:w-full"} data-aos="fade-right">
+                <div
+                  className={
+                    "w-1/2 mr-16 lg:mr-0 lg:w-full md:w-full sm:w-full"
+                  }
+                  data-aos="fade-right"
+                >
                   <img
                     className={"h-auto object-cover w-full"}
                     src={getData(post._embedded, "image")}
                   />
                 </div>
                 <div
-                  className={" w-1/2 flex items-center lg:w-full md:w-full sm:w-full"}
+                  className={
+                    " w-1/2 flex items-center lg:w-full md:w-full sm:w-full"
+                  }
                   data-aos="fade-left"
                 >
                   <div>
@@ -137,7 +140,9 @@ const About = ({ contact, posts, services, histories, categories }) => {
                       />
                     </h2>
                     <div
-                      className={"careerDetails text-lg pr-20 sm:pr-0 lg:pr-0 md:pr-0 sm:text-base"}
+                      className={
+                        "careerDetails text-lg pr-20 sm:pr-0 lg:pr-0 md:pr-0 sm:text-base"
+                      }
                       dangerouslySetInnerHTML={{
                         __html: post.content.rendered,
                       }}
@@ -147,7 +152,7 @@ const About = ({ contact, posts, services, histories, categories }) => {
               </div>
             </div>
             <div className="section what-we-do">
-              <div className="auto-overflow">
+              <div>
                 <div className="text-center brands sm:pl-16 sm:pr-3">
                   <div className="heading-tag capitalize text-xl mt-20 font-bold sm:text-lg">
                     {__("What we do")}
@@ -157,12 +162,16 @@ const About = ({ contact, posts, services, histories, categories }) => {
                   </div>
                   {cats}
                 </div>
-                <div className={"flex flex-wrap sm:flex-col px-32 lg:px-20 md:px-10 sm:px-4"}>
+                <div
+                  className={
+                    "flex flex-wrap sm:flex-col px-32 lg:px-20 md:px-10 sm:px-4"
+                  }
+                >
                   {renderWhatWeDo()}
                 </div>
               </div>
             </div>
-            <div className="section timeline">
+            <div className="section timeline odd">
               <div className="px-40 relative xl:px-24 lg:px-20 md:px-16 sm:px-12">
                 <div className="history relative">
                   <Slider {...settings} className="h-full">

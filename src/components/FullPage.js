@@ -27,7 +27,7 @@ export default class FullPage extends React.Component {
       { length: 10 },
       (_, index) => `section${index + 1}`
     );
-    console.log("heree");
+
     return (
       <ReactFullpage
         anchors={anchors}
@@ -37,10 +37,9 @@ export default class FullPage extends React.Component {
         onLeave={this.onLeave.bind(this)}
         afterLoad={this.afterLoad.bind(this)}
         scrollOverflow={true}
-        responsiveHeight={600}
         render={() => children}
-
-        responsiveWidth={480}
+        responsiveHeight={600}
+        responsiveWidth={500}
       />
     );
   }

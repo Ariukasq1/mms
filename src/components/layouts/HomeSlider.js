@@ -57,8 +57,8 @@ const HomeSlider = ({ sliders }) => {
             style={{
               width:
                 position_of_image &&
-                position_of_image === "full width",
-                // "62%",
+                position_of_image === "full width" &&
+                "62%",
               textAlign: position_of_text || "left",
             }}
           >

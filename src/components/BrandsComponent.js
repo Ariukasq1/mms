@@ -66,10 +66,8 @@ class BrandsComponent extends React.Component {
     }
 
     return (
-      <div className="brand-overflow">
-        <div className="grid grid-cols-4 gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-          {content}
-        </div>
+      <div className="grid grid-cols-4 gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        {content}
       </div>
     );
   }
