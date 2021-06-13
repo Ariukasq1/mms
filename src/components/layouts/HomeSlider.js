@@ -5,7 +5,7 @@ const settings = {
   className: "center",
   infinite: true,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 4000,
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: true,
@@ -58,7 +58,7 @@ const HomeSlider = ({ sliders }) => {
               width:
                 position_of_image &&
                 position_of_image === "full width" &&
-                "62%",
+                "70%",
               textAlign: position_of_text || "left",
             }}
           >

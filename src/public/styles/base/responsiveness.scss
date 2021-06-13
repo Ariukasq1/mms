@@ -635,9 +635,6 @@
 
     .bg-contact {
       padding-top: 66px;
-      .footer-responsive {
-        padding-bottom: 8rem;
-      }
     }
   }
 
@@ -749,8 +746,9 @@
 
   .footer-responsive {
     display: block;
-    padding: 3rem;
+    padding: 0 1rem;
   }
+
   .footer-items-input {
     width: 100%;
   }

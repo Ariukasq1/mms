@@ -107,14 +107,14 @@ class BrandsComponent extends React.Component {
 
     return (
       <div
-        className="justify-start items-start brands sm:ml-10 sm:mr-4"
+        className="justify-start items-start brands"
         style={{ backgroundColor: "white" }}
       >
-        <div className="text-center">
+        <div className="text-center sm:text-left">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {__("Brands")}
           </div>
-          <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+          <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 sm:font-semibold">
             {__("Our products")}
           </div>
           {categories}
