@@ -39,6 +39,8 @@ export default class FullPage extends React.Component {
         scrollOverflow={true}
         responsiveHeight={600}
         render={() => children}
+
+        responsiveWidth={480}
       />
     );
   }
