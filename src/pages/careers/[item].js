@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../../components/layouts/Layout";
 import Footer from "../../components/layouts/footer";
 import { Config } from "../../config";
-import mainStore from "../../stores";
 import { fetcher, getData, __, getLangParam } from "../../utils";
 import Link from "next/link";
 import { Collapse } from "antd";

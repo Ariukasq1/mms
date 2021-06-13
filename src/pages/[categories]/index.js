@@ -2,12 +2,10 @@ import React from "react";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import SliderSubCategories from "../../components/SliderSubCategories";
-import { fetcher, __, getLangParam } from "../../utils";
+import { fetcher, __ } from "../../utils";
 import FullPage from "../../components/FullPage";
 
-const Categories = ({ posts, querySlug }) => {
-  const currentLanguage = getLangParam();
-
+const Categories = ({ posts, querySlug, lang }) => {
   return (
     <Layout>
       <div className="relative">
@@ -25,7 +23,7 @@ const Categories = ({ posts, querySlug }) => {
                         pathname="[categories]"
                         data={posts}
                         querySlug={querySlug}
-                        language={currentLanguage}
+                        language={lang}
                       />
                     </div>
                   </div>
@@ -53,7 +51,7 @@ Categories.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { posts, querySlug };
+  return { posts, querySlug, lang };
 };
 
 export default Categories;
