@@ -210,7 +210,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-12">
+                <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-8">
                   <div className="brands">
                     <div className="header">
                       <h2>{__("Portfolio")}</h2>
@@ -224,10 +224,10 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 </div>
               </div>
             </div>
-            <div className="section">
-              <div className="pl-24 xl:pl-24 lg:pl-24 md:pl-16 sm:px-12 sm:pr-0">
+            <div className="section project-info">
+              <div className="pl-24 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0">
                 <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full lg:block md:block sm:block">
-                  <div className="flex flex-col mx-12 mt-20 xl:ml-0 md:ml-0 xl:mt-5 lg:mt-5 lg:mb-10 md:mt-5 sm:ml-2 sm:mt-5 md:mb-5 sm:mb-5 sm:mr-5">
+                  <div className="flex flex-col mx-12 mt-20 lg:pl-12 lg:mr-2 lg:mt-5 md:pl-10 md:mr-2 md:mt-5 sm:ml-8 sm:mr-2 sm:mt-5 lg:mb-5 md:mb-5 sm:mb-5 xl:mt-5">
                     <h2
                       className="text-2xl capitalize font-bold text-menuTextColor mb-8"
                       dangerouslySetInnerHTML={{
@@ -243,7 +243,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                   </div>
                   <div>
                     <img
-                      className="object-cover object-center portfolio-h-body h-body w-full"
+                      className="object-cover object-center portfolio-h-body lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body"
                       src={getData(post._embedded, "image")}
                     />
                   </div>
@@ -256,7 +256,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-16 sm:pr-5">
+              <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:pl-16 lg:pl-16 sm:pl-8 sm:pr-5">
                 <div className="desc mb-10 sm:mb-5">
                   <h4 className="mb-5">
                     <div
@@ -268,7 +268,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 </div>
                 <div>
                   {(projects || []).length > 8 ? (
-                    <div className="brands pl-12 pr-32 project-slider xl:pl-0 2xl:pl-0 lg:pl-0 lg:pr-5 lg:pr-10 md:pl-0 md:pr-10 sm:pr-0 sm:pl-0">
+                    <div className="brands pl-12 pr-32 xl:pl-0 2xl:pl-0 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-0 sm:pl-0 sm:pr-0">
                       <Slider {...settingsItems}>
                         {renderProjects(projects, post, currentLanguage)}
                       </Slider>
@@ -281,8 +281,8 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 </div>
               </div>
             </div>
-            <div className="section project-details">
-              <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-16 sm:pr-5">
+            <div className="section project-info project-details">
+              <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:pl-32 sm:pl-8 sm:pr-5">
                 <div className="flex lg:block md:block sm:block">
                   <div className="w-1/2 flex flex-col justify-center flex-center mr-16 lg:w-full md:w-full sm:w-full">
                     <b>

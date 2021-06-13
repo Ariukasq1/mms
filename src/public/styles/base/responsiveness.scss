@@ -568,31 +568,12 @@
 }
 
 @media only screen and (max-width: 480px) {
-  // .fullpage-wrapper {
-  //   transition: none !important;
-  //   transform: none !important;
-  //   height: auto !important;
-
-  //   .fp-section.fp-table,
-  //   .fp-slide.fp-table {
-  //     height: auto !important;
-  //     display: block;
-  //     table-layout: inherit;
-
-  //     .fp-tableCell,
-  //     .fp-scrollable {
-  //       height: auto !important;
-  //       display: block;
-  //       overflow: auto;
-
-  //       .fp-scroller {
-  //         transition: none !important;
-  //         transform: none !important;
-  //         overflow: auto;
-  //       }
-  //     }
-  //   }
-  // }
+  .project-info.fp-section.fp-table,
+  .fp-section.fp-table.projects {
+    .fp-tableCell {
+      padding: 0;
+    }
+  }
 
   .industry {
     .ant-tabs {
@@ -663,8 +644,7 @@
     .single-brand {
       .logo-wrapper {
         img {
-          max-width: 250px;
-          width: 100%;
+          max-width: 90%;
         }
       }
     }
@@ -901,38 +881,16 @@
       .flex {
         .cat-item {
           padding: 0px;
+          margin-bottom: 30px;
         }
       }
     }
   }
 
-  // .item-relations {
-  //   height: 1200px;
-  // }
-
   .auto-overflow {
     max-height: unset !important;
     overflow: unset !important;
   }
-
-  // .fp-tableCell{
-  //   height: none !important;
-  // }
-
-  // .fp-table{
-  //   height: none !important;
-  // }
-  // .fp-scrollable{
-  //   height: none !important;
-  // }
-  // .auto-overflow{
-  //   max-height: none;
-  //   overflow: unset;
-  // }
-  // .section.portfolio-usage .usage{
-  //   max-height: none;
-  //   overflow: unset;
-  // }
 }
 
 @media only screen and (max-width: 320px) {
