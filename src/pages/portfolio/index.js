@@ -73,8 +73,7 @@ const SliderSubCategories = (props) => {
   return <div className="flex without-scroll lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">{renderContent}</div>;
 };
 
-const Portfolio = ({ posts }) => {
-  const currentLanguage = getLangParam();
+const Portfolio = ({ posts, lang }) => {
 
   return (
     <Layout>
@@ -92,7 +91,7 @@ const Portfolio = ({ posts }) => {
                       <SliderSubCategories
                         data={posts}
                         querySlug="portfolio"
-                        language={currentLanguage}
+                        language={lang}
                       />
                     </div>
                   </div>
@@ -117,7 +116,7 @@ Portfolio.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { posts };
+  return { posts, lang };
 };
 
 export default Portfolio;

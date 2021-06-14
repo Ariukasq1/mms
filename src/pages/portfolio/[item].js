@@ -102,7 +102,7 @@ const renderProjects = (projects, post, language) => {
           href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#4`}
         >
           <div
-            className="project flex justify-center items-center row-span-2 col-span-1 relative"
+            className="project flex items-center row-span-2 col-span-1 relative"
             style={{
               backgroundImage: `url(${getData(project._embedded, "image")})`,
             }}
@@ -185,11 +185,8 @@ const Item = ({ posts, detail, projects }) => {
     <Layout>
       <ReactFullpage
         responsiveWidth={480}
-
-
         navigationPosition={"left"}
         navigation
-        // paddingTop={"116px"}
         scrollOverflow={false}
         render={({ state, fullpageApi }) => {
           return (

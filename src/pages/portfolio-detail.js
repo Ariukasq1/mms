@@ -56,12 +56,14 @@ const SliderSubCategories = (props) => {
           }}
           as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
         >
-          <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4">
-            {__("Read more")}
+          <div style={{display:"flex"}}>
+            <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4" style={{display:"block"}}>
+              {__("Read more")}
+            </a>
             <img className="object-contain w-10 ml-4" src={arrowImageBlue} />
-          </a>
+          </div>
         </Link>
-        <div>
+        <div className="image">
           <Link
             href={{
               pathname: `/[portfolio]/[item]`,
@@ -102,7 +104,7 @@ const renderProjects = (projects, post, language) => {
           href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
         >
           <div
-            className="project flex justify-center items-center row-span-2 col-span-1 relative"
+            className="project flex items-center row-span-2 col-span-1 relative"
             style={{
               backgroundImage: `url(${getData(project._embedded, "image")})`,
             }}
@@ -118,7 +120,7 @@ const renderProjects = (projects, post, language) => {
                   className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
                   href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#3`}
                 >
-                  Read more
+                  {__("Read more")}
                 </a>
                 <img src={arrowImage} />
               </div>
