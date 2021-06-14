@@ -50,7 +50,7 @@ const Item = ({ posts, detail, querySlug, lang }) => {
             <div id="fullpage">
               <div className="section categories">
                 <div className="capabilitiesPage">
-                  <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:pl-12 sm:pr-5">
+                  <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-8">
                     <div className="brands">
                       <div className="header">
                         <h2>{__(querySlug)}</h2>

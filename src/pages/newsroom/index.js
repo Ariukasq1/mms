@@ -156,7 +156,7 @@ const Index = ({ newsroom, categories }) => {
       <FullPage
         children={
           <div id="fullpage">
-            <div className="section px-56 xl:px-24 lg:px-20 md:px-20 sm:pl-12 sm:pr-6 news">
+            <div className="section px-56 xl:px-24 lg:px-20 md:px-20 sm:px-8 news">
               <div className="brands text-center">
                 <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
                   {__("Newsroom")}

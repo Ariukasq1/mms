@@ -8,7 +8,7 @@ const CapabilitiesComponent = ({ data }) => {
   return (
     <div className="capabilities flex flex-row-reverse xl:flex-row sm:flex-col justify-between items-center">
       <div
-        className="capabilitiesTexts px-32 py-8 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-8 bg-white"
+        className="capabilitiesTexts px-32 py-8 xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-24 md:pr-4 sm:px-8 sm:pt-0 bg-white"
         data-aos="fade-up"
         ata-aos-easing="ease"
         data-aos-delay={`0`}

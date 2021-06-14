@@ -2159,6 +2159,10 @@ label {
   font-size: 70px;
 }
 
+.footer-responsive {
+  height: 100vh;
+}
+
 @media only screen and (min-width: 1451px) {
   .slider .text {
     width: 100%;
@@ -2599,11 +2603,11 @@ label {
     width: 80%;
   }
   .slider .text .title {
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
   .slider .text .desc {
-    font-size: 15px;
+    font-size: 10px;
   }
 
   .section.facts .fact-item:nth-child(1), .section.facts .fact-item:nth-child(2), .section.facts .fact-item:nth-child(3) {
@@ -2614,7 +2618,7 @@ label {
   }
 
   .section.additional .odd:first-child .content {
-    padding-left: 0;
+    padding-left: 2rem;
   }
 
   .brand-p-item a .image-wrapper {
@@ -2686,8 +2690,44 @@ label {
     max-height: unset !important;
     overflow: unset !important;
   }
+
+  .section.item-detail .category-item .item-image .inner-content-detail {
+    padding: 0px 20px;
+  }
+
+  .slider-heigth {
+    height: calc(45vh - 66px);
+  }
+
+  #fullpage .slider {
+    height: 0px !important;
+  }
+  #fullpage .slider .fp-tableCell {
+    height: 0px !important;
+  }
+
+  .section.item-detail .category-item .support-content .icon-wrapper img {
+    width: 50px;
+    max-width: 50px;
+  }
 }
 @media only screen and (max-width: 320px) {
+  .slider-heigth {
+    height: calc(45vh - 66px);
+  }
+
+  #fullpage .slider {
+    height: 0px !important;
+  }
+  #fullpage .slider .fp-tableCell {
+    height: 0px !important;
+  }
+
+  .section.item-detail .category-item .support-content .icon-wrapper img {
+    width: 50px;
+    max-width: 50px;
+  }
+
   .industry .ant-tabs .ant-tabs-tab-active .title > .image-icon {
     height: 15px;
     margin: 10px 0 0 30px;

@@ -50,7 +50,7 @@ class Additional extends React.Component {
         data-aos-delay={`${index * 100}`}
         data-aos-duration="2000"
         data-aos-offset="300"
-        className="h-full mx-12 mt-20 content text-base relative xl:mx-4 lg:ml-16 lg:mr-4 md:ml-14 md:mr-4 sm:ml-12 sm:mr-2 sm:mt-5"
+        className="h-full mx-12 mt-20 content text-base relative xl:mx-4 lg:ml-16 lg:mr-4 md:ml-14 md:mr-4 sm:ml-0 sm:mr-0 sm:mt-5 sm:px-8"
       >
         <img
           className="absolute"

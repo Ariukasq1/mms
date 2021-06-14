@@ -93,7 +93,7 @@ const News = ({ details, news }) => {
             <div className="section news-detail">
               <div
                 className={
-                  "pl-24 flex flex-row justify-center items-center h-full lg:block lg:pl-20 md:block sm:block sm:pl-8 sm:pr-4 sm:h-auto sm:flex-col"
+                  "pl-24 flex flex-row justify-center items-center h-full lg:block lg:pl-20 md:block sm:block sm:px-8 sm:h-auto sm:flex-col"
                 }
               >
                 <div

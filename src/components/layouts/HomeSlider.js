@@ -45,7 +45,7 @@ const HomeSlider = ({ sliders }) => {
                   : position_of_text || "left"
                 : "space-between",
           }}
-          className={`h-body sm:px-10 sm:flex-col px-56 md:px-24 lg:px-20 flex  justify-between items-center sm:justify-evenly  ${
+          className={`slider-heigth h-body sm:px-10 sm:flex-col px-56 md:px-24 lg:px-20 flex  justify-between items-center sm:justify-evenly  ${
             position_of_image === "right"
               ? "flex-row"
               : position_of_image === "left" && "flex-row-reverse"

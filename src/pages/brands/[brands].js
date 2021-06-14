@@ -93,7 +93,7 @@ class Brands extends React.Component {
               <div className="section odd">
                 <div
                   className={
-                    "brandsProducts px-40 flex flex-col xl:p-20 lg:px-24 md:px-20 sm:p-12"
+                    "brandsProducts px-40 flex flex-col xl:p-20 lg:px-24 md:px-20 sm:py-12 sm:px-8"
                   }
                 >
                   <div className="flex items-center justify-between mb-8 sm:block sm:leading-8">
@@ -223,7 +223,7 @@ class Brands extends React.Component {
                 <div className="section odd" id="content">
                   <div
                     className={
-                      "brandsProducts px-40 flex flex-col lg:px-20 md:px-14 sm:px-12"
+                      "brandsProducts px-40 flex flex-col lg:px-20 md:px-14 sm:px-8"
                     }
                   >
                     <h2 className="text-menuTextColor mb-8 sm:leading-8">

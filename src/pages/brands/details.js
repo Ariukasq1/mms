@@ -79,9 +79,9 @@ class BrandDetail extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-item p-16 md:py-5 sm:pb-5 sm:pr-5 lg:pb-0">
+          <div className="col-item p-16 md:py-5 sm:pb-5 sm:px-8 sm:pr-5 lg:pb-0">
             <div className={"itemDetailsTexts"}>
-              <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
+              <h3 className="mb-10 sm:mb-3 text-menuTextColor leading-8 font-bold text-2xl">
                 {__("About")}{" "}
                 <span>
                   {" "}
@@ -112,7 +112,7 @@ class BrandDetail extends React.Component {
               </div>
             )}
           </div>
-          <div className="col-item p-16 md:py-5 sm:pr-5 sm:pt-0 lg:pb-0">
+          <div className="col-item p-16 md:py-5 sm:px-8 sm:pt-0 lg:pb-0">
             <div className={"itemDetailsTexts"}>
               <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
                 <span>

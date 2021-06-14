@@ -97,10 +97,6 @@
   }
 }
 
-// .item-relations {
-//     height: 1000px;
-//   }
-
 .slider {
   .text {
     width: 100%;
@@ -108,6 +104,10 @@
       font-size: 70px;
     }
   }
+}
+
+.footer-responsive{
+  height: 100vh;
 }
 
 @media only screen and (min-width: 1451px) {
@@ -375,15 +375,6 @@
   .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo:before {
     left: 30%;
   }
-
-  // .news-slider{
-  //   .slick-slider{
-  //     .slick-prev{
-  //       left: 63%;
-  //     }
-  //   }
-  // }
-  // newsiin detailiin sliderin sum shu
 
   .history {
     .slick-slider {
@@ -773,11 +764,11 @@
     .text {
       width: 80%;
       .title {
-        font-size: 30px;
+        font-size: 20px;
         margin-bottom: 10px;
       }
       .desc {
-        font-size: 15px;
+        font-size: 10px;
       }
     }
   }
@@ -798,7 +789,7 @@
   .section.additional {
     .odd:first-child {
       .content {
-        padding-left: 0;
+        padding-left: 2rem;
       }
     }
   }
@@ -913,9 +904,54 @@
     max-height: unset !important;
     overflow: unset !important;
   }
+
+  .section.item-detail .category-item .item-image .inner-content-detail {
+    padding: 0px 20px;
+  }
+
+
+  .slider-heigth{
+    height: calc(45vh - 66px);
+  }
+
+  #fullpage{
+    .slider{
+      height: 0px !important;
+
+      .fp-tableCell{
+        height: 0px !important;
+      }
+    }
+  }
+
+  .section.item-detail .category-item .support-content .icon-wrapper img {
+    width: 50px;
+    max-width: 50px;
+  }
+
 }
 
+
 @media only screen and (max-width: 320px) {
+  .slider-heigth{
+    height: calc(45vh - 66px);
+  }
+  
+ #fullpage{
+    .slider{
+      height: 0px !important;
+
+      .fp-tableCell{
+        height: 0px !important;
+      }
+    }
+  }
+
+  .section.item-detail .category-item .support-content .icon-wrapper img {
+    width: 50px;
+    max-width: 50px;
+  }
+  
   .industry {
     .ant-tabs {
       .ant-tabs-tab-active {
@@ -1162,8 +1198,4 @@
       padding: 0px !important;
     }
   }
-
-  // .item-relations {
-  //   height: 1200px;
-  // }
 }
