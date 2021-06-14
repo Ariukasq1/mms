@@ -4,6 +4,8 @@ src/public/styles/.sass-cache/
 src/yarn-error.log
 src/static/admin/*.bundle.*
 src/.next/
+src/.idea/
+src/out
 .DS_Store
 src/package-lock.json
 yarn.lock

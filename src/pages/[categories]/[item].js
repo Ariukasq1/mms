@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import SliderSubCategories from "../../components/SliderSubCategories";
-import { fetcher, __, getLangParam } from "../../utils";
+import { fetcher, __ } from "../../utils";
 import FullPage from "../../components/FullPage";
 import ItemDetail from "./detail";
 import ItemFacts from "./facts";
@@ -42,8 +42,6 @@ const AdditionSection = (posts, detail, lang) => {
 };
 
 const Item = ({ posts, detail, querySlug, lang }) => {
-  const currentLanguage = getLangParam();
-
   return (
     <Layout>
       <div className="relative">
@@ -61,7 +59,7 @@ const Item = ({ posts, detail, querySlug, lang }) => {
                         pathname="[categories]"
                         data={posts}
                         querySlug={querySlug}
-                        language={currentLanguage}
+                        language={lang}
                       />
                     </div>
                   </div>

@@ -25,7 +25,7 @@ const Index = ({
           children={
             <div id="fullpage homeScreen">
               <div className="section slider">
-                <HomeSlider sliders={sliders}  />
+                <HomeSlider sliders={sliders} />
               </div>
               <div className="section capabilities">
                 <CapabilitiesComponent data={capability[0]} />
@@ -34,7 +34,7 @@ const Index = ({
                 <IndustryComponent industries={industries} />
               </div>
               <div className="section brands">
-                <div className="brands-wrap ml-32 mr-16 mt-20 lg:mt-5 md:ml-20 md:mt-10 sm:ml-8 sm:mr-8 sm:mt-0">
+                <div className="brands-wrap relative ml-32 mr-16 mt-20 lg:mt-5 md:ml-20 md:mt-10 sm:ml-8 sm:mr-8 sm:mt-0">
                   <BrandsComponent
                     brands={brands}
                     brandCategories={brandCategories}

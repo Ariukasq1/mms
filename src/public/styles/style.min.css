@@ -18,6 +18,7 @@ li {
 
 html {
   font-family: "Raleway", sans-serif;
+  overflow-x: hidden !important;
 }
 
 body {
@@ -98,10 +99,6 @@ hr {
 
 .top-16 {
   top: 4rem;
-}
-
-.sm\:justify-evenly {
-  justify-content: space-evenly !important;
 }
 
 .aligncenter {
@@ -789,6 +786,10 @@ a:hover {
   overflow: auto;
 }
 
+.no-overflow {
+  overflow: inherit;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -851,10 +852,6 @@ a:hover {
 .nprogress-custom-parent #nprogress .spinner,
 .nprogress-custom-parent #nprogress .bar {
   position: absolute;
-}
-
-.fp-section {
-  overflow: auto;
 }
 
 #fp-nav ul {
@@ -1510,6 +1507,7 @@ label {
 .section.project-details h4 {
   font-size: 24px;
   font-weight: 600;
+  line-height: 26px;
 }
 .section.project-details p {
   max-height: 70vh;
@@ -2121,8 +2119,22 @@ label {
   overflow: visible;
 }
 
+.heading-title {
+  line-height: 25px;
+  margin: 10px 0 20px 0;
+}
+
 .brands .slick-list .slick-track .slick-slide {
   padding: 0;
+}
+
+.section.otherNews .slick-slider {
+  padding: 0;
+}
+
+.news-slider .slick-prev,
+.news-slider .slick-next {
+  top: 100%;
 }
 
 .what-we-do .fp-tableCell .auto-overflow {
@@ -2152,7 +2164,7 @@ label {
     width: 100%;
   }
   .slider .text .title {
-    font-size: 60px;
+    font-size: 80px;
   }
 
   .h-body-in {
@@ -2280,7 +2292,7 @@ label {
     width: 60%;
   }
   .slider .text .title {
-    font-size: 65px;
+    font-size: 75px;
   }
   .slider .text .desc {
     font-size: 20px;
@@ -2456,6 +2468,19 @@ label {
   }
 }
 @media only screen and (max-width: 480px) {
+  .project-info.fp-section.fp-table .fp-tableCell,
+.fp-section.fp-table.projects .fp-tableCell {
+    padding: 0;
+  }
+
+  .fp-section.fp-table.timeline .fp-tableCell {
+    padding-top: 30px;
+  }
+
+  .what-we-do .fp-tableCell {
+    height: auto !important;
+  }
+
   .industry .ant-tabs .ant-tabs-tab-active .title > .image-icon {
     height: 15px;
     margin: 10px 0 0 30px;
@@ -2471,8 +2496,9 @@ label {
   .relative .bg-contact {
     padding-top: 66px;
   }
-  .relative .bg-contact .footer-responsive {
-    padding-bottom: 8rem;
+
+  .sm\:justify-evenly {
+    justify-content: space-evenly !important;
   }
 
   .brands .slick-prev,
@@ -2493,7 +2519,7 @@ label {
     display: none;
   }
   .brands .single-brand .logo-wrapper img {
-    max-width: 250px;
+    max-width: 90%;
   }
   .brands .single-brand .bg-img-wrapper {
     height: 150px;
@@ -2546,7 +2572,7 @@ label {
 
   .footer-responsive {
     display: block;
-    padding: 3rem;
+    padding: 0 1rem;
   }
 
   .footer-items-input {
@@ -2559,6 +2585,10 @@ label {
 
   .h-body {
     height: calc(100vh - 66px);
+  }
+
+  .capabilitiesImage {
+    height: auto !important;
   }
 
   .fp-section.fp-table .fp-tableCell {
@@ -2649,6 +2679,7 @@ label {
 
   .capabilitiesPageSlider .brands .flex .cat-item {
     padding: 0px;
+    margin-bottom: 30px;
   }
 
   .auto-overflow {

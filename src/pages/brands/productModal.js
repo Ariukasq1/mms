@@ -54,30 +54,24 @@ class ProductModal extends React.Component {
     const { items, showModal, currentItem } = this.state;
     const { pdf_file } = currentItem.acf || {};
 
-    const content = (items || []).map((product, index) => {
-      return (
-        <>
-          <div
-            key={index}
-            className="brand-p-item mb-20"
-            onClick={this.onShowModal.bind(this, product)}
-          >
-            <div className="font-medium text-black text-xl mb-4 title">
-              <div
-                dangerouslySetInnerHTML={{ __html: product.title.rendered }}
-              />
-            </div>
-            <div className="image-wrapper">
-              <img
-                className="object-cover object-center h-body w-full"
-                src={getData(product._embedded, "image")}
-                alt={product.title.rendered}
-              />
-            </div>
-          </div>
-        </>
-      );
-    });
+    const content = (items || []).map((product, index) => (
+      <div
+        key={index}
+        className="brand-p-item mb-20"
+        onClick={this.onShowModal.bind(this, product)}
+      >
+        <div className="font-medium text-black text-xl mb-4 title">
+          <div dangerouslySetInnerHTML={{ __html: product.title.rendered }} />
+        </div>
+        <div className="image-wrapper">
+          <img
+            className="object-cover object-center h-body w-full"
+            src={getData(product._embedded, "image")}
+            alt={product.title.rendered}
+          />
+        </div>
+      </div>
+    ));
 
     return (
       <div className="product-overflow">

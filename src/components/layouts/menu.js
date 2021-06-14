@@ -51,9 +51,8 @@ const MenuComponent = () => {
     } else return `/${item.slug}`;
   };
 
-
   return (
-    <div >
+    <div>
       <nav
         className={
           "main-header flex flex-row justify-between p-2 w-full absolute top-0 left-0 right-0 border-b-2"
@@ -188,10 +187,21 @@ const MenuComponent = () => {
           ) : (
             menu.bottom_menu.items.map((item, index) => (
               <div key={index} className="flex flex-col ">
-                  <a href={`/${item.slug}?lang=${language}`} className={"mx-4 font-bold"}>{item.title}</a>
-                <div className="flex flex-col mb-6 ml-4">
-                  {item.child_items?.map((children) => (
-                      <a href={`/${item.slug}/${children.slug}?lang=${language}`} className={"mx-4"}>{children.title}</a>
+                <a
+                  href={`/${item.slug}?lang=${language}`}
+                  className={"mx-4 font-bold"}
+                >
+                  {item.title}
+                </a>
+                <div className="flex flex-col mb-6">
+                  {item.child_items?.map((children, index) => (
+                    <a
+                      key={index}
+                      href={`/${item.slug}/${children.slug}?lang=${language}`}
+                      className={"mx-4"}
+                    >
+                      {children.title}
+                    </a>
                   ))}
                 </div>
               </div>
@@ -204,14 +214,13 @@ const MenuComponent = () => {
             <div>Loading</div>
           ) : (
             menu.top_menu.items.map((item, index) => (
-              <Link
+              <a
                 key={index}
-                href={{ pathname: `${item.slug}`, query: { lang: language } }}
+                href={`/${item.slug}?lang=${language}`}
+                className={"px-4 font-bold border-r border-white"}
               >
-                <a className={"px-4 font-bold border-r border-white"}>
-                  {item.title}
-                </a>
-              </Link>
+                {item.title}
+              </a>
             ))
           )}
         </div>

@@ -15,7 +15,7 @@ const RelationSlider = ({ posts, items, querySlug }) => {
       }
 
       return (
-        <div key={post.id} className="brand-p-item mb-8">
+        <div key={post.id} className="brand-p-item mb-8 mr-5">
           <Link
             href={`/${querySlug}/${post.slug}?lang=${currentLanguage}`}
             passHref
@@ -37,7 +37,11 @@ const RelationSlider = ({ posts, items, querySlug }) => {
   };
 
   if (items.length <= 4) {
-    return <div className="grid grid-cols-4 gap-4 px-4 sm:grid-cols-2">{renderItems()}</div>;
+    return (
+      <div className="grid grid-cols-4 gap-4 px-4 sm:grid-cols-2">
+        {renderItems()}
+      </div>
+    );
   }
 
   return (

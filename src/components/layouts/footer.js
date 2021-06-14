@@ -51,10 +51,7 @@ class Footer extends React.Component {
     return (
       <footer className={"bg-contact relative text-white"}>
         <div
-          // className={
-          //   "flex flex-row justify-evenly px-40 py-40 xl:px-24 flex-row sm:px-12 flex-col"
-          // }
-          className={"footer-responsive justify-evenly"}
+          className="footer-responsive justify-evenly "
           style={{ backgroundColor: "#262626" }}
         >
           <div className={"flex flex-col footer-items px-8 sm:w-full sm:px-4"}>
@@ -81,7 +78,9 @@ class Footer extends React.Component {
 
               <p className={"text-lg  text-white"}> {email}</p>
             </div>
-            <div className={"flex flex-row socials mt-20 sm:mt-5 md:mt-5 lg:mt-5"}>
+            <div
+              className={"flex flex-row socials mt-20 sm:mt-5 md:mt-5 lg:mt-5"}
+            >
               {facebook && (
                 <a
                   className="flex items-center justify-center"

@@ -86,12 +86,16 @@ class Brands extends React.Component {
       <Layout>
         <FullPage
           children={
-            <div id="fullpage brand-component">
+            <div id="fullpage ">
               <div className="section brand-detail item-detail">
                 <BrandDetail items={items} />
               </div>
               <div className="section odd">
-                <div className={"brandsProducts px-40 flex flex-col xl:p-20 lg:px-24 md:px-20 sm:p-12"}>
+                <div
+                  className={
+                    "brandsProducts px-40 flex flex-col xl:p-20 lg:px-24 md:px-20 sm:p-12"
+                  }
+                >
                   <div className="flex items-center justify-between mb-8 sm:block sm:leading-8">
                     <h2 className="text-menuTextColor mr-5 sm:mb-5">
                       <div
@@ -126,7 +130,11 @@ class Brands extends React.Component {
 
               {showProduct && (
                 <div className="section" id="content">
-                  <div className={"brandsProducts px-40 flex flex-col xl:pr-16 lg:pr-8 md:pr-8 md:pl-24 sm:px-5"}>
+                  <div
+                    className={
+                      "brandsProducts px-40 flex flex-col xl:pr-16 lg:pr-8 md:pr-8 md:pl-24 sm:px-5"
+                    }
+                  >
                     <div className="flex items-center justify-between mb-8 sm:block sm:leading-8">
                       <h2 className="text-menuTextColor mr-5 sm:mb-5">
                         <div
@@ -159,7 +167,7 @@ class Brands extends React.Component {
                       <ProductDetail
                         currentItemId={currentProduct.id}
                         onClick={this.onProductClick}
-                      />  
+                      />
                     </div>
                   </div>
                 </div>
@@ -167,7 +175,11 @@ class Brands extends React.Component {
 
               {showProductDetail && (
                 <div className="section" id="content">
-                  <div className={"brandsProducts px-40 flex flex-col xl:pr-16 md:pl-24 md:pr-8 lg:pr-8 sm:px-5"}>
+                  <div
+                    className={
+                      "brandsProducts px-40 flex flex-col xl:pr-16 md:pl-24 md:pr-8 lg:pr-8 sm:px-5"
+                    }
+                  >
                     <div className="flex items-center justify-between mb-8 sm:block">
                       <h2 className="text-menuTextColor mr-5 sm:leading-8">
                         <div
@@ -209,7 +221,11 @@ class Brands extends React.Component {
 
               {showDetail && (
                 <div className="section odd" id="content">
-                  <div className={"brandsProducts px-40 flex flex-col lg:px-20 md:px-14 sm:px-12"}>
+                  <div
+                    className={
+                      "brandsProducts px-40 flex flex-col lg:px-20 md:px-14 sm:px-12"
+                    }
+                  >
                     <h2 className="text-menuTextColor mb-8 sm:leading-8">
                       <div
                         className="inline-block"

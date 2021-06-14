@@ -15,7 +15,7 @@ const IndustryComponent = ({ industries }) => {
 
   return (
     <div className="industry relative justify-between items-center">
-      <div className="heading-tag capitalize text-2xl font-bold pl-48 top-16 absolute sm:text-lg xl:pl-28 lg:pl-24 md:pl-16 sm:pl-12">
+      <div className="heading-tag capitalize text-2xl font-bold pl-48 top-16 absolute sm:text-lg xl:pl-28 lg:pl-24 md:pl-16 sm:pl-8">
         {__("Industries")}
       </div>
       <Tabs defaultActiveKey="0" tabPosition="left">
@@ -24,13 +24,12 @@ const IndustryComponent = ({ industries }) => {
             return null;
           }
 
-
           return (
             <TabPane
               key={i}
               tab={
                 <div
-                  className="title pl-48 text-7xl xl:text-5xl xl:p-28 lg:text-5xl lg:p-24 md:text-4xl md:p-16 sm:text-4xl sm:pl-12"
+                  className="title pl-48 text-7xl xl:text-5xl xl:p-28 lg:text-5xl lg:p-24 md:text-4xl md:p-16 sm:text-4xl sm:pl-8"
                   data-aos="fade-right"
                   data-aos-easing="ease-in"
                   data-aos-delay={i * 150}
@@ -65,13 +64,13 @@ const IndustryComponent = ({ industries }) => {
           );
         })}
       </Tabs>
-      {/* <Link
+      <Link
         href={{ pathname: `/[categories]`, query: { lang: currentLanguage } }}
-      > */}
-        <a className="Industries-btn text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48 sm:ml-16 md:m-0" href={`industries?lang=${currentLanguage}`}>
+      >
+        <a className="Industries-btn text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48 sm:ml-16 md:m-0">
           {__("Read more")}
         </a>
-      {/* </Link> */}
+      </Link>
     </div>
   );
 };

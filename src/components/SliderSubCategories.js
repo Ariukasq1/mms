@@ -4,7 +4,6 @@ import arrowImage from "../public/images/arrow-blue.svg";
 import Slider from "react-slick";
 import { getData, sliderSettings, __ } from "../utils";
 
-
 const SliderSubCategories = (props) => {
   const renderContent = props.data.map((post, index) => {
     if (
@@ -31,26 +30,34 @@ const SliderSubCategories = (props) => {
           className="title text-black font-medium"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
-        <div className={"capabilitiesPageBody truncate-2-lines text-base mt-4 sm:mt-1"}>
+        <div
+          className={
+            "capabilitiesPageBody truncate-2-lines text-base mt-4 sm:mt-1"
+          }
+        >
           <div
             dangerouslySetInnerHTML={{
               __html: post.excerpt.rendered,
             }}
           />
         </div>
-        <div style={{display:"flex"}}>
-          <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4" href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`} style={{display:"block"}}>
-            {__("Read more")}     
+        <div style={{ display: "flex" }}>
+          <a
+            className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4"
+            href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
+            style={{ display: "block" }}
+          >
+            {__("Read more")}
           </a>
           <img className="object-contain w-10 ml-4" src={arrowImage} />
-          </div>
+        </div>
         <div className="image">
           <Link
             href={{
               pathname: `/${props.pathname}/[item]`,
               query: { lang: props.language },
             }}
-            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#2`}
+            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           >
             <a>
               <div className="w-full image-wrapper">
@@ -71,7 +78,11 @@ const SliderSubCategories = (props) => {
   }
 
   if (props.data.length <= 4) {
-    return <div className="flex without-scroll lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">{renderContent}</div>;
+    return (
+      <div className="flex without-scroll lg:grid lg:grid-cols-2 lg:gap-4 md:grid md:grid-cols-1 sm:grid sm:grid-cols-1">
+        {renderContent}
+      </div>
+    );
   }
 
   return (

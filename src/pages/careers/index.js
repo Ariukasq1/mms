@@ -33,7 +33,7 @@ const Index = ({ career, contact }) => {
                 pathname: `/[careers]/[item]`,
                 query: { lang: currentLanguage },
               }}
-              as={`/careers/${item.slug}?lang=${currentLanguage}#2`}
+              as={`/careers/${item.slug}?lang=${currentLanguage}#section2`}
             >
               <a>
                 <div className="card">

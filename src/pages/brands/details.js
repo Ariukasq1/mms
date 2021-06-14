@@ -27,7 +27,7 @@ class BrandDetail extends React.Component {
     } = brand.acf || {};
 
     return (
-      <div className="brand-detail-wrapper h-full">
+      <div className="brand-detail-wrapper">
         <div className="relative grid grid-cols-3 2xl:h-full xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
           <div
             className="col-item p-16 bg-cover bg-center bg-no-repeat h-body object-cover object-center cursor-pointer relative sm:px-10 sm:py-14"
@@ -35,7 +35,10 @@ class BrandDetail extends React.Component {
               backgroundImage: `url(${getData(brand._embedded, "image")})`,
             }}
           >
-            <div className="about-brand p-10 sm:px-4 sm:py-0" data-aos="flip-down">
+            <div
+              className="about-brand p-10 sm:px-4 sm:py-0"
+              data-aos="flip-down"
+            >
               <div className="sub-heading font-bold text-xl">
                 <span className="inline-block"></span>
                 {__("Brands")}
@@ -89,7 +92,9 @@ class BrandDetail extends React.Component {
                 </span>{" "}
               </h3>
               <div
-                className={"text-lg pb-10 sm:pb-5    xl:auto-overflow 2xl:auto-overflow"}
+                className={
+                  "text-lg pb-10 sm:pb-5    xl:auto-overflow 2xl:auto-overflow"
+                }
                 dangerouslySetInnerHTML={{
                   __html: about,
                 }}

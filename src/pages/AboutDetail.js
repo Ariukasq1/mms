@@ -33,7 +33,7 @@ export default class AboutDetail extends React.Component {
     const items = Object.values(post.acf);
 
     return (
-      <div className="auto-overflow pl-10 lg:pl-5">
+      <div className="pl-10 lg:pl-5 sm:pl-0">
         <div
           className={`grid grid-cols-${
             post.slug.includes("supply") ? "9" : "3"
@@ -60,9 +60,9 @@ export default class AboutDetail extends React.Component {
                 >
                   {item.name}
                 </h5>
-                <p>
+                <div className="desc">
                   <div dangerouslySetInnerHTML={{ __html: item.desc }} />
-                </p>
+                </div>
               </div>
             );
           })}

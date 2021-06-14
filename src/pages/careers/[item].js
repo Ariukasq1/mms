@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../../components/layouts/Layout";
 import Footer from "../../components/layouts/footer";
 import { Config } from "../../config";
-import mainStore from "../../stores";
 import { fetcher, getData, __, getLangParam } from "../../utils";
 import Link from "next/link";
 import { Collapse } from "antd";
@@ -233,7 +232,7 @@ const renderProcess = (items, currentId, currentTitle) => {
     <div className={`section vacancies item-detail`}>
       <div className="category-item">
         <div className="flex lg:block md:block sm:block xl:block">
-        <div className="w-1/2 px-20 py-5 lg:w-full md:w-full sm:w-full xl:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:pl-12 sm:py-5 sm:pr-5">
+          <div className="w-1/2 px-20 py-5 lg:w-full md:w-full sm:w-full xl:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:pl-12 sm:py-5 sm:pr-5">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
@@ -264,7 +263,9 @@ const renderProcess = (items, currentId, currentTitle) => {
                         <h4 className="font-semibold text-xl mb-3 md:text-base md:text-base sm:text-base">
                           {data.title}
                         </h4>
-                        <p className="text-base md:text-sm sm:text-sm">{data.desc}</p>
+                        <p className="text-base md:text-sm sm:text-sm">
+                          {data.desc}
+                        </p>
                       </div>
                     );
                   })}
@@ -298,7 +299,6 @@ const renderProcess = (items, currentId, currentTitle) => {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -338,7 +338,7 @@ const Item = ({ career, items, detail, contact, jobs, lang }) => {
                 pathname: `/[careers]/[item]`,
                 query: { lang: currentLanguage },
               }}
-              as={`/careers/${item.slug}?lang=${currentLanguage}#2`}
+              as={`/careers/${item.slug}?lang=${currentLanguage}#section2`}
             >
               <a>
                 <div className="card">

@@ -7,6 +7,10 @@ a:hover {
   overflow: auto;
 }
 
+.no-overflow {
+  overflow: inherit;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -76,9 +80,9 @@ a:hover {
 .nprogress-custom-parent #nprogress .bar {
   position: absolute;
 }
-.fp-section {
-  overflow: auto;
-}
+// .fp-section {
+//   overflow: auto;
+// }
 
 #fp-nav ul {
   margin-left: 20px !important;
