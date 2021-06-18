@@ -61,7 +61,7 @@ class ItemDetail extends React.Component {
             </div>
             <div className="w-1/2 md:w-full sm:w-full lg:w-full">
               <div
-                className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative"
+                className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative sm:bg-center"
                 style={{
                   backgroundImage: `url(${getData(post._embedded, "image")})`,
                 }}
@@ -69,7 +69,7 @@ class ItemDetail extends React.Component {
                 <div className="inner-content">
                   <div className="inner-content-overlay absolute inset-0" />
                   <div className="inner-content-detail text-white absolute">
-                    <h2 className="block text-2xl font-bold capitalize text-white mb-4">
+                    <h2 className="block text-2xl font-bold capitalize text-white mb-4 sm:text-xl sm:mb-0">
                       {post.title && (
                         <div
                           dangerouslySetInnerHTML={{
@@ -80,7 +80,7 @@ class ItemDetail extends React.Component {
                     </h2>
                     <div className="auto-overflow mb-4">
                       <div
-                        className="text-lg font-medium"
+                        className="text-lg font-medium sm:text-sm"
                         dangerouslySetInnerHTML={{
                           __html: post.content && post.content.rendered,
                         }}

@@ -48,9 +48,9 @@ class BrandDetail extends React.Component {
               </div>
               <div className="slogan mb-8 text-center">
                 {slogan && (
-                  <div className="slo relative w-full text-2xl heading-tag font-bold uppercase mb-8 ">
+                  <div className="slo relative w-full text-2xl heading-tag font-bold uppercase mb-8 sm:pb-5">
                     <blockquote className="border-0">
-                      <span className="mt-8">
+                      <span className="mt-8 sm:text-xl">
                         {slogan}
                         <div className="flex justify-center text-wrapper">
                           {country && (
