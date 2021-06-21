@@ -665,6 +665,8 @@
         padding-left: 5px;
         float: left;
         min-height: 25px;
+        margin-right: 5px;
+        display: block;
       }
       > span {
         display: none;
@@ -990,16 +992,22 @@
     width: 100%;
     font-size: 15px;
   }
+
+  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo blockquote span {
+    max-width: 220px;
+  }
 }
 
 @media only screen and (max-width: 320px) {
   .brands{
     .category-wrapper {
       > li::before {
+        display: block;
         content: "> ";
         padding-left: 5px;
         float: left;
         min-height: 25px;
+        margin-right: 5px;
       }
       > span {
         display: none;

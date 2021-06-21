@@ -43,14 +43,14 @@ class BrandDetail extends React.Component {
                 <span className="inline-block"></span>
                 {__("Brands")}
               </div>
-              <div className={"mb-8 logo flex justify-center sm:mb-2"}>
+              <div className={"mb-8 logo flex justify-center sm:mb-6"}>
                 <img className="mt-8 sm:mt-2" src={logo && logo} alt="brand-logo" />
               </div>
               <div className="slogan mb-8 text-center sm:mb-0">
                 {slogan && (
                   <div className="slo relative w-full text-2xl heading-tag font-bold uppercase mb-8 sm:pb-2 sm:mb-0">
                     <blockquote className="border-0">
-                      <span className="mt-8 sm:text-xs">
+                      <span className="mt-8 sm:text-sm">
                         {slogan}
                         <div className="flex justify-center text-wrapper">
                           {country && (
