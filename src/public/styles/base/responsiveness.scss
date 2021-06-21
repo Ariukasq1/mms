@@ -3,6 +3,14 @@
   .section.projects .project {
     height: 200px;
   }
+
+.history{
+  .slick-slider{
+    .slick-next, .slick-prev {
+        top: 49.5%;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 961px) {
@@ -123,7 +131,6 @@
 .brands {
   .slick-prev,
   .slick-next {
-    z-index: 1;
     bottom: -10%;
     opacity: 1;
   }
@@ -131,11 +138,39 @@
   .slick-prev {
     left: 65%;
     bottom: -10%;
-    z-index: 1;
   }
 }
 
+.relative{
+  .relative{
+    .fullpage-wrapper{
+      #fullpage{
+        .section{
+          .fp-tableCell{
+            .fp-scrollable{
+              .fp-scroller{
+                height: 100vh;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
 @media only screen and (min-width: 1451px) {
+.history{
+  .slick-slider{
+    .slick-next, .slick-prev {
+        top: 49.5%;
+      }
+    }
+  }
+
   .slider {
     .text {
       width: 100%;
@@ -152,6 +187,14 @@
   }
 }
 @media only screen and (max-width: 1450px) and (min-width: 1366px) {
+  .history{
+    .slick-slider{
+      .slick-next, .slick-prev {
+          top: 49.5%;
+        }
+      }
+    }
+
   .industry {
     .ant-tabs {
       .ant-tabs-tab-btn {
@@ -171,6 +214,14 @@
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1366px) {
+.history{
+  .slick-slider{
+    .slick-next, .slick-prev {
+        top: 49.5%;
+      }
+    }
+  }
+
   .relative {
     .bg-contact {
       padding-top: 116px;
@@ -271,6 +322,14 @@
   }
 }
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
+  .history{
+    .slick-slider{
+      .slick-next, .slick-prev {
+          top: 49.5%;
+        }
+      }
+    }
+
   .h-body-in {
     height: calc(100vh - 116px);
   }

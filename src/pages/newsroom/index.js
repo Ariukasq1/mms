@@ -119,7 +119,7 @@ const Index = ({ newsroom, categories }) => {
         {categories.map((category) => (
           <React.Fragment key={category.id}>
             <li
-              className={`text-base font-medium p-2 ${
+              className={`text-base font-medium p-2 text-left ${
                 catId === category.id ? "active" : ""
               }`}
               onClick={() => onClick(category.id)}

@@ -139,6 +139,12 @@ const renderProjects = (projects, post, language) => {
 
 const Item = ({ posts, detail, projects, lang }) => {
   const post = detail[0];
+  
+  if (Object.keys(post).length !== 0) {
+    typeof window !== "undefined" &&
+      window.fullpage_api &&
+      window.fullpage_api.moveTo(2, 0);
+  }
 
   const settingsItems = {
     infinite: true,

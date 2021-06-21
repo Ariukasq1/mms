@@ -305,6 +305,12 @@
   background-size: cover;
   background-position: center;
 
+  .fp-tableCell{
+    .fp-scrollable{
+      z-index: 3;
+    }
+  }
+
   .projects-wrapper {
     position: relative;
     z-index: 3;

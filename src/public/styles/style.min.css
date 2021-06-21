@@ -1380,6 +1380,9 @@ label {
   background-size: cover;
   background-position: center;
 }
+.section.projects .fp-tableCell .fp-scrollable {
+  z-index: 3;
+}
 .section.projects .projects-wrapper {
   position: relative;
   z-index: 3;
@@ -2080,6 +2083,10 @@ label {
   .section.projects .project {
     height: 200px;
   }
+
+  .history .slick-slider .slick-next, .history .slick-slider .slick-prev {
+    top: 49.5%;
+  }
 }
 @media only screen and (min-width: 961px) {
   .row {
@@ -2169,17 +2176,23 @@ label {
 
 .brands .slick-prev,
 .brands .slick-next {
-  z-index: 1;
   bottom: -10%;
   opacity: 1;
 }
 .brands .slick-prev {
   left: 65%;
   bottom: -10%;
-  z-index: 1;
+}
+
+.relative .relative .fullpage-wrapper #fullpage .section .fp-tableCell .fp-scrollable .fp-scroller {
+  height: 100vh;
 }
 
 @media only screen and (min-width: 1451px) {
+  .history .slick-slider .slick-next, .history .slick-slider .slick-prev {
+    top: 49.5%;
+  }
+
   .slider .text {
     width: 100%;
   }
@@ -2196,6 +2209,10 @@ label {
   }
 }
 @media only screen and (max-width: 1450px) and (min-width: 1366px) {
+  .history .slick-slider .slick-next, .history .slick-slider .slick-prev {
+    top: 49.5%;
+  }
+
   .industry .ant-tabs .ant-tabs-tab-btn .title {
     font-size: 4rem;
   }
@@ -2209,6 +2226,10 @@ label {
   }
 }
 @media only screen and (min-width: 1025px) and (max-width: 1366px) {
+  .history .slick-slider .slick-next, .history .slick-slider .slick-prev {
+    top: 49.5%;
+  }
+
   .relative .bg-contact {
     padding-top: 116px;
   }
@@ -2275,6 +2296,10 @@ label {
   }
 }
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
+  .history .slick-slider .slick-next, .history .slick-slider .slick-prev {
+    top: 49.5%;
+  }
+
   .h-body-in {
     height: calc(100vh - 116px);
   }
