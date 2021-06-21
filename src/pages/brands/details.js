@@ -50,12 +50,12 @@ class BrandDetail extends React.Component {
                 {slogan && (
                   <div className="slo relative w-full text-2xl heading-tag font-bold uppercase mb-8 sm:pb-2 sm:mb-0">
                     <blockquote className="border-0">
-                      <span className="mt-8 sm:text-base">
+                      <span className="mt-8 sm:text-xs">
                         {slogan}
                         <div className="flex justify-center text-wrapper">
                           {country && (
                             <div className="text text-lg font-medium country">
-                              <i className="flex flex-col gradient-text font-medium  capitalize">
+                              <i className="flex flex-col gradient-text font-medium  capitalize" style={{display:"block"}}>
                                 <div className="mb-2 sm:text-sm">{__("Country")}:</div>
                                 {country}
                               </i>
@@ -63,7 +63,7 @@ class BrandDetail extends React.Component {
                           )}
                           {founded_year && (
                             <div className="text text-lg font-medium year">
-                              <i className="flex gradient-text font-medium justify-center flex-col capitalize">
+                              <i className="flex gradient-text font-medium justify-center flex-col capitalize" style={{display: "block"}}>
                                 <div className="mb-2 sm:text-sm">
                                   {__("Founded year")}:
                                 </div>

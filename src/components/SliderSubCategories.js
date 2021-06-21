@@ -61,7 +61,7 @@ const SliderSubCategories = (props) => {
             }}
             as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           > */}
-            <a href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`} >
+            <a href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}>
               <div className="w-full image-wrapper">
                 <img
                   src={getData(post._embedded, "image")}

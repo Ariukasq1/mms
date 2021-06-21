@@ -2534,6 +2534,8 @@ label {
   .brands .category-wrapper > li::before {
     content: "> ";
     padding-left: 5px;
+    float: left;
+    min-height: 25px;
   }
   .brands .category-wrapper > span {
     display: none;
@@ -2721,7 +2723,8 @@ label {
   }
 
   .section.brand-detail .brand-detail-wrapper .col-item .logo img {
-    max-width: 6rem;
+    max-width: 10rem;
+    max-height: 2rem;
   }
 
   .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo blockquote {
@@ -2764,13 +2767,16 @@ label {
   .brands .category-wrapper > li::before {
     content: "> ";
     padding-left: 5px;
+    float: left;
+    min-height: 25px;
   }
   .brands .category-wrapper > span {
     display: none;
   }
 
   .section.brand-detail .brand-detail-wrapper .col-item .logo img {
-    max-width: 6rem;
+    max-width: 8rem;
+    height: 2rem;
   }
 
   .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo blockquote {
