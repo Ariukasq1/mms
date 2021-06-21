@@ -58,14 +58,9 @@ const MenuComponent = () => {
           "main-header flex flex-row justify-between p-2 w-full absolute top-0 left-0 right-0 border-b-2"
         }
       >
-        <Link
-          href={{ pathname: "/", query: { lang: language } }}
-          as={`/?lang=${language}`}
-        >
-          <a className={"logo my-auto sm:w-12"}>
+          <a href={`/?lang=${language}`} className={"logo my-auto sm:w-12"}>
             <img src={logo} alt={"logo"} />
           </a>
-        </Link>
         <div className={"menus flex flex-col  justify-around"}>
           <div className={"topMenu sm:hidden self-end flex flex-row"}>
             <div

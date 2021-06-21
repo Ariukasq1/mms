@@ -16,6 +16,8 @@ const SliderSubCategories = (props) => {
       return null;
     }
 
+
+    
     return (
       <div
         className="cat-item bg-white md:mb-10 sm:mb-10"

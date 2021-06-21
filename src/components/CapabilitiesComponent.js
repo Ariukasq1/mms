@@ -20,14 +20,9 @@ const CapabilitiesComponent = ({ data }) => {
         <div className="capabilitiesBody mb-10 text-lg ">
           <div dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
         </div>
-        <Link
-          href={{ pathname: `/[categories]`, query: { lang: currentLanguage } }}
-          as={`capabilities?lang=${currentLanguage}`}
-        >
-          <a className="text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10">
+          <a href={`capabilities?lang=${currentLanguage}`} className="text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10">
             {__("Read more")}
           </a>
-        </Link>
       </div>
       <div
         className="capabilitiesImage w-full h-body"

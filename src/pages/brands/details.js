@@ -30,7 +30,7 @@ class BrandDetail extends React.Component {
       <div className="brand-detail-wrapper">
         <div className="relative grid grid-cols-3 2xl:h-full xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
           <div
-            className="col-item p-16 bg-cover bg-center bg-no-repeat h-body object-cover object-center cursor-pointer relative sm:px-10 sm:py-14"
+            className="col-item p-16 bg-cover bg-center bg-no-repeat h-body-brands object-cover object-center cursor-pointer relative sm:px-10 sm:py-5"
             style={{
               backgroundImage: `url(${getData(brand._embedded, "image")})`,
             }}
@@ -39,24 +39,24 @@ class BrandDetail extends React.Component {
               className="about-brand p-10 sm:px-4 sm:py-0"
               data-aos="flip-down"
             >
-              <div className="sub-heading font-bold text-xl">
+              <div className="sub-heading font-bold text-xl sm:text-base">
                 <span className="inline-block"></span>
                 {__("Brands")}
               </div>
-              <div className={"mb-8 logo flex justify-center"}>
-                <img className="mt-8" src={logo && logo} alt="brand-logo" />
+              <div className={"mb-8 logo flex justify-center sm:mb-2"}>
+                <img className="mt-8 sm:mt-2" src={logo && logo} alt="brand-logo" />
               </div>
-              <div className="slogan mb-8 text-center">
+              <div className="slogan mb-8 text-center sm:mb-0">
                 {slogan && (
-                  <div className="slo relative w-full text-2xl heading-tag font-bold uppercase mb-8 sm:pb-5">
+                  <div className="slo relative w-full text-2xl heading-tag font-bold uppercase mb-8 sm:pb-2 sm:mb-0">
                     <blockquote className="border-0">
-                      <span className="mt-8 sm:text-xl">
+                      <span className="mt-8 sm:text-base">
                         {slogan}
                         <div className="flex justify-center text-wrapper">
                           {country && (
                             <div className="text text-lg font-medium country">
                               <i className="flex flex-col gradient-text font-medium  capitalize">
-                                <div className="mb-2">{__("Country")}:</div>
+                                <div className="mb-2 sm:text-sm">{__("Country")}:</div>
                                 {country}
                               </i>
                             </div>
@@ -64,7 +64,7 @@ class BrandDetail extends React.Component {
                           {founded_year && (
                             <div className="text text-lg font-medium year">
                               <i className="flex gradient-text font-medium justify-center flex-col capitalize">
-                                <div className="mb-2">
+                                <div className="mb-2 sm:text-sm">
                                   {__("Founded year")}:
                                 </div>
                                 <div>{founded_year}</div>
