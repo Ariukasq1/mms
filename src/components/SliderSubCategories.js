@@ -54,14 +54,14 @@ const SliderSubCategories = (props) => {
           <img className="object-contain w-10 ml-4" src={arrowImage} />
         </div>
         <div className="image">
-          <Link
+          {/* <Link
             href={{
               pathname: `/${props.pathname}/[item]`,
               query: { lang: props.language },
             }}
             as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
-          >
-            <a>
+          > */}
+            <a href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`} >
               <div className="w-full image-wrapper">
                 <img
                   src={getData(post._embedded, "image")}
@@ -69,7 +69,7 @@ const SliderSubCategories = (props) => {
                 />
               </div>
             </a>
-          </Link>
+          {/* </Link> */}
         </div>
       </div>
     );
