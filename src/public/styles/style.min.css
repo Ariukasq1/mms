@@ -2163,6 +2163,22 @@ label {
   height: 100vh;
 }
 
+.fp-scroller .brands-wrap .brands {
+  height: 100vh;
+}
+
+.brands .slick-prev,
+.brands .slick-next {
+  z-index: 1;
+  bottom: -10%;
+  opacity: 1;
+}
+.brands .slick-prev {
+  left: 65%;
+  bottom: -10%;
+  z-index: 1;
+}
+
 @media only screen and (min-width: 1451px) {
   .slider .text {
     width: 100%;
@@ -2367,6 +2383,18 @@ label {
   .projects-wrapper .desc {
     padding: 0px !important;
   }
+
+  .brands .slick-prev,
+.brands .slick-next {
+    z-index: 1;
+    bottom: -10%;
+    opacity: 1;
+  }
+  .brands .slick-prev {
+    left: 60%;
+    bottom: -10%;
+    z-index: 1;
+  }
 }
 @media only screen and (max-width: 768px) and (min-width: 481px) {
   .relative {
@@ -2527,6 +2555,7 @@ label {
   }
   .brands .slick-prev {
     left: 50%;
+    z-index: 1;
   }
   .brands .slick-slide {
     padding: 0;

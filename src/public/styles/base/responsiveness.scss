@@ -1,3 +1,4 @@
+
 @media only screen and (max-width: 1500px) {
   .section.projects .project {
     height: 200px;
@@ -108,6 +109,30 @@
 
 .footer-responsive{
   height: 100vh;
+}
+
+
+.fp-scroller{
+  .brands-wrap{
+    .brands{
+      height: 100vh;
+    }
+  }
+}
+
+.brands {
+  .slick-prev,
+  .slick-next {
+    z-index: 1;
+    bottom: -10%;
+    opacity: 1;
+  }
+  
+  .slick-prev {
+    left: 65%;
+    bottom: -10%;
+    z-index: 1;
+  }
 }
 
 @media only screen and (min-width: 1451px) {
@@ -406,6 +431,21 @@
       padding: 0px !important;
     }
   }
+
+  .brands {
+    .slick-prev,
+    .slick-next {
+      z-index: 1;
+      bottom: -10%;
+      opacity: 1;
+    }
+    
+    .slick-prev {
+      left: 60%;
+      bottom: -10%;
+      z-index: 1;
+    }
+  }
 }
 @media only screen and (max-width: 768px) and (min-width: 481px) {
   .relative {
@@ -653,6 +693,7 @@
     
     .slick-prev {
       left: 50%;
+      z-index: 1;
     }
 
     .slick-slide {
