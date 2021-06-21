@@ -40,23 +40,25 @@ class BrandsComponent extends React.Component {
             <img src={logo} className="object-contain h-full" alt="logo" />
           </div>
           <Link href={`/brands/${brand.slug}?lang=${currentLanguage}`} passHref>
-            <div style={{ display: "flex" }}>
-              <a
-                className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-1"
-                style={{ display: "block" }}
-              >
-                {__("Read more")}
-              </a>
-              <img className="object-contain w-10 ml-4" src={arrow} />
-            </div>
+              <div style={{ display: "block" }}>
+                <div style={{ display: "flex" }}>
+                  <a
+                    className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-1"
+                    style={{ display: "block" }}
+                  >
+                    {__("Read more")}
+                  </a>
+                  <img className="object-contain w-10 ml-4" src={arrow} />
+                </div>
+                <div className="bg-img-wrapper">
+                  <img
+                    src={getData(brand._embedded, "image")}
+                    className="object-cover h-full"
+                    alt={logo.name}
+                  />
+                </div>
+              </div>
           </Link>
-          <div className="bg-img-wrapper">
-            <img
-              src={getData(brand._embedded, "image")}
-              className="object-cover h-full"
-              alt={logo.name}
-            />
-          </div>
         </div>
       );
     });
