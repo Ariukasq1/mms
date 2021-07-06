@@ -1,6 +1,6 @@
 export const Config = {
-  apiUrl: "http://mms.nmma.co/wp/wp-json",
-  menuUrl: "http://mms.nmma.co/wp/wp-json/menus/v1/menus",
+  apiUrl: "http://www.source.mn//wp/wp-json",
+  menuUrl: "http://www.source.mn//wp/wp-json/menus/v1/menus",
 };
 
 export const generateLink = (url) => {
