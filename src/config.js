@@ -1,6 +1,6 @@
 export const Config = {
-  apiUrl: "http://www.source.mn//wp/wp-json",
-  menuUrl: "http://www.source.mn//wp/wp-json/menus/v1/menus",
+  apiUrl: "http://source.mn/wp/wp-json",
+  menuUrl: "http://source.mn/wp/wp-json/menus/v1/menus",
 };
 
 export const generateLink = (url) => {
