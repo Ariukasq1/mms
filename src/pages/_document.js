@@ -1,4 +1,4 @@
-import Document, { Html, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 import { getLangParam } from "../utils";
 
@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang={getLangParam()}>
+        <Head />
         <body style={{ margin: 0 }}>
           {/* TagManager */}
           <noscript
