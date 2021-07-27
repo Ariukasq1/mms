@@ -10,49 +10,49 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      // <Html >
-      //   <Head />
+      <Html >
+        <Head />
     
-      //     <noscript
-      //       dangerouslySetInnerHTML={{
-      //         __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPQD53D"></iframe>`,
-      //       }}
-      //     /> 
+          {/* <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPQD53D"></iframe>`,
+            }}
+          /> 
 
-      //   <body>
-      //     <Main />
-      //     <NextScript />
-      //   </body>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
 
 
-      //     {/* FB chat */}
-      //     <div id="fb-root"></div>
+        
+          <div id="fb-root"></div>
   
 
-      //     <script
-      //     dangerouslySetInnerHTML={{
-      //       __html: `
-      //       window.fbAsyncInit = function() {
-      //         FB.init({
-      //           xfbml            : true,
-      //           version          : 'v10.0'
-      //         });
-      //       };
-      //       (function(d, s, id) {
-      //         var js, fjs = d.getElementsByTagName(s)[0];
-      //         if (d.getElementById(id)) return;
-      //         js = d.createElement(s); js.id = id;
-      //         js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      //         fjs.parentNode.insertBefore(js, fjs);
-      //       }(document, 'script', 'facebook-jssdk'));
-      //       `,
-      //     }}
-      //   />
+          <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.fbAsyncInit = function() {
+              FB.init({
+                xfbml            : true,
+                version          : 'v10.0'
+              });
+            };
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            `,
+          }}
+        />
 
-      //   <div className="fb-customerchat"
-      //     attribution="biz_inbox"
-      //     page_id="1043670075778655">
-      //   </div>
+        <div className="fb-customerchat"
+          attribution="biz_inbox"
+          page_id="1043670075778655">
+        </div> */}
 
         <script src="lozad.min.js"></script>
 
