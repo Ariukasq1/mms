@@ -15,8 +15,8 @@ const SliderSubCategories = (props) => {
     ) {
       return null;
     }
-
-
+    const observer = lozad();
+    observer.observe();
     
     return (
       <div
@@ -51,7 +51,7 @@ const SliderSubCategories = (props) => {
           >
             {__("Read more")}
           </a>
-          <img className="object-contain w-10 ml-4" src={arrowImage} />
+          <img className="object-contain w-10 ml-4 lozad" data-src={arrowImage} />
         </div>
         <div className="image">
           {/* <Link
@@ -63,8 +63,8 @@ const SliderSubCategories = (props) => {
           > */}
             <a href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}>
               <div className="w-full image-wrapper">
-                <img
-                  src={getData(post._embedded, "image")}
+                <img className="lozad"
+                  data-src={getData(post._embedded, "image")}
                   alt={post.title.rendered}
                 />
               </div>

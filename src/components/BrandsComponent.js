@@ -28,6 +28,8 @@ class BrandsComponent extends React.Component {
   };
 
   renderBrands() {
+    const observer = lozad();
+    observer.observe();
     const currentLanguage = getLangParam();
     const { filteredBrands } = this.state;
 
@@ -37,7 +39,7 @@ class BrandsComponent extends React.Component {
       return (
         <div key={index} className="single-brand sm:mb-10">
           <div className="logo-wrapper">
-            <img src={logo} className="object-contain h-full" alt="logo" />
+            <img data-src={logo} className="object-contain h-full lozad" alt="logo" />
           </div>
           <Link href={`/brands/${brand.slug}?lang=${currentLanguage}`} passHref>
               <div style={{ display: "block" }}>
@@ -48,11 +50,11 @@ class BrandsComponent extends React.Component {
                   >
                     {__("Read more")}
                   </a>
-                  <img className="object-contain w-10 ml-4" src={arrow} />
+                  <img className="object-contain w-10 ml-4 lozad" data-src={arrow} />
                 </div>
                 <div className="bg-img-wrapper">
-                  <img
-                    src={getData(brand._embedded, "image")}
+                  <img className="lozad"
+                    data-src={getData(brand._embedded, "image")}
                     className="object-cover h-full"
                     alt={logo.name}
                   />

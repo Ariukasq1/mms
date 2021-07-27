@@ -55,6 +55,8 @@ const RelativeCategory = ({ category, child, querySlug }) => {
   const renderCategories = child.map((data, index) => {
     const cat = data.acf;
     const image = cat.thumbnail_image;
+    const observer = lozad();
+    observer.observe();
     return (
       <div key={index}>
         <div className={"flex flex-col"}>
@@ -72,8 +74,8 @@ const RelativeCategory = ({ category, child, querySlug }) => {
           </Link>
           <div className="w-full" style={{ height: 250 }}>
             <img
-              src={image.url}
-              className="object-cover w-full"
+              data-src={image.url}
+              className="object-cover w-full lozad"
               alt={image.alt}
             />
           </div>

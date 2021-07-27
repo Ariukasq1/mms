@@ -80,7 +80,7 @@ const HomeSlider = ({ sliders }) => {
           </div>
           {position_of_image && position_of_image !== "full width" && (
             <div className="image w-4/7 sm:ml-8">
-              <img src={image} alt="cover image" />
+              <img className="lozad" src={image} alt="cover image" />
             </div>
           )}
         </div>

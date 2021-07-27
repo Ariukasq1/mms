@@ -13,7 +13,8 @@ const RelationSlider = ({ posts, items, querySlug }) => {
       if (!post || Object.keys(post).length === 0) {
         return null;
       }
-
+      const observer = lozad();
+      observer.observe();
       return (
         <div key={post.id} className="brand-p-item mb-8 mr-5 sm:mr-0">
           <Link
@@ -27,7 +28,7 @@ const RelationSlider = ({ posts, items, querySlug }) => {
                 />
               </div>
               <div className="image-wrapper">
-                <img src={getData(post._embedded, "image")} />
+                <img className="lozad" data-src={getData(post._embedded, "image")} />
               </div>
             </a>
           </Link>

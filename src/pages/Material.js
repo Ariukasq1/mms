@@ -51,6 +51,9 @@ class ItemDetail extends React.Component {
       return null;
     }
 
+    const observer = lozad();
+    observer.observe();
+
     return (
       <div
         className={
@@ -60,7 +63,7 @@ class ItemDetail extends React.Component {
         <div className={"flex justify-center items-center round-img"}>
           <img
             className={"w-20 h-20 rounded-full m-4"}
-            src={getData(post._embedded, "image")}
+            data-src={getData(post._embedded, "image")}
           />
         </div>
         <div className={"interiorTexts flex flex-col justify-center"}>

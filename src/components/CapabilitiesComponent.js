@@ -4,7 +4,8 @@ import { __, getData, getLangParam } from "../utils";
 
 const CapabilitiesComponent = ({ data }) => {
   const currentLanguage = getLangParam();
-
+  const observer = lozad();
+  observer.observe();
   return (
     <div className="capabilities flex flex-row-reverse xl:flex-row sm:flex-col justify-between items-center">
       <div
@@ -29,8 +30,8 @@ const CapabilitiesComponent = ({ data }) => {
         style={{ flexBasis: "50%" }}
       >
         <img
-          className="object-cover h-full w-full"
-          src={getData(data._embedded, "image")}
+          className="object-cover h-full w-full lozad"
+          data-src={getData(data._embedded, "image")}
         />
       </div>
     </div>

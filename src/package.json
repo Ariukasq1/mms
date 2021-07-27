@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "google-map-react": "^1.1.7",
     "i18n-react": "^0.7.0",
+    "lozad": "^1.16.0",
     "moment": "^2.24.0",
     "next": "^9.4.2",
     "next-fonts": "^1.4.0",

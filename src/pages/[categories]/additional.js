@@ -53,8 +53,8 @@ class Additional extends React.Component {
         className="h-full mx-12 mt-20 content text-base relative xl:mx-4 lg:ml-16 lg:mr-4 md:ml-14 md:mr-4 sm:ml-0 sm:mr-0 sm:mt-5 sm:px-8"
       >
         <img
-          className="absolute"
-          src={`/images/industry${index}.png`}
+          className="absolute lozad"
+          data-src={`/images/industry${index}.png`}
           alt="icon-i"
         />
         <div
@@ -69,7 +69,8 @@ class Additional extends React.Component {
   render() {
     const { post = {} } = this.props;
     const { additional } = post.acf || {};
-
+    const observer = lozad();
+    observer.observe();
     return (
       <div className="category-item h-full">
         <div className="grid grid-cols-3 h-full lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">

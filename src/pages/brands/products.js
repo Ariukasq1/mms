@@ -54,6 +54,9 @@ class Products extends React.Component {
       ],
     };
 
+    const observer = lozad();
+    observer.observe();
+    
     const content = (items || []).map((product, index) => {
       return (
         <div
@@ -66,7 +69,7 @@ class Products extends React.Component {
           </div>
           <div className="image-wrapper">
             {product.acf.length !== 0 && product.acf.bg_image ? (
-              <img src={product.acf.bg_image} />
+              <img className="lozad" data-src={product.acf.bg_image} />
             ) : (
               <div className="no-product h-full flex items-center justify-center">
                 <div className="icon-wrapper rounded-full h-24 w-24 flex items-center justify-center">
