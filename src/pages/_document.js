@@ -12,30 +12,19 @@ export default class MyDocument extends Document {
     return (
       <Html lang={getLangParam()}>
         <Head />
-        <body style={{ margin: 0 }}>
-          {/* TagManager */}
-          <noscript
-            dangerouslySetInnerHTML={{
-              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPQD53D"
-                        height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-            }}
-          />
-          {/* FB chat */}
-          <div id="fb-root"></div>
-          <div id="fb-customer-chat" className="fb-customerchat">
-            {" "}
-          </div>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `var chatbox = document.getElementById('fb-customer-chat');
-                        chatbox.setAttribute("page_id", "1043670075778655");
-                        chatbox.setAttribute("attribution", "biz_inbox");
-                        window.fbAsyncInit = function() {
-                          FB.init({
-                            xfbml            : true,
-                            version          : 'v11.0'
-                          });
-                        };
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+        <div id="fb-root"></div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ` window.fbAsyncInit = function() {
+              FB.init({
+                xfbml            : true,
+                version          : 'v10.0'
+              });
+            };
 
                         (function(d, s, id) {
                           var js, fjs = d.getElementsByTagName(s)[0];
@@ -44,12 +33,14 @@ export default class MyDocument extends Document {
                           js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
                           fjs.parentNode.insertBefore(js, fjs);
                         }(document, 'script', 'facebook-jssdk'));`,
-            }}
-          />
+          }}
+        />
 
-          <Main />
-          <NextScript />
-        </body>
+        <div
+          className="fb-customerchat"
+          attribution="setup_tool"
+          page_id="1043670075778655"
+        ></div>
       </Html>
     );
   }
