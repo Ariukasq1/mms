@@ -46,9 +46,6 @@ const About = ({ contact, posts, histories, categories }) => {
   const [activeId, setactiveId] = React.useState(categories[0].id);
   const post = posts[0];
 
-  const observer = lozad();
-  observer.observe();
-
   const onTabChange = (key) => {
     setactiveId(key);
   };
@@ -59,7 +56,6 @@ const About = ({ contact, posts, histories, categories }) => {
         return null;
       }
 
-      
       return (
         <div
           key={index}
@@ -124,8 +120,8 @@ const About = ({ contact, posts, histories, categories }) => {
                   data-aos="fade-right"
                 >
                   <img
-                    className={"h-auto object-cover w-full lozad"}
-                    data-src={getData(post._embedded, "image")}
+                    className={"h-auto object-cover w-full"}
+                    src={getData(post._embedded, "image")}
                   />
                 </div>
                 <div

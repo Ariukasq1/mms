@@ -26,10 +26,6 @@ class BrandDetail extends React.Component {
       certificate,
     } = brand.acf || {};
 
-    const observer = lozad();
-    observer.observe();
-
-    
     return (
       <div className="brand-detail-wrapper">
         <div className="relative grid grid-cols-3 2xl:h-full xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
@@ -48,7 +44,7 @@ class BrandDetail extends React.Component {
                 {__("Brands")}
               </div>
               <div className={"mb-8 logo flex justify-center sm:mb-6"}>
-                <img className="mt-8 sm:mt-2 lozad" data-src={logo && logo} alt="brand-logo" />
+                <img className="mt-8 sm:mt-2" src={logo && logo} alt="brand-logo" />
               </div>
               <div className="slogan mb-8 text-center sm:mb-0">
                 {slogan && (
@@ -112,7 +108,7 @@ class BrandDetail extends React.Component {
                 <div className="text-base font-bold text-menuTextColor mb-3">
                   {__("Certification & Accreditations")}:
                 </div>
-                <img className="w-full lozad" data-src={certificate} alt="certificate" />
+                <img className="w-full" src={certificate} alt="certificate" />
               </div>
             )}
           </div>

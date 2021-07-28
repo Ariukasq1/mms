@@ -36,14 +36,12 @@ const ItemDetailsWithGallery = ({ images }) => {
     if (!image || !image.includes("/uploads/")) {
       return null;
     }
-    const observer = lozad();
-    observer.observe();
 
     return (
       <div key={index} className={"slick-slide sliderBigImg"}>
         <img
-          className={"object-cover object-center h-body w-full lozad"}
-          data-src={image}
+          className={"object-cover object-center h-body w-full"}
+          src={image}
           alt={index}
         />
       </div>
@@ -59,7 +57,7 @@ const ItemDetailsWithGallery = ({ images }) => {
       <div key={index} className={"slick-slide"}>
         <img
           className={"object-cover slick-slide-image h-40 w-full"}
-          data-src={image}
+          src={image}
           alt={index}
         />
       </div>

@@ -37,12 +37,12 @@ const IndustryComponent = ({ industries }) => {
                   data-aos-offset="300"
                 >
                   {item.title.rendered}
-                  <img className="image-icon lozad" data-src={arrowImage} />
+                  <img className="image-icon" src={arrowImage} />
                 </div>
               }
             >
               <div
-                className="w-full h-body relative md:pr-8 lozad"
+                className="w-full h-body relative md:pr-8"
                 style={{
                   flexBasis: "50%",
                   backgroundImage: `url(${getData(item._embedded, "image")})`,

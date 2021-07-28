@@ -5,7 +5,6 @@ module.exports = withFonts({
             test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
             use: {
                 loader: 'url-loader',
-                lazyload: true,
                 options: {
                     limit: 100000,
                 },
@@ -15,3 +14,4 @@ module.exports = withFonts({
         return config;
     },
 });
+

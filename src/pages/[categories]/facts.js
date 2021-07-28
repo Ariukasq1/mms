@@ -45,9 +45,6 @@ class ItemFacts extends React.Component {
       window.fullpage_api.moveTo(2, 0);
     }
 
-    const observer = lozad();
-    observer.observe();
-
     return (
       <div
         className="item-facts h-body-in object-cover bg-no-repeat bg-cover text-white relative z-0 flex"
@@ -71,8 +68,8 @@ class ItemFacts extends React.Component {
                 >
                   <div className="flex flex-col items-center text-center align-center">
                     <img
-                      className="w-20 mb-4 icon lozad"
-                      data-src={value.icon}
+                      className="w-20 mb-4 icon"
+                      src={value.icon}
                       alt="image"
                     />
                     <div className="desc leading-5 text-lg font-semibold">

@@ -19,9 +19,6 @@ const MenuComponent = () => {
     setLanguage(lang);
   }, []);
 
-  const observer = lozad();
-  observer.observe();
-
   const showDrawer = () => {
     setVisible(true);
   };
@@ -62,7 +59,7 @@ const MenuComponent = () => {
         }
       >
           <a href={`/?lang=${language}`} className={"logo my-auto sm:w-12"}>
-            <img className="lozad" data-src={logo} alt={"logo"} />
+            <img src={logo} alt={"logo"} />
           </a>
         <div className={"menus flex flex-col  justify-around"}>
           <div className={"topMenu sm:hidden self-end flex flex-row"}>
@@ -137,7 +134,7 @@ const MenuComponent = () => {
                 <i className="fas fa-search" aria-hidden="true" />
               </a>
               <a onClick={showDrawer} className={"mx-4 my-auto"}>
-                <img data-src={burger} />
+                <img src={burger} />
               </a>
             </div>
           </div>

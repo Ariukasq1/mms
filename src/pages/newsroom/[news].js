@@ -61,8 +61,6 @@ const News = ({ details, news }) => {
   const post = details[0];
 
   const renderNews = news.map((n, index) => {
-    const observer = lozad();
-    observer.observe();
     return (
       <div key={index}>
         <div className="newsBox mb-20 lg:mb-14 md:mb-12 pr-8 sm:mb-5 sm:pr-0">
@@ -75,7 +73,7 @@ const News = ({ details, news }) => {
           >
             <a>
               <div className="image-wrapper">
-                <img className="lozad" data-src={getData(n._embedded, "image")} />
+                <img src={getData(n._embedded, "image")} />
               </div>
               <div className="font-medium text-base text-sm mb-4 title leading-5 mt-5 sm:mt-2 md:mt-2 lg:mt-2 xl:mt-3">
                 {n.title.rendered}
@@ -130,7 +128,7 @@ const News = ({ details, news }) => {
                   <div className="h-full w-full overflow-hidden">
                     <img
                       className="w-full object-cover h-full"
-                      data-src={getData(post._embedded, "image")}
+                      src={getData(post._embedded, "image")}
                     />
                   </div>
                 </div>

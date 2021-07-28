@@ -28,8 +28,6 @@ const SliderSubCategories = (props) => {
     ) {
       return null;
     }
-    const observer = lozad();
-    observer.observe();
 
     return (
       <div
@@ -76,7 +74,7 @@ const SliderSubCategories = (props) => {
             <a>
               <div className="w-full image-wrapper">
                 <img
-                  data-src={getData(post._embedded, "image")}
+                  src={getData(post._embedded, "image")}
                   alt={post.title.rendered}
                 />
               </div>
@@ -248,7 +246,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                   <div>
                     <img
                       className="object-cover object-center portfolio-h-body lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body"
-                      data-src={getData(post._embedded, "image")}
+                      src={getData(post._embedded, "image")}
                     />
                   </div>
                 </div>
@@ -312,7 +310,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                     !projectDetail.acf.image_1 ? (
                       <img
                         className="object-cover object-center portfolio-h-body h-body w-full"
-                        data-src={getData(projectDetail._embedded, "image")}
+                        src={getData(projectDetail._embedded, "image")}
                         alt={projectDetail.title.rendered}
                       />
                     ) : (

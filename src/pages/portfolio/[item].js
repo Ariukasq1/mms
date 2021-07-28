@@ -26,8 +26,7 @@ const SliderSubCategories = (props) => {
     ) {
       return null;
     }
-    const observer = lozad();
-    observer.observe();
+
     return (
       <div
         className="cat-item bg-white"
@@ -62,7 +61,7 @@ const SliderSubCategories = (props) => {
             >
               {__("Read more")}
             </a>
-            <img className="object-contain w-10 ml-4 lozad" data-src={arrowImageBlue} />
+            <img className="object-contain w-10 ml-4" src={arrowImageBlue} />
           </div>
         </Link>
         <div className="image">
@@ -75,8 +74,8 @@ const SliderSubCategories = (props) => {
           >
             <a>
               <div className="w-full image-wrapper">
-                <img className="lozad"
-                  data-src={getData(post._embedded, "image")}
+                <img
+                  src={getData(post._embedded, "image")}
                   alt={post.title.rendered}
                 />
               </div>
@@ -128,7 +127,7 @@ const renderProjects = (projects, post, language) => {
                 >
                   {__("Read more")}
                 </a>
-                <img className="lozad" data-src={arrowImage} />
+                <img src={arrowImage} />
               </div>
             </div>
           </div>
@@ -234,8 +233,8 @@ const Item = ({ posts, detail, projects, lang }) => {
                   </div>
                   <div>
                     <img
-                      className="object-cover object-center portfolio-h-body lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body lozad"
-                      data-src={getData(post._embedded, "image")}
+                      className="object-cover object-center portfolio-h-body lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body"
+                      src={getData(post._embedded, "image")}
                     />
                   </div>
                 </div>

@@ -11,8 +11,6 @@ const ShowRoomComponent = ({ data }) => {
   if (!items || items.length === 0) {
     return null;
   }
-  const observer = lozad();
-  observer.observe();
 
   return (
     <div className="showRoom ml-24 flex justify-start items-center sm:ml-10 sm:mr-1 sm:flex-row">
@@ -48,8 +46,8 @@ const ShowRoomComponent = ({ data }) => {
                 style={{ flexBasis: "50%" }}
               >
                 <img
-                  className="object-cover h-full w-full lozad"
-                  data-src={item.image && item.image}
+                  className="object-cover h-full w-full"
+                  src={item.image && item.image}
                 />
                 <div className="tab-content mt-50">
                   <div className="ml-10 showRoomTag text-black font-bold sm:ml-8 sm:text-base">
@@ -74,7 +72,7 @@ const ShowRoomComponent = ({ data }) => {
                     style={{ fontWeight: "bold" }}
                   >
                     read more
-                    <img className="object-contain ml-4 lozad" data-src={arrowImage} />
+                    <img className="object-contain ml-4" src={arrowImage} />
                   </a>
                   {/* </Link> */}
                 </div>

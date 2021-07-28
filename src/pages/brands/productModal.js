@@ -65,16 +65,13 @@ class ProductModal extends React.Component {
         </div>
         <div className="image-wrapper">
           <img
-            className="object-cover object-center h-body w-full lozad"
-            data-src={getData(product._embedded, "image")}
+            className="object-cover object-center h-body w-full"
+            src={getData(product._embedded, "image")}
             alt={product.title.rendered}
           />
         </div>
       </div>
     ));
-
-    const observer = lozad();
-    observer.observe();
 
     return (
       <div className="product-overflow">
@@ -89,8 +86,8 @@ class ProductModal extends React.Component {
               onCancel={this.onShowModal}
             >
               <img
-                className="product-image lozad"
-                data-src={getData(currentItem._embedded, "image")}
+                className="product-image"
+                src={getData(currentItem._embedded, "image")}
                 alt="product"
               />
               {currentItem.content && (

@@ -17,10 +17,7 @@ const renderCulture = (items, currentId, currentTitle) => {
       return null;
     }
 
-    const renderContent = (item) => {
-      const observer = lozad();
-      observer.observe();
-      return(
+    const renderContent = (item) => (
       <div className="flex md:block sm:block">
         <div className="w-1/2 p-20 md:w-full sm:w-full sm:pb-10 sm:pt-0 sm:px-8">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
@@ -41,8 +38,8 @@ const renderCulture = (items, currentId, currentTitle) => {
         <div className="w-1/2 md:w-full sm:w-full">
           {!item.acf.image_1 ? (
             <img
-              className="object-cover object-center h-body w-full lozad"
-              data-src={getData(item._embedded, "image")}
+              className="object-cover object-center h-body w-full"
+              src={getData(item._embedded, "image")}
               alt={currentTitle}
             />
           ) : (
@@ -58,15 +55,12 @@ const renderCulture = (items, currentId, currentTitle) => {
           )}
         </div>
       </div>
-      )
-            };
+    );
 
     const renderDetails = () => {
-      const observer = lozad();
-      observer.observe();
       return item.slug.includes("1-1") ? (
         <div
-          className="h-body object-cover relative  bg-center bg-no-repeat bg-cover lozad"
+          className="h-body object-cover relative  bg-center bg-no-repeat bg-cover"
           style={{
             backgroundImage: `url(${getData(item._embedded, "image")})`,
           }}
@@ -119,7 +113,7 @@ const renderCulture = (items, currentId, currentTitle) => {
                     data-aos-duration="2000"
                     data-aos-offset="300"
                   >
-                    <img className="mb-4 lozad" data-src={data.icon} alt="icon" />
+                    <img className="mb-4" src={data.icon} alt="icon" />
                     <p className="text-base font-semibold leading-snug">
                       {data.text}
                     </p>
@@ -130,8 +124,8 @@ const renderCulture = (items, currentId, currentTitle) => {
           </div>
           <div className="w-1/2 lg:w-full md:w-full sm:w-full">
             <img
-              className="object-cover object-center h-body w-full lozad"
-              data-src={getData(item._embedded, "image")}
+              className="object-cover object-center h-body w-full"
+              src={getData(item._embedded, "image")}
               alt={currentTitle}
             />
           </div>
@@ -349,7 +343,7 @@ const Item = ({ career, items, detail, contact, jobs, lang }) => {
               <a>
                 <div className="card">
                   <div className="bg-wrapper flex items-center justify-center">
-                    <img className="lozad" data-src={getData(item._embedded, "image")} alt="image" />
+                    <img src={getData(item._embedded, "image")} alt="image" />
                   </div>
                   <div className="content p-6">
                     <h4 className="font-semibold text-menuTextColor mb-3 text-lg">

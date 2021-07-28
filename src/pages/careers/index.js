@@ -8,8 +8,7 @@ import FullPage from "../../components/FullPage";
 
 const Index = ({ career, contact }) => {
   const currentLanguage = getLangParam();
-  const observer = lozad();
-  observer.observe();
+
   const renderValues = () => (
     <div className="px-72 xl:px-28 lg:px-20 md:px-10 sm:px-12">
       <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
@@ -39,7 +38,7 @@ const Index = ({ career, contact }) => {
               <a>
                 <div className="card">
                   <div className="bg-wrapper flex items-center justify-center">
-                    <img className="lozad" data-src={getData(item._embedded, "image")} alt="image" />
+                    <img src={getData(item._embedded, "image")} alt="image" />
                   </div>
                   <div className="content p-6">
                     <h4 className="font-semibold text-menuTextColor mb-3 text-lg">
