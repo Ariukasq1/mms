@@ -46,7 +46,7 @@ const SliderSubCategories = (props) => {
           <a
             className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4"
             style={{ display: "block" }}
-            href={`/${props.querySlug}/${post.slug}?lang=${props.languagsectione}#section2`}
+            href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           >
             {__("Read more")}
           </a>
@@ -86,7 +86,6 @@ const SliderSubCategories = (props) => {
 };
 
 const Portfolio = ({ posts, lang }) => {
-
   return (
     <Layout>
       <div className="relative">
