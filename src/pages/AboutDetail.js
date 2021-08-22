@@ -33,7 +33,7 @@ export default class AboutDetail extends React.Component {
     const items = Object.values(post.acf);
 
     return (
-      <div className="pl-10 lg:pl-5 sm:pl-0">
+      <div className="lg:pl-5 sm:pl-0">
         <div
           className={`grid grid-cols-${
             post.slug.includes("supply") ? "9" : "3"

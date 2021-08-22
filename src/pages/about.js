@@ -84,7 +84,7 @@ const About = ({ contact, posts, histories, categories }) => {
   };
 
   const cats = (
-    <ul className="flex justify-center category-wrapper mb-20 sm:text-left sm:mb-10">
+    <ul className="flex justify-center category-wrapper mb-20 xl:mb-10 sm:text-left sm:mb-10">
       {categories.map((category) => (
         <React.Fragment key={category.id}>
           <li
@@ -154,7 +154,7 @@ const About = ({ contact, posts, histories, categories }) => {
                 </div>
               </div>
             </div>
-            <div className="section what-we-do project-info">
+            <div className="section what-we-do project-info ">
               <div>
                 <div className="text-center brands sm:px-8">
                   <div className="heading-tag capitalize text-xl mt-20 font-bold sm:text-lg sm:mt-0">
