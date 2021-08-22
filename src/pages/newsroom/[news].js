@@ -63,7 +63,7 @@ const News = ({ details, news }) => {
   const renderNews = news.map((n, index) => {
     return (
       <div key={index}>
-        <div className="newsBox mb-20 lg:mb-14 md:mb-12 pr-8 sm:mb-5 sm:pr-0">
+        <div className="newsBox mb-20 xl:mb-8 md:mb-12 pr-8 sm:mb-5 sm:pr-0">
           <Link
             href={{
               pathname: "/newsroom/[news]#1",

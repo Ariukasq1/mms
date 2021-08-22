@@ -1,7 +1,6 @@
 import React from "react";
 import { Tabs } from "antd";
 import arrowImage from "../public/images/arrow-blue.svg";
-import Link from "next/link";
 import { __, getData, getLangParam } from "../utils";
 
 const { TabPane } = Tabs;
@@ -64,9 +63,12 @@ const IndustryComponent = ({ industries }) => {
           );
         })}
       </Tabs>
-        <a href={`industries?lang=${currentLanguage}`} className="Industries-btn text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48 sm:ml-16 md:m-0">
-          {__("Read more")}
-        </a>
+      <a
+        href={`industries?lang=${currentLanguage}`}
+        className="Industries-btn text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48 sm:ml-16 md:m-0"
+      >
+        {__("Read more")}
+      </a>
     </div>
   );
 };

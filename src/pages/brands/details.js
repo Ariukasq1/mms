@@ -28,7 +28,7 @@ class BrandDetail extends React.Component {
 
     return (
       <div className="brand-detail-wrapper">
-        <div className="relative grid grid-cols-3 2xl:h-full xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
+        <div className="relative grid grid-cols-3 2xl:h-full lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
           <div
             className="col-item p-16 bg-cover bg-center bg-no-repeat h-body-brands object-cover object-center cursor-pointer relative sm:px-10 sm:py-5"
             style={{
@@ -44,26 +44,38 @@ class BrandDetail extends React.Component {
                 {__("Brands")}
               </div>
               <div className={"mb-8 logo flex justify-center sm:mb-6"}>
-                <img className="mt-8 sm:mt-2" src={logo && logo} alt="brand-logo" />
+                <img
+                  className="mt-8 sm:mt-2"
+                  src={logo && logo}
+                  alt="brand-logo"
+                />
               </div>
               <div className="slogan mb-8 text-center sm:mb-0">
                 {slogan && (
                   <div className="slo relative w-full text-2xl heading-tag font-bold uppercase mb-8 sm:pb-2 sm:mb-0">
                     <blockquote className="border-0">
-                      <span className="mt-8 sm:text-sm sm:px-2">
+                      <span className="mt-8 xl:text-lg  sm:text-sm sm:px-2">
                         {slogan}
                         <div className="flex justify-center text-wrapper">
                           {country && (
-                            <div className="text text-lg font-medium country">
-                              <i className="flex flex-col gradient-text font-medium  capitalize" style={{display:"block"}}>
-                                <div className="mb-2 sm:text-sm">{__("Country")}:</div>
+                            <div className="text xl:text-base text-lg font-medium country">
+                              <i
+                                className="flex flex-col gradient-text font-medium  capitalize"
+                                style={{ display: "block" }}
+                              >
+                                <div className="mb-2 sm:text-sm">
+                                  {__("Country")}:
+                                </div>
                                 {country}
                               </i>
                             </div>
                           )}
                           {founded_year && (
-                            <div className="text text-lg font-medium year">
-                              <i className="flex gradient-text font-medium justify-center flex-col capitalize" style={{display: "block"}}>
+                            <div className="text xl:text-base text-lg font-medium year">
+                              <i
+                                className="flex gradient-text font-medium justify-center flex-col capitalize"
+                                style={{ display: "block" }}
+                              >
                                 <div className="mb-2 sm:text-sm">
                                   {__("Founded year")}:
                                 </div>
@@ -79,21 +91,20 @@ class BrandDetail extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-item p-16 md:py-5 sm:pb-5 sm:px-8 sm:pr-5 lg:pb-0">
+          <div className="col-item p-16 xl:p-8 md:py-5 sm:pb-5 sm:px-8 sm:pr-5 lg:pb-0">
             <div className={"itemDetailsTexts"}>
               <h3 className="mb-10 sm:mb-3 text-menuTextColor leading-8 font-bold text-2xl">
-                {__("About")}{" "}
+                {__("About")}
                 <span>
-                  {" "}
                   <div
                     className="inline-block"
                     dangerouslySetInnerHTML={{ __html: brand.title.rendered }}
                   />
-                </span>{" "}
+                </span>
               </h3>
               <div
                 className={
-                  "text-lg pb-10 sm:pb-5    xl:auto-overflow 2xl:auto-overflow"
+                  "text-lg pb-10 sm:pb-5 xl:text-base xl:auto-overflow 2xl:auto-overflow"
                 }
                 dangerouslySetInnerHTML={{
                   __html: about,
@@ -112,7 +123,7 @@ class BrandDetail extends React.Component {
               </div>
             )}
           </div>
-          <div className="col-item p-16 md:py-5 sm:px-8 sm:pt-0 lg:pb-0">
+          <div className="col-item p-16 xl:p-8 md:py-5 sm:px-8 sm:pt-0 lg:pb-0">
             <div className={"itemDetailsTexts"}>
               <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
                 <span>
@@ -120,17 +131,19 @@ class BrandDetail extends React.Component {
                     className="inline-block"
                     dangerouslySetInnerHTML={{ __html: brand.title.rendered }}
                   />
-                </span>{" "}
+                </span>
                 {__("Details")}
               </h3>
               <div
-                className={"text-lg pb-10 2xl:auto-overflow xl:auto-overflow"}
+                className={
+                  "text-lg xl:text-base pb-10 2xl:auto-overflow xl:auto-overflow"
+                }
                 dangerouslySetInnerHTML={{
                   __html: advantage,
                 }}
               />
               <div
-                className={"text-lg pb-10 auto-overflow"}
+                className={"text-lg xl:text-base pb-10 auto-overflow"}
                 dangerouslySetInnerHTML={{
                   __html: additional,
                 }}

@@ -23,7 +23,7 @@ const renderCulture = (items, currentId, currentTitle) => {
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {currentTitle}
           </div>
-          <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+          <div className="heading-title capitalize text-5xl mt-4 mb-8 xl:text-3xl sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
             <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
           </div>
           <div className="auto-overflow">
@@ -74,7 +74,7 @@ const renderCulture = (items, currentId, currentTitle) => {
               {currentTitle}
             </div>
             <div
-              className="heading-title text-center capitalize text-6xl mt-4 mb-8 px-64 font-bold sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 md:px-20 sm:px-10"
+              className="heading-title text-center capitalize text-6xl mt-4 mb-8 px-64 font-bold xl:text-3xl sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 md:px-20 sm:px-10"
               style={{ lineHeight: "4rem" }}
             >
               <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
@@ -88,16 +88,16 @@ const renderCulture = (items, currentId, currentTitle) => {
         </div>
       ) : item.slug.includes("benefits") ? (
         <div className="benefits flex md:block sm:block lg:block">
-          <div className="w-1/2 flex flex-col flex-center pl-40 pr-20 py-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:pl-12 md:pr-8 md:pb-10 sm:px-8 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-5 sm:pt-5">
+          <div className="w-1/2 flex flex-col flex-center pl-40 pr-20 py-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:pl-12 md:pr-8 md:pb-10 sm:px-8 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-5 sm:pt-5 first-col">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
-            <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+            <div className="heading-title capitalize text-5xl mt-4 mb-8 xl:text-3xl  sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
               <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
             </div>
             <div className="auto-overflow">
               <div
-                className="text-lg"
+                className="text-lg xl:text-base"
                 dangerouslySetInnerHTML={{
                   __html: item.content.rendered,
                 }}
@@ -113,8 +113,8 @@ const renderCulture = (items, currentId, currentTitle) => {
                     data-aos-duration="2000"
                     data-aos-offset="300"
                   >
-                    <img className="mb-4" src={data.icon} alt="icon" />
-                    <p className="text-base font-semibold leading-snug">
+                    <img className="mb-4 icon-img" src={data.icon} alt="icon" />
+                    <p className="text-base xl:text-sm font-semibold leading-snug">
                       {data.text}
                     </p>
                   </div>
@@ -231,19 +231,19 @@ const renderProcess = (items, currentId, currentTitle) => {
   return (
     <div className={`section vacancies item-detail`}>
       <div className="category-item">
-        <div className="flex lg:block md:block sm:block xl:block">
-          <div className="w-1/2 px-20 py-5 lg:w-full md:w-full sm:w-full xl:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:px-8 sm:py-5">
+        <div className="flex md:block sm:block">
+          <div className="w-1/2 px-20 py-5 xl:pr-4 lg:w-full md:w-full sm:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:px-8 sm:py-5">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
-            <div className="heading-title capitalize text-5xl mt-4 mb-8 md:text-4xl sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+            <div className="heading-title capitalize text-5xl mt-4 mb-8 xl:text-3xl md:text-4xl sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
               <div
                 dangerouslySetInnerHTML={{ __html: items[2].title.rendered }}
               />
             </div>
             <div className="career-scroll auto-overflow">
               <div
-                className="text-base"
+                className="text-base md:text-sm"
                 dangerouslySetInnerHTML={{
                   __html: items[2].content.rendered,
                 }}
@@ -257,13 +257,13 @@ const renderProcess = (items, currentId, currentTitle) => {
 
                     return (
                       <div className="" key={index}>
-                        <span className="gradient-text text-6xl leading-normal md:text-4xl sm:text-3xl">
+                        <span className="gradient-text text-6xl leading-normal xl:text-5xl md:text-4xl sm:text-3xl">
                           {index + 1}.
                         </span>
-                        <h4 className="font-semibold text-xl mb-3 md:text-base md:text-base sm:text-base">
+                        <h4 className="font-semibold text-xl mb-3 xl:text-base md:text-base md:text-base sm:text-base">
                           {data.title}
                         </h4>
-                        <p className="text-base md:text-sm sm:text-sm">
+                        <p className="text-base xl:text-sm md:text-sm sm:text-sm">
                           {data.desc}
                         </p>
                       </div>
@@ -273,7 +273,7 @@ const renderProcess = (items, currentId, currentTitle) => {
               )}
             </div>
           </div>
-          <div className="w-1/2 lg:w-full md:w-full sm:w-full xl:w-full">
+          <div className="w-1/2 lg:w-full md:w-full sm:w-full">
             <div
               className="item-image bg-cover bg-no-repeat h-body object-cover object-center cursor-pointer relative"
               style={{
@@ -319,7 +319,7 @@ const Item = ({ career, items, detail, contact, jobs, lang }) => {
       <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
         {__("human resource")}
       </div>
-      <div className="heading-title capitalize text-4xl mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+      <div className="heading-title capitalize text-4xl mb-10 xl:text-3xl sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
         {__("We put company culture first")}
       </div>
       <div className="grid grid-cols-4 gap-12 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
@@ -374,7 +374,7 @@ const Item = ({ career, items, detail, contact, jobs, lang }) => {
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {__("Human Resource")}
           </div>
-          <div className="heading-title capitalize text-5xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+          <div className="heading-title capitalize text-5xl xl:text-3xl mt-4 mb-8 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
             <div dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
           </div>
           <Collapse defaultActiveKey={["2169"]} accordion>

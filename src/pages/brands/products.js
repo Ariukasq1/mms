@@ -58,11 +58,14 @@ class Products extends React.Component {
       return (
         <div
           key={index}
-          className="brand-p-item mb-20 sm:mb-10"
+          className="brand-p-item xl:mb-4 mb-20 sm:mb-10"
           onClick={onClick && onClick.bind(this, product)}
         >
           <div className="font-medium text-black text-xl mb-4 title sm">
-            <div dangerouslySetInnerHTML={{ __html: product.name }} />
+            <div
+              className="capitalize"
+              dangerouslySetInnerHTML={{ __html: product.name }}
+            />
           </div>
           <div className="image-wrapper">
             {product.acf.length !== 0 && product.acf.bg_image ? (
@@ -83,7 +86,11 @@ class Products extends React.Component {
       return <Slider {...settingsProductItems}>{content}</Slider>;
     }
 
-    return <div className="grid grid-cols-4 gap-6 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">{content}</div>;
+    return (
+      <div className="grid grid-cols-4 gap-6 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+        {content}
+      </div>
+    );
   }
 }
 

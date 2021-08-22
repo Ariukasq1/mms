@@ -2,7 +2,7 @@ import React from "react";
 import arrowImage from "../../public/images/arrow-blue.svg";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
-import { fetcher, __, getData, getLangParam } from "../../utils";
+import { fetcher, __, getData } from "../../utils";
 import FullPage from "../../components/FullPage";
 import Link from "next/link";
 

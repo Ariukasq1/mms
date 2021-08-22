@@ -93,11 +93,11 @@ class Brands extends React.Component {
               <div className="section odd">
                 <div
                   className={
-                    "brandsProducts px-40 flex flex-col xl:p-20 lg:px-24 md:px-20 sm:py-12 sm:px-8"
+                    "brandsProducts px-40 flex flex-col xl:p-16 lg:px-24 md:px-20 sm:py-12 sm:px-8"
                   }
                 >
-                  <div className="flex items-center justify-between mb-8 sm:block sm:leading-8">
-                    <h2 className="text-menuTextColor mr-5 sm:mb-5">
+                  <div className="flex items-center justify-between sm:block sm:leading-8">
+                    <h2 className="text-menuTextColor xl:m-0 mr-5 sm:mb-5">
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
