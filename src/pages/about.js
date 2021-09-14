@@ -42,9 +42,10 @@ const settings = {
   ],
 };
 
-const About = ({ contact, posts, histories, categories }) => {
+const About = (props) => {
+  const categories = props.categories;
   const [activeId, setactiveId] = React.useState(categories[0].id);
-  const post = posts[0];
+  const post = props.posts[0];
 
   const onTabChange = (key) => {
     setactiveId(key);
@@ -179,13 +180,13 @@ const About = ({ contact, posts, histories, categories }) => {
               <div className="px-40 relative xl:px-24 lg:px-20 md:px-16 sm:px-8">
                 <div className="history relative">
                   <Slider {...settings} className="h-full">
-                    {histories.map((history) => renderTimeline(history))}
+                    {props.histories.map((history) => renderTimeline(history))}
                   </Slider>
                 </div>
               </div>
             </div>
             <div className="section project-info footer">
-              <Footer contact={contact} />
+              <Footer contact={props.contact} />
             </div>
           </div>
         }
@@ -194,7 +195,7 @@ const About = ({ contact, posts, histories, categories }) => {
   );
 };
 
-About.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const contact = await fetcher(
@@ -227,7 +228,7 @@ About.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { contact, posts, services, histories, categories };
+  return { props: { contact, posts, services, histories, categories } };
 };
 
 export default About;

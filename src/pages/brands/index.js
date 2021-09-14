@@ -5,34 +5,24 @@ import { Config } from "../../config";
 import { fetcher } from "../../utils";
 import FullPage from "../../components/FullPage";
 
-class Brands extends React.Component {
-  render() {
-    const { brands, brandCategories } = this.props;
+const Brands = (props) => {
+  return (
+    <Layout>
+      <FullPage
+        children={
+          <div className="section brands">
+            <BrandsComponent
+              brands={props.brands}
+              brandCategories={props.brandCategories}
+            />
+          </div>
+        }
+      />
+    </Layout>
+  );
+};
 
-    return (
-      <Layout>
-        <div className="relative">
-          <FullPage
-            children={
-              <div id="fullpage">
-                <div className="section">
-                  <div style={{ width: "85%", margin: "0 auto" }}>
-                    <BrandsComponent
-                      brands={brands}
-                      brandCategories={brandCategories}
-                    />
-                  </div>
-                </div>
-              </div>
-            }
-          />
-        </div>
-      </Layout>
-    );
-  }
-}
-
-Brands.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const brandCategories = await fetcher(
@@ -47,6 +37,6 @@ Brands.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { brands, brandCategories };
+  return { props: { brands, brandCategories } };
 };
 export default Brands;

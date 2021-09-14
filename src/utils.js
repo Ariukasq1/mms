@@ -65,24 +65,24 @@ export const fetcher = (url) => {
 };
 
 export const SampleNextArrow = (props) => {
-  const { className, style, onClick } = props;
+  const { onClick } = props;
   return (
     <img
+      className="arrow"
       src={arrow}
-      className={className}
-      style={{ ...style, display: "block" }}
+      style={{ right: "15%" }}
       onClick={onClick}
     />
   );
 };
 
 export const SamplePrevArrow = (props) => {
-  const { className, style, onClick } = props;
+  const { onClick } = props;
   return (
     <img
+      className="arrow"
       src={arrow}
-      className={className}
-      style={{ ...style, display: "block", transform: "rotate(180deg)" }}
+      style={{ transform: "rotate(180deg)" }}
       onClick={onClick}
     />
   );

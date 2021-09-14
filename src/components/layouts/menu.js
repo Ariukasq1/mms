@@ -39,28 +39,16 @@ const MenuComponent = () => {
     } else return `/${item.slug}`;
   };
 
-  const childPathChecker = (item) => {
-    if (item.slug === "capabilities") {
-      return "/[categories]/[items]";
-    } else if (item.slug === "industries") {
-      return "/[categories]/[items]";
-    } else if (item.slug === "portfolio") {
-      return "/portfolio/[items]";
-    } else if (item.slug === "brands") {
-      return "/[categories]/[items]";
-    } else return `/${item.slug}`;
-  };
-
   return (
     <div>
       <nav
         className={
-          "main-header flex flex-row justify-between p-2 w-full absolute top-0 left-0 right-0 border-b-2"
+          "main-header flex flex-row justify-between p-2 w-full absolute top-0 left-0 right-0 border-b-2 z-50"
         }
       >
-          <a href={`/?lang=${language}`} className={"logo my-auto sm:w-12"}>
-            <img src={logo} alt={"logo"} />
-          </a>
+        <a href={`/?lang=${language}`} className={"logo my-auto sm:w-12"}>
+          <img className="w-24" src={logo} alt={"logo"} />
+        </a>
         <div className={"menus flex flex-col  justify-around"}>
           <div className={"topMenu sm:hidden self-end flex flex-row"}>
             <div
@@ -83,23 +71,25 @@ const MenuComponent = () => {
               )}
             </div>
             <div className={"topMenuLanguage mr-4"}>
-              <a
-                href="?lang="
-                className={`mr-1 ${
-                  language === "en" ? "font-bold text-menuTextColor" : ""
-                }`}
-              >
-                EN
-              </a>
+              <Link href="?lang=">
+                <a
+                  className={`mr-1 ${
+                    language === "en" ? "font-bold text-menuTextColor" : ""
+                  }`}
+                >
+                  EN
+                </a>
+              </Link>
               <span>/</span>
-              <a
-                href="?lang=mn"
-                className={`ml-1 ${
-                  language === "mn" ? "font-bold text-menuTextColor" : ""
-                }`}
-              >
-                MN
-              </a>
+              <Link href="?lang=mn">
+                <a
+                  className={`ml-1 ${
+                    language === "mn" ? "font-bold text-menuTextColor" : ""
+                  }`}
+                >
+                  MN
+                </a>
+              </Link>
             </div>
           </div>
           <div

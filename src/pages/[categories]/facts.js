@@ -47,11 +47,12 @@ class ItemFacts extends React.Component {
 
     return (
       <div
-        className="item-facts h-body-in object-cover bg-no-repeat bg-cover text-white relative z-0 flex"
+        className="item-facts h-body object-cover bg-no-repeat bg-cover text-white relative z-0 flex "
         style={{
           backgroundImage: `url(${
             post && post.acf && (post.acf || {}).bg_image
           })`,
+          marginTop: "114px",
         }}
       >
         <div className="px-40 flex items-center justify-center  md:h-full 2xl:h-full xl:h-full lg:pl-20 lg:pr-5 md:pl-10 md:pr-5 sm:pr-5 sm:pl-10 sm:py-10">
@@ -63,19 +64,19 @@ class ItemFacts extends React.Component {
 
               return (
                 <div
-                  className="fact-item flex items-center justify-center py-8 px-40 md:p-5 sm:p-5"
+                  className="fact-item flex items-center justify-center py-8 px-40 md:p-5 sm:p-5 xl:px-10 xl:py-3"
                   key={key}
                 >
                   <div className="flex flex-col items-center text-center align-center">
                     <img
-                      className="w-20 mb-4 icon"
+                      className="w-20 mb-4 icon xl:mb-1"
                       src={value.icon}
                       alt="image"
                     />
-                    <div className="desc leading-5 text-lg font-semibold">
+                    <div className="desc leading-5 text-lg font-semibold xl:text-tiny">
                       {value.upper_text}
                     </div>
-                    <div className="font-extrabold text-5xl fact-text lg:text-4xl md:text-2xl sm:text-xl">
+                    <div className="font-extrabold text-5xl fact-text xl:text-4xl">
                       {!Number(value.number) ? (
                         value.number
                       ) : (

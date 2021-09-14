@@ -1,8 +1,7 @@
 .section.item-detail {
   .fp-tableCell {
-    vertical-align: inherit;
+    vertical-align: bottom;
   }
-
   .category-item {
     .item-image {
       transition-property: transform;
@@ -54,7 +53,6 @@
     .support-content {
       .icon-wrapper {
         box-shadow: 0 0 5px rgba(127, 123, 123, 0.1);
-        padding: 20px 0;
         transition: all ease 0.3s;
 
         img {
@@ -85,6 +83,10 @@
 }
 
 .section.facts {
+  .fp-tableCell {
+    vertical-align: bottom;
+  }
+
   .fact-item {
     .icon {
       filter: invert(1);
@@ -104,21 +106,22 @@
       border-right: 1px solid #fff;
     }
   }
-  .item-facts {
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: -1;
-    }
+  .item-facts:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
   }
 }
 
 .section.additional {
+  .fp-tableCell {
+    vertical-align: bottom;
+  }
   h4 {
     color: #00498e;
     text-transform: capitalize;
@@ -133,7 +136,7 @@
   }
 
   .content {
-    max-height: 800px;
+    max-height: 500px;
     overflow: auto;
 
     ol {
@@ -162,9 +165,8 @@
   }
 }
 
-.section.relations,
-.section.additional {
+.section.relations {
   .fp-tableCell {
-    vertical-align: inherit;
+    vertical-align: middle;
   }
 }

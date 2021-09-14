@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps, top_menu, bottom_menu, lang }) {
 
   React.useEffect(() => {
     AOS.init({ duration: 1000 });
-    AOS.init({disable: 'mobile'});
+    AOS.init({ disable: "mobile" });
     AOS.refresh();
   }, []);
 

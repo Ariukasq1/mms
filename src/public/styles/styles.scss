@@ -1,8 +1,8 @@
 //main
+
 @import "./base/mixins.scss";
 @import "./base/variables.scss";
 @import "./base/general.scss";
-@import "./base/header.scss";
 @import "./base/footer.scss";
 
 // components
@@ -12,5 +12,4 @@
 @import "./components/brands.scss";
 @import "./components/industries.scss";
 
-// responsive
 @import "./base/responsiveness.scss";

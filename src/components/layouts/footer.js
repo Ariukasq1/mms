@@ -28,7 +28,9 @@ class Footer extends React.Component {
       return (
         <div key={index} className={"flex flex-col mb-10 sm:w-full"}>
           <h2 className={"text-lg font-bold text-white mb-8"}>{item.name}</h2>
-          <p className={"text-lg  flex items-baseline text-pink-100"}>
+          <p
+            className={"text-lg flex items-baseline text-pink-100 md:text-tiny"}
+          >
             <HomeOutlined className="pr-2" /> {item.address}
           </p>
         </div>
@@ -49,12 +51,16 @@ class Footer extends React.Component {
     const { facebook, instagram, linkedin, youtube, twitter } = social || {};
 
     return (
-      <footer className={"bg-contact relative text-white"}>
+      <footer className={"bg-contact relative text-white h-screen"}>
         <div
-          className="footer-responsive justify-evenly "
+          className="footer-responsive justify-evenly px-40 flex pt-8 xl:px-29 lg:px-20 md:px-2"
           style={{ backgroundColor: "#262626" }}
         >
-          <div className={"flex flex-col footer-items px-8 sm:w-full sm:px-4"}>
+          <div
+            className={
+              "flex flex-col footer-items px-8 sm:w-full sm:px-4 xl:px-6 lg:px-0 md:px-0"
+            }
+          >
             <h2 className={"text-lg font-bold mb-8 text-white"}>
               {__("Contacts")}
             </h2>
@@ -62,21 +68,20 @@ class Footer extends React.Component {
               <p className={"text-lg flex items-center text-white"}>
                 <PhoneOutlined className="pr-2" /> {__("Tel")}:
               </p>
-              <p className={"text-lg  text-white"}> {tel}</p>
+              <p className={"text-lg  text-white md:text-tiny"}> {tel}</p>
             </div>
             <div className={"flex flex-row"}>
               <p className={"text-lg flex items-center text-white"}>
                 <PrinterOutlined className="pr-2" /> {__("Fax")}:
               </p>
 
-              <p className={"text-lg  text-white"}> {fax}</p>
+              <p className={"text-lg  text-white md:text-tiny"}> {fax}</p>
             </div>
             <div className={"flex flex-row"}>
               <p className={"text-lg flex items-center text-white"}>
                 <MailOutlined className="pr-2" /> {__("E-mail")}:
               </p>
-
-              <p className={"text-lg  text-white"}> {email}</p>
+              <p className={"text-lg  text-white md:text-tiny"}> {email}</p>
             </div>
             <div
               className={"flex flex-row socials mt-20 sm:mt-5 md:mt-5 lg:mt-5"}
@@ -128,15 +133,19 @@ class Footer extends React.Component {
               )}
             </div>
           </div>
-          <div className={"flex flex-col footer-items px-8 sm:w-full sm:px-4"}>
+          <div
+            className={
+              "flex flex-col footer-items px-8 sm:w-full sm:px-4 lg:px-4 md:px-2"
+            }
+          >
             {this.renderAddress(address)}
           </div>
           <div
             className={
-              "flex flex-col footer-items-input px-8 sm:w-full sm:px-4"
+              "flex flex-col footer-items-input px-8 sm:w-full sm:px-4 md:px-2"
             }
           >
-            <h2 className={"text-lg font-bold mb-8 text-white"}>
+            <h2 className={"text-lg font-bold mb-8 text-white xl:mb-5"}>
               {__("Please contact us")}
             </h2>
             <form className={"relative w-full"}>

@@ -36,28 +36,28 @@ class BrandsComponent extends React.Component {
 
       return (
         <div key={index} className="single-brand sm:mb-10">
-          <div className="logo-wrapper">
+          <div className="logo-wrapper h-16 w-64 xl:h-12 xl:w-56 lg:h-10 lg:w-40">
             <img src={logo} className="object-contain h-full" alt="logo" />
           </div>
           <Link href={`/brands/${brand.slug}?lang=${currentLanguage}`} passHref>
-              <div style={{ display: "block" }}>
-                <div style={{ display: "flex" }}>
-                  <a
-                    className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-1"
-                    style={{ display: "block" }}
-                  >
-                    {__("Read more")}
-                  </a>
-                  <img className="object-contain w-10 ml-4" src={arrow} />
-                </div>
-                <div className="bg-img-wrapper">
-                  <img
-                    src={getData(brand._embedded, "image")}
-                    className="object-cover h-full"
-                    alt={logo.name}
-                  />
-                </div>
+            <div style={{ display: "block" }}>
+              <div style={{ display: "flex" }}>
+                <a
+                  className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-1"
+                  style={{ display: "block" }}
+                >
+                  {__("Read more")}
+                </a>
+                <img className="object-contain w-10 ml-4" src={arrow} />
               </div>
+              <div className="bg-img-wrapper h-72 w-full xl:h-32">
+                <img
+                  src={getData(brand._embedded, "image")}
+                  className="object-cover h-full w-full"
+                  alt={logo.name}
+                />
+              </div>
+            </div>
           </Link>
         </div>
       );
@@ -79,7 +79,7 @@ class BrandsComponent extends React.Component {
     const { brandId } = this.state;
 
     const categories = (
-      <ul className="flex justify-center category-wrapper mb-20 sm:mb-5 sm:justify-start sm:text-left">
+      <ul className="flex justify-center category-wrapper mb-20 xl:mb-10 sm:mb-5 sm:justify-start sm:text-left">
         <li
           className={`text-base font-medium py-2 px-3 sm:pl-0 ${
             brandId === 0 ? "active" : ""
@@ -94,7 +94,7 @@ class BrandsComponent extends React.Component {
           <React.Fragment key={category.id}>
             <li
               key={category.id}
-              className={`text-base font-medium p-2 sm:pl-0 ${
+              className={`text-base font-medium p-2 sm:pl-0 xl:text-sm ${
                 brandId === category.id ? "active" : ""
               }`}
               onClick={this.filterBrand.bind(this, category.id)}
@@ -108,15 +108,12 @@ class BrandsComponent extends React.Component {
     );
 
     return (
-      <div
-        className="justify-start items-start brands"
-        style={{ backgroundColor: "white" }}
-      >
+      <div className="justify-start items-start brands pl-32 pr-16 xl:pt-5 sm:px-2">
         <div className="text-center sm:text-left">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {__("Brands")}
           </div>
-          <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 sm:font-semibold">
+          <div className="heading-title capitalize text-5xl mt-2 mb-6 xl:text-4xl sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 sm:font-semibold">
             {__("Our products")}
           </div>
           {categories}

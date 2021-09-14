@@ -6,7 +6,7 @@ import { fetcher, __, getData } from "../../utils";
 import FullPage from "../../components/FullPage";
 import Link from "next/link";
 
-const SliderSubCategories = (props) => {
+export const SliderSubCategories = (props) => {
   const renderContent = props.data.map((post, index) => {
     if (
       (post.categories !== 0 &&
@@ -61,8 +61,9 @@ const SliderSubCategories = (props) => {
             as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           >
             <a>
-              <div className="w-full image-wrapper">
+              <div className="image-wrapper h-72 w-full xl:h-48">
                 <img
+                  className="h-full w-full object-cover"
                   src={getData(post._embedded, "image")}
                   alt={post.title.rendered}
                 />
@@ -85,38 +86,36 @@ const SliderSubCategories = (props) => {
   );
 };
 
-const Portfolio = ({ posts, lang }) => {
+const Portfolio = (props) => {
   return (
     <Layout>
-      <div className="relative">
-        <FullPage
-          children={
-            <div id="fullpage">
-              <div className="section categories">
-                <div className="capabilitiesPage">
-                  <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-8">
-                    <div className="brands">
-                      <div className="header">
-                        <h2>{__("Portfolio")}</h2>
-                      </div>
-                      <SliderSubCategories
-                        data={posts}
-                        querySlug="portfolio"
-                        language={lang}
-                      />
-                    </div>
+      <FullPage
+        children={
+          <div id="fullpage">
+            <div className="section categories">
+              <div className="capabilitiesPage">
+                <div className="capabilitiesPageSlider px-64 xl:px-32 md:pt-28 2xl:px-40 md:px-20 lg:px-24 sm:px-8">
+                  <div className="brands">
+                    <h2 className=" text-3xl font-bold mb-30 capitalize">
+                      {__("Portfolio")}
+                    </h2>
+                    <SliderSubCategories
+                      data={props.posts}
+                      querySlug="portfolio"
+                      language={props.lang}
+                    />
                   </div>
                 </div>
               </div>
             </div>
-          }
-        />
-      </div>
+          </div>
+        }
+      />
     </Layout>
   );
 };
 
-Portfolio.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const posts = await fetcher(
@@ -127,7 +126,7 @@ Portfolio.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { posts, lang };
+  return { props: { posts, lang } };
 };
 
 export default Portfolio;

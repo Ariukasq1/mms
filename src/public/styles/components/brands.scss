@@ -1,4 +1,7 @@
-.section.brand-detail {
+.section.brand-detail.item-detail {
+  .fp-tableCell {
+    vertical-align: middle;
+  }
   .brand-detail-wrapper {
     .col-item {
       .about-brand {
@@ -119,4 +122,10 @@
       }
     }
   }
+}
+
+.arrow {
+  position: absolute;
+  bottom: -30px;
+  right: 400px;
 }

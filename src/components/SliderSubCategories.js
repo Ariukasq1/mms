@@ -16,8 +16,6 @@ const SliderSubCategories = (props) => {
       return null;
     }
 
-
-    
     return (
       <div
         className="cat-item bg-white md:mb-10 sm:mb-10"
@@ -53,23 +51,18 @@ const SliderSubCategories = (props) => {
           </a>
           <img className="object-contain w-10 ml-4" src={arrowImage} />
         </div>
-        <div className="image">
-          {/* <Link
-            href={{
-              pathname: `/${props.pathname}/[item]`,
-              query: { lang: props.language },
-            }}
-            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
-          > */}
-            <a href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}>
-              <div className="w-full image-wrapper">
-                <img
-                  src={getData(post._embedded, "image")}
-                  alt={post.title.rendered}
-                />
-              </div>
+        <div className="image h-80">
+          <Link
+            href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
+          >
+            <a>
+              <img
+                className="h-full object-cover"
+                src={getData(post._embedded, "image")}
+                alt={post.title.rendered}
+              />
             </a>
-          {/* </Link> */}
+          </Link>
         </div>
       </div>
     );

@@ -4,15 +4,15 @@ import Footer from "../components/layouts/footer";
 import { Config } from "../config";
 import { fetcher } from "../utils";
 
-const Contact = ({ contact }) => {
+const Contact = (props) => {
   return (
     <Layout>
-      <Footer contact={contact} />
+      <Footer contact={props.contact} />
     </Layout>
   );
 };
 
-Contact.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const query = ctx.query.lang;
 
   const contact = await fetcher(
@@ -21,7 +21,7 @@ Contact.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { contact };
+  return { props: { contact } };
 };
 
 export default Contact;

@@ -4,8 +4,6 @@ import Slider from "react-slick";
 const settings = {
   className: "center",
   infinite: true,
-  autoplay: true,
-  autoplaySpeed: 4000,
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: true,
@@ -45,15 +43,15 @@ const HomeSlider = ({ sliders }) => {
                   : position_of_text || "left"
                 : "space-between",
           }}
-          className={`slider-heigth h-body sm:px-10 sm:flex-col px-56 md:px-24 lg:px-20 flex  justify-between items-center sm:justify-evenly  ${
+          className={`slider-heigth h-body px-56 flex justify-between items-center sm:justify-evenly sm:px-10 sm:flex-col md:px-24 lg:px-20 ${
             position_of_image === "right"
               ? "flex-row"
               : position_of_image === "left" && "flex-row-reverse"
           }`}
         >
           <div
-            className={`w-10/12 text mr-10 sm:ml-8 sm:mr-0 sm:w-11/12 md:m-0`}
-            data-aos="fade-down"
+            className="text w-1/2"
+            /* data-aos="fade-down" */
             style={{
               width:
                 position_of_image &&
@@ -63,7 +61,7 @@ const HomeSlider = ({ sliders }) => {
             }}
           >
             <div
-              className="text-left leading-snug text-6xl 2xl:w-full lg:text-5xl sm:text-4xl md:text-5xl sm:w-full  xl:text-6xl sm:mb-0 sm:mx-0 md:mx-0 md:w-full md:leading-none lg:w-full xl:w-full mb-20 title"
+              className="title text-7xl font-semibold leading-snug xl:text-6xl sm:text-xl"
               dangerouslySetInnerHTML={{ __html: text }}
               style={{
                 color: font_color,
@@ -71,28 +69,19 @@ const HomeSlider = ({ sliders }) => {
               }}
             />
             <div
-              className=" mx-10 text-xl w-full sm:mx-0 md:mx-0 desc"
+              className="desc text-2xl opacity-80 xl:text-xl sm:text-tiny"
               dangerouslySetInnerHTML={{ __html: description }}
               style={{
                 color: font_color,
               }}
             />
           </div>
-          {position_of_image && position_of_image !== "full width" && (
-            <div className="image w-4/7 sm:ml-8">
-              <img src={image} alt="cover image" />
-            </div>
-          )}
         </div>
       </div>
     );
   });
 
-  return (
-    <Slider {...settings} className="h-full homeSlider">
-      {renderSlider}
-    </Slider>
-  );
+  return <Slider {...settings}>{renderSlider}</Slider>;
 };
 
 export default HomeSlider;

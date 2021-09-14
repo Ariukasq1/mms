@@ -5,39 +5,37 @@ import SliderSubCategories from "../../components/SliderSubCategories";
 import { fetcher, __ } from "../../utils";
 import FullPage from "../../components/FullPage";
 
-const Categories = ({ posts, querySlug, lang }) => {
+const Categories = (props) => {
   return (
     <Layout>
-      <div className="relative">
-        <FullPage
-          children={
-            <div id="fullpage">
-              <div className="section categories">
-                <div className="capabilitiesPage">
-                  <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-8">
-                    <div className="brands">
-                      <div className="header">
-                        <h2>{__(querySlug)}</h2>
-                      </div>
-                      <SliderSubCategories
-                        pathname="[categories]"
-                        data={posts}
-                        querySlug={querySlug}
-                        language={lang}
-                      />
-                    </div>
+      <FullPage
+        children={
+          <div id="fullpage">
+            <div className="section categories">
+              <div className="capabilitiesPage">
+                <div className="capabilitiesPageSlider px-64 xl:px-32 2xl:px-40 md:px-20 lg:px-24 sm:px-8 md:pt-28">
+                  <div className="brands">
+                    <h2 className=" text-3xl font-bold mb-30 capitalize">
+                      {__(props.querySlug)}
+                    </h2>
+                    <SliderSubCategories
+                      pathname="[categories]"
+                      data={props.posts}
+                      querySlug={props.querySlug}
+                      language={props.lang}
+                    />
                   </div>
                 </div>
               </div>
             </div>
-          }
-        />
-      </div>
+          </div>
+        }
+      />
     </Layout>
   );
 };
 
-Categories.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const lang = ctx.query.lang;
   const querySlug = ctx.query.categories;
   const catId =
@@ -51,7 +49,7 @@ Categories.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { posts, querySlug, lang };
+  return { props: { posts, querySlug, lang } };
 };
 
 export default Categories;

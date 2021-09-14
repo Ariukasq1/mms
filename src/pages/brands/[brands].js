@@ -56,6 +56,7 @@ class Brands extends React.Component {
 
   render() {
     const { items, posts, categories } = this.props;
+
     const {
       showProduct,
       currentProduct,
@@ -93,7 +94,7 @@ class Brands extends React.Component {
               <div className="section odd">
                 <div
                   className={
-                    "brandsProducts px-40 flex flex-col xl:p-16 lg:px-24 md:px-20 sm:py-12 sm:px-8"
+                    "brandsProducts px-40 flex flex-col xl:pt-28 xl:p-16 lg:px-24 md:px-20 sm:py-12 sm:px-8"
                   }
                 >
                   <div className="flex items-center justify-between sm:block sm:leading-8">
@@ -132,7 +133,7 @@ class Brands extends React.Component {
                 <div className="section" id="content">
                   <div
                     className={
-                      "brandsProducts px-40 flex flex-col xl:pr-16 lg:pr-8 md:pr-8 md:pl-24 sm:px-5"
+                      "brandsProducts px-40 flex flex-col xl:pt-28 xl:pr-16 lg:pr-8 md:pr-8 md:pl-24 sm:px-5"
                     }
                   >
                     <div className="flex items-center justify-between mb-8 sm:block sm:leading-8">
@@ -259,7 +260,7 @@ class Brands extends React.Component {
   }
 }
 
-Brands.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const query = ctx.query.brands;
   const lang = ctx.query.lang;
 
@@ -283,19 +284,13 @@ Brands.getInitialProps = async (ctx) => {
     }`
   );
 
-  const products = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=113&${
-      lang === "mn" ? "lang=mn" : "lang="
-    }`
-  );
-
   const posts = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&per_page=100&${
       lang === "mn" ? "lang=mn" : "lang="
     }`
   );
 
-  return { items, products, categories, posts, lang };
+  return { props: { items, categories, posts, lang } };
 };
 
 export default Brands;

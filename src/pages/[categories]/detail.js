@@ -12,7 +12,7 @@ class ItemDetail extends React.Component {
 
     return (
       <div className="support">
-        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12 md:pl-20 sm:leading-7">
+        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12 xl:mb-5 md:pl-20 sm:leading-7">
           {supports && (
             <div dangerouslySetInnerHTML={{ __html: supports.title }} />
           )}
@@ -32,7 +32,7 @@ class ItemDetail extends React.Component {
                 key={index}
               >
                 <div
-                  className="flex flex-col items-center text-base sm:text-xs text-center font-medium px-6 leading-5"
+                  className="flex flex-col items-center text-base text-center font-medium px-6 sm:text-xs py-5 xl:py-2 xl:px-2 xl:text-xs leading-5"
                   dangerouslySetInnerHTML={{ __html: data }}
                 />
               </div>
@@ -53,8 +53,8 @@ class ItemDetail extends React.Component {
     }
 
     return (
-      <div className="category-item">
-        <div className="pl-24 xl:pl-12 md:pl-0 sm:px-0 lg:px-0" >
+      <div className="category-item xl:pt-28">
+        <div className="pl-24 xl:pl-12 md:pl-0 sm:px-0 lg:px-0">
           <div className="flex md:block sm:block lg:block">
             <div className="w-1/2 flex flex-col mx-12 mt-5 lg:ml-0 lg:mr-5 lg:mt-5 md:mt-5 lg:w-full md:w-full md:mx-0 sm:w-full xl:mt-5 lg:px-20 sm:px-8 sm:m-0">
               {this.renderSupport(post.acf)}

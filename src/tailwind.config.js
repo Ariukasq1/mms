@@ -49,7 +49,7 @@ module.exports = {
         "89": "130rem",
       },
       height: {
-        body: "calc(100vh - 116px)",
+        body: "calc(100vh - 114px)",
       },
     },
   },

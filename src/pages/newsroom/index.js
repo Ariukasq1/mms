@@ -74,9 +74,10 @@ const settings = {
   ],
 };
 
-const Index = ({ newsroom, categories }) => {
+const Index = (props) => {
   const currentLanguage = getLangParam();
   const [catId, setCatId] = useState(948);
+  const categories = props.categories;
 
   const onClick = (value) => {
     setCatId(value);
@@ -134,7 +135,7 @@ const Index = ({ newsroom, categories }) => {
   };
 
   const renderPosts = () => {
-    const filteredNews = newsroom.filter((news) =>
+    const filteredNews = props.newsroom.filter((news) =>
       news.categories.includes(catId)
     );
 
@@ -172,7 +173,7 @@ const Index = ({ newsroom, categories }) => {
   );
 };
 
-Index.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const query = ctx.query.lang;
 
   const newsroom = await fetcher(
@@ -187,7 +188,7 @@ Index.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { newsroom, categories };
+  return { props: { newsroom, categories } };
 };
 
 export default Index;

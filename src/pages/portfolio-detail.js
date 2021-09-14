@@ -56,8 +56,11 @@ const SliderSubCategories = (props) => {
           }}
           as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
         >
-          <div style={{display:"flex"}}>
-            <a className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4" style={{display:"block"}}>
+          <div style={{ display: "flex" }}>
+            <a
+              className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4"
+              style={{ display: "block" }}
+            >
               {__("Read more")}
             </a>
             <img className="object-contain w-10 ml-4" src={arrowImageBlue} />
@@ -72,8 +75,9 @@ const SliderSubCategories = (props) => {
             as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           >
             <a>
-              <div className="w-full image-wrapper">
+              <div className="image-wrapper h-72 w-full xl:h-48">
                 <img
+                  className="h-full w-full object-cover"
                   src={getData(post._embedded, "image")}
                   alt={post.title.rendered}
                 />
@@ -108,7 +112,7 @@ const renderProjects = (projects, post, language) => {
           href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#section3`}
         >
           <div
-            className="project flex items-center row-span-2 col-span-1 relative"
+            className="project flex items-center row-span-2 col-span-1 relative h-56 xl:h-48 bg-no-repeat bg-cover bg-center"
             style={{
               backgroundImage: `url(${getData(project._embedded, "image")})`,
             }}
@@ -120,12 +124,13 @@ const renderProjects = (projects, post, language) => {
                 />
               </h4>
               <div className="flex items-center more">
-                <a
-                  className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4"
+                <Link
                   href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#section3`}
                 >
-                  {__("Read more")}
-                </a>
+                  <a className="readmore my-4 text-sm w-auto bg-transparent text-black hover:text-opacity-100 hover:text-menuTextColor flex flex-row sm:my-4">
+                    {__("Read more")}
+                  </a>
+                </Link>
                 <img src={arrowImage} />
               </div>
             </div>
@@ -136,9 +141,9 @@ const renderProjects = (projects, post, language) => {
   });
 };
 
-const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
-  const post = detail[0];
-  const projectDetail = projectDetails[0];
+const Detail = (props) => {
+  const post = props.detail[0];
+  const projectDetail = props.projectDetails[0];
   const currentLanguage = getLangParam();
 
   const settingsItems = {
@@ -212,13 +217,13 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-72 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-8">
+                <div className="capabilitiesPageSlider px-72 md:pt-28 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-8">
                   <div className="brands">
-                    <div className="header">
-                      <h2>{__("Portfolio")}</h2>
-                    </div>
+                    <h2 className=" text-3xl font-bold mb-30 capitalize">
+                      {__("Portfolio")}
+                    </h2>
                     <SliderSubCategories
-                      data={posts}
+                      data={props.posts}
                       querySlug="portfolio"
                       language={currentLanguage}
                     />
@@ -227,17 +232,17 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
               </div>
             </div>
             <div className="section project-info">
-              <div className="pl-24 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0">
+              <div className="pl-24 xl:pt-28 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0">
                 <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full lg:block md:block sm:block">
                   <div className="flex flex-col mx-12 mt-20 lg:pl-12 lg:mr-2 lg:mt-5 md:pl-10 md:mr-2 md:mt-5 sm:mx-8 sm:mt-5 lg:mb-5 md:mb-5 sm:mb-5 xl:mt-5">
                     <h2
-                      className="text-2xl capitalize font-bold text-menuTextColor mb-8"
+                      className="text-2xl capitalize font-bold text-menuTextColor mb-8 xl:mb-1"
                       dangerouslySetInnerHTML={{
                         __html: post.title.rendered,
                       }}
                     />
                     <div
-                      className="text-base"
+                      className="text-base xl:text-tiny"
                       dangerouslySetInnerHTML={{
                         __html: post.content.rendered,
                       }}
@@ -258,8 +263,8 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:pl-16 lg:pl-16 sm:px-8">
-                <div className="desc mb-10 sm:mb-5">
+              <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 xl:pt-28 md:pl-16 lg:pl-16 sm:px-8">
+                <div className="desc mb-10 xl:mb-5 sm:mb-5">
                   <h4 className="mb-5">
                     <div
                       dangerouslySetInnerHTML={{
@@ -269,15 +274,15 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                   </h4>
                 </div>
                 <div>
-                  {(projects || []).length > 8 ? (
+                  {(props.projects || []).length > 8 ? (
                     <div className="brands pl-12 pr-32 xl:pl-0 2xl:pl-0 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-0 sm:pl-0 sm:pr-0">
                       <Slider {...settingsItems}>
-                        {renderProjects(projects, post, currentLanguage)}
+                        {renderProjects(props.projects, post, props.lang)}
                       </Slider>
                     </div>
                   ) : (
                     <div className="grid grid-cols-4 px-10 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:pl-0 sm:pr-5">
-                      {renderProjects(projects, post, currentLanguage)}
+                      {renderProjects(props.projects, post, props.lang)}
                     </div>
                   )}
                 </div>
@@ -340,7 +345,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                           <Material
                             key={product}
                             productId={product}
-                            lang={lang}
+                            lang={props.lang}
                           />
                         )
                       )}
@@ -356,7 +361,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
   );
 };
 
-Detail.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const lang = ctx.query.lang;
   const parentSlug = ctx.query.parentSlug;
   const slug = ctx.query.slug;
@@ -390,7 +395,7 @@ Detail.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { posts, detail, projects, projectDetails, lang };
+  return { props: { posts, detail, projects, projectDetails, lang } };
 };
 
 export default Detail;

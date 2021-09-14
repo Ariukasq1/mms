@@ -1,13 +1,13 @@
 import React from "react";
 import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
-import SliderSubCategories from "../../components/SliderSubCategories";
 import { fetcher, __ } from "../../utils";
 import FullPage from "../../components/FullPage";
 import ItemDetail from "./detail";
 import ItemFacts from "./facts";
 import ItemRelations from "./relations";
 import Additional from "./additional";
+import SliderSubCategories from "../../components/SliderSubCategories";
 
 const FactsSection = (posts, detail, lang) => {
   if (
@@ -41,47 +41,45 @@ const AdditionSection = (posts, detail, lang) => {
   );
 };
 
-const Item = ({ posts, detail, querySlug, lang }) => {
+const Item = (props) => {
   return (
     <Layout>
-      <div className="relative">
-        <FullPage
-          children={
-            <div id="fullpage">
-              <div className="section categories">
-                <div className="capabilitiesPage">
-                  <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-8">
-                    <div className="brands">
-                      <div className="header">
-                        <h2>{__(querySlug)}</h2>
-                      </div>
-                      <SliderSubCategories
-                        pathname="[categories]"
-                        data={posts}
-                        querySlug={querySlug}
-                        language={lang}
-                      />
-                    </div>
+      <FullPage
+        children={
+          <div id="fullpage">
+            <div className="section categories">
+              <div className="capabilitiesPage">
+                <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 md:pt-28 lg:px-24 sm:px-8">
+                  <div className="brands">
+                    <h2 className=" text-3xl font-bold mb-30 capitalize">
+                      {__(props.querySlug)}
+                    </h2>
+                    <SliderSubCategories
+                      pathname="[categories]"
+                      data={props.posts}
+                      querySlug={props.querySlug}
+                      language={props.lang}
+                    />
                   </div>
                 </div>
               </div>
-              <div className="section odd item-detail">
-                <ItemDetail post={detail[0]} lang={lang} />
-              </div>
-              {FactsSection(posts, detail, lang)}
-              {AdditionSection(posts, detail, lang)}
-              <div className="section relations">
-                <ItemRelations lang={lang} post={detail[0]} />
-              </div>
             </div>
-          }
-        />
-      </div>
+            <div className="section odd item-detail">
+              <ItemDetail post={props.detail[0]} lang={props.lang} />
+            </div>
+            {FactsSection(props.posts, props.detail, props.lang)}
+            {AdditionSection(props.posts, props.detail, props.lang)}
+            <div className="section relations">
+              <ItemRelations lang={props.lang} post={props.detail[0]} />
+            </div>
+          </div>
+        }
+      />
     </Layout>
   );
 };
 
-Item.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const lang = ctx.query.lang;
   const slug = ctx.query.item;
 
@@ -103,7 +101,7 @@ Item.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { posts, querySlug, detail, lang };
+  return { props: { posts, querySlug, detail, lang } };
 };
 
 export default Item;

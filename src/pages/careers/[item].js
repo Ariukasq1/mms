@@ -60,7 +60,7 @@ const renderCulture = (items, currentId, currentTitle) => {
     const renderDetails = () => {
       return item.slug.includes("1-1") ? (
         <div
-          className="h-body object-cover relative  bg-center bg-no-repeat bg-cover"
+          className="h-body object-cover relative bg-center bg-no-repeat bg-cover"
           style={{
             backgroundImage: `url(${getData(item._embedded, "image")})`,
           }}
@@ -87,8 +87,8 @@ const renderCulture = (items, currentId, currentTitle) => {
           </div>
         </div>
       ) : item.slug.includes("benefits") ? (
-        <div className="benefits flex md:block sm:block lg:block">
-          <div className="w-1/2 flex flex-col flex-center pl-40 pr-20 py-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:pl-12 md:pr-8 md:pb-10 sm:px-8 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-5 sm:pt-5 first-col">
+        <div className="benefits flex md:block sm:block lg:block xl:pt-28">
+          <div className="w-1/2 flex flex-col flex-center pl-40 pr-20 pt-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:pl-12 md:pr-8 md:pb-10 sm:px-8 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-5 sm:pt-5 first-col">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
@@ -175,9 +175,9 @@ const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
         }
 
         return (
-          <div className="category-item">
-            <div className="flex md:block sm:block">
-              <div className="w-3/5 p-20 md:w-full md:pb-5 sm:w-full sm:pt-0 sm:pb-10 sm:px-8">
+          <div className="category-item xl:pt-28">
+            <div className="flex md:block sm:block ">
+              <div className="w-3/5 px-20 md:w-full md:pb-5 sm:w-full sm:pt-0 sm:pb-10 sm:px-8">
                 <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
                   {currentTitle}
                 </div>
@@ -187,7 +187,7 @@ const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
                   </div>
                 </div>
               </div>
-              <div className="w-2/5 md:w-full sm:w-full">
+              <div className="w-2/5 md:w-full sm:w-full ">
                 <div
                   className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative"
                   style={{
@@ -230,9 +230,9 @@ const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
 const renderProcess = (items, currentId, currentTitle) => {
   return (
     <div className={`section vacancies item-detail`}>
-      <div className="category-item">
+      <div className="category-item xl:pt-28">
         <div className="flex md:block sm:block">
-          <div className="w-1/2 px-20 py-5 xl:pr-4 lg:w-full md:w-full sm:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:px-8 sm:py-5">
+          <div className="w-1/2 px-20 pt-5 xl:pr-4 lg:w-full md:w-full sm:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:px-8 sm:py-5">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
@@ -305,25 +305,27 @@ const renderProcess = (items, currentId, currentTitle) => {
   );
 };
 
-const Item = ({ career, items, detail, contact, jobs, lang }) => {
+const Item = (props) => {
   const currentLanguage = getLangParam();
+  const detail = props.detail;
+  const items = props.items;
 
   if (!detail || detail.length === 0) {
     return null;
   }
 
-  const post = detail[0];
+  const post = props.detail[0];
 
   const renderValues = () => (
-    <div className="px-72 auto-overflow  lg:px-20 md:px-10 sm:px-8 xl:px-28">
+    <div className="px-72 xl:px-28 xl:pt-28 lg:px-20 md:px-10 sm:px-12">
       <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
         {__("human resource")}
       </div>
-      <div className="heading-title capitalize text-4xl mb-10 xl:text-3xl sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+      <div className="heading-title capitalize text-4xl mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
         {__("We put company culture first")}
       </div>
       <div className="grid grid-cols-4 gap-12 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        {career.map((item, index) => (
+        {props.career.map((item, index) => (
           <div
             key={item.id}
             className="bg-white pb-5"
@@ -421,12 +423,18 @@ const Item = ({ career, items, detail, contact, jobs, lang }) => {
               : post.slug === "why-mms"
               ? renderCulture(items, post.id, post.title.rendered)
               : post.slug === "open-vacancy"
-              ? renderVacancies(items, post.id, post.title.rendered, jobs, lang)
+              ? renderVacancies(
+                  items,
+                  post.id,
+                  post.title.rendered,
+                  props.jobs,
+                  props.lang
+                )
               : post.slug === "selection-process"
               ? renderProcess(items, post.id, post.title.rendered)
               : null}
             <div className="section footer">
-              <Footer contact={contact} />
+              <Footer contact={props.contact} />
             </div>
           </div>
         }
@@ -435,7 +443,7 @@ const Item = ({ career, items, detail, contact, jobs, lang }) => {
   );
 };
 
-Item.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const lang = ctx.query.lang;
   const slug = ctx.query.item;
 
@@ -476,7 +484,7 @@ Item.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { career, jobs, detail, items, contact, lang };
+  return { props: { career, jobs, detail, items, contact, lang } };
 };
 
 export default Item;

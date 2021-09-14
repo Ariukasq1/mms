@@ -6,11 +6,11 @@ import { fetcher, getData, __, getLangParam } from "../../utils";
 import Link from "next/link";
 import FullPage from "../../components/FullPage";
 
-const Index = ({ career, contact }) => {
+const Index = (props) => {
   const currentLanguage = getLangParam();
 
   const renderValues = () => (
-    <div className="px-72 xl:px-28 lg:px-20 md:px-10 sm:px-12">
+    <div className="px-72 xl:px-28 xl:pt-28 lg:px-20 md:px-10 sm:px-12">
       <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
         {__("human resource")}
       </div>
@@ -18,7 +18,7 @@ const Index = ({ career, contact }) => {
         {__("We put company culture first")}
       </div>
       <div className="grid grid-cols-4 gap-12 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        {career.map((item, index) => (
+        {props.career.map((item, index) => (
           <div
             key={item.id}
             className="bg-white pb-5"
@@ -69,7 +69,7 @@ const Index = ({ career, contact }) => {
           <div id="fullpage career-page">
             <div className="section main-values">{renderValues()}</div>
             <div className="section footer">
-              <Footer contact={contact} />
+              <Footer contact={props.contact} />
             </div>
           </div>
         }
@@ -78,7 +78,7 @@ const Index = ({ career, contact }) => {
   );
 };
 
-Index.getInitialProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const career = await fetcher(
@@ -95,7 +95,7 @@ Index.getInitialProps = async (ctx) => {
     }`
   );
 
-  return { career, contact };
+  return { props: { career, contact } };
 };
 
 export default Index;

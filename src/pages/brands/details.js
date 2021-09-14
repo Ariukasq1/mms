@@ -28,9 +28,9 @@ class BrandDetail extends React.Component {
 
     return (
       <div className="brand-detail-wrapper">
-        <div className="relative grid grid-cols-3 2xl:h-full lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
+        <div className="relative grid grid-cols-3 h-full xl:pt-28 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
           <div
-            className="col-item p-16 bg-cover bg-center bg-no-repeat h-body-brands object-cover object-center cursor-pointer relative sm:px-10 sm:py-5"
+            className="col-item p-16 bg-cover bg-center bg-no-repeat h-full w-full object-cover object-center cursor-pointer relative sm:px-10 sm:py-5"
             style={{
               backgroundImage: `url(${getData(brand._embedded, "image")})`,
             }}
@@ -104,7 +104,7 @@ class BrandDetail extends React.Component {
               </h3>
               <div
                 className={
-                  "text-lg pb-10 sm:pb-5 xl:text-base xl:auto-overflow 2xl:auto-overflow"
+                  "text-lg pb-10 mb-10 sm:pb-5 xl:text-base xl:auto-overflow 2xl:auto-overflow"
                 }
                 dangerouslySetInnerHTML={{
                   __html: about,

@@ -1,32 +1,24 @@
 //slider
 .slider {
-  .text {
-    width: 50%;
-
-    .title {
-      font-size: 80px;
-      font-weight: 600;
-      line-height: 1.3em;
-    }
-
-    .desc {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 500;
-      opacity: 0.8;
-    }
+  .fp-tableCell {
+    vertical-align: bottom;
   }
+}
 
-  .image {
-    max-width: 40%;
+.capabilities {
+  .fp-tableCell {
+    vertical-align: bottom;
   }
 }
 
 .industry {
+  .fp-tableCell {
+    vertical-align: bottom;
+  }
+
   .ant-tabs {
     .ant-tabs-nav-list {
       margin-top: 16%;
-      height: 100%;
     }
 
     .ant-tabs-nav {
@@ -44,7 +36,6 @@
     .ant-tabs-tab-btn .title {
       display: flex;
       align-items: center;
-      font-size: 80px;
       font-weight: 700;
       color: rgba(0, 0, 0, 0.7);
       transition: all ease 0.2s;
@@ -57,9 +48,11 @@
     }
 
     .ant-tabs-tab {
-      height: 90px;
-      padding: 0 !important;
+      margin-left: 192px;
+      width: max-content;
       background: #fff;
+      padding: 0;
+      margin-bottom: 0;
 
       &.ant-tabs-tab-active .title {
         color: #00488d;
@@ -84,9 +77,92 @@
       animation-timing-function: linear;
     }
   }
+}
 
-  .heading-tag {
-    top: 5rem;
+.brands {
+  .fp-tableCell {
+    vertical-align: middle;
+  }
+  .category-wrapper {
+    list-style: none;
+    padding: 0;
+
+    li {
+      line-height: 22px;
+      cursor: pointer;
+      text-transform: capitalize;
+      transition: all ease 0.3s;
+
+      &.active {
+        background: linear-gradient(to right, #8da0cd 2%, #004280 82%);
+        font-weight: 600;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+    span:last-child {
+      display: none;
+    }
+  }
+
+  .single-brand {
+    .more {
+      padding: 30px 0;
+      font-size: 16px;
+      transition: all ease 0.3s;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .slick-slide {
+    padding: 0 15px;
+  }
+
+  .slick-prev {
+    left: 67%;
+    top: auto;
+    bottom: -40px;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .slick-next {
+    top: auto;
+    right: 25%;
+    bottom: -40px;
+    transform: initial;
+    width: auto !important;
+    height: auto !important;
+  }
+}
+
+.footer {
+  .fp-tableCell {
+    vertical-align: bottom;
+  }
+}
+
+.section.categories {
+  .slick-prev,
+  .slick-next {
+    top: 104.8%;
+  }
+  .slick-next {
+    transform: initial;
+  }
+  .title {
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 240px;
   }
 }
 
@@ -152,13 +228,6 @@
   }
 }
 
-.header h2 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-transform: capitalize;
-}
-
 .brandsProducts {
   h2 {
     font-size: 32px;
@@ -187,106 +256,6 @@
   }
 }
 
-.brands {
-  .fp-tableCell {
-    vertical-align: inherit;
-  }
-  .category-wrapper {
-    list-style: none;
-    padding: 0;
-
-    li {
-      line-height: 22px;
-      cursor: pointer;
-      text-transform: capitalize;
-      transition: all ease 0.3s;
-
-      &.active {
-        background: linear-gradient(to right, #8da0cd 2%, #004280 82%);
-        font-weight: 600;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      &:hover {
-        color: $primary-color;
-      }
-    }
-    span:last-child {
-      display: none;
-    }
-  }
-  .single-brand {
-    .more {
-      padding: 30px 0;
-      font-size: 16px;
-      transition: all ease 0.3s;
-
-      &:hover {
-        color: $primary-color;
-      }
-    }
-    .logo-wrapper {
-      img {
-        height: 60px;
-        max-width: 280px;
-      }
-    }
-    .bg-img-wrapper {
-      width: 100%;
-      height: 270px;
-      overflow: hidden;
-      border: 1px solid #eee;
-
-      > img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-  .slick-slide {
-    padding: 0 15px;
-  }
-
-  .slick-prev {
-    left: 67%;
-    top: auto;
-    bottom: -40px;
-    width: auto !important;
-    height: auto !important;
-  }
-
-  .slick-next {
-    top: auto;
-    right: 25%;
-    bottom: -40px;
-    transform: initial;
-    width: auto !important;
-    height: auto !important;
-  }
-}
-
-.section.categories {
-  .image-wrapper {
-    height: 450px;
-  }
-  .slick-prev,
-  .slick-next {
-    top: 104.8%;
-  }
-  .slick-next {
-    transform: initial;
-  }
-  .title {
-    font-size: 20px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 240px;
-  }
-}
-
 .without-scroll {
   flex-wrap: wrap;
 
@@ -305,8 +274,8 @@
   background-size: cover;
   background-position: center;
 
-  .fp-tableCell{
-    .fp-scrollable{
+  .fp-tableCell {
+    .fp-scrollable {
       z-index: 3;
     }
   }
@@ -327,11 +296,11 @@
   }
 
   .project {
-    height: 250px;
+    /* height: 250px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    transition: all ease 0.8s;
+    transition: all ease 0.8s; */
 
     .content {
       z-index: 3;
@@ -448,7 +417,11 @@
   max-height: 45px;
   overflow: hidden;
 }
-
+.section.project-info {
+  .fp-tableCell {
+    vertical-align: bottom;
+  }
+}
 .section.project-details {
   span {
     text-transform: uppercase;
@@ -667,9 +640,6 @@
   }
 
   .newsBox {
-    .image-wrapper {
-      height: 180px;
-    }
     .title {
       height: 40px;
       overflow: hidden;
