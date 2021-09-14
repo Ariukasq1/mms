@@ -1770,6 +1770,9 @@ label {
   margin-bottom: 10px;
 }
 
+.section.what-we-do .fp-tableCell {
+  vertical-align: middle;
+}
 .section.what-we-do .ant-tabs-nav-wrap {
   white-space: pre-wrap;
 }
