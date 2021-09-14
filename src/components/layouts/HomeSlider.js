@@ -4,6 +4,8 @@ import Slider from "react-slick";
 const settings = {
   className: "center",
   infinite: true,
+  autoplay: true,
+  autplaySpeed: 4000,
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: true,
@@ -51,7 +53,7 @@ const HomeSlider = ({ sliders }) => {
         >
           <div
             className="text w-1/2"
-            /* data-aos="fade-down" */
+            data-aos="fade-down"
             style={{
               width:
                 position_of_image &&
