@@ -6,7 +6,6 @@
           font-size: 80px;
         }
       }
-
       .ant-tabs-tab {
         margin-left: 128px;
         .image-icon {
@@ -19,12 +18,6 @@
 @media only screen and (max-width: 1440px) and (min-width: 1367px) {
   .industry {
     .ant-tabs {
-      .ant-tabs-tab-btn {
-        .title {
-          font-size: 70px;
-        }
-      }
-
       .ant-tabs-tab {
         margin-left: 128px;
       }
@@ -42,7 +35,7 @@
       }
 
       .ant-tabs-nav-list {
-        margin-top: 35%;
+        margin-top: 23%;
       }
     }
   }
@@ -86,31 +79,27 @@
 
   .industry {
     .ant-tabs {
-      .ant-tabs-tab-btn {
-        .title {
-          font-size: 50px;
-        }
-      }
-
       .ant-tabs-tab {
         margin-left: 0px;
         height: 60px;
       }
 
       .ant-tabs-nav-list {
-        margin-top: 35%;
+        margin-top: 27%;
       }
 
       .ant-tabs-tab-active {
         .title {
           > .image-icon {
             height: 20px;
-            margin: 7px 0 0 30px;
+            width: 50px;
+            margin: 7px 0 0 10px;
           }
         }
       }
     }
   }
+
   .footer-responsive {
     display: block;
     padding: 5rem;

@@ -51,7 +51,7 @@ const SliderSubCategories = (props) => {
           </a>
           <img className="object-contain w-10 ml-4" src={arrowImage} />
         </div>
-        <div className="image h-64">
+        <div className="image">
           <Link
             href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           >

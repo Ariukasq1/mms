@@ -898,6 +898,18 @@ section {
   align-items: center;
 }
 
+.image {
+  height: 450px;
+}
+.image img {
+  object-fit: cover;
+  transform-origin: 50% 100%;
+  transition: all 0.3s ease-in-out;
+}
+.image img:hover {
+  transform: scale(1.05);
+}
+
 .image-wrapper > img {
   width: 100%;
   height: 100%;
@@ -2098,9 +2110,6 @@ label {
   }
 }
 @media only screen and (max-width: 1440px) and (min-width: 1367px) {
-  .industry .ant-tabs .ant-tabs-tab-btn .title {
-    font-size: 70px;
-  }
   .industry .ant-tabs .ant-tabs-tab {
     margin-left: 128px;
   }
@@ -2113,7 +2122,7 @@ label {
     width: 50px;
   }
   .industry .ant-tabs .ant-tabs-nav-list {
-    margin-top: 35%;
+    margin-top: 23%;
   }
 }
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
@@ -2144,19 +2153,17 @@ label {
     max-width: 200px;
   }
 
-  .industry .ant-tabs .ant-tabs-tab-btn .title {
-    font-size: 50px;
-  }
   .industry .ant-tabs .ant-tabs-tab {
     margin-left: 0px;
     height: 60px;
   }
   .industry .ant-tabs .ant-tabs-nav-list {
-    margin-top: 35%;
+    margin-top: 27%;
   }
   .industry .ant-tabs .ant-tabs-tab-active .title > .image-icon {
     height: 20px;
-    margin: 7px 0 0 30px;
+    width: 50px;
+    margin: 7px 0 0 10px;
   }
 
   .footer-responsive {
