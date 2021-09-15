@@ -15,6 +15,13 @@
     }
   }
 }
+
+@media only screen and (max-width: 1500px) {
+  .image {
+    height: 320px;
+  }
+}
+
 @media only screen and (max-width: 1440px) and (min-width: 1367px) {
   .industry {
     .ant-tabs {
@@ -24,6 +31,7 @@
     }
   }
 }
+
 @media only screen and (max-width: 1366px) and (min-width: 1025px) {
   .industry {
     .ant-tabs {
@@ -40,6 +48,7 @@
     }
   }
 }
+
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
   .history {
     .slick-slider {
@@ -223,6 +232,7 @@
     }
   }
 }
+
 @media only screen and (max-width: 768px) and (min-width: 481px) {
   .relative {
     overflow: hidden;
@@ -399,6 +409,7 @@
     }
   }
 }
+
 @media only screen and (max-width: 480px) {
   .project-info.fp-section.fp-table,
   .fp-section.fp-table.projects {
@@ -825,6 +836,7 @@
     max-width: 220px;
   }
 }
+
 @media only screen and (max-width: 320px) {
   .brands {
     .category-wrapper {
