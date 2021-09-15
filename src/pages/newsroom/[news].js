@@ -63,7 +63,7 @@ const News = (props) => {
   const renderNews = props.news.map((n, index) => {
     return (
       <div key={index}>
-        <div className="newsBox mb-20 xl:mb-8 md:mb-12 pr-8 sm:mb-5 sm:pr-0">
+        <div className="newsBox mb-20 xl:mb-8 md:mb-12 pr-8 sm:mb-5 sm:pr-0 3xl:mb-10 2xl:mb-5">
           <Link
             href={{
               pathname: "/newsroom/[news]#1",
@@ -72,13 +72,13 @@ const News = (props) => {
             as={`/newsroom/${n.slug}?lang=${currentLanguage}#1`}
           >
             <a>
-              <div className="image-wrapper h-48 w-full xl:h-28">
+              <div className="image-wrapper h-48 w-full xl:h-28 2xl:h-40">
                 <img
                   className="h-full w-full object-cover"
                   src={getData(n._embedded, "image")}
                 />
               </div>
-              <div className="font-medium text-base text-sm mb-4 title leading-5 mt-5 sm:mt-2 md:mt-2 lg:mt-2 xl:mt-3">
+              <div className="font-medium text-sm mb-4 title leading-5 mt-5 sm:mt-2 md:mt-2 lg:mt-2 xl:mt-3">
                 {n.title.rendered}
               </div>
             </a>
@@ -136,7 +136,7 @@ const News = (props) => {
               </div>
             </div>
             <div className="section odd otherNews">
-              <div className="pl-40 pr-12 xl:pt-28 md:pl-24 md:pr-0 sm:px-8">
+              <div className="pl-40 pr-12 xl:pt-28 3xl:pt-20 md:pl-24 md:pr-0 sm:px-8 2xl:pt-20">
                 <h2 className=" text-3xl font-bold mb-30 capitalize">
                   {__("Related news")}
                 </h2>
