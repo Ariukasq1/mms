@@ -87,7 +87,7 @@ const Index = (props) => {
     return (
       <div key={news.id} className="news-wrapper">
         <div
-          className="relative news-item"
+          className="relative news-item h-64 3xl:h-56 2xl:h-48 xl:h-48"
           style={{
             backgroundImage: `url(${getData(news._embedded, "image")})`,
           }}
@@ -116,7 +116,7 @@ const Index = (props) => {
 
   const renderCategory = () => {
     return (
-      <ul className="flex justify-center category-wrapper mb-10">
+      <ul className="flex justify-center category-wrapper mb-10 xl:mb-0">
         {categories.map((category) => (
           <React.Fragment key={category.id}>
             <li
@@ -157,8 +157,8 @@ const Index = (props) => {
       <FullPage
         children={
           <div id="fullpage">
-            <div className="section px-56 xl:px-24 lg:px-20 md:px-20 sm:px-8 news">
-              <div className="brands text-center">
+            <div className="section px-56 2xl:px-40 xl:px-24  lg:px-20 md:px-20 sm:px-8 news">
+              <div className="brands text-center xl:pt-10 2xl:pt-8">
                 <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
                   {__("Newsroom")}
                 </div>

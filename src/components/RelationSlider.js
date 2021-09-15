@@ -26,7 +26,7 @@ const RelationSlider = ({ posts, items, querySlug }) => {
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                 />
               </div>
-              <div className="image-wrapper h-48 w-full xl:h-32">
+              <div className="image-wrapper h-48 w-full xl:h-32 2xl:h-32">
                 <img
                   className="h-full w-full object-cover"
                   src={getData(post._embedded, "image")}

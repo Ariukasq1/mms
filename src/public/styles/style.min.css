@@ -1625,7 +1625,6 @@ label {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 260px;
 }
 .section.news .news-item .content {
   z-index: 3;

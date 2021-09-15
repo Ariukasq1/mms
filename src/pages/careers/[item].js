@@ -317,7 +317,7 @@ const Item = (props) => {
   const post = props.detail[0];
 
   const renderValues = () => (
-    <div className="px-72 xl:px-28 xl:pt-28 lg:px-20 md:px-10 sm:px-12">
+    <div className="px-72 2xl:pt-28 2xl:px-28 xl:px-28 xl:pt-28 lg:px-20 md:px-10 sm:px-12">
       <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
         {__("human resource")}
       </div>

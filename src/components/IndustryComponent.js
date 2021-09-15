@@ -29,7 +29,7 @@ const IndustryComponent = ({ industries }) => {
               key={i}
               tab={
                 <div
-                  className="title lg:pt-10 md:pt-8 text-7xl xl:text-5xl lg:text-5xl lg:p-24 md:text-4xl md:p-16 sm:text-3xl sm:pl-8"
+                  className="title lg:pt-10 md:pt-8 text-6xl xl:text-5xl lg:text-5xl lg:p-24 md:text-4xl md:p-16 sm:text-3xl sm:pl-8"
                   data-aos="fade-right"
                   data-aos-easing="ease-in"
                   data-aos-delay={i * 150}

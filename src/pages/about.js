@@ -85,7 +85,7 @@ const About = (props) => {
   };
 
   const cats = (
-    <ul className="flex justify-center category-wrapper mb-20 xl:mb-10 sm:text-left sm:mb-10">
+    <ul className="flex justify-center category-wrapper mb-20 xl:mb-10 sm:text-left sm:mb-10 2xl:mb-10">
       {categories.map((category) => (
         <React.Fragment key={category.id}>
           <li
@@ -156,9 +156,9 @@ const About = (props) => {
               </div>
             </div>
             <div className="section what-we-do project-info ">
-              <div className="xl:pt-10">
+              <div className="xl:pt-10 2xl:pt-10">
                 <div className="text-center brands sm:px-8">
-                  <div className="heading-tag capitalize text-xl mt-20 font-bold sm:text-lg sm:mt-0">
+                  <div className="heading-tag capitalize text-xl mt-20 font-bold sm:text-lg sm:mt-0 2xl:mt-25">
                     {__("What we do")}
                   </div>
                   <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">

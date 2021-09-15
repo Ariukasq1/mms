@@ -63,7 +63,7 @@ const HomeSlider = ({ sliders }) => {
             }}
           >
             <div
-              className="title text-7xl font-semibold leading-snug xl:text-6xl sm:text-xl"
+              className="title text-7xl font-semibold leading-snug xl:text-6xl sm:text-xl 2xl:text-6xl"
               dangerouslySetInnerHTML={{ __html: text }}
               style={{
                 color: font_color,

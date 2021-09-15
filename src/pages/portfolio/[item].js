@@ -219,9 +219,9 @@ const Item = (props) => {
             <div className="section project-info">
               <div className="pl-24 xl:pt-28 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0">
                 <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full lg:block md:block sm:block">
-                  <div className="flex flex-col mx-12 mt-20 lg:pl-12 lg:mr-2 lg:mt-5 md:pl-10 md:mr-2 md:mt-5 sm:mx-8 sm:mt-5 lg:mb-5 md:mb-5 sm:mb-5 xl:mt-5">
+                  <div className="flex flex-col mx-12 mt-20 lg:pl-12 lg:mr-2 lg:mt-5 md:pl-10 md:mr-2 md:mt-5 sm:mx-8 sm:mt-5 lg:mb-5 md:mb-5 sm:mb-5 xl:mt-5 2xl:mt-0 3xl:mt-5">
                     <h2
-                      className="text-2xl capitalize font-bold text-menuTextColor mb-8 xl:mb-1"
+                      className="text-2xl capitalize font-bold text-menuTextColor mb-8 xl:mb-1 2xl:mb-2"
                       dangerouslySetInnerHTML={{
                         __html: post.title.rendered,
                       }}

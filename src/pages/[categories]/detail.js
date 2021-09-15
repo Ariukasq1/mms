@@ -12,7 +12,7 @@ class ItemDetail extends React.Component {
 
     return (
       <div className="support">
-        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12 xl:mb-5 md:pl-20 sm:leading-7">
+        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12 xl:mb-5 md:pl-20 sm:leading-7 2xl:mb-3">
           {supports && (
             <div dangerouslySetInnerHTML={{ __html: supports.title }} />
           )}
@@ -28,11 +28,11 @@ class ItemDetail extends React.Component {
 
             return (
               <div
-                className={`icon-wrapper bg-white flex justify-center rounded-md mb-4 ${noFilter}`}
+                className={`icon-wrapper bg-white flex justify-center rounded-md ${noFilter}`}
                 key={index}
               >
                 <div
-                  className="flex flex-col items-center text-base text-center font-medium px-6 sm:text-xs py-5 xl:py-2 xl:px-2 xl:text-xs leading-5"
+                  className="flex flex-col items-center text-base text-center font-medium px-6 sm:text-xs py-5 xl:py-2 xl:px-2 xl:text-xs leading-5 2xl:py-2 2xl:px-0"
                   dangerouslySetInnerHTML={{ __html: data }}
                 />
               </div>

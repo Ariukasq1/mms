@@ -36,7 +36,7 @@ class BrandsComponent extends React.Component {
 
       return (
         <div key={index} className="single-brand sm:mb-10">
-          <div className="logo-wrapper h-16 w-64 xl:h-12 xl:w-56 lg:h-10 lg:w-40">
+          <div className="logo-wrapper h-16 w-64 xl:h-12 xl:w-56 lg:h-10 lg:w-40 2xl:w-40 2xl:h-12">
             <img src={logo} className="object-contain h-full" alt="logo" />
           </div>
           <Link href={`/brands/${brand.slug}?lang=${currentLanguage}`} passHref>
@@ -50,7 +50,7 @@ class BrandsComponent extends React.Component {
                 </a>
                 <img className="object-contain w-10 ml-4" src={arrow} />
               </div>
-              <div className="bg-img-wrapper h-72 w-full xl:h-32">
+              <div className="bg-img-wrapper h-72 w-full xl:h-32 2xl:h-56">
                 <img
                   src={getData(brand._embedded, "image")}
                   className="object-cover h-full w-full"
@@ -79,7 +79,7 @@ class BrandsComponent extends React.Component {
     const { brandId } = this.state;
 
     const categories = (
-      <ul className="flex justify-center category-wrapper mb-20 xl:mb-10 sm:mb-5 sm:justify-start sm:text-left">
+      <ul className="flex justify-center category-wrapper mb-20 xl:mb-10 sm:mb-5 sm:justify-start sm:text-left 2xl:mb-5 3xl:mb-0">
         <li
           className={`text-base font-medium py-2 px-3 sm:pl-0 ${
             brandId === 0 ? "active" : ""
