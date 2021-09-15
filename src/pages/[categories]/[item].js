@@ -51,7 +51,7 @@ const Item = (props) => {
               <div className="capabilitiesPage">
                 <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 md:pt-28 lg:px-24 sm:px-8">
                   <div className="brands">
-                    <h2 className=" text-3xl font-bold mb-30 capitalize">
+                    <h2 className=" text-3xl font-bold mb-8 capitalize">
                       {__(props.querySlug)}
                     </h2>
                     <SliderSubCategories

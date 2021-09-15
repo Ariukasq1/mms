@@ -130,6 +130,9 @@ section {
 
 .image {
   height: 450px;
+  overflow: hidden;
+  border: 1px solid #eee;
+
   img {
     object-fit: cover;
     transform-origin: 50% 100%;

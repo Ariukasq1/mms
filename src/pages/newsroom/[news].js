@@ -137,7 +137,7 @@ const News = (props) => {
             </div>
             <div className="section odd otherNews">
               <div className="pl-40 pr-12 xl:pt-28 3xl:pt-20 md:pl-24 md:pr-0 sm:px-8 2xl:pt-20">
-                <h2 className=" text-3xl font-bold mb-30 capitalize">
+                <h2 className=" text-3xl font-bold mb-8 capitalize">
                   {__("Related news")}
                 </h2>
                 <div className="brands news-slider sm:pb-20 ">
