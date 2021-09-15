@@ -57,7 +57,7 @@ const SliderSubCategories = (props) => {
           >
             <a>
               <img
-                className="h-full object-cover"
+                className="h-full object-cover w-full"
                 src={getData(post._embedded, "image")}
                 alt={post.title.rendered}
               />
