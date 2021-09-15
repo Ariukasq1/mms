@@ -1,3 +1,52 @@
+@media only screen and (min-width: 1441px) {
+  .industry {
+    .ant-tabs {
+      .ant-tabs-tab-btn {
+        .title {
+          font-size: 80px;
+        }
+      }
+
+      .ant-tabs-tab {
+        margin-left: 128px;
+        .image-icon {
+          width: 65px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1440px) and (min-width: 1367px) {
+  .industry {
+    .ant-tabs {
+      .ant-tabs-tab-btn {
+        .title {
+          font-size: 70px;
+        }
+      }
+
+      .ant-tabs-tab {
+        margin-left: 128px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1366px) and (min-width: 1025px) {
+  .industry {
+    .ant-tabs {
+      .ant-tabs-tab {
+        margin-left: 112px;
+        .image-icon {
+          width: 50px;
+        }
+      }
+
+      .ant-tabs-nav-list {
+        margin-top: 35%;
+      }
+    }
+  }
+}
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
   .history {
     .slick-slider {

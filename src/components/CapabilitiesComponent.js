@@ -26,11 +26,12 @@ const CapabilitiesComponent = ({ data }) => {
           </a>
         </Link>
       </div>
-      <img
-        className="w-full h-body"
-        src={getData(data._embedded, "image")}
-        style={{ flexBasis: "50%" }}
-      />
+      <div className="w-full h-body" style={{ flexBasis: "50%" }}>
+        <img
+          className="object-cover h-full w-full"
+          src={getData(data._embedded, "image")}
+        />
+      </div>
     </div>
   );
 };

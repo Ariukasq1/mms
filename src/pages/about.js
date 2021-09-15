@@ -60,7 +60,7 @@ const About = (props) => {
       return (
         <div
           key={index}
-          className="about-detail-content w-full md:mb-10 sm:mb-10"
+          className="about-detail-content w-full md:mb-10 sm:mb-10 "
         >
           <AboutDetail catId={activeId} />
         </div>
