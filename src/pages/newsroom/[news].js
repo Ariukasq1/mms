@@ -96,12 +96,12 @@ const News = (props) => {
             <div className="section news-detail">
               <div
                 className={
-                  "pl-24 flex flex-row justify-center items-center h-body lg:block lg:pl-20 md:block sm:block sm:px-8 sm:h-auto sm:flex-col xl:mt-28"
+                  "pl-24 flex flex-row justify-center items-center h-body lg:block lg:pl-20 md:block sm:block sm:px-8 sm:h-auto sm:flex-col xl:mt-28 2xl:mt-28"
                 }
               >
                 <div
                   className={
-                    "w-1/2 xl:overflow-auto h-full lg:w-full md:w-full sm:w-full lg:mt-5 md:mt-5 sm:mt-5 sm:no-overflow xl:h-full"
+                    "w-1/2 overflow-auto h-full lg:w-full md:w-full sm:w-full lg:mt-5 md:mt-5 sm:mt-5 sm:no-overflow xl:h-full"
                   }
                 >
                   <h2 className={"mb-10 font-medium text-sm sm:mb-5"}>
