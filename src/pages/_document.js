@@ -11,8 +11,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang={getLangParam()}>
-        <Head />
-        <body style={{ margin: 0 }}>
+        <Head>
           {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
           <script
             async
@@ -27,7 +26,8 @@ export default class MyDocument extends Document {
               gtag('config', 'G-BHD4FKEL05');`,
             }}
           />
-
+        </Head>
+        <body style={{ margin: 0 }}>
           {/* FB chat */}
           <div id="fb-root"></div>
           <div id="fb-customer-chat" className="fb-customerchat"></div>
