@@ -61,13 +61,11 @@ export const SliderSubCategories = (props) => {
             as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           >
             <a>
-              <div className="image-wrapper h-72 w-full xl:h-48">
-                <img
-                  className="h-full w-full object-cover"
-                  src={getData(post._embedded, "image")}
-                  alt={post.title.rendered}
-                />
-              </div>
+              <img
+                className="h-full w-full object-cover"
+                src={getData(post._embedded, "image")}
+                alt={post.title.rendered}
+              />
             </a>
           </Link>
         </div>
