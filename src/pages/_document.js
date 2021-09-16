@@ -13,17 +13,21 @@ export default class MyDocument extends Document {
       <Html lang={getLangParam()}>
         <Head />
         <body style={{ margin: 0 }}>
-        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-T3M30CEBG0"></script>
+          {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-BHD4FKEL05"
+          ></script>
           <script
             dangerouslySetInnerHTML={{
               __html: `window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
             
-              gtag('config', 'G-T3M30CEBG0');`, }}/>
+              gtag('config', 'G-BHD4FKEL05');`,
+            }}
+          />
 
-              
           {/* FB chat */}
           <div id="fb-root"></div>
           <div id="fb-customer-chat" className="fb-customerchat"></div>
