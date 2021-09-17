@@ -60,7 +60,10 @@ const MenuComponent = () => {
                 menu.top_menu.items.map((item, index) => (
                   <Link
                     key={index}
-                    href={`${item.slug}`}
+                    href={{
+                      pathname: pathChecker(item),
+                      query: { lang: language },
+                    }}
                     as={`/${item.slug}?lang=${language}`}
                   >
                     <a className={"px-4 border-r border-menuTextColor"}>
@@ -112,7 +115,7 @@ const MenuComponent = () => {
                     }}
                     as={`/${item.slug}?lang=${language}`}
                   >
-                    <a className={"mx-4"}>{item.title}</a>
+                    <a className={"mx-4 "}>{item.title}</a>
                   </Link>
                 ))
               )}
@@ -169,7 +172,7 @@ const MenuComponent = () => {
             <div>Loading</div>
           ) : (
             menu.bottom_menu.items.map((item, index) => (
-              <div key={index} className="flex flex-col ">
+              <div key={index} className="flex flex-col">
                 <a
                   href={`/${item.slug}?lang=${language}`}
                   className={"mx-4 font-bold"}
