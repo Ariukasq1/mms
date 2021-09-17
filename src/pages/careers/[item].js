@@ -95,7 +95,7 @@ const renderCulture = (items, currentId, currentTitle) => {
             <div className="heading-title capitalize text-5xl mt-4 mb-8 xl:text-3xl  sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
               <div dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
             </div>
-            <div className="auto-overflow">
+            <div className="auto-overflow xl:h-80">
               <div
                 className="text-lg xl:text-base"
                 dangerouslySetInnerHTML={{
