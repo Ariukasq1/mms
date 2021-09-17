@@ -260,7 +260,7 @@ const renderProcess = (items, currentId, currentTitle) => {
                         <span className="gradient-text text-6xl leading-normal xl:text-5xl md:text-4xl sm:text-3xl">
                           {index + 1}.
                         </span>
-                        <h4 className="font-semibold text-xl mb-3 xl:text-base md:text-base md:text-base sm:text-base">
+                        <h4 className="font-semibold text-xl mb-3 xl:text-base md:text-base sm:text-base">
                           {data.title}
                         </h4>
                         <p className="text-base xl:text-sm md:text-sm sm:text-sm">
