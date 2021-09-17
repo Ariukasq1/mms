@@ -107,11 +107,11 @@ const renderCulture = (items, currentId, currentTitle) => {
                   <div
                     key={index}
                     className="flex items-center text-center flex-col mb-6"
-                    /* data-aos="zoom-in"
+                    data-aos="zoom-in"
                     data-aos-easing="ease"
                     data-aos-delay={`${index * 250}`}
                     data-aos-duration="2000"
-                    data-aos-offset="300" */
+                    data-aos-offset="300"
                   >
                     <img className="mb-4 icon-img" src={data.icon} alt="icon" />
                     <p className="text-base xl:text-sm font-semibold leading-snug">
