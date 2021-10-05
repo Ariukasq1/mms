@@ -2126,12 +2126,9 @@ label {
   .industry .ant-tabs .ant-tabs-tab .image-icon {
     width: 50px;
   }
-  .industry .ant-tabs .ant-tabs-nav-list {
-    margin-top: 23%;
-  }
 
   .categories .fp-tableCell {
-    vertical-align: bottom;
+    vertical-align: middle;
   }
   .categories .image {
     height: 300px;
