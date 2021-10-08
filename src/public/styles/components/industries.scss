@@ -1,7 +1,4 @@
 .section.item-detail {
-  .fp-tableCell {
-    vertical-align: bottom;
-  }
   .category-item {
     .item-image {
       transition-property: transform;
@@ -166,5 +163,22 @@
 .section.relations {
   .fp-tableCell {
     vertical-align: middle;
+  }
+}
+
+.section.categories {
+  .slick-prev,
+  .slick-next {
+    top: 104.8%;
+  }
+  .slick-next {
+    transform: initial;
+  }
+  .title {
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 240px;
   }
 }

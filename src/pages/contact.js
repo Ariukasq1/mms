@@ -3,11 +3,21 @@ import Layout from "../components/layouts/Layout";
 import Footer from "../components/layouts/footer";
 import { Config } from "../config";
 import { fetcher } from "../utils";
+import FullPage from "../components/FullPage";
 
 const Contact = (props) => {
   return (
     <Layout>
-      <Footer contact={props.contact} />
+      <FullPage
+        page="contact"
+        children={
+          <>
+            <div className="section footer">
+              <Footer contact={props.contact} />
+            </div>
+          </>
+        }
+      />
     </Layout>
   );
 };

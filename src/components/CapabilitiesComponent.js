@@ -6,15 +6,15 @@ const CapabilitiesComponent = ({ data }) => {
   const currentLanguage = getLangParam();
 
   return (
-    <div className="flex flex-row-reverse justify-between items-center xl:pt-28 sm:flex-col">
+    <div className="flex flex-row-reverse justify-between items-center sm:flex-col md:flex-col">
       <div
-        className="capabilitiesTexts px-32 py-8 bg-white xl:pr-10 xl:pl-24 lg:pr-10 lg:pl-24 md:pl-20 md:pr-10 sm:px-8 sm:pt-0"
+        className="capabilitiesTexts px-32 py-8 bg-white xl:py-0 xl:px-10 lg:py-0 lg:px-5 md:px-5 sm:px-5"
         data-aos="fade-up"
         ata-aos-easing="ease"
         data-aos-delay={`0`}
         style={{ flexBasis: "50%" }}
       >
-        <div className="heading-tag capitalize text-3xl font-bold mb-10">
+        <div className="heading-tag capitalize text-3xl font-bold mb-10 lg:mb-8">
           {__("Capabilities")}
         </div>
         <div className="capabilitiesBody mb-10 text-lg ">

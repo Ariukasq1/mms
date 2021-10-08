@@ -25,12 +25,11 @@ class BrandDetail extends React.Component {
       additional,
       certificate,
     } = brand.acf || {};
-
     return (
-      <div className="brand-detail-wrapper">
-        <div className="relative grid grid-cols-3 h-full xl:pt-28 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1">
+      <div className="brand-detail-wrapper h-body overflow-auto sm:overflow-hidden sm:h-auto">
+        <div className="relative grid grid-cols-3 h-full lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 lg:h-auto md:h-auto sm:h-auto">
           <div
-            className="col-item p-16 bg-cover bg-center bg-no-repeat h-full w-full object-cover object-center cursor-pointer relative sm:px-10 sm:py-5"
+            className="col-item p-16 bg-cover bg-center bg-no-repeat h-full w-full object-cover object-center cursor-pointer relative sm:px-0 sm:py-5 2xl:p-5 overflow-auto lg:h-auto"
             style={{
               backgroundImage: `url(${getData(brand._embedded, "image")})`,
             }}
@@ -91,7 +90,7 @@ class BrandDetail extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-item p-16 xl:p-8 md:py-5 sm:pb-5 sm:px-8 sm:pr-5 lg:pb-0">
+          <div className="col-item p-16 2xl:p-6 xl:p-8 md:py-5 sm:pb-5 sm:px-8 sm:pr-5 lg:pb-0  overflow-auto lg:h-auto md:h-auto sm:h-auto">
             <div className={"itemDetailsTexts"}>
               <h3 className="mb-10 sm:mb-3 text-menuTextColor leading-8 font-bold text-2xl">
                 {__("About")}
@@ -111,19 +110,8 @@ class BrandDetail extends React.Component {
                 }}
               />
             </div>
-            {certificate && (
-              <div
-                className="certification absolute lg:relative md:relative sm:relative"
-                style={{ bottom: "2rem" }}
-              >
-                <div className="text-base font-bold text-menuTextColor mb-3">
-                  {__("Certification & Accreditations")}:
-                </div>
-                <img className="w-full" src={certificate} alt="certificate" />
-              </div>
-            )}
           </div>
-          <div className="col-item p-16 xl:p-8 md:py-5 sm:px-8 sm:pt-0 lg:pb-0">
+          <div className="col-item p-16 2xl:p-6 xl:p-8 md:py-5 sm:px-8 sm:pt-0 lg:pb-0  overflow-auto lg:h-auto md:h-auto sm:h-auto">
             <div className={"itemDetailsTexts"}>
               <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
                 <span>
@@ -149,6 +137,17 @@ class BrandDetail extends React.Component {
                 }}
               />
             </div>
+            {certificate && (
+              <div
+                className="certification lg:relative md:relative sm:relative"
+                style={{ bottom: "2rem" }}
+              >
+                <div className="text-base font-bold text-menuTextColor mb-3">
+                  {__("Certification & Accreditations")}:
+                </div>
+                <img className="w-full" src={certificate} alt="certificate" />
+              </div>
+            )}
           </div>
         </div>
       </div>

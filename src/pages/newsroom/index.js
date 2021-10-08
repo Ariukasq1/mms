@@ -157,14 +157,16 @@ const Index = (props) => {
       <FullPage
         children={
           <div id="fullpage">
-            <div className="section px-56 2xl:px-40 xl:px-24  lg:px-20 md:px-20 sm:px-8 news">
-              <div className="brands text-center xl:pt-10 2xl:pt-8">
-                <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
-                  {__("Newsroom")}
+            <div className="section news">
+              <div className="px-56 2xl:px-40 xl:px-24 lg:px-20 md:px-20 sm:px-5 h-body overflow-auto sm:h-auto">
+                <div className="brands text-center">
+                  <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
+                    {__("Newsroom")}
+                  </div>
+                  {renderCategory()}
                 </div>
-                {renderCategory()}
+                {renderPosts()}
               </div>
-              {renderPosts()}
             </div>
           </div>
         }

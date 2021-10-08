@@ -1,121 +1,90 @@
-@media only screen and (min-width: 1441px) {
+@media (min-width: 1367px) and (max-width: 1440px) {
   .industry {
+    .heading-tag {
+      top: 5px;
+    }
     .ant-tabs {
-      .ant-tabs-tab-btn {
-        .title {
-          font-size: 80px;
-        }
-      }
-      .ant-tabs-tab {
-        margin-left: 128px;
-        .image-icon {
-          width: 65px;
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 1500px) {
-  .image {
-    height: 320px;
-  }
-  .heading-title {
-    line-height: 42px;
-  }
-}
-
-@media only screen and (max-width: 1440px) and (min-width: 1367px) {
-  .industry {
-    .ant-tabs {
-      .ant-tabs-tab {
-        margin-left: 128px;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 1366px) and (min-width: 1025px) {
-  .industry {
-    .ant-tabs {
-      .ant-tabs-tab {
-        margin-left: 112px;
-        .image-icon {
-          width: 50px;
-        }
-      }
-    }
-  }
-  .categories {
-    .fp-tableCell {
-      vertical-align: middle;
-    }
-    .image {
-      height: 300px;
-    }
-  }
-}
-
-@media only screen and (max-width: 1024px) and (min-width: 769px) {
-  .history {
-    .slick-slider {
-      .slick-next,
-      .slick-prev {
-        top: 49.5%;
-      }
-    }
-  }
-
-  .h-body-in {
-    height: calc(100vh - 116px);
-  }
-  .h-body-brands {
-    height: calc(100vh - 116px);
-  }
-
-  .relative {
-    overflow: hidden;
-    .bg-contact {
-      padding-top: 116px;
-      .footer-responsive {
-        padding-bottom: 8rem;
-      }
-    }
-  }
-
-  .brands {
-    .single-brand {
-      .logo-wrapper {
-        img {
-          max-width: 200px;
-        }
-      }
-    }
-  }
-
-  .industry {
-    .ant-tabs {
-      .ant-tabs-tab {
-        margin-left: 0px;
-        height: 60px;
-      }
-
       .ant-tabs-nav-list {
-        margin-top: 27%;
+        margin-top: 60px;
       }
+      .ant-tabs-tab {
+        margin-left: 128px;
+      }
+    }
+    > a {
+      bottom: 5%;
+    }
+  }
+  .image {
+    height: 350px;
+  }
+}
 
-      .ant-tabs-tab-active {
-        .title {
-          > .image-icon {
-            height: 20px;
-            width: 50px;
-            margin: 7px 0 0 10px;
-          }
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .image {
+    height: 200px;
+  }
+  .industry {
+    .heading-tag {
+      top: 0px;
+    }
+    .ant-tabs {
+      .ant-tabs-nav-list {
+        margin-top: 70px;
+      }
+      .ant-tabs-tab {
+        margin-left: 6rem;
+      }
+      .ant-tabs-tab-btn .title {
+        > .image-icon {
+          display: none;
+          width: 40px;
+          margin: 5px 0 0 30px;
+          transition: all ease 0.3s;
         }
       }
     }
   }
+  .brands {
+    .heading-title {
+      margin: 0;
+    }
+  }
+}
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .image {
+    height: 250px;
+  }
+  .main-header {
+    height: 114px;
+  }
+  .industry {
+    .heading-tag {
+      top: 0px;
+    }
+    .ant-tabs {
+      .ant-tabs-nav-list {
+        margin-top: 70px;
+      }
+      .ant-tabs-tab {
+        margin-left: 5rem;
+      }
+      .ant-tabs-tab-btn .title {
+        > .image-icon {
+          display: none;
+          width: 30px;
+          margin: 5px 0 0 10px;
+          transition: all ease 0.3s;
+        }
+      }
+    }
+  }
+  .brands {
+    .heading-title {
+      margin: 0;
+    }
+  }
   .footer-responsive {
     display: block;
     padding: 5rem;
@@ -126,1067 +95,118 @@
   .footer-items {
     width: 100%;
   }
-  .slider {
-    .text {
-      width: 60%;
-
-      .title {
-        font-size: 75px;
-      }
-      .desc {
-        font-size: 20px;
-      }
-    }
-  }
-  .section.additional {
-    .odd:first-child {
-      .content {
-        padding-left: 0;
-      }
-    }
-  }
-
-  .brand-p-item {
-    a {
-      .image-wrapper {
-        height: 200px;
-      }
-    }
-  }
-
-  .item-relations {
-    > div {
-      .brands {
-        .slick-slider {
-          .slick-next {
-            right: 20%;
-          }
-        }
-      }
-    }
-  }
-
-  .projects-wrapper {
-    &:nth-child(1) {
-      .brands {
-        .slick-slider {
-          .slick-next {
-            right: 20%;
-          }
-        }
-      }
-    }
-  }
-
-  .portfolio-h-body {
-    height: auto;
-  }
-
-  .footer {
-    .fp-tableCell {
-      height: 100%;
-      .bg-contact {
-        height: 100%;
-        .footer-responsive {
-          height: 100%;
-        }
-      }
-    }
-  }
-
-  .brand-detail-wrapper {
-    .relative {
-      .col-item {
-        height: 100%;
-      }
-    }
-  }
-  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo:before {
-    left: 30%;
-  }
-
-  .history {
-    .slick-slider {
-      .slick-next {
-        right: -12px;
-      }
-
-      .slick-prev {
-        left: -12px;
-        z-index: 1;
-      }
-    }
-  }
-
-  .projects-wrapper {
-    .desc {
-      padding: 0px !important;
-    }
-  }
-
-  .brands {
-    .slick-prev,
-    .slick-next {
-      z-index: 1;
-      bottom: -10%;
-      opacity: 1;
-    }
-
-    .slick-prev {
-      left: 60%;
-      bottom: -10%;
-      z-index: 1;
-    }
-  }
 }
 
-@media only screen and (max-width: 768px) and (min-width: 481px) {
-  .relative {
-    overflow: hidden;
-
-    .bg-contact {
-      padding-top: 116px;
-      .footer-responsive {
-        padding-bottom: 8rem;
-      }
-    }
-  }
-
-  .brand-detail-wrapper {
-    .relative {
-      .col-item {
-        height: 100%;
-      }
-    }
-  }
-  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo:before {
-    left: 23%;
-  }
-
-  .brands {
-    .single-brand {
-      .logo-wrapper {
-        img {
-          max-width: 200px;
-        }
-      }
+@media (min-width: 481px) and (max-width: 768px) {
+  .section {
+    height: max-content !important;
+    .fp-tableCell {
+      height: max-content !important;
     }
   }
 
   .industry {
-    .fp-tableCell {
-      padding-top: 114px;
-    }
     .heading-tag {
       top: 1rem;
       background-color: #fff;
     }
-
     .ant-tabs {
-      display: block;
-
-      .ant-tabs-tab-btn {
-        .title {
-          font-size: 50px;
-        }
-      }
-
-      .ant-tabs-tab {
-        height: 38px;
-        margin: 6px 0px 10px 0px;
-      }
-
       .ant-tabs-nav-list {
-        margin-top: 10%;
-        margin-bottom: 5%;
+        margin-top: 70px;
       }
-
-      .ant-tabs-tab-active {
-        .title {
-          > .image-icon {
-            height: 15px;
-            margin: 10px 0 0 30px;
-          }
-        }
-      }
-    }
-  }
-
-  .ant-tabs-tabpane {
-    padding-left: 0px !important;
-  }
-
-  .footer-responsive {
-    display: block;
-    padding: 4rem;
-  }
-
-  .footer-items-input {
-    width: 100%;
-  }
-
-  .footer-items {
-    width: 100%;
-  }
-
-  .brands {
-    .slick-next {
-      right: 10%;
-    }
-  }
-
-  .slider {
-    .fp-tableCell {
-      padding-top: 114px;
-    }
-    .text {
-      width: 60%;
-
-      .title {
-        font-size: 45px;
-      }
-      .desc {
-        font-size: 20px;
-      }
-    }
-  }
-
-  .section.facts {
-    .fact-item {
-      &:nth-child(1),
-      &:nth-child(2),
-      &:nth-child(3) {
-        border-bottom: 1px solid #fff;
-      }
-
-      &:nth-child(odd) {
-        border-right: none;
-      }
-    }
-  }
-
-  .section.additional {
-    .odd:first-child {
-      .content {
-        padding-left: 0;
-      }
-    }
-  }
-
-  .brand-p-item {
-    a {
-      .image-wrapper {
-        height: 150px;
-      }
-    }
-  }
-  .section.item-detail {
-    .item-image {
-      &:hover {
-        .inner-content-overlay {
-          transform: scaleY(1);
-        }
-        .inner-content-detail {
-          transform: translateY(0px);
-        }
-      }
-    }
-  }
-
-  .portfolio-h-body {
-    height: auto;
-  }
-
-  .projects-wrapper {
-    .desc {
-      padding: 0px !important;
-    }
-  }
-
-  .history {
-    .slick-slider {
-      .slick-next {
-        right: -12px;
-      }
-
-      .slick-prev {
-        left: -12px;
-        z-index: 1;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .project-info.fp-section.fp-table,
-  .fp-section.fp-table.projects {
-    .fp-tableCell {
-      padding: 0;
-    }
-  }
-
-  .arrow {
-    right: 100px;
-  }
-
-  .fp-section.fp-table.timeline {
-    .fp-tableCell {
-      padding-top: 30px;
-    }
-  }
-
-  .what-we-do .fp-tableCell {
-    height: auto !important;
-  }
-
-  .industry {
-    .ant-tabs {
-      .ant-tabs-tab-active {
-        .title {
-          > .image-icon {
-            margin: 10px 0 0 20px;
-          }
+      display: block;
+      .ant-tabs-content {
+        .ant-tabs-tabpane {
+          padding-left: 0;
         }
       }
       .ant-tabs-tab {
-        margin-left: 0px;
+        margin-left: 1.25rem;
       }
-    }
-  }
-
-  .capabilitiesPage {
-    .capabilitiesPageSlider {
-      .brands {
-        .flex {
-          .cat-item {
-            .image {
-              a {
-                .image-wrapper {
-                  height: 250px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .relative {
-    overflow-x: hidden;
-
-    .bg-contact {
-      padding-top: 66px;
-    }
-  }
-
-  .sm\:justify-evenly {
-    justify-content: space-evenly !important;
-  }
-
-  .brands {
-    .slick-prev,
-    .slick-next {
-      bottom: 10px;
-    }
-
-    .slick-prev {
-      left: 50%;
-      z-index: 1;
-    }
-
-    .slick-slide {
-      padding: 0;
-    }
-
-    .category-wrapper {
-      > li::before {
-        content: "> ";
-        padding-left: 5px;
-        float: left;
-        min-height: 25px;
-        margin-right: 5px;
-        display: block;
-      }
-      > span {
-        display: none;
-      }
-    }
-
-    .single-brand {
-      .logo-wrapper {
-        img {
-          max-width: 90%;
-        }
-      }
-    }
-    .single-brand {
-      .bg-img-wrapper {
-        height: 150px;
-      }
-    }
-    .slick-next {
-      right: 10%;
-    }
-  }
-
-  .industry {
-    .ant-tabs {
-      .ant-tabs-tab-btn {
-        .title {
-          font-size: 40px;
-        }
-      }
-
-      .ant-tabs-nav-list {
-        margin-bottom: 30px;
-      }
-    }
-
-    .heading-tag {
-      top: 1rem;
-      background-color: #fff;
-    }
-
-    .ant-tabs {
-      display: block;
-    }
-
-    .ant-tabs-tab {
-      height: 38px;
-      margin: 6px 0px 10px 0px;
-    }
-
-    .ant-tabs-nav-list {
-      margin-top: 10%;
-    }
-
-    .ant-tabs-tab-active {
-      .title {
+      .ant-tabs-tab-btn .title {
         > .image-icon {
-          height: 16px;
+          display: none;
+          margin: 0px 0 0 10px;
+          transition: all ease 0.3s;
         }
       }
     }
-    .ant-tabs {
-      .ant-tabs-tab {
-        height: 35px;
-      }
-    }
   }
-
-  .ant-tabs-tabpane {
-    padding-left: 0px !important;
+  .main-header {
+    height: 114px;
   }
-
   .footer-responsive {
     display: block;
-    padding: 0 1rem;
+    padding: 5rem;
   }
-
   .footer-items-input {
     width: 100%;
   }
   .footer-items {
     width: 100%;
   }
-
-  .h-body {
-    height: calc(100vh - 66px);
-  }
-
-  .h-body-brands {
-    height: auto;
-  }
-
-  .capabilitiesImage {
-    height: auto !important;
-  }
-
-  .fp-section.fp-table {
-    .fp-tableCell {
-      padding-top: 66px;
-    }
-  }
-  .slider {
-    .text {
-      width: 80%;
-      .title {
-        font-size: 20px;
-        margin-bottom: 10px;
-      }
-      .desc {
-        font-size: 10px;
-      }
-    }
-  }
-  .section.facts {
-    .fact-item {
-      &:nth-child(1),
-      &:nth-child(2),
-      &:nth-child(3) {
-        border-bottom: 1px solid #fff;
-      }
-
-      &:nth-child(odd) {
-        border-right: none;
-      }
-    }
-  }
-
-  .section.additional {
-    .odd:first-child {
-      .content {
-        padding-left: 2rem;
-      }
-    }
-  }
-
-  .brand-p-item {
-    a {
-      .image-wrapper {
-        height: 150px;
-      }
-    }
-  }
-
-  .projects-wrapper {
-    &:nth-child(1) {
-      .brands {
-        .slick-slider {
-          .slick-next {
-            right: 8%;
-          }
-        }
-      }
-    }
-  }
-
-  .section.item-detail {
-    .item-image {
-      &:hover {
-        .inner-content-detail {
-          transform: translateY(0px) !important;
-        }
-      }
-    }
-  }
-
-  .brandsProducts h2 {
-    font-size: 25px;
-  }
-
-  .portfolio-h-body {
-    height: auto;
-  }
-
-  .brandsProducts {
-    .brand-p-item {
-      .image-wrapper {
-        height: 200px;
-      }
-
-      .title {
-        min-height: 20px;
-      }
-    }
-  }
-
-  .projects-wrapper {
-    .desc {
-      padding: 0px !important;
-    }
-  }
-  .certification {
-    margin-top: 20px;
-  }
-
-  .history {
-    .slick-slider {
-      .slick-next {
-        right: -12px;
-      }
-
-      .slick-prev {
-        left: -12px;
-        z-index: 1;
-      }
-    }
-  }
-  .career-scroll {
-    overflow: unset;
-    max-height: none;
-  }
-
-  .section.additional {
-    .content {
-      max-height: none;
-    }
-  }
-
-  .history {
-    .slick-slider {
-      .slick-next {
-        right: -20px;
-      }
-
-      .slick-prev {
-        left: -3px;
-        z-index: 1;
-      }
-    }
-  }
-
-  .capabilitiesPageSlider {
-    .brands {
-      .flex {
-        .cat-item {
-          padding: 0px;
-          margin-bottom: 30px;
-        }
-      }
-    }
-  }
-
-  .auto-overflow {
-    max-height: unset !important;
-    overflow: unset !important;
-  }
-
-  .section.item-detail .category-item .item-image .inner-content-detail {
-    padding: 0px 20px;
-  }
-
-  .slider-heigth {
-    height: calc(45vh - 66px);
-  }
-
-  #fullpage {
-    .slider {
-      height: 0px !important;
-
-      .fp-tableCell {
-        height: 0px !important;
-      }
-    }
-  }
-
-  .section.item-detail .category-item .support-content .icon-wrapper img {
-    width: 50px;
-    max-width: 50px;
-  }
-
-  .section.brand-detail .brand-detail-wrapper .col-item .logo img {
-    max-width: 10rem;
-    max-height: 2rem;
-  }
-
-  .section.brand-detail
-    .brand-detail-wrapper
-    .col-item
-    .slogan
-    .slo
-    blockquote {
-    min-width: 180px;
-    min-height: 180px;
-    margin-top: 0px;
-    padding-bottom: 10px;
-  }
-
-  .section.item-detail .category-item .item-image {
-    width: 100%;
-    height: 50vh;
-  }
-
-  .item-image {
-    .inner-content {
-      .inner-content-detail {
-        .auto-overflow {
-          .text-lg {
-            p {
-              margin-bottom: 0px;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo:before {
-    left: 15%;
-    top: -5%;
-    min-width: 60px;
-    font-size: 120px;
-  }
-
-  .footer-responsive {
-    height: auto;
-  }
-
-  html,
-  body {
-    height: auto;
-  }
-
-  .brands .category-wrapper li {
-    width: 100%;
-    font-size: 15px;
-  }
-
-  .section.brand-detail
-    .brand-detail-wrapper
-    .col-item
-    .slogan
-    .slo
-    blockquote
-    span {
-    max-width: 220px;
+  .arrow {
+    position: absolute;
+    bottom: -30px;
+    right: 200px;
   }
 }
 
-@media only screen and (max-width: 320px) {
-  .brands {
-    .category-wrapper {
-      > li::before {
-        display: block;
-        content: "> ";
-        padding-left: 5px;
-        float: left;
-        min-height: 25px;
-        margin-right: 5px;
-      }
-      > span {
-        display: none;
-      }
-    }
+@media (min-width: 320px) and (max-width: 480px) {
+  .section.additional .odd:first-child .content {
+    padding-left: 2rem;
   }
-
-  .section.brand-detail .brand-detail-wrapper .col-item .logo img {
-    max-width: 8rem;
-    height: 2rem;
+  .section.additional h4 {
+    padding-left: 0;
   }
-
-  .section.brand-detail
-    .brand-detail-wrapper
-    .col-item
-    .slogan
-    .slo
-    blockquote {
-    min-width: 180px;
-    min-height: 180px;
-    margin-top: 0px;
-    padding-bottom: 10px;
-  }
-
-  .section.item-detail .category-item .item-image {
-    width: 100%;
-    height: 50vh;
-  }
-
-  .item-image {
-    .inner-content {
-      .inner-content-detail {
-        .auto-overflow {
-          .text-lg {
-            p {
-              margin-bottom: 0px;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .section.brand-detail .brand-detail-wrapper .col-item .slogan .slo:before {
-    left: 11%;
-    top: -5%;
-    min-width: 60px;
-    font-size: 120px;
-  }
-
-  .footer-responsive {
-    height: auto;
-  }
-
-  html,
-  body {
-    height: auto;
-  }
-
-  .brands .category-wrapper li {
-    width: 100%;
-    font-size: 15px;
-  }
-
-  .slider-heigth {
-    height: calc(45vh - 66px);
-  }
-
-  #fullpage {
-    .slider {
-      height: 0px !important;
-
-      .fp-tableCell {
-        height: 0px !important;
-      }
-    }
-  }
-
-  .section.item-detail .category-item .support-content .icon-wrapper img {
-    width: 50px;
-    max-width: 50px;
-  }
-
-  .industry {
-    .fp-tableCell {
-      .fp-scrollable {
-        height: 568px;
-      }
-    }
-
-    .ant-tabs {
-      .ant-tabs-tab-active {
-        .title {
-          > .image-icon {
-            height: 15px;
-            margin: 10px 0 0 30px;
-          }
-        }
-      }
-    }
-  }
-
-  .capabilitiesPage {
-    .capabilitiesPageSlider {
-      .brands {
-        .flex {
-          .cat-item {
-            .image {
-              a {
-                .image-wrapper {
-                  height: 250px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .history {
-    .slick-slider {
-      .slick-next {
-        right: -20px;
-      }
-
-      .slick-prev {
-        left: -3px;
-        z-index: 1;
-      }
-    }
-  }
-
-  .section.additional {
-    .content {
-      max-height: none;
-    }
-  }
-
-  .career-scroll {
-    overflow: unset;
-    max-height: none;
-  }
-
-  .history {
-    .slick-slider {
-      .slick-next {
-        right: -12px;
-      }
-
-      .slick-prev {
-        left: -12px;
-        z-index: 1;
-      }
-    }
-  }
-
-  .certification {
-    margin-top: 20px;
-  }
-
-  .industry {
-    .ant-tabs {
-      .ant-tabs-tab-btn {
-        .title {
-          font-size: 35px;
-        }
-      }
-    }
-  }
-
-  .slider {
-    .text {
-      width: 90%;
-
-      .title {
-        font-size: 25px;
-      }
-
-      .desc {
-        font-size: 15px;
-      }
-    }
-  }
-
-  .Industries-btn {
-    margin: 0px 0px -2rem 5.5rem;
-  }
-  .brands-wrap {
-    margin-left: 0px;
-    margin-right: 1px;
-  }
-
-  .h-body {
-    height: calc(100vh - 66px);
-  }
-
-  .h-body-brands {
-    height: auto;
-  }
-
-  .socials {
-    flex-wrap: wrap;
-  }
-  .brands .slick-prev {
-    left: 10% !important;
-  }
-
-  .brands {
-    .slick-slide {
-      padding: 0;
-    }
-
-    .slick-prev {
-      left: 10%;
-    }
-
-    .slick-next {
-      right: 10%;
-    }
-  }
-  .fp-section.fp-table {
+  .section {
+    height: max-content !important;
     .fp-tableCell {
       padding-top: 66px;
+      height: max-content !important;
     }
   }
-  .brands {
-    .single-brand {
-      .bg-img-wrapper {
-        max-width: 250px;
-      }
-      .bg-img-wrapper {
-        height: 150px;
-      }
+  .industry {
+    .heading-tag {
+      top: 1rem;
+      background-color: #fff;
     }
-  }
-
-  .news-slider {
-    .slick-slider {
-      .slick-prev {
-        left: 60%;
+    .ant-tabs {
+      .ant-tabs-nav-list {
+        margin-top: 70px;
       }
-    }
-  }
-
-  .section.facts {
-    .fact-item {
-      &:nth-child(1),
-      &:nth-child(2) {
-        border-bottom: 1px solid #fff;
+      display: block;
+      .ant-tabs-content {
+        .ant-tabs-tabpane {
+          padding-left: 0;
+        }
       }
-
-      &:nth-child(odd) {
-        border-right: none;
+      .ant-tabs-tab {
+        margin-left: 1.25rem;
       }
-    }
-  }
-
-  .section.additional {
-    .odd:first-child {
-      .content {
-        padding-left: 0;
-      }
-    }
-  }
-
-  .brand-p-item {
-    a {
-      .image-wrapper {
-        height: 130px;
-      }
-    }
-  }
-
-  .projects-wrapper {
-    &:nth-child(1) {
-      .brands {
-        .slick-slider {
-          .slick-next {
-            right: 6%;
-          }
+      .ant-tabs-tab-btn .title {
+        > .image-icon {
+          display: none;
+          width: 40px;
+          margin: 0px 0 0 10px;
+          transition: all ease 0.3s;
         }
       }
     }
   }
-
-  .section.item-detail {
-    .item-image {
-      &:hover {
-        .inner-content-detail {
-          transform: translateY(0px) !important;
-        }
-      }
-    }
+  .footer-items-input {
+    width: 100%;
   }
-
-  .portfolio-h-body {
-    height: auto;
+  .footer-items {
+    width: 100%;
   }
-
-  .section.brand-detail .brand-detail-wrapper .col-item {
-    padding-right: 1rem;
+  .arrow {
+    position: absolute;
+    bottom: 0px;
+    right: 200px;
   }
-
-  .section.brand-detail
-    .brand-detail-wrapper
-    .col-item
-    .slogan
-    .slo
-    blockquote {
-    min-width: 200px;
-    min-height: 200px;
-  }
-
-  .section.brand-detail .brand-detail-wrapper .col-item .logo img {
-    max-width: 10rem;
-  }
-
-  .brandsProducts {
-    .brand-p-item {
-      .image-wrapper {
-        height: 200px;
-      }
-
-      .title {
-        min-height: 20px;
-      }
-    }
-  }
-
-  .projects-wrapper {
-    .desc {
-      padding: 0px !important;
-    }
+  .footer-responsive {
+    display: block;
+    padding: 20px 0 0 0;
   }
 }

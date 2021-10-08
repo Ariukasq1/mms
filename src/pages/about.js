@@ -111,12 +111,12 @@ const About = (props) => {
             <div className="section about-us">
               <div
                 className={
-                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:pl-8 sm:pr-6 lg:block md:block md:pl-16 xl:pt-10"
+                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:pl-8 sm:pr-6 lg:block md:block md:pl-16 h-body pt-10 overflow-auto sm:h-auto sm:overflow-hidden md:h-body"
                 }
               >
                 <div
                   className={
-                    "w-1/2 mr-16 lg:mr-0 lg:w-full md:w-full sm:w-full sm:mb-10"
+                    "w-1/2 mr-16 lg:mr-0 lg:w-full md:w-full sm:w-full sm:mb-10 "
                   }
                   data-aos="fade-right"
                 >
@@ -127,11 +127,11 @@ const About = (props) => {
                 </div>
                 <div
                   className={
-                    " w-1/2 flex items-center lg:w-full md:w-full sm:w-full"
+                    "w-1/2 flex items-center lg:w-full md:w-full sm:w-full"
                   }
                   data-aos="fade-left"
                 >
-                  <div>
+                  <div className="h-full overflow-auto">
                     <h2
                       className={
                         "text-menuTextColor leading-8 font-bold text-2xl mb-10 lg:mt-10 sm:mb-3"
@@ -145,7 +145,7 @@ const About = (props) => {
                     </h2>
                     <div
                       className={
-                        "careerDetails text-lg pr-20 sm:pr-0 lg:pr-0 md:pr-0 sm:text-base"
+                        "careerDetails text-lg pr-20 sm:pr-0 lg:pr-0 md:pr-0 sm:text-base xl:pr-0 "
                       }
                       dangerouslySetInnerHTML={{
                         __html: post.content.rendered,
@@ -156,9 +156,9 @@ const About = (props) => {
               </div>
             </div>
             <div className="section what-we-do project-info ">
-              <div className="xl:pt-10 2xl:pt-10">
+              <div className="h-full overflow-auto sm:h-auto md:h-body">
                 <div className="text-center brands sm:px-8">
-                  <div className="heading-tag capitalize text-xl mt-20 font-bold sm:text-lg sm:mt-0 2xl:mt-25">
+                  <div className="heading-tag capitalize text-xl font-bold sm:text-lg sm:mt-0">
                     {__("What we do")}
                   </div>
                   <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
@@ -172,16 +172,20 @@ const About = (props) => {
               </div>
             </div>
             <div className="section timeline odd">
-              <div className="text-center brands sm:px-8">
-                <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
-                  {__("Our history")}
+              <div className="h-body overflow-auto md:h-body sm:h-auto">
+                <div className="text-center brands sm:px-8">
+                  <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 2xl:mb-0">
+                    {__("Our history")}
+                  </div>
                 </div>
-              </div>
-              <div className="px-40 relative xl:px-24 lg:px-20 md:px-16 sm:px-8">
-                <div className="history relative">
-                  <Slider {...settings} className="h-full">
-                    {props.histories.map((history) => renderTimeline(history))}
-                  </Slider>
+                <div className="px-40 relative xl:px-24 lg:px-20 md:px-16 sm:px-8">
+                  <div className="history relative">
+                    <Slider {...settings} className="h-full">
+                      {props.histories.map((history) =>
+                        renderTimeline(history)
+                      )}
+                    </Slider>
+                  </div>
                 </div>
               </div>
             </div>

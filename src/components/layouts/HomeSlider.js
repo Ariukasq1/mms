@@ -4,7 +4,7 @@ import Slider from "react-slick";
 const settings = {
   className: "center",
   infinite: true,
-  autoplay: true,
+  autoplay: false,
   autplaySpeed: 4000,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -45,14 +45,14 @@ const HomeSlider = ({ sliders }) => {
                   : position_of_text || "left"
                 : "space-between",
           }}
-          className={`slider-heigth h-body px-56 flex justify-between items-center sm:justify-evenly sm:px-10 sm:flex-col md:px-24 lg:px-20 ${
+          className={`px-56 flex justify-between items-center h-body lg:px-28 md:px-5 sm:px-5 ${
             position_of_image === "right"
               ? "flex-row"
               : position_of_image === "left" && "flex-row-reverse"
           }`}
         >
           <div
-            className="text w-1/2"
+            className="text w-1/2 md:w-screen"
             data-aos="fade-down"
             style={{
               width:
@@ -63,7 +63,7 @@ const HomeSlider = ({ sliders }) => {
             }}
           >
             <div
-              className="title text-7xl font-semibold leading-snug xl:text-6xl sm:text-xl 2xl:text-6xl"
+              className="title text-7xl font-semibold leading-snug xl:text-6xl lg:text-5xl sm:text-xl 2xl:text-6xl md:text-2xl"
               dangerouslySetInnerHTML={{ __html: text }}
               style={{
                 color: font_color,
@@ -71,7 +71,7 @@ const HomeSlider = ({ sliders }) => {
               }}
             />
             <div
-              className="desc text-2xl opacity-80 xl:text-xl sm:text-tiny"
+              className="desc text-2xl opacity-80 xl:text-xl sm:text-tiny md:text-tiny"
               dangerouslySetInnerHTML={{ __html: description }}
               style={{
                 color: font_color,

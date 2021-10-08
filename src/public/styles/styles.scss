@@ -5,11 +5,18 @@
 @import "./base/general.scss";
 @import "./base/footer.scss";
 
-// components
+@import "./newStyle/home.scss";
+@import "./newStyle/portfolio.scss";
+@import "./newStyle/about.scss";
+@import "./newStyle/news.scss";
+@import "./newStyle/career.scss";
 @import "./main.scss";
-@import "./components/home.scss";
-@import "./components/item.scss";
 @import "./components/brands.scss";
+// components
+/* 
+@import "./components/home.scss";
+@import "./components/item.scss"; */
+
 @import "./components/industries.scss";
 
 @import "./base/responsiveness.scss";

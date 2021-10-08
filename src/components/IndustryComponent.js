@@ -15,7 +15,7 @@ const IndustryComponent = ({ industries }) => {
 
   return (
     <div className="industry relative justify-between items-center">
-      <div className="heading-tag capitalize text-2xl 2xl:pl-32 font-bold pl-32 top-16 absolute sm:text-lg xl:pl-28 lg:pl-24 md:pl-16 sm:pl-8">
+      <div className="heading-tag capitalize text-2xl font-bold top-16 absolute ml-48 2xl:ml-32 xl:ml-24 lg:ml-20 md:ml-5 sm:ml-5">
         {__("Industries")}
       </div>
       <Tabs defaultActiveKey="0" tabPosition="left">
@@ -29,7 +29,7 @@ const IndustryComponent = ({ industries }) => {
               key={i}
               tab={
                 <div
-                  className="title md:pt-8 2xl:text-6xl xl:text-5xl lg:text-4xl lg:ml-24 md:text-4xl md:p-16 sm:text-3xl sm:pl-8 "
+                  className="title text-6xl 2xl:text-5xl xl:text-4xl lg:text-4xl md:text-4xl sm:text-3xl"
                   /* data-aos="fade-right"
                   data-aos-easing="ease-in"
                   data-aos-delay={i * 150}
@@ -42,9 +42,8 @@ const IndustryComponent = ({ industries }) => {
               }
             >
               <div
-                className="w-full h-body relative md:pr-8"
+                className="w-full h-body relative"
                 style={{
-                  flexBasis: "50%",
                   backgroundImage: `url(${getData(item._embedded, "image")})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
@@ -52,7 +51,7 @@ const IndustryComponent = ({ industries }) => {
                 }}
               >
                 <div className="bg-black opacity-50 absolute inset-0" />
-                <div className="desc text-lg p-20 pr-32 text-white overflow-ellipsis overflow-hidden font-medium relative h-80 sm:text-base,w-full sm:pl-16 sm:pr-10 sm:text-sm sm:py-8 md:w-full md:py-20 md:pl-10 md:text-sm lg:w-9/10 lg:px-16 lg:py-30 2xl:p-20  overflow-ellipsis lg:w-9/10 xl:p-12">
+                <div className="desc text-lg p-20 pr-32 text-white overflow-ellipsis overflow-hidden font-medium relative w-full sm:pl-16 sm:pr-10 sm:text-sm md:w-full md:py-20 md:pl-10 md:text-sm lg:px-10 lg:py-10 2xl:p-20 sm:py-5 overflow-ellipsis xl:p-12 sm:h-full">
                   <div
                     dangerouslySetInnerHTML={{
                       __html: item.content.rendered,
@@ -65,7 +64,7 @@ const IndustryComponent = ({ industries }) => {
         })}
       </Tabs>
       <Link href={`industries?lang=${currentLanguage}`}>
-        <a className="Industries-btn text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-32 sm:ml-16 md:m-0 2xl:ml-32 xl:ml-28 lg:ml-24">
+        <a className="Industries-btn text-sm capitalize font-semibold rounded-full btn-gradient py-3 px-10 absolute bottom-16 ml-48 xl:ml-24 lg:ml-20 2xl:ml-32 md:ml-5 sm:ml-5">
           {__("Read more")}
         </a>
       </Link>

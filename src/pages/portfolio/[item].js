@@ -28,7 +28,7 @@ const SliderSubCategories = (props) => {
 
     return (
       <div
-        className="cat-item bg-white"
+        className="cat-item bg-white w-1/3 lg:w-full md:w-full sm:w-full"
         key={index}
         data-aos="fade-down"
         data-aos-easing="ease"
@@ -199,7 +199,7 @@ const Item = (props) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-64 xl:px-20 md:pt-28 2xl:px-40 md:px-20 lg:px-24 sm:px-8">
+                <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-20 lg:px-24 sm:px-8 h-body overflow-auto sm:h-auto">
                   <div className="brands">
                     <h2 className=" text-3xl font-bold mb-8 capitalize">
                       {__("Portfolio")}
@@ -214,9 +214,9 @@ const Item = (props) => {
               </div>
             </div>
             <div className="section project-info">
-              <div className="pl-24 xl:pt-28 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0">
-                <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full lg:block md:block sm:block">
-                  <div className="flex flex-col mx-12 mt-20 lg:pl-12 lg:mr-2 lg:mt-5 md:pl-10 md:mr-2 md:mt-5 sm:mx-8 sm:mt-5 lg:mb-5 md:mb-5 sm:mb-5 xl:mt-5 2xl:mt-0 3xl:mt-5">
+              <div className="pl-24 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0 h-body overflow-auto sm:h-auto">
+                <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full h-full lg:block md:block sm:block sm:h-auto">
+                  <div className="flex flex-col mx-12 lg:pl-12 lg:mr-2 lg:mt-5 md:pl-10 md:mr-2 md:mt-5 sm:mx-8 sm:mt-5 lg:mb-5 md:mb-5 sm:mb-5 2xl:mt-0 3xl:mt-5 h-full overflow-auto lg:h-auto md:h-auto sm:h-auto">
                     <h2
                       className="text-2xl capitalize font-bold text-menuTextColor mb-8 xl:mb-1 2xl:mb-2"
                       dangerouslySetInnerHTML={{
@@ -232,7 +232,7 @@ const Item = (props) => {
                   </div>
                   <div>
                     <img
-                      className="object-cover object-center portfolio-h-body lg:pl-20 lg:h-auto md:pl-20 md:h-auto sm:h-auto h-body"
+                      className="object-cover object-center portfolio-h-body lg:pl-20 md:pl-20 h-full"
                       src={getData(post._embedded, "image")}
                     />
                   </div>
@@ -240,12 +240,12 @@ const Item = (props) => {
               </div>
             </div>
             <div
-              className="section projects"
+              className="section projects "
               style={{
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 xl:pt-28 md:pl-16 lg:pl-16 sm:px-8">
+              <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:pl-16 lg:pl-16 sm:px-8 h-body overflow-auto sm:h-auto sm:overflow-hidden sm:pb-16">
                 <div className="desc mb-10 xl:mb-5 sm:mb-5">
                   <h4 className="mb-5">
                     <div

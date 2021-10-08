@@ -94,7 +94,7 @@ class Brands extends React.Component {
               <div className="section odd">
                 <div
                   className={
-                    "brandsProducts px-40 flex flex-col xl:pt-28 xl:p-16 lg:px-24 md:px-20 sm:py-12 sm:px-8"
+                    "brandsProducts px-40 flex flex-col h-body xl:p-16 lg:px-24 md:px-20 sm:py-12 sm:px-8"
                   }
                 >
                   <div className="flex items-center justify-between sm:block sm:leading-8">

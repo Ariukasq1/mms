@@ -18,7 +18,7 @@ const SliderSubCategories = (props) => {
 
     return (
       <div
-        className="cat-item bg-white md:mb-10 sm:mb-10"
+        className="cat-item bg-white md:mb-10 sm:mb-10 w-1/4 lg:w-full md:w-full sm:w-full"
         key={index}
         data-aos="fade-down"
         data-aos-easing="ease"
@@ -81,7 +81,7 @@ const SliderSubCategories = (props) => {
   }
 
   return (
-    <Slider {...sliderSettings} className="h-full">
+    <Slider {...sliderSettings} className="h-full ">
       {renderContent}
     </Slider>
   );
