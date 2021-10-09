@@ -64,11 +64,7 @@ class BrandsComponent extends React.Component {
     });
 
     if (filteredBrands.length > 4) {
-      return (
-        <Slider {...sliderSettings} className="sm:px-5">
-          {content}
-        </Slider>
-      );
+      return <Slider {...sliderSettings}>{content}</Slider>;
     }
 
     return (
@@ -83,7 +79,7 @@ class BrandsComponent extends React.Component {
     const { brandId } = this.state;
 
     const categories = (
-      <ul className="flex justify-center category-wrapper mb-20 xl:mb-5 sm:mb-5 sm:justify-start sm:text-left 2xl:mb-5 lg:mb-2 lg:pl-0 md:mb-2 md:justify-start md:pl-0 flex-wrap">
+      <ul className="flex justify-center category-wrapper mb-20 xl:mb-5 sm:mb-5 sm:justify-start sm:text-left 2xl:mb-5 lg:mb-2 lg:pl-0 md:mb-2 md:justify-start md:pl-0 flex-wrap sm:pl-0">
         <li
           className={`text-base font-medium pr-2 list-none ${
             brandId === 0 ? "active" : ""
@@ -114,10 +110,10 @@ class BrandsComponent extends React.Component {
     return (
       <div className="justify-start items-start brands pl-32 pr-16 sm:px-5 lg:px-16 overflow-auto md:p-10 h-body sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
         <div className="text-center sm:text-left">
-          <div className="heading-tag capitalize text-xl font-bold sm:text-lg sm:ml-5">
+          <div className="heading-tag capitalize text-xl font-bold sm:text-lg ">
             {__("Brands")}
           </div>
-          <div className="heading-title capitalize text-5xl mt-2 mb-6 xl:text-4xl sm:text-2xl sm:leading-7 sm:my-4 sm:font-semibold sm:ml-5">
+          <div className="heading-title capitalize text-5xl mt-2 mb-6 xl:text-4xl sm:text-2xl sm:leading-7 sm:my-4 sm:font-semibold">
             {__("Our products")}
           </div>
           {categories}

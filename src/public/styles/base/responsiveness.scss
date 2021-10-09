@@ -156,9 +156,15 @@
   .section.additional h4 {
     padding-left: 0;
   }
+  .image {
+    height: 250px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .image {
+    height: 200px;
+  }
   .section.additional .odd:first-child .content {
     padding-left: 2rem;
   }
