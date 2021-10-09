@@ -47,7 +47,7 @@ class ItemFacts extends React.Component {
 
     return (
       <div
-        className="item-facts h-body sm:h-auto object-cover bg-no-repeat bg-cover text-white relative z-0 flex "
+        className="item-facts h-body sm:h-auto object-cover bg-no-repeat bg-cover text-white relative z-0 flex md:h-auto"
         style={{
           backgroundImage: `url(${
             post && post.acf && (post.acf || {}).bg_image

@@ -85,19 +85,19 @@ const About = (props) => {
   };
 
   const cats = (
-    <ul className="flex justify-center category-wrapper mb-20 xl:mb-10 sm:text-left sm:mb-10 2xl:mb-10">
+    <ul className="flex justify-center category-wrapper flex-wrap mb-20 xl:mb-10 sm:text-left sm:mb-10 2xl:mb-10 md:pl-0 sm:pl-0 sm:justify-start">
       {categories.map((category) => (
         <React.Fragment key={category.id}>
           <li
             key={category.id}
-            className={`text-lg sm:w-full font-medium p-2 ${
+            className={`text-lg font-medium pr-2 list-none ${
               activeId === category.id ? "active" : ""
             }`}
             onClick={onTabChange.bind(this, category.id)}
           >
             {category.name}
+            <span className="pl-2 pt-1">|</span>
           </li>
-          <span className="py-2 font-bold">/</span>
         </React.Fragment>
       ))}
     </ul>
@@ -111,7 +111,7 @@ const About = (props) => {
             <div className="section about-us">
               <div
                 className={
-                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:pl-8 sm:pr-6 lg:block md:block md:pl-16 h-body pt-10 overflow-auto sm:h-auto sm:overflow-hidden md:h-body"
+                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:px-5 lg:block md:block md:px-10 h-body pt-10 overflow-auto sm:h-auto sm:overflow-hidden md:h-auto"
                 }
               >
                 <div
@@ -156,7 +156,7 @@ const About = (props) => {
               </div>
             </div>
             <div className="section what-we-do project-info ">
-              <div className="h-full overflow-auto sm:h-auto md:h-body">
+              <div className="h-full overflow-auto sm:h-auto md:h-auto">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-tag capitalize text-xl font-bold sm:text-lg sm:mt-0">
                     {__("What we do")}
@@ -166,13 +166,13 @@ const About = (props) => {
                   </div>
                   {cats}
                 </div>
-                <div className={"px-32 xl:px-24 lg:px-20 md:px-10 sm:px-8"}>
+                <div className={"px-32 xl:px-24 lg:px-20 md:px-10 sm:px-5"}>
                   {renderWhatWeDo()}
                 </div>
               </div>
             </div>
             <div className="section timeline odd">
-              <div className="h-body overflow-auto md:h-body sm:h-auto">
+              <div className="h-body overflow-auto md:h-auto sm:h-auto">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 2xl:mb-0">
                     {__("Our history")}

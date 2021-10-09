@@ -50,7 +50,7 @@ const settings = {
         rows: 2,
         infinite: true,
         slidesPerRow: 1,
-        dots: true,
+        dots: false,
       },
     },
     {
@@ -60,6 +60,7 @@ const settings = {
         rows: 2,
         infinite: true,
         slidesPerRow: 1,
+        dots: false,
       },
     },
     {
@@ -69,6 +70,7 @@ const settings = {
         rows: 1,
         infinite: true,
         slidesPerRow: 1,
+        dots: false,
       },
     },
   ],
@@ -120,14 +122,14 @@ const Index = (props) => {
         {categories.map((category) => (
           <React.Fragment key={category.id}>
             <li
-              className={`text-base font-medium p-2 text-left ${
+              className={`text-base font-medium pr-2 text-left list-none ${
                 catId === category.id ? "active" : ""
               }`}
               onClick={() => onClick(category.id)}
             >
               {category.name}
+              <span className="pl-2 font-bold">|</span>
             </li>
-            <span className="py-2 font-bold">/</span>
           </React.Fragment>
         ))}
       </ul>
@@ -158,7 +160,7 @@ const Index = (props) => {
         children={
           <div id="fullpage">
             <div className="section news">
-              <div className="px-56 2xl:px-40 xl:px-24 lg:px-20 md:px-20 sm:px-5 h-body overflow-auto sm:h-auto">
+              <div className="px-56 2xl:px-40 xl:px-24 lg:px-20 md:px-10 sm:px-5 h-body overflow-auto sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
                 <div className="brands text-center">
                   <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
                     {__("Newsroom")}

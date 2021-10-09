@@ -92,7 +92,7 @@ const Portfolio = (props) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-64 xl:px-32 md:pt-28 2xl:px-40 md:px-20 lg:px-24 sm:px-8 h-body overflow-auto">
+                <div className="capabilitiesPageSlider px-64 xl:px-32 2xl:px-40 md:px-10 lg:px-24 sm:px-5 h-body overflow-auto md:h-auto sm:h-auto">
                   <div className="brands">
                     <h2 className=" text-3xl font-bold mb-8 capitalize">
                       {__("Portfolio")}

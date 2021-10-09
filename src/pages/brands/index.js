@@ -9,13 +9,16 @@ const Brands = (props) => {
   return (
     <Layout>
       <FullPage
+        page="brands"
         children={
-          <div className="section brands">
-            <BrandsComponent
-              brands={props.brands}
-              brandCategories={props.brandCategories}
-            />
-          </div>
+          <>
+            <div className="section brands">
+              <BrandsComponent
+                brands={props.brands}
+                brandCategories={props.brandCategories}
+              />
+            </div>
+          </>
         }
       />
     </Layout>

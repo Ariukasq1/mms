@@ -96,7 +96,7 @@ const News = (props) => {
             <div className="section news-detail">
               <div
                 className={
-                  "pl-24 flex flex-row justify-center items-center h-body lg:block lg:pl-20 md:block sm:block sm:px-8 sm:h-auto sm:flex-col lg:overflow-auto md:overflow-auto"
+                  "pl-24 flex flex-row justify-center items-center h-body lg:block lg:pl-20 md:block sm:block sm:px-5 sm:h-auto lg:overflow-auto md:overflow-auto md:h-auto md:px-10"
                 }
               >
                 <div
@@ -136,7 +136,7 @@ const News = (props) => {
               </div>
             </div>
             <div className="section odd otherNews">
-              <div className="pl-40 pr-12 md:pl-24 md:pr-0 sm:px-8 h-body overflow-auto sm:h-auto">
+              <div className="pl-40 pr-12 md:px-10 sm:px-5 h-body overflow-auto sm:h-auto md:h-auto md:overflow-hidden md:pb-10 sm:pb-10">
                 <h2 className=" text-3xl font-bold mb-8 capitalize">
                   {__("Related news")}
                 </h2>

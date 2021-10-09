@@ -53,7 +53,7 @@ class Footer extends React.Component {
     return (
       <footer
         className={
-          "bg-contact relative text-white h-body overflow-auto sm:h-auto"
+          "bg-contact relative text-white h-full overflow-auto sm:h-auto md:h-auto"
         }
       >
         <div

@@ -900,9 +900,6 @@ figcaption {
   width: 80px;
   transition: width 0.4s ease;
 }
-.section.projects .desc {
-  padding: 0 2.5rem;
-}
 .section.projects .desc p {
   max-height: 140px;
   overflow: auto;
@@ -920,6 +917,32 @@ figcaption {
 .section.projects .project-slider .slick-prev {
   top: 105%;
   transform: initial;
+}
+
+.section.portfolio-usage {
+  background-image: url("/images/materialBack.jpg");
+}
+.section.portfolio-usage:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+.section.portfolio-usage h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.section.portfolio-usage .round-img {
+  flex-shrink: 0;
+}
+.section.portfolio-usage .material {
+  transition: all ease 0.3s;
+}
+.section.portfolio-usage .material:hover {
+  background-color: #eaf2ff;
 }
 
 .section.what-we-do .fp-tableCell {
@@ -1944,6 +1967,14 @@ label {
     position: absolute;
     bottom: -30px;
     right: 200px;
+  }
+
+  .section.additional .odd:first-child .content {
+    padding-left: 0;
+  }
+
+  .section.additional h4 {
+    padding-left: 0;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {

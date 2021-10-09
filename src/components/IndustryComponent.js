@@ -30,11 +30,11 @@ const IndustryComponent = ({ industries }) => {
               tab={
                 <div
                   className="title text-6xl 2xl:text-5xl xl:text-4xl lg:text-4xl md:text-4xl sm:text-3xl"
-                  /* data-aos="fade-right"
+                  data-aos="fade-right"
                   data-aos-easing="ease-in"
                   data-aos-delay={i * 150}
                   data-aos-duration={"2000"}
-                  data-aos-offset="300" */
+                  data-aos-offset="300"
                 >
                   {item.title.rendered}
                   <img className="image-icon" src={arrowImage} />

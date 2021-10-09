@@ -150,6 +150,12 @@
     bottom: -30px;
     right: 200px;
   }
+  .section.additional .odd:first-child .content {
+    padding-left: 0;
+  }
+  .section.additional h4 {
+    padding-left: 0;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

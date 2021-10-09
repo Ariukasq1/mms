@@ -118,7 +118,7 @@ export const sliderSettings = {
         slidesToShow: 2,
         slidesToScroll: 2,
         infinite: true,
-        dots: true,
+        dots: false,
       },
     },
     {
@@ -127,7 +127,7 @@ export const sliderSettings = {
         slidesToShow: 1,
         slidesToScroll: 2,
         // initialSlide: 2,
-        dots: true,
+        dots: false,
       },
     },
     {
@@ -135,6 +135,7 @@ export const sliderSettings = {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
+        dots: false,
       },
     },
   ],

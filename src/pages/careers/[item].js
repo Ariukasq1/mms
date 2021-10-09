@@ -18,8 +18,8 @@ const renderCulture = (items, currentId, currentTitle) => {
     }
 
     const renderContent = (item) => (
-      <div className="flex md:block sm:block h-body overflow-auto sm:h-auto">
-        <div className="w-1/2 p-20 md:w-full sm:w-full sm:pb-10 sm:pt-0 sm:px-8">
+      <div className="flex md:block sm:block h-body overflow-auto sm:h-auto md:h-auto">
+        <div className="w-1/2 p-20 md:w-full sm:w-full sm:pb-10 sm:pt-0 sm:px-5 md:p-10">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {currentTitle}
           </div>
@@ -87,8 +87,8 @@ const renderCulture = (items, currentId, currentTitle) => {
           </div>
         </div>
       ) : item.slug.includes("benefits") ? (
-        <div className="benefits flex md:block sm:block lg:block h-body overflow-auto sm:h-auto">
-          <div className="w-1/2 flex flex-col flex-center pl-32 pr-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:pl-12 md:pr-8 md:pb-10 sm:px-8 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-5 sm:pt-5 first-col">
+        <div className="benefits flex md:block sm:block lg:block h-body overflow-auto sm:h-auto md:h-auto">
+          <div className="w-1/2 flex flex-col flex-center pl-32 pr-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:px-10 md:pb-10 sm:px-5 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-5 first-col">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
@@ -176,8 +176,8 @@ const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
 
         return (
           <div className="category-item">
-            <div className="flex md:block sm:block h-body md:overflow-auto sm:h-auto">
-              <div className="w-3/5 px-20 md:w-full md:pb-5 sm:w-full sm:pt-0 sm:pb-10 sm:px-8">
+            <div className="flex md:block sm:block h-body md:overflow-auto sm:h-auto md:h-auto">
+              <div className="w-3/5 px-20 md:w-full md:pb-5 sm:w-full sm:pt-0 sm:pb-10 sm:px-5 md:px-10">
                 <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
                   {currentTitle}
                 </div>
@@ -231,8 +231,8 @@ const renderProcess = (items, currentId, currentTitle) => {
   return (
     <div className={`section vacancies item-detail`}>
       <div className="category-item">
-        <div className="flex md:block sm:block h-body md:overflow-auto sm:h-auto">
-          <div className="w-1/2 px-20 pt-5 xl:pr-4 lg:w-full md:w-full sm:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:pr-5 md:pb-5 sm:px-8 sm:py-5">
+        <div className="flex md:block sm:block h-body md:overflow-auto sm:h-auto md:h-auto">
+          <div className="w-1/2 px-20 pt-5 xl:pr-4 lg:w-full md:w-full sm:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:px-10 md:pb-5 sm:p-5">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
@@ -317,7 +317,7 @@ const Item = (props) => {
   const post = props.detail[0];
 
   const renderValues = () => (
-    <div className="px-72 xl:px-20 2xl:px-28 lg:pl-20 lg:pr-5 md:px-5 sm:px-12 h-body overflow-auto sm:h-auto">
+    <div className="px-72 xl:px-20 2xl:px-28 lg:pl-20 lg:pr-5 md:px-10 sm:px-5 h-body overflow-auto sm:h-auto md:h-auto">
       <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
         {__("human resource")}
       </div>
@@ -372,7 +372,7 @@ const Item = (props) => {
   const renderFaq = () => {
     return (
       <div className="section faq">
-        <div className="px-72 xl:px-24 lg:pl-24 lg:pr-10 md:pl-20 md:pr-10 sm:px-8 h-body overflow-auto sm:h-auto">
+        <div className="px-72 xl:px-24 lg:pl-24 lg:pr-10 md:pl-20 md:pr-10 sm:px-8 h-body overflow-auto sm:h-auto md:h-auto">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {__("Human Resource")}
           </div>

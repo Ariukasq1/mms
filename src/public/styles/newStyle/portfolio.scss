@@ -79,8 +79,6 @@
   }
 
   .desc {
-    padding: 0 2.5rem;
-
     p {
       max-height: 140px;
       overflow: auto;
@@ -100,5 +98,36 @@
   .project-slider .slick-prev {
     top: 105%;
     transform: initial;
+  }
+}
+
+.section.portfolio-usage {
+  background-image: url("/images/materialBack.jpg");
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .round-img {
+    flex-shrink: 0;
+  }
+
+  .material {
+    transition: all ease 0.3s;
+
+    &:hover {
+      background-color: #eaf2ff;
+    }
   }
 }

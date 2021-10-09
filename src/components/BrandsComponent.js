@@ -36,7 +36,7 @@ class BrandsComponent extends React.Component {
 
       return (
         <div key={index} className="single-brand sm:mb-10">
-          <div className="logo-wrapper h-16 w-64 xl:h-10 xl:w-40 lg:h-10 lg:w-40 2xl:w-40 2xl:h-12">
+          <div className="logo-wrapper h-16 w-64 md:h-10 md:w-32 xl:h-10 xl:w-40 lg:h-10 lg:w-40 2xl:w-40 2xl:h-12">
             <img src={logo} className="object-contain h-full" alt="logo" />
           </div>
           <Link href={`/brands/${brand.slug}?lang=${currentLanguage}`} passHref>
@@ -63,8 +63,12 @@ class BrandsComponent extends React.Component {
       );
     });
 
-    if (filteredBrands.length >= 5) {
-      return <Slider {...sliderSettings}>{content}</Slider>;
+    if (filteredBrands.length > 4) {
+      return (
+        <Slider {...sliderSettings} className="sm:px-5">
+          {content}
+        </Slider>
+      );
     }
 
     return (
@@ -79,36 +83,36 @@ class BrandsComponent extends React.Component {
     const { brandId } = this.state;
 
     const categories = (
-      <ul className="flex justify-center category-wrapper mb-20 xl:mb-5 sm:mb-5 sm:justify-start sm:text-left 2xl:mb-5 lg:mb-2 lg:pl-0 md:mb-2">
+      <ul className="flex justify-center category-wrapper mb-20 xl:mb-5 sm:mb-5 sm:justify-start sm:text-left 2xl:mb-5 lg:mb-2 lg:pl-0 md:mb-2 md:justify-start md:pl-0 flex-wrap">
         <li
-          className={`text-base font-medium py-2 px-3 sm:pl-0 list-none ${
+          className={`text-base font-medium pr-2 list-none ${
             brandId === 0 ? "active" : ""
           }`}
           onClick={this.filterBrand.bind(this, 0)}
           href="/brands?lang=en"
         >
           {__("All brands")}
+          <span className="font-bold pl-2">|</span>
         </li>
-        <span className="py-2 font-bold">/</span>
         {brandCategories.map((category) => (
           <React.Fragment key={category.id}>
             <li
               key={category.id}
-              className={`text-base font-medium p-2 sm:pl-0 xl:text-sm list-none ${
+              className={`text-base font-medium pr-2 list-none ${
                 brandId === category.id ? "active" : ""
               }`}
               onClick={this.filterBrand.bind(this, category.id)}
             >
               {category.name}
+              <span className="font-bold pl-2">|</span>
             </li>
-            <span className="py-2 font-bold">/</span>
           </React.Fragment>
         ))}
       </ul>
     );
 
     return (
-      <div className="justify-start items-start brands pl-32 pr-16 sm:px-2 lg:px-16 overflow-auto md:px-5 h-body sm:h-auto">
+      <div className="justify-start items-start brands pl-32 pr-16 sm:px-5 lg:px-16 overflow-auto md:p-10 h-body sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
         <div className="text-center sm:text-left">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg sm:ml-5">
             {__("Brands")}

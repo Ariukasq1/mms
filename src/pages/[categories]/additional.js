@@ -50,7 +50,7 @@ class Additional extends React.Component {
         data-aos-delay={`${index * 100}`}
         data-aos-duration="2000"
         data-aos-offset="300"
-        className="h-body mx-12 pt-10 content text-base relative xl:mx-4 sm:h-auto lg:ml-16 lg:mr-4 md:ml-14 md:mr-4 sm:ml-0 sm:mr-0 sm:mt-5 sm:px-8 overflow-auto"
+        className="h-body mx-12 pt-10 content text-base relative xl:mx-4 sm:h-auto lg:ml-16 lg:mr-4 md:mx-10 sm:ml-0 sm:mr-0 sm:mt-5 sm:px-8 overflow-auto md:h-auto"
       >
         <img src={`/images/industry${index}.png`} alt="icon-i" />
         <div
