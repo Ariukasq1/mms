@@ -1,4 +1,4 @@
-@media (min-width: 1367px) and (max-width: 1440px) {
+@media (min-width: 1536px) {
   .industry {
     .heading-tag {
       top: 5px;
@@ -8,7 +8,40 @@
         margin-top: 60px;
       }
       .ant-tabs-tab {
-        margin-left: 128px;
+        margin-left: 8rem;
+      }
+    }
+    > a {
+      bottom: 5%;
+    }
+  }
+  .heading-tag {
+    margin-bottom: 10px;
+  }
+  .image {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .industry {
+    .heading-tag {
+      top: 5px;
+    }
+    .ant-tabs {
+      .ant-tabs-nav-list {
+        margin-top: 60px;
+      }
+      .ant-tabs-tab {
+        margin-left: 7rem;
+      }
+      .ant-tabs-tab-btn .title {
+        > .image-icon {
+          display: none;
+          width: 60px;
+          margin: 5px 0 0 30px;
+          transition: all ease 0.3s;
+        }
       }
     }
     > a {
@@ -16,21 +49,24 @@
     }
   }
   .image {
-    height: 350px;
+    height: 250px;
+  }
+  .heading-tag {
+    margin-bottom: 5px;
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1366px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .image {
-    height: 200px;
+    height: 220px;
+  }
+  .heading-tag {
+    margin-bottom: 0px;
   }
   .industry {
-    .heading-tag {
-      top: 0px;
-    }
     .ant-tabs {
       .ant-tabs-nav-list {
-        margin-top: 70px;
+        margin-top: 60px;
       }
       .ant-tabs-tab {
         margin-left: 6rem;
@@ -39,7 +75,7 @@
         > .image-icon {
           display: none;
           width: 40px;
-          margin: 5px 0 0 30px;
+          margin: 5px 0 0 10px;
           transition: all ease 0.3s;
         }
       }
@@ -52,7 +88,19 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section.slider {
+    .fp-tableCell {
+      padding-top: 114px;
+    }
+  }
+  .section {
+    height: max-content !important;
+    .fp-tableCell {
+      height: max-content !important;
+    }
+  }
+
   .image {
     height: 250px;
   }
@@ -64,16 +112,25 @@
       top: 0px;
     }
     .ant-tabs {
+      flex-direction: column;
+      .ant-tabs-content-holder {
+        .ant-tabs-content {
+          .ant-tabs-tabpane {
+            padding-left: 0;
+          }
+        }
+      }
       .ant-tabs-nav-list {
-        margin-top: 70px;
+        margin-top: 0px;
+        margin-bottom: 2.5rem;
       }
       .ant-tabs-tab {
-        margin-left: 5rem;
+        margin-left: 40px;
       }
       .ant-tabs-tab-btn .title {
         > .image-icon {
           display: none;
-          width: 30px;
+          width: 70px;
           margin: 5px 0 0 10px;
           transition: all ease 0.3s;
         }
@@ -82,7 +139,7 @@
   }
   .brands {
     .heading-title {
-      margin: 0;
+      margin-bottom: 10px;
     }
   }
   .footer-responsive {
@@ -97,7 +154,7 @@
   }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 640px) and (max-width: 767px) {
   .section {
     height: max-content !important;
     .fp-tableCell {
@@ -161,7 +218,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 639px) {
   .image {
     height: 200px;
   }

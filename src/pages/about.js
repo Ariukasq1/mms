@@ -91,7 +91,7 @@ const About = (props) => {
           <li
             key={category.id}
             className={`text-lg font-medium pr-2 list-none ${
-              activeId === category.id ? "active" : ""
+              activeId === category.id ? "active text-menuTextColor" : ""
             }`}
             onClick={onTabChange.bind(this, category.id)}
           >
@@ -111,7 +111,7 @@ const About = (props) => {
             <div className="section about-us">
               <div
                 className={
-                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:px-5 lg:block md:block md:px-10 h-body pt-10 overflow-auto sm:h-auto sm:overflow-hidden md:h-auto"
+                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:px-5 lg:block md:block md:px-10 pt-10 sm:h-auto sm:overflow-hidden md:h-auto"
                 }
               >
                 <div
@@ -156,7 +156,7 @@ const About = (props) => {
               </div>
             </div>
             <div className="section what-we-do project-info ">
-              <div className="h-full overflow-auto sm:h-auto md:h-auto">
+              <div className="sm:h-auto md:h-auto">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-tag capitalize text-xl font-bold sm:text-lg sm:mt-0">
                     {__("What we do")}
@@ -172,7 +172,7 @@ const About = (props) => {
               </div>
             </div>
             <div className="section timeline odd">
-              <div className="h-body overflow-auto md:h-auto sm:h-auto">
+              <div className="md:h-auto sm:h-auto">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 2xl:mb-0">
                     {__("Our history")}

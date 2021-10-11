@@ -167,6 +167,9 @@
 }
 
 .section.categories {
+  .fp-tableCell {
+    vertical-align: middle;
+  }
   .slick-prev,
   .slick-next {
     top: 104.8%;

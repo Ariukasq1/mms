@@ -18,7 +18,7 @@ const SliderSubCategories = (props) => {
 
     return (
       <div
-        className="cat-item bg-white md:mb-10 sm:mb-10 w-1/4 lg:w-full md:w-full sm:w-full"
+        className="cat-item bg-white mx-5 xl:mx-2 md:mb-10 sm:mb-10 w-1/4 lg:w-full md:w-full sm:w-full"
         key={index}
         data-aos="fade-down"
         data-aos-easing="ease"
@@ -32,7 +32,7 @@ const SliderSubCategories = (props) => {
         />
         <div
           className={
-            "capabilitiesPageBody truncate-2-lines text-base mt-4 sm:mt-1"
+            "capabilitiesPageBody truncate-2-lines text-base mt-4 sm:mt-1 2xl:mt-3"
           }
         >
           <div
@@ -43,13 +43,13 @@ const SliderSubCategories = (props) => {
         </div>
         <div style={{ display: "flex" }}>
           <a
-            className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4"
+            className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4 2xl:my-2"
             href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
             style={{ display: "block" }}
           >
             {__("Read more")}
           </a>
-          <img className="object-contain w-10 ml-4" src={arrowImage} />
+          <img className="object-contain w-10 ml-4 xl:w-6" src={arrowImage} />
         </div>
         <div className="image">
           <Link

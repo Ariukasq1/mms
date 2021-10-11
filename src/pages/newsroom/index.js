@@ -123,7 +123,7 @@ const Index = (props) => {
           <React.Fragment key={category.id}>
             <li
               className={`text-base font-medium pr-2 text-left list-none ${
-                catId === category.id ? "active" : ""
+                catId === category.id ? "active text-menuTextColor" : ""
               }`}
               onClick={() => onClick(category.id)}
             >
@@ -160,7 +160,7 @@ const Index = (props) => {
         children={
           <div id="fullpage">
             <div className="section news">
-              <div className="px-56 2xl:px-40 xl:px-24 lg:px-20 md:px-10 sm:px-5 h-body overflow-auto sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
+              <div className="px-56 2xl:px-40 xl:px-24 lg:px-20 md:px-10 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
                 <div className="brands text-center">
                   <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
                     {__("Newsroom")}

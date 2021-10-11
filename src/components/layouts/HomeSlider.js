@@ -45,7 +45,7 @@ const HomeSlider = ({ sliders }) => {
                   : position_of_text || "left"
                 : "space-between",
           }}
-          className={`px-56 flex justify-between items-center h-body lg:px-28 md:px-5 sm:px-5 ${
+          className={`px-32 flex justify-between items-center 2xl:px-28 xl:px-16 lg:px-28 md:px-5 sm:px-5 h-body ${
             position_of_image === "right"
               ? "flex-row"
               : position_of_image === "left" && "flex-row-reverse"
@@ -63,7 +63,7 @@ const HomeSlider = ({ sliders }) => {
             }}
           >
             <div
-              className="title text-7xl font-semibold leading-snug xl:text-6xl lg:text-5xl sm:text-3xl 2xl:text-6xl md:text-4xl"
+              className="title text-7xl font-semibold leading-snug 2xl:text-6xl xl:text-5xl lg:text-5xl md:text-4xl sm:text-3xl"
               dangerouslySetInnerHTML={{ __html: text }}
               style={{
                 color: font_color,

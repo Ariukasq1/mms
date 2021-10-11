@@ -1,3 +1,8 @@
+.section.about-us {
+  .fp-tableCell {
+    vertical-align: middle;
+  }
+}
 .section.what-we-do {
   .fp-tableCell {
     vertical-align: middle;
@@ -65,6 +70,9 @@
   }
 }
 .section.timeline {
+  .fp-tableCell {
+    vertical-align: middle;
+  }
   .history {
     &:before {
       content: "-";

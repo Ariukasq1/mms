@@ -68,7 +68,7 @@ class ItemDetail extends React.Component {
               >
                 <div className="inner-content">
                   <div className="inner-content-overlay absolute inset-0" />
-                  <div className="inner-content-detail text-white absolute inset-0">
+                  <div className="inner-content-detail text-white absolute">
                     <h2 className="block text-2xl font-bold capitalize text-white mb-4 sm:text-xl sm:mb-0">
                       {post.title && (
                         <div

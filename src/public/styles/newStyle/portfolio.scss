@@ -1,5 +1,9 @@
 .section.projects {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   .fp-tableCell {
+    vertical-align: middle;
     .fp-scrollable {
       z-index: 3;
     }
@@ -8,9 +12,6 @@
   .projects-wrapper {
     position: relative;
     z-index: 3;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
   }
 
   &:after {

@@ -2,10 +2,10 @@ module.exports = {
   purge: [],
   theme: {
     screens: {
-      sm: { min: "320px", max: "480px" },
-      md: { min: "481px ", max: "768px" },
-      lg: { min: "769px ", max: "1024px" },
-      xl: { min: "1025px", max: "1366px" },
+      sm: { min: "320px", max: "639px" },
+      md: { min: "640px", max: "767px" },
+      lg: { min: "768px", max: "1023px" },
+      xl: { min: "1024px", max: "1279px" },
     },
     fontSize: {
       xs: ".75rem",
@@ -19,7 +19,8 @@ module.exports = {
       "4xl": "2.25rem",
       "5xl": "3rem",
       "6xl": "4rem",
-      "7xl": "6rem",
+      "7xl": "5rem",
+      "8xl": "6rem",
     },
     truncate: {
       lines: {
@@ -31,8 +32,8 @@ module.exports = {
     },
     extend: {
       screens: {
-        "2xl": { min: "1367px", max: "1440px" },
-        "3xl": { min: "1441px" },
+        "2xl": { min: "1280px", max: "1535px" },
+        "3xl": { min: "1536px" },
       },
       colors: {
         menuTextColor: "#00498e",

@@ -1,4 +1,7 @@
 .main-values {
+  .fp-tableCell {
+    vertical-align: middle;
+  }
   .card {
     position: relative;
     background: #fff;
@@ -61,5 +64,11 @@
         opacity: 1;
       }
     }
+  }
+}
+
+.section.faq {
+  .fp-tableCell {
+    vertical-align: middle;
   }
 }

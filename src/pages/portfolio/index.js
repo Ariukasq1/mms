@@ -20,7 +20,7 @@ export const SliderSubCategories = (props) => {
 
     return (
       <div
-        className="cat-item bg-white lg:mb-5 md:mb-5 sm:mb-5 w-1/3 lg:w-full md:w-full"
+        className="cat-item bg-white mx-5 lg:mb-5 md:mb-5 sm:mb-5 w-1/3 lg:w-full md:w-full"
         key={index}
         data-aos="fade-down"
         data-aos-easing="ease"
@@ -33,7 +33,7 @@ export const SliderSubCategories = (props) => {
         </div>
         <div
           className={
-            "capabilitiesPageBody truncate-2-lines text-base mt-4 sm:mt-0"
+            "capabilitiesPageBody truncate-2-lines text-base mt-4 sm:mt-0 2xl:mt-3"
           }
         >
           <div
@@ -44,7 +44,7 @@ export const SliderSubCategories = (props) => {
         </div>
         <div style={{ display: "flex" }}>
           <a
-            className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4"
+            className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4 2xl:my-2"
             style={{ display: "block" }}
             href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
           >
@@ -92,9 +92,9 @@ const Portfolio = (props) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-64 xl:px-32 2xl:px-40 md:px-10 lg:px-24 sm:px-5 h-body overflow-auto md:h-auto sm:h-auto">
+                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 md:px-10 lg:px-24 sm:px-5 md:h-auto sm:h-auto">
                   <div className="brands">
-                    <h2 className=" text-3xl font-bold mb-8 capitalize">
+                    <h2 className="ml-5 text-3xl font-bold mb-8 2xl:mb-5 xl:mb-2 capitalize">
                       {__("Portfolio")}
                     </h2>
                     <SliderSubCategories

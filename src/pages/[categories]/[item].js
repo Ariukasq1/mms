@@ -7,7 +7,7 @@ import ItemDetail from "./detail";
 import ItemFacts from "./facts";
 import ItemRelations from "./relations";
 import Additional from "./additional";
-import SliderSubCategories from "../../components/SliderSubCategories";
+import { CategoriesItem } from ".";
 
 const FactsSection = (posts, detail, lang) => {
   if (
@@ -47,24 +47,8 @@ const Item = (props) => {
       <FullPage
         children={
           <div id="fullpage">
-            <div className="section categories">
-              <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-64 xl:px-20 2xl:px-40 md:px-10 lg:px-24 sm:px-5 h-body overflow-auto sm:h-auto md:h-auto">
-                  <div className="brands">
-                    <h2 className=" text-3xl font-bold mb-8 capitalize">
-                      {__(props.querySlug)}
-                    </h2>
-                    <SliderSubCategories
-                      pathname="[categories]"
-                      data={props.posts}
-                      querySlug={props.querySlug}
-                      language={props.lang}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="section odd item-detail">
+            <div className="section categories">{CategoriesItem(props)}</div>
+            <div className="section item-detail">
               <ItemDetail post={props.detail[0]} lang={props.lang} />
             </div>
             {FactsSection(props.posts, props.detail, props.lang)}

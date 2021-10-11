@@ -775,11 +775,8 @@ figcaption {
   width: 30%;
 }
 
-.fp-tableCell {
-  padding-top: 114px;
-}
-.fp-tableCell .fp-scrollable {
-  height: max-content !important;
+.section.brands .fp-tableCell {
+  vertical-align: middle;
 }
 
 .industry .ant-tabs .ant-tabs-nav-list {
@@ -834,15 +831,20 @@ figcaption {
   right: 400px;
 }
 
+.section.projects {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.section.projects .fp-tableCell {
+  vertical-align: middle;
+}
 .section.projects .fp-tableCell .fp-scrollable {
   z-index: 3;
 }
 .section.projects .projects-wrapper {
   position: relative;
   z-index: 3;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 .section.projects:after {
   content: "";
@@ -945,6 +947,10 @@ figcaption {
   background-color: #eaf2ff;
 }
 
+.section.about-us .fp-tableCell {
+  vertical-align: middle;
+}
+
 .section.what-we-do .fp-tableCell {
   vertical-align: middle;
 }
@@ -999,6 +1005,9 @@ figcaption {
   font-size: 16px;
 }
 
+.section.timeline .fp-tableCell {
+  vertical-align: middle;
+}
 .section.timeline .history:before {
   content: "-";
   right: 0;
@@ -1084,6 +1093,9 @@ figcaption {
   line-height: 22px;
 }
 
+.section.news .fp-tableCell {
+  vertical-align: middle;
+}
 .section.news .news-item {
   background-repeat: no-repeat;
   background-size: cover;
@@ -1135,6 +1147,9 @@ figcaption {
   margin-bottom: 1em;
 }
 
+.section.otherNews .fp-tableCell {
+  vertical-align: middle;
+}
 .section.otherNews .slick-slider {
   padding: 0 20px;
 }
@@ -1143,6 +1158,9 @@ figcaption {
   overflow: hidden;
 }
 
+.main-values .fp-tableCell {
+  vertical-align: middle;
+}
 .main-values .card {
   position: relative;
   background: #fff;
@@ -1194,6 +1212,10 @@ figcaption {
 }
 .section.vacancies .job-item:hover .content {
   opacity: 1;
+}
+
+.section.faq .fp-tableCell {
+  vertical-align: middle;
 }
 
 a:hover {
@@ -1352,11 +1374,13 @@ section {
 }
 
 .heading-tag {
+  margin-bottom: 20px;
   color: #fda50f;
 }
 
 .heading-title {
   line-height: 3rem;
+  margin-bottom: 10px;
 }
 
 .btn-gradient {
@@ -1816,6 +1840,9 @@ label {
   vertical-align: middle;
 }
 
+.section.categories .fp-tableCell {
+  vertical-align: middle;
+}
 .section.categories .slick-prev,
 .section.categories .slick-next {
   top: 104.8%;
@@ -1831,7 +1858,7 @@ label {
   max-width: 240px;
 }
 
-@media (min-width: 1367px) and (max-width: 1440px) {
+@media (min-width: 1536px) {
   .industry .heading-tag {
     top: 5px;
   }
@@ -1839,26 +1866,59 @@ label {
     margin-top: 60px;
   }
   .industry .ant-tabs .ant-tabs-tab {
-    margin-left: 128px;
+    margin-left: 8rem;
+  }
+  .industry > a {
+    bottom: 5%;
+  }
+
+  .heading-tag {
+    margin-bottom: 10px;
+  }
+
+  .image {
+    height: 300px;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .industry .heading-tag {
+    top: 5px;
+  }
+  .industry .ant-tabs .ant-tabs-nav-list {
+    margin-top: 60px;
+  }
+  .industry .ant-tabs .ant-tabs-tab {
+    margin-left: 7rem;
+  }
+  .industry .ant-tabs .ant-tabs-tab-btn .title > .image-icon {
+    display: none;
+    width: 60px;
+    margin: 5px 0 0 30px;
+    transition: all ease 0.3s;
   }
   .industry > a {
     bottom: 5%;
   }
 
   .image {
-    height: 350px;
-  }
-}
-@media (min-width: 1025px) and (max-width: 1366px) {
-  .image {
-    height: 200px;
+    height: 250px;
   }
 
-  .industry .heading-tag {
-    top: 0px;
+  .heading-tag {
+    margin-bottom: 5px;
   }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .image {
+    height: 220px;
+  }
+
+  .heading-tag {
+    margin-bottom: 0px;
+  }
+
   .industry .ant-tabs .ant-tabs-nav-list {
-    margin-top: 70px;
+    margin-top: 60px;
   }
   .industry .ant-tabs .ant-tabs-tab {
     margin-left: 6rem;
@@ -1866,7 +1926,7 @@ label {
   .industry .ant-tabs .ant-tabs-tab-btn .title > .image-icon {
     display: none;
     width: 40px;
-    margin: 5px 0 0 30px;
+    margin: 5px 0 0 10px;
     transition: all ease 0.3s;
   }
 
@@ -1874,7 +1934,18 @@ label {
     margin: 0;
   }
 }
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section.slider .fp-tableCell {
+    padding-top: 114px;
+  }
+
+  .section {
+    height: max-content !important;
+  }
+  .section .fp-tableCell {
+    height: max-content !important;
+  }
+
   .image {
     height: 250px;
   }
@@ -1886,21 +1957,28 @@ label {
   .industry .heading-tag {
     top: 0px;
   }
+  .industry .ant-tabs {
+    flex-direction: column;
+  }
+  .industry .ant-tabs .ant-tabs-content-holder .ant-tabs-content .ant-tabs-tabpane {
+    padding-left: 0;
+  }
   .industry .ant-tabs .ant-tabs-nav-list {
-    margin-top: 70px;
+    margin-top: 0px;
+    margin-bottom: 2.5rem;
   }
   .industry .ant-tabs .ant-tabs-tab {
-    margin-left: 5rem;
+    margin-left: 40px;
   }
   .industry .ant-tabs .ant-tabs-tab-btn .title > .image-icon {
     display: none;
-    width: 30px;
+    width: 70px;
     margin: 5px 0 0 10px;
     transition: all ease 0.3s;
   }
 
   .brands .heading-title {
-    margin: 0;
+    margin-bottom: 10px;
   }
 
   .footer-responsive {
@@ -1916,7 +1994,7 @@ label {
     width: 100%;
   }
 }
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 640px) and (max-width: 767px) {
   .section {
     height: max-content !important;
   }
@@ -1981,7 +2059,7 @@ label {
     height: 250px;
   }
 }
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 639px) {
   .image {
     height: 200px;
   }

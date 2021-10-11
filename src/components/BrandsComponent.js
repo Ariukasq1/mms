@@ -43,14 +43,14 @@ class BrandsComponent extends React.Component {
             <div style={{ display: "block" }}>
               <div style={{ display: "flex" }}>
                 <a
-                  className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-1"
+                  className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-1 2xl:my-2 xl:my-2"
                   style={{ display: "block" }}
                 >
                   {__("Read more")}
                 </a>
                 <img className="object-contain w-10 ml-4" src={arrow} />
               </div>
-              <div className="bg-img-wrapper h-72 w-full xl:h-32 2xl:h-56 lg:h-32">
+              <div className="bg-img-wrapper h-56 w-full xl:h-32 2xl:h-40 lg:h-40">
                 <img
                   src={getData(brand._embedded, "image")}
                   className="object-cover h-full w-full"
@@ -79,10 +79,10 @@ class BrandsComponent extends React.Component {
     const { brandId } = this.state;
 
     const categories = (
-      <ul className="flex justify-center category-wrapper mb-20 xl:mb-5 sm:mb-5 sm:justify-start sm:text-left 2xl:mb-5 lg:mb-2 lg:pl-0 md:mb-2 md:justify-start md:pl-0 flex-wrap sm:pl-0">
+      <ul className="flex justify-center category-wrapper mb-4 2xl:mb-2 xl:mb-5 sm:mb-5 sm:justify-start sm:text-left  pl-0 lg:mb-2 lg:pl-0 md:mb-2 md:justify-start md:pl-0 flex-wrap sm:pl-0">
         <li
           className={`text-base font-medium pr-2 list-none ${
-            brandId === 0 ? "active" : ""
+            brandId === 0 ? "active text-menuTextColor" : ""
           }`}
           onClick={this.filterBrand.bind(this, 0)}
           href="/brands?lang=en"
@@ -95,7 +95,7 @@ class BrandsComponent extends React.Component {
             <li
               key={category.id}
               className={`text-base font-medium pr-2 list-none ${
-                brandId === category.id ? "active" : ""
+                brandId === category.id ? "active text-menuTextColor" : ""
               }`}
               onClick={this.filterBrand.bind(this, category.id)}
             >
@@ -108,12 +108,12 @@ class BrandsComponent extends React.Component {
     );
 
     return (
-      <div className="justify-start items-start brands pl-32 pr-16 sm:px-5 lg:px-16 overflow-auto md:p-10 h-body sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
+      <div className="justify-start items-start brands pl-32 pr-16 pt-20 2xl:px-20 xl:px-24 sm:px-5 lg:px-10 md:p-10 sm:h-auto md:h-auto lg:h-auto md:overflow-hidden sm:overflow-hidden lg:pt-10 lg:pb-20">
         <div className="text-center sm:text-left">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg ">
             {__("Brands")}
           </div>
-          <div className="heading-title capitalize text-5xl mt-2 mb-6 xl:text-4xl sm:text-2xl sm:leading-7 sm:my-4 sm:font-semibold">
+          <div className="heading-title capitalize text-5xl xl:text-4xl sm:text-2xl sm:leading-7 sm:my-4 sm:font-semibold">
             {__("Our products")}
           </div>
           {categories}

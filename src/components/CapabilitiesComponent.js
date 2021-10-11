@@ -6,9 +6,9 @@ const CapabilitiesComponent = ({ data }) => {
   const currentLanguage = getLangParam();
 
   return (
-    <div className="flex flex-row-reverse justify-between items-center sm:flex-col md:flex-col">
+    <div className="flex flex-row-reverse justify-between items-center h-body lg:flex-col sm:flex-col md:flex-col lg:h-auto sm:h-auto md:h-auto ">
       <div
-        className="capabilitiesTexts px-32 py-8 bg-white xl:py-0 xl:px-10 lg:py-0 lg:px-5 md:px-5 sm:px-5"
+        className="capabilitiesTexts px-32 py-8 bg-white 2xl:px-20 xl:py-0 xl:px-16 lg:p-10 md:p-5 sm:p-5"
         data-aos="fade-up"
         ata-aos-easing="ease"
         data-aos-delay={`0`}
@@ -26,7 +26,7 @@ const CapabilitiesComponent = ({ data }) => {
           </a>
         </Link>
       </div>
-      <div className="w-full h-body" style={{ flexBasis: "50%" }}>
+      <div className="h-full w-full" style={{ flexBasis: "50%" }}>
         <img
           className="object-cover h-full w-full"
           src={getData(data._embedded, "image")}

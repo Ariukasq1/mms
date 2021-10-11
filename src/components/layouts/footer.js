@@ -53,11 +53,11 @@ class Footer extends React.Component {
     return (
       <footer
         className={
-          "bg-contact relative text-white h-full overflow-auto sm:h-auto md:h-auto"
+          "bg-contact relative text-white h-body lg:h-auto md:h-auto sm:h-auto"
         }
       >
         <div
-          className="footer-responsive justify-evenly px-40 flex py-56 xl:px-24 lg:px-20 lg:py-5 md:px-2 2xl:py-20 xl:py-10 sm:p-0 "
+          className="footer-responsive justify-evenly h-full px-40 flex pt-24 2xl:px-20 2xl:pt-3 xl:px-10 lg:px-20 lg:py-5 md:px-2 xl:pt-3 sm:p-0"
           style={{ backgroundColor: "#262626" }}
         >
           <div
@@ -139,21 +139,21 @@ class Footer extends React.Component {
           </div>
           <div
             className={
-              "flex flex-col footer-items px-8 sm:w-full sm:px-4 lg:px-4 md:px-2"
+              "flex flex-col footer-items px-8 sm:w-full sm:px-4 lg:px-0 md:px-0"
             }
           >
             {this.renderAddress(address)}
           </div>
           <div
             className={
-              "flex flex-col footer-items-input px-8 sm:w-full sm:px-4 md:px-2"
+              "flex flex-col footer-items-input px-8 sm:w-full lg:px-0 sm:px-4 md:px-0"
             }
           >
-            <h2 className={"text-lg font-bold mb-8 text-white xl:mb-5"}>
+            <h2 className={"text-lg font-bold mb-4 text-white xl:mb-5"}>
               {__("Please contact us")}
             </h2>
             <form className={"relative w-full"}>
-              <div className={"relative w-full my-4"}>
+              <div className={"relative w-full my-3 2xl:my-2 xl:my-1"}>
                 <label className={"px-2 font-medium text-base"} htmlFor="fname">
                   {__("Full name")}
                 </label>
@@ -167,7 +167,7 @@ class Footer extends React.Component {
                 />
               </div>
 
-              <div className={"relative w-full my-4"}>
+              <div className={"relative w-full my-3 2xl:my-2 xl:my-1"}>
                 <label className={"px-2 font-medium text-base"} htmlFor="lname">
                   {__("Contact Email")}
                 </label>
@@ -181,12 +181,12 @@ class Footer extends React.Component {
                 />
               </div>
 
-              <div className={"relative w-full my-4"}>
+              <div className={"relative w-full my-3 2xl:my-2 xl:my-1"}>
                 <label className={"px-2 font-medium text-base"} htmlFor="lname">
                   {__("Message")}
                 </label>
                 <textarea
-                  className={"h-40"}
+                  className={"h-40 2xl:h-32 xl:h-28"}
                   id="Message"
                   name="message"
                   placeholder={__("Enter text")}
