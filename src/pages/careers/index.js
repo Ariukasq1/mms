@@ -6,8 +6,8 @@ import { fetcher, getData, __, getLangParam } from "../../utils";
 import Link from "next/link";
 import FullPage from "../../components/FullPage";
 
-const renderValues = (career, currentLanguage) => (
-  <div className="px-56 xl:px-20 2xl:px-28 lg:pl-20 lg:pr-5 md:px-10 sm:px-5 sm:h-auto md:h-auto">
+export const renderValues = (career, currentLanguage) => (
+  <div className="px-56 xl:px-20 2xl:px-28 2xl:pt-28 lg:pl-20 lg:pr-5 md:px-10 sm:px-5 sm:h-auto md:h-auto">
     <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
       {__("human resource")}
     </div>
@@ -37,7 +37,7 @@ const renderValues = (career, currentLanguage) => (
                 <div className="bg-wrapper flex items-center justify-center">
                   <img src={getData(item._embedded, "image")} alt="image" />
                 </div>
-                <div className="content p-6">
+                <div className="content p-6 2xl:py-2">
                   <h4 className="font-semibold text-menuTextColor mb-3 text-lg">
                     {item.title.rendered}
                   </h4>

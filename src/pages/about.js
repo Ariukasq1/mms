@@ -85,7 +85,7 @@ const About = (props) => {
   };
 
   const cats = (
-    <ul className="flex justify-center category-wrapper flex-wrap mb-20 xl:mb-10 sm:text-left sm:mb-10 2xl:mb-10 md:pl-0 sm:pl-0 sm:justify-start">
+    <ul className="flex justify-center category-wrapper flex-wrap mb-20 xl:mb-10 sm:text-left sm:mb-10 2xl:mb-3 md:pl-0 sm:pl-0 sm:justify-start">
       {categories.map((category) => (
         <React.Fragment key={category.id}>
           <li
@@ -111,7 +111,7 @@ const About = (props) => {
             <div className="section about-us">
               <div
                 className={
-                  "pl-40 pr-20 flex flex-row justify-center items-stretch sm:flex-col sm:px-5 lg:block md:block md:px-10 pt-10 sm:h-auto sm:overflow-hidden md:h-auto"
+                  "pl-40 pr-20 flex flex-row justify-center items-center 2xl:px-20 2xl:pt-28 sm:flex-col sm:px-5 lg:block md:block md:px-10 pt-10 sm:h-auto sm:overflow-hidden md:h-auto"
                 }
               >
                 <div
@@ -156,7 +156,7 @@ const About = (props) => {
               </div>
             </div>
             <div className="section what-we-do project-info ">
-              <div className="sm:h-auto md:h-auto">
+              <div className="sm:h-auto md:h-auto 2xl:pt-28">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-tag capitalize text-xl font-bold sm:text-lg sm:mt-0">
                     {__("What we do")}
@@ -166,19 +166,23 @@ const About = (props) => {
                   </div>
                   {cats}
                 </div>
-                <div className={"px-32 xl:px-24 lg:px-20 md:px-10 sm:px-5"}>
+                <div
+                  className={
+                    "px-32 2xl:px-20 xl:px-24 lg:px-20 md:px-10 sm:px-5"
+                  }
+                >
                   {renderWhatWeDo()}
                 </div>
               </div>
             </div>
             <div className="section timeline odd">
-              <div className="md:h-auto sm:h-auto">
+              <div className="md:h-auto sm:h-auto 2xl:pt-28">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 2xl:mb-0">
                     {__("Our history")}
                   </div>
                 </div>
-                <div className="px-40 relative xl:px-24 lg:px-20 md:px-16 sm:px-8">
+                <div className="px-40 relative 2xl:px-20 xl:px-24 lg:px-20 md:px-16 sm:px-8">
                   <div className="history relative">
                     <Slider {...settings} className="h-full">
                       {props.histories.map((history) =>

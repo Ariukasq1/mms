@@ -42,7 +42,7 @@ const Detail = (props) => {
           rows: 2,
           infinite: true,
           slidesPerRow: 1,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -52,7 +52,7 @@ const Detail = (props) => {
           rows: 2,
           infinite: true,
           slidesPerRow: 1,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -95,15 +95,15 @@ const Detail = (props) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-64 xl:px-32 2xl:px-40 md:px-10 lg:px-24 sm:px-5 h-body overflow-auto md:h-auto sm:h-auto">
+                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 md:px-10 lg:px-24 sm:px-5 md:h-auto sm:h-auto">
                   <div className="brands">
-                    <h2 className=" text-3xl font-bold mb-8 capitalize">
+                    <h2 className="ml-5 text-3xl font-bold mb-8 2xl:mb-5 xl:mb-2 capitalize">
                       {__("Portfolio")}
                     </h2>
                     <SliderSubCategories
                       data={props.posts}
                       querySlug="portfolio"
-                      language={currentLanguage}
+                      language={props.lang}
                     />
                   </div>
                 </div>
@@ -116,8 +116,8 @@ const Detail = (props) => {
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:px-10 lg:pl-16 sm:px-8 h-body overflow-auto sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16">
-                <div className="desc mb-10 xl:mb-5 sm:mb-5">
+              <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:px-10 lg:pl-16 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16 2xl:pt-28">
+                <div className="desc mb-10 xl:mb-5 sm:mb-5 2xl:mb-0">
                   <h4 className="mb-5">
                     <div
                       dangerouslySetInnerHTML={{

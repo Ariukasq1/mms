@@ -78,7 +78,7 @@ class ItemDetail extends React.Component {
                         />
                       )}
                     </h2>
-                    <div className="auto-overflow mb-4 sm:mb-0">
+                    <div className="mb-4 sm:mb-0">
                       <div
                         className="text-lg font-medium sm:text-sm"
                         dangerouslySetInnerHTML={{

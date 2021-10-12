@@ -63,7 +63,7 @@ const News = (props) => {
   const renderNews = props.news.map((n, index) => {
     return (
       <div key={index}>
-        <div className="newsBox mb-20 xl:mb-8 md:mb-12 pr-8 sm:mb-5 sm:pr-0 3xl:mb-10 2xl:mb-5">
+        <div className="newsBox mb-20 xl:mb-8 md:mb-12 pr-8 sm:mb-5 sm:pr-0 3xl:mb-10 2xl:mb-0">
           <Link
             href={{
               pathname: "/newsroom/[news]#1",
@@ -78,7 +78,7 @@ const News = (props) => {
                   src={getData(n._embedded, "image")}
                 />
               </div>
-              <div className="font-medium text-sm mb-4 title leading-5 mt-5 sm:mt-2 md:mt-2 lg:mt-2 xl:mt-3">
+              <div className="font-medium text-sm mb-4 title leading-5 mt-5 sm:mt-2 md:mt-2 lg:mt-2 xl:mt-3 2xl:mt-2 2xl:mb-0">
                 {n.title.rendered}
               </div>
             </a>
@@ -136,8 +136,8 @@ const News = (props) => {
               </div>
             </div>
             <div className="section odd otherNews">
-              <div className="pl-40 pr-12 md:px-10 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden md:pb-10 sm:pb-10">
-                <h2 className=" text-3xl font-bold mb-8 capitalize">
+              <div className="pl-40 pr-12 md:px-10 2xl:pt-28 2xl:px-20 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden md:pb-10 sm:pb-10">
+                <h2 className=" text-3xl font-bold mb-8 capitalize 2xl:mb-2">
                   {__("Related news")}
                 </h2>
                 <div className="brands news-slider sm:pb-20 ">
