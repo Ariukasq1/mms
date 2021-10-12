@@ -12,12 +12,12 @@ class ItemDetail extends React.Component {
 
     return (
       <div className="support">
-        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12 xl:mb-5 md:px-10 sm:leading-7 2xl:mb-3">
+        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-8 xl:mb-5 md:px-10 sm:leading-7 2xl:mb-3">
           {supports && (
             <div dangerouslySetInnerHTML={{ __html: supports.title }} />
           )}
         </h2>
-        <div className="support-content grid gap-6 grid-cols-4 lg:gap-4 md:gap-2 md:px-10 md:pb-10 sm:grid-cols-2 sm:gap-2 md:grid-cols-3 overflow-auto 2xl:h-80 xl:h-80 overflow-x-hidden">
+        <div className="support-content grid gap-6 grid-cols-4 lg:gap-4 md:gap-2 md:px-10 md:pb-10 sm:grid-cols-2 sm:gap-2 md:grid-cols-3 overflow-auto 2xl:h-80 xl:h-80 overflow-x-hidden 3xl:h-80">
           {(datas || []).map((data, index) => {
             if (
               data.includes("<ul") ||
@@ -55,7 +55,7 @@ class ItemDetail extends React.Component {
     return (
       <div className="category-item ">
         <div className="pl-24 xl:pl-12 md:pl-0 sm:px-0 lg:px-0">
-          <div className="flex md:block sm:block lg:block h-body overflow-auto sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
+          <div className="flex md:block sm:block lg:block h-body sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
             <div className="w-1/2 flex flex-col mx-12 mt-5 lg:ml-0 lg:mr-5 lg:mt-5 md:mt-5 lg:w-full md:w-full md:mx-0 sm:w-full xl:mt-5 lg:px-20 sm:px-8 sm:m-0">
               {this.renderSupport(post.acf)}
             </div>

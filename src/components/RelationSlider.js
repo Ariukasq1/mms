@@ -15,18 +15,18 @@ const RelationSlider = ({ posts, items, querySlug }) => {
       }
 
       return (
-        <div key={post.id} className="brand-p-item mb-8 mr-5 sm:mr-0 2xl:mb-0">
+        <div key={post.id} className="brand-p-item mb-2 mr-5 sm:mr-0 2xl:mb-0">
           <Link
             href={`/${querySlug}/${post.slug}?lang=${currentLanguage}`}
             passHref
           >
             <a rel="noopener noreferer">
-              <div className="font-medium text-black text-xl mb-4 title xl:mb-2 2xl:mb-1">
+              <div className="font-medium text-black text-xl mb-1 title xl:mb-2 2xl:mb-1">
                 <div
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                 />
               </div>
-              <div className="image-wrapper h-48 w-full xl:h-32 2xl:h-32">
+              <div className="image-wrapper h-40 w-full xl:h-32 2xl:h-32">
                 <img
                   className="h-full w-full object-cover"
                   src={getData(post._embedded, "image")}

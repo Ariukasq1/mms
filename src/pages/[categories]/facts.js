@@ -63,7 +63,7 @@ class ItemFacts extends React.Component {
 
               return (
                 <div
-                  className="fact-item flex items-center justify-center py-8 px-40 2xl:px-5 2xl:py-4 md:p-5 sm:p-5 xl:px-10 xl:py-3"
+                  className="fact-item flex items-center justify-center py-8 px-20 2xl:px-5 2xl:py-4 md:p-5 sm:p-5 xl:px-10 xl:py-3"
                   key={key}
                 >
                   <div className="flex flex-col items-center text-center align-center">
