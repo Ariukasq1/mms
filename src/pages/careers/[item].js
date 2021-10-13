@@ -207,7 +207,7 @@ const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
                           />
                         )}
                       </h2>
-                      <div className="auto-overflow mb-4 lg:w-1/2">
+                      <div className="auto-overflow mb-4 lg:w-1/2 md:w-full sm:w-full">
                         <div
                           className="text-lg font-medium"
                           dangerouslySetInnerHTML={{

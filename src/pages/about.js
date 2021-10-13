@@ -116,7 +116,7 @@ const About = (props) => {
               >
                 <div
                   className={
-                    "w-1/2 mr-16 lg:mr-0 lg:w-full md:w-full sm:w-full sm:mb-10 "
+                    "w-1/2 mr-16 lg:mr-0 lg:w-full md:w-full sm:w-full sm:mb-10 sm:m-0"
                   }
                   data-aos="fade-right"
                 >
@@ -156,7 +156,7 @@ const About = (props) => {
               </div>
             </div>
             <div className="section what-we-do project-info ">
-              <div className="sm:h-auto md:h-auto 2xl:pt-28 pt-16 xl:pt-28 lg:h-auto lg:pb-10">
+              <div className="sm:h-auto md:h-auto 2xl:pt-28 pt-16 xl:pt-28 lg:h-auto lg:pb-10 sm:pt-0">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-tag capitalize text-xl font-bold sm:text-lg sm:mt-0">
                     {__("What we do")}

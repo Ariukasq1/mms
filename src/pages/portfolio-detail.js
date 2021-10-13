@@ -95,7 +95,7 @@ const Detail = (props) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 lg:px-20 lg:pt-28 md:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto">
+                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 lg:px-20 lg:pt-28 md:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto sm:pt-0">
                   <div className="brands">
                     <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2 sm:m-0 md:m-0">
                       {__("Portfolio")}
@@ -142,7 +142,7 @@ const Detail = (props) => {
               </div>
             </div>
             <div className="section project-info project-details">
-              <div className="projects-wrapper pl-32 xl:pl-32 lg:px-20 lg:my-10 md:p-10 sm:px-5 h-body overflow-auto md:h-auto sm:h-auto lg:h-auto">
+              <div className="projects-wrapper pl-32 xl:pl-32 lg:px-20 lg:my-10 md:p-10 sm:p-5 h-body overflow-auto md:h-auto sm:h-auto lg:h-auto">
                 <div className="flex lg:block md:block sm:block">
                   <div className="w-1/2 flex flex-col justify-center flex-center mr-16 lg:w-full md:w-full sm:w-full">
                     <b>

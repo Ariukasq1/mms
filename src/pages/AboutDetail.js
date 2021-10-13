@@ -37,7 +37,7 @@ export default class AboutDetail extends React.Component {
         <div
           className={`grid grid-cols-${
             post.slug.includes("supply") ? "9" : "3"
-          } gap-4 xl:grid-cols-5 2xl:grid-cols-5 2xl:h-72 2xl:overflow-auto xl:h-64 xl:overflow-auto lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2`}
+          } gap-4 xl:grid-cols-5 2xl:grid-cols-5 2xl:h-72 2xl:overflow-auto xl:h-64 xl:overflow-auto lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1`}
         >
           {items.map((item, index) => {
             if (!item) {

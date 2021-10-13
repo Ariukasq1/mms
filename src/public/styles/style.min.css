@@ -2136,8 +2136,8 @@ label {
 
   .arrow {
     position: absolute;
-    bottom: 0px;
-    right: 200px;
+    bottom: -30px;
+    right: 100px;
   }
 
   .footer-responsive {
