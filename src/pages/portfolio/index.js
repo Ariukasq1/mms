@@ -20,7 +20,7 @@ export const SliderSubCategories = (props) => {
 
     return (
       <div
-        className="cat-item bg-white mx-5 xl:mx-2 md:mb-10 sm:mb-10 w-1/4 lg:w-full md:w-full sm:w-full lg:mx-0 md:mx-0 sm:mx-0"
+        className="cat-item bg-white mx-5 xl:mx-2 md:mb-10 sm:mb-10 w-1/3 lg:w-full md:w-full sm:w-full lg:mx-0 md:mx-0 sm:mx-0"
         key={index}
         data-aos="fade-down"
         data-aos-easing="ease"
