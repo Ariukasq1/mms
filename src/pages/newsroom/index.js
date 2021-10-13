@@ -160,7 +160,7 @@ const Index = (props) => {
         children={
           <div id="fullpage">
             <div className="section news">
-              <div className="px-56 2xl:px-40 2xl:pt-20 pt-16 xl:px-24 xl:pt-20 lg:px-20 md:px-10 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
+              <div className="px-56 2xl:px-40 2xl:pt-20 pt-16 xl:px-24 xl:pt-20 lg:px-20 lg:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto md:overflow-hidden sm:overflow-hidden">
                 <div className="brands text-center">
                   <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
                     {__("Newsroom")}

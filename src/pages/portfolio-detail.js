@@ -95,9 +95,9 @@ const Detail = (props) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 md:px-10 lg:px-24 sm:px-5 md:h-auto sm:h-auto">
+                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 md:px-10 lg:px-20 sm:px-5 md:h-auto sm:h-auto capabilitiesPageSlider  lg:pt-28 lg:h-auto">
                   <div className="brands">
-                    <h2 className="ml-5 text-3xl font-bold mb-8 2xl:mb-5 xl:mb-2 capitalize">
+                    <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2">
                       {__("Portfolio")}
                     </h2>
                     <SliderSubCategories
@@ -116,7 +116,7 @@ const Detail = (props) => {
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 xl:px-16 md:px-10 lg:pl-16 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16 2xl:pt-28 xl:pt-28">
+              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:px-20 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16 lg:h-auto lg:pb-20">
                 <div className="desc mb-10 xl:mb-5 sm:mb-5 2xl:mb-0">
                   <h4 className="mb-5">
                     <div
@@ -142,7 +142,7 @@ const Detail = (props) => {
               </div>
             </div>
             <div className="section project-info project-details">
-              <div className="projects-wrapper pl-32 xl:pl-32 lg:pl-32 md:px-10 sm:px-5 h-body overflow-auto md:h-auto sm:h-auto">
+              <div className="projects-wrapper pl-32 xl:pl-32 lg:px-20 lg:my-10 md:px-10 sm:px-5 h-body overflow-auto md:h-auto sm:h-auto lg:h-auto">
                 <div className="flex lg:block md:block sm:block">
                   <div className="w-1/2 flex flex-col justify-center flex-center mr-16 lg:w-full md:w-full sm:w-full">
                     <b>
@@ -167,7 +167,7 @@ const Detail = (props) => {
                     {Object.values(projectDetail.acf).length === 0 ||
                     !projectDetail.acf.image_1 ? (
                       <img
-                        className="object-cover object-center portfolio-h-body h-body w-full"
+                        className="object-cover object-center portfolio-h-body h-body w-full lg:h-auto md:h-auto sm:h-auto"
                         src={getData(projectDetail._embedded, "image")}
                         alt={projectDetail.title.rendered}
                       />
@@ -183,10 +183,10 @@ const Detail = (props) => {
 
             {projectDetail.acf.length !== 0 && (
               <div className="section portfolio-usage">
-                <div className="usage relative md:h-auto h-body overflow-auto sm:h-auto z-30">
+                <div className="usage relative md:h-auto h-body overflow-auto sm:h-auto z-30 lg:h-auto">
                   <div
                     className={
-                      "px-72 flex flex-col justify-center xl:px-20 2xl:px-40 md:px-10 md:flex-col lg:px-20 sm:flex-col sm:px-5"
+                      "px-72 flex flex-col justify-center xl:px-20 2xl:px-40 md:px-10 md:flex-col lg:px-20 sm:flex-col sm:px-5 lg:py-10"
                     }
                   >
                     <h2 className={"uppercase text-white mb-10"}>

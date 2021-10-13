@@ -58,9 +58,9 @@ export const renderProjects = (projects, post, language) => {
 
 export const projectInfo = (post) => {
   return (
-    <div className="pl-24 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0 h-body overflow-auto sm:h-auto md:h-auto">
+    <div className="pl-24 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0 h-body overflow-auto lg:h-auto sm:h-auto md:h-auto ">
       <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full h-full lg:block md:block sm:block sm:h-auto">
-        <div className="flex flex-col mx-12 lg:pl-12 lg:mr-2 lg:mt-5 sm:mx-5 lg:mb-5 md:mx-10 2xl:mt-0 3xl:mt-5 h-full overflow-auto lg:h-auto md:h-auto sm:h-auto">
+        <div className="flex flex-col mx-12 lg:px-20 lg:py-10 lg:m-0 sm:mx-5 md:mx-10 2xl:mt-0 3xl:mt-5 h-full overflow-auto lg:h-auto md:h-auto sm:h-auto">
           <h2
             className="text-2xl capitalize font-bold text-menuTextColor mb-8 xl:mb-1 2xl:mb-2"
             dangerouslySetInnerHTML={{
@@ -76,7 +76,7 @@ export const projectInfo = (post) => {
         </div>
         <div>
           <img
-            className="object-cover object-center portfolio-h-body lg:px-20 md:px-10 sm:px-5 h-full"
+            className="object-cover object-center portfolio-h-body lg:px-0 lg:mb-10 md:px-10 sm:px-5 h-full"
             src={getData(post._embedded, "image")}
           />
         </div>
@@ -150,9 +150,9 @@ const Item = (props) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 md:px-10 lg:px-24 sm:px-5 md:h-auto sm:h-auto">
+                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 md:px-10 lg:px-20 sm:px-5 md:h-auto sm:h-auto capabilitiesPageSlider  lg:pt-28 lg:h-auto">
                   <div className="brands">
-                    <h2 className="ml-5 text-3xl font-bold mb-8 2xl:mb-5 xl:mb-2 capitalize">
+                    <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2">
                       {__("Portfolio")}
                     </h2>
                     <SliderSubCategories
@@ -171,7 +171,7 @@ const Item = (props) => {
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:pl-16 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16">
+              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:px-20 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16 lg:h-auto lg:pb-20">
                 <div className="desc mb-10 xl:mb-5 sm:mb-5">
                   <h4 className="mb-5">
                     <div

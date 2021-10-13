@@ -33,11 +33,11 @@ export default class AboutDetail extends React.Component {
     const items = Object.values(post.acf);
 
     return (
-      <div className="lg:pl-5 sm:pl-0">
+      <div className="sm:pl-0">
         <div
           className={`grid grid-cols-${
             post.slug.includes("supply") ? "9" : "3"
-          } gap-4 xl:grid-cols-5 2xl:grid-cols-5 2xl:h-72 2xl:overflow-auto xl:h-64 xl:overflow-auto lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2`}
+          } gap-4 xl:grid-cols-5 2xl:grid-cols-5 2xl:h-72 2xl:overflow-auto xl:h-64 xl:overflow-auto lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2`}
         >
           {items.map((item, index) => {
             if (!item) {

@@ -19,8 +19,8 @@ const renderCulture = (items, currentId, currentTitle) => {
     }
 
     const renderContent = (item) => (
-      <div className="flex md:block sm:block h-body overflow-auto sm:h-auto md:h-auto">
-        <div className="w-1/2 mt-10 pl-32 pr-20 md:w-full sm:w-full sm:pb-10 sm:pt-0 sm:px-5 md:p-10 xl:pl-20 xl:pr-6">
+      <div className="flex md:block sm:block lg:block h-body overflow-auto sm:h-auto md:h-auto lg:h-auto lg:mb-10">
+        <div className="w-1/2 mt-10 pl-32 pr-20 md:w-full sm:w-full lg:w-full sm:pb-10 sm:pt-0 sm:px-5 md:p-10 xl:pl-20 xl:pr-6 lg:px-20 lg:mt-0">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {currentTitle}
           </div>
@@ -36,7 +36,7 @@ const renderCulture = (items, currentId, currentTitle) => {
             />
           </div>
         </div>
-        <div className="w-1/2 md:w-full sm:w-full">
+        <div className="w-1/2 md:w-full sm:w-full lg:w-full ">
           {!item.acf.image_1 ? (
             <img
               className="object-cover object-center h-body w-full"
@@ -88,8 +88,8 @@ const renderCulture = (items, currentId, currentTitle) => {
           </div>
         </div>
       ) : item.slug.includes("benefits") ? (
-        <div className="benefits flex md:block sm:block lg:block h-body overflow-auto sm:h-auto md:h-auto">
-          <div className="w-1/2 flex flex-col flex-center pl-32 pr-20 lg:pl-20 lg:pr-10 md:w-full sm:w-full lg:w-full md:px-10 md:pb-10 sm:px-5 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-0 first-col mt-10 xl:my-5">
+        <div className="benefits flex md:block sm:block lg:block h-body overflow-auto sm:h-auto md:h-auto lg:h-auto lg:pb-10">
+          <div className="w-1/2 flex flex-col flex-center pl-32 pr-20 lg:px-20 md:w-full sm:w-full lg:w-full md:px-10 md:pb-10 sm:px-5 sm:pb-10 xl:pl-20 xl:pr-6 xl:pt-0 first-col mt-10 xl:my-5">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
@@ -123,7 +123,7 @@ const renderCulture = (items, currentId, currentTitle) => {
               </div>
             </div>
           </div>
-          <div className="w-1/2 lg:w-full md:w-full sm:w-full h-body">
+          <div className="w-1/2 lg:w-full md:w-full sm:w-full h-body lg:h-auto sm:h-auto md:h-auto">
             <img
               className="object-cover object-center h-full w-full"
               src={getData(item._embedded, "image")}
@@ -177,18 +177,18 @@ const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
 
         return (
           <div className="category-item">
-            <div className="flex md:block sm:block h-body md:overflow-auto sm:h-auto md:h-auto">
-              <div className="w-3/5 pr-20 pl-32 mt-10 md:w-full md:pb-5 sm:w-full sm:pt-0 sm:pb-10 sm:px-5 md:px-10 xl:pl-20 xl:pr-6">
+            <div className="flex md:block sm:block lg:block h-body md:overflow-auto sm:h-auto md:h-auto lg:h-auto lg:mb-10">
+              <div className="w-3/5 pr-20 pl-32 mt-10 md:w-full md:pb-5 sm:w-full lg:w-full sm:pt-0 sm:pb-10 sm:px-5 md:px-10 xl:pl-20 xl:pr-6 lg:px-20">
                 <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
                   {currentTitle}
                 </div>
-                <div className="sm:h-auto h-80 overflow-auto">
+                <div className="sm:h-auto h-80 overflow-auto lg:h-auto">
                   <div className="flex flex-wrap md:flex-nowrap md:mt-5 sm:flex-nowrap">
                     {jobs.map((job) => renderJobs(job, lang))}
                   </div>
                 </div>
               </div>
-              <div className="w-2/5 md:w-full sm:w-full ">
+              <div className="w-2/5 md:w-full sm:w-full lg:w-full">
                 <div
                   className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative"
                   style={{
@@ -232,8 +232,8 @@ const renderProcess = (items, currentId, currentTitle) => {
   return (
     <div className={`section vacancies item-detail`}>
       <div className="category-item">
-        <div className="flex md:block sm:block h-body md:overflow-auto sm:h-auto md:h-auto">
-          <div className="w-1/2 pl-32 pr-20 mt-10 xl:pl-20 xl:pr-6 lg:w-full md:w-full sm:w-full lg:pt-10 lg:pb-10 lg:pr-5 md:pt-10 md:px-10 md:pb-5 sm:p-5">
+        <div className="flex md:block sm:block lg:block h-body md:overflow-auto lg:h-auto lg:mb-10 sm:h-auto md:h-auto">
+          <div className="w-1/2 pl-32 pr-20 mt-10 xl:pl-20 xl:pr-6 lg:w-full md:w-full sm:w-full md:pt-10 md:px-10 md:pb-5 sm:p-5 lg:px-20">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
             </div>
@@ -242,7 +242,7 @@ const renderProcess = (items, currentId, currentTitle) => {
                 dangerouslySetInnerHTML={{ __html: items[2].title.rendered }}
               />
             </div>
-            <div className="career-scroll xl:h-56 xl:overflow-auto md:h-auto lg:overflow-auto lg:h-72 2xl:h-72 2xl:overflow-auto">
+            <div className="career-scroll xl:h-56 xl:overflow-auto md:h-auto lg:overflow-auto lg:h-auto 2xl:h-72 2xl:overflow-auto">
               <div
                 className="text-base md:text-sm"
                 dangerouslySetInnerHTML={{
@@ -320,7 +320,7 @@ const Item = (props) => {
   const renderFaq = () => {
     return (
       <div className="section faq">
-        <div className="px-56 xl:px-24 2xl:pt-28 2xl:px-20 lg:pl-24 lg:pr-10 md:pl-20 md:pr-10 sm:px-8 sm:h-auto md:h-auto">
+        <div className="px-56 xl:px-24 2xl:pt-28 2xl:px-20 lg:px-20 md:pl-20 md:pr-10 sm:px-8 sm:h-auto md:h-auto lg:h-auto lg:mb-10">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {__("Human Resource")}
           </div>

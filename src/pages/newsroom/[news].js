@@ -96,7 +96,7 @@ const News = (props) => {
             <div className="section news-detail">
               <div
                 className={
-                  "pl-24 flex h-body lg:block lg:pl-20 md:block sm:block sm:px-5 sm:h-auto lg:overflow-auto md:overflow-auto md:h-auto md:px-10"
+                  "pl-24 flex h-body lg:block lg:px-20 md:block sm:block sm:px-5 sm:h-auto md:h-auto md:px-10 lg:h-auto lg:pt-20 lg:mb-10"
                 }
               >
                 <div
@@ -136,11 +136,11 @@ const News = (props) => {
               </div>
             </div>
             <div className="section odd otherNews">
-              <div className="pl-40 pr-12 md:px-10 2xl:pt-28 pt-28 2xl:px-20 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden md:pb-10 sm:pb-10 xl:px-16 xl:pt-20">
+              <div className="pl-40 pr-12 md:px-10 2xl:pt-28 pt-28 2xl:px-20 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden md:pb-10 sm:pb-10 xl:px-16 xl:pt-20 lg:h-auto lg:px-20 lg:pt-10">
                 <h2 className=" text-3xl font-bold mb-3 capitalize 2xl:mb-2">
                   {__("Related news")}
                 </h2>
-                <div className="brands news-slider sm:pb-20 ">
+                <div className="brands news-slider sm:pb-20 lg:pb-20">
                   <Slider {...settings}>{renderNews}</Slider>
                 </div>
               </div>

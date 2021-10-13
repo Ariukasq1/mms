@@ -111,7 +111,7 @@ const About = (props) => {
             <div className="section about-us">
               <div
                 className={
-                  "pl-40 pr-20 flex flex-row justify-center items-center 2xl:px-20 2xl:pt-28 xl:pt-28 xl:px-16 sm:flex-col sm:px-5 lg:block md:block md:px-10 pt-10 sm:h-auto sm:overflow-hidden md:h-auto"
+                  "pl-40 pr-20 flex flex-row justify-center items-center 2xl:px-20 2xl:pt-28 xl:pt-28 xl:px-16 sm:flex-col sm:px-5 lg:block md:block md:px-10 pt-10 sm:h-auto sm:overflow-hidden md:h-auto lg:pt-29 lg:px-20 lg:h-auto"
                 }
               >
                 <div
@@ -156,7 +156,7 @@ const About = (props) => {
               </div>
             </div>
             <div className="section what-we-do project-info ">
-              <div className="sm:h-auto md:h-auto 2xl:pt-28 pt-16 xl:pt-28">
+              <div className="sm:h-auto md:h-auto 2xl:pt-28 pt-16 xl:pt-28 lg:h-auto lg:pb-10">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-tag capitalize text-xl font-bold sm:text-lg sm:mt-0">
                     {__("What we do")}
