@@ -108,7 +108,7 @@ class BrandsComponent extends React.Component {
     );
 
     return (
-      <div className="justify-start items-start brands pl-32 pr-16 pt-20 2xl:px-20 xl:px-24 sm:px-5 lg:px-10 md:p-10 sm:h-auto md:h-auto lg:h-auto md:overflow-hidden sm:overflow-hidden lg:pt-10 lg:pb-20">
+      <div className="justify-start items-start brands pl-32 pr-16 pt-20 2xl:px-20 xl:px-24 sm:px-5 lg:px-10 md:p-10 sm:h-auto md:h-auto lg:h-auto md:overflow-hidden sm:overflow-hidden lg:pt-28 lg:pb-20 ">
         <div className="text-center sm:text-left">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg ">
             {__("Brands")}

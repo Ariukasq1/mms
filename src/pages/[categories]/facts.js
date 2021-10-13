@@ -54,7 +54,7 @@ class ItemFacts extends React.Component {
           })`,
         }}
       >
-        <div className="px-40 flex items-center justify-center  md:h-full 2xl:h-full xl:h-full lg:pl-20 lg:pr-5 md:pl-10 md:pr-5 sm:pr-5 sm:pl-10 sm:py-10 overflow-auto">
+        <div className="px-40 flex items-center justify-center  md:h-full 2xl:h-full xl:h-full lg:px-0 md:pl-10 md:pr-5 sm:pr-5 sm:pl-10 sm:py-10 overflow-auto">
           <div className="grid gap-0 grid-cols-2 md:grid-cols-1 sm:grid-cols-1 h-full">
             {Object.entries((post && post.acf) || {}).map(([key, value]) => {
               if (!key.includes("group")) {

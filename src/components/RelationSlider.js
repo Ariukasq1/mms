@@ -41,7 +41,7 @@ const RelationSlider = ({ posts, items, querySlug }) => {
 
   if (items.length <= 4) {
     return (
-      <div className="grid grid-cols-4 gap-4 px-4 sm:px-0 sm:grid-cols-1 md:grid-cols-1 md:px-0">
+      <div className="grid grid-cols-4 gap-4 px-4 sm:px-0 sm:grid-cols-1 lg:grid-cols-2 lg:px-0 md:grid-cols-1 md:px-0">
         {renderItems()}
       </div>
     );

@@ -8,9 +8,9 @@ import FullPage from "../../components/FullPage";
 export const CategoriesItem = (props) => {
   return (
     <div className="capabilitiesPage">
-      <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 md:px-10 lg:px-24 sm:px-5 sm:h-auto md:h-auto">
+      <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 lg:px-20 lg:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto">
         <div className="brands">
-          <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2">
+          <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2">
             {__(props.querySlug)}
           </h2>
           <SliderSubCategories

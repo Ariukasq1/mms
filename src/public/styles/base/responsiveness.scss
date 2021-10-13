@@ -109,6 +109,9 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
+  .section.additional .odd:first-child .content {
+    padding-left: 0;
+  }
   .section.slider {
     .fp-tableCell {
       padding-top: 114px;
