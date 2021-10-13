@@ -111,7 +111,7 @@ const About = (props) => {
             <div className="section about-us">
               <div
                 className={
-                  "pl-40 pr-20 flex flex-row justify-center items-center 2xl:px-20 2xl:pt-28 xl:pt-28 xl:px-16 sm:flex-col sm:px-5 lg:block md:block md:px-10 pt-10 sm:h-auto sm:overflow-hidden md:h-auto lg:pt-29 lg:px-20 lg:h-auto"
+                  "pl-40 pr-20 flex flex-row justify-center items-center 2xl:px-20 2xl:pt-28 xl:pt-28 xl:px-16 sm:flex-col sm:px-5 lg:block md:block md:px-10 pt-10 sm:h-auto sm:overflow-hidden md:h-auto lg:pt-29 lg:px-20 lg:h-auto md:pt-29"
                 }
               >
                 <div

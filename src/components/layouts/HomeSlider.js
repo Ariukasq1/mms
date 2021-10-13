@@ -28,7 +28,7 @@ const HomeSlider = ({ sliders }) => {
     const { text, description, font_color } = body || {};
 
     return (
-      <div key={index}>
+      <div key={index} className="md:pt-28">
         <div
           style={{
             background:

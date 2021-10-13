@@ -52,7 +52,7 @@ class ItemRelations extends React.Component {
     const { brands, capabilities, industries } = (post && post.acf) || {};
 
     return (
-      <div className="px-40 item-relations 2xl:px-20 pt-32 2xl:pt-28 xl:px-24 lg:px-16 md:px-10 sm:pt-2 sm:px-8 sm:h-auto md:h-auto lg:py-10 xl:pt-28">
+      <div className="px-40 item-relations 2xl:px-20 pt-32 2xl:pt-28 xl:px-24 lg:px-16 md:px-10 sm:pt-2 sm:px-8 sm:h-auto md:h-auto lg:py-10 xl:pt-28 md:py-10">
         <h2 className="text-menuTextColor font-bold text-2xl capitalize mb-3 xl:mb-0 sm:mb-2 2xl:mb-0 ">
           {__("Relations")}
         </h2>

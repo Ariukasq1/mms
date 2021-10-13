@@ -96,7 +96,7 @@ const News = (props) => {
             <div className="section news-detail">
               <div
                 className={
-                  "pl-24 flex h-body lg:block lg:px-20 md:block sm:block sm:px-5 sm:h-auto md:h-auto md:px-10 lg:h-auto lg:pt-20 lg:mb-10"
+                  "pl-24 flex h-body lg:block lg:px-20 md:block sm:block sm:px-5 sm:h-auto md:h-auto md:px-10 lg:h-auto lg:pt-20 lg:mb-10 md:pt-20 md:pb-10"
                 }
               >
                 <div

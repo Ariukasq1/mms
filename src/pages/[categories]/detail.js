@@ -55,7 +55,7 @@ class ItemDetail extends React.Component {
     return (
       <div className="category-item ">
         <div className="pl-24 xl:pl-12 md:pl-0 sm:px-0 lg:px-0">
-          <div className="flex md:block sm:block lg:block h-body sm:h-auto md:h-auto lg:h-auto md:overflow-hidden sm:overflow-hidden lg:mb-10">
+          <div className="flex md:block sm:block lg:block h-body sm:h-auto md:h-auto lg:h-auto md:overflow-hidden sm:overflow-hidden lg:mb-10 md:mb-10 sm:mb-10">
             <div className="w-1/2 flex flex-col mx-12 mt-5 lg:ml-0 lg:mr-5 lg:mt-5 md:mt-5 lg:w-full md:w-full md:mx-0 sm:w-full xl:mt-5 lg:px-20 sm:px-8 sm:m-0">
               {this.renderSupport(post.acf)}
             </div>

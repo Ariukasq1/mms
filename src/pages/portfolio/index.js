@@ -20,7 +20,7 @@ export const SliderSubCategories = (props) => {
 
     return (
       <div
-        className="cat-item bg-white mx-5 xl:mx-2 md:mb-10 sm:mb-10 w-1/4 lg:w-full md:w-full sm:w-full lg:mx-0"
+        className="cat-item bg-white mx-5 xl:mx-2 md:mb-10 sm:mb-10 w-1/4 lg:w-full md:w-full sm:w-full lg:mx-0 md:mx-0 sm:mx-0"
         key={index}
         data-aos="fade-down"
         data-aos-easing="ease"
@@ -92,9 +92,9 @@ const Portfolio = (props) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 md:px-10 lg:px-20 sm:px-5 md:h-auto sm:h-auto capabilitiesPageSlider  lg:pt-28 lg:h-auto">
+                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 lg:px-20 lg:pt-28 md:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto">
                   <div className="brands">
-                    <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2">
+                    <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2 sm:m-0 md:m-0">
                       {__("Portfolio")}
                     </h2>
                     <SliderSubCategories

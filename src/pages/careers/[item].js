@@ -177,12 +177,12 @@ const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
 
         return (
           <div className="category-item">
-            <div className="flex md:block sm:block lg:block h-body md:overflow-auto sm:h-auto md:h-auto lg:h-auto lg:mb-10">
+            <div className="flex md:block sm:block lg:block h-body md:overflow-auto sm:h-auto md:h-auto lg:h-auto lg:mb-10 md:mb-10 sm:mb-10">
               <div className="w-3/5 pr-20 pl-32 mt-10 md:w-full md:pb-5 sm:w-full lg:w-full sm:pt-0 sm:pb-10 sm:px-5 md:px-10 xl:pl-20 xl:pr-6 lg:px-20">
                 <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
                   {currentTitle}
                 </div>
-                <div className="sm:h-auto h-80 overflow-auto lg:h-auto">
+                <div className="sm:h-auto h-80 overflow-auto lg:h-auto md:h-auto">
                   <div className="flex flex-wrap md:flex-nowrap md:mt-5 sm:flex-nowrap">
                     {jobs.map((job) => renderJobs(job, lang))}
                   </div>
@@ -232,7 +232,7 @@ const renderProcess = (items, currentId, currentTitle) => {
   return (
     <div className={`section vacancies item-detail`}>
       <div className="category-item">
-        <div className="flex md:block sm:block lg:block h-body md:overflow-auto lg:h-auto lg:mb-10 sm:h-auto md:h-auto">
+        <div className="flex md:block sm:block lg:block h-body md:overflow-auto lg:h-auto lg:mb-10 sm:h-auto md:h-auto md:mb-10 sm:mb-10">
           <div className="w-1/2 pl-32 pr-20 mt-10 xl:pl-20 xl:pr-6 lg:w-full md:w-full sm:w-full md:pt-10 md:px-10 md:pb-5 sm:p-5 lg:px-20">
             <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
               {currentTitle}
@@ -320,7 +320,7 @@ const Item = (props) => {
   const renderFaq = () => {
     return (
       <div className="section faq">
-        <div className="px-56 xl:px-24 2xl:pt-28 2xl:px-20 lg:px-20 md:pl-20 md:pr-10 sm:px-8 sm:h-auto md:h-auto lg:h-auto lg:mb-10">
+        <div className="px-56 xl:px-24 2xl:pt-28 2xl:px-20 lg:px-20 md:px-10 sm:px-8 sm:h-auto md:h-auto lg:h-auto lg:mb-10 md:mb-10 sm:mb-10">
           <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
             {__("Human Resource")}
           </div>

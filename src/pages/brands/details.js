@@ -26,7 +26,7 @@ class BrandDetail extends React.Component {
       certificate,
     } = brand.acf || {};
     return (
-      <div className="brand-detail-wrapper h-body overflow-auto sm:overflow-hidden sm:h-auto md:h-auto lg:h-auto lg:pt-28">
+      <div className="brand-detail-wrapper h-body overflow-auto sm:overflow-hidden sm:h-auto md:h-auto lg:h-auto lg:pt-28 md:pt-28">
         <div className="relative grid grid-cols-3 h-full lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 lg:h-auto md:h-auto sm:h-auto">
           <div
             className="col-item p-16 bg-cover bg-center bg-no-repeat h-full w-full object-cover object-center cursor-pointer relative sm:px-0 sm:py-5 2xl:p-5 overflow-auto lg:h-auto"

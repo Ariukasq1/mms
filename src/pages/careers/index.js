@@ -7,7 +7,7 @@ import Link from "next/link";
 import FullPage from "../../components/FullPage";
 
 export const renderValues = (career, currentLanguage) => (
-  <div className="px-56 xl:px-20 2xl:px-28 pt-16 2xl:pt-28 xl:pt-28 lg:pt-29 lg:px-20 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto">
+  <div className="px-56 xl:px-20 2xl:px-28 pt-16 2xl:pt-28 xl:pt-28 lg:pt-29 lg:px-20 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto md:pt-29">
     <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
       {__("human resource")}
     </div>
