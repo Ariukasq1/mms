@@ -27,7 +27,7 @@ export const renderProjects = (projects, post, language) => {
           href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#section4`}
         >
           <div
-            className="project flex items-center row-span-2 col-span-1 relative h-56 xl:h-48 bg-no-repeat bg-cover bg-center 2xl:h-40"
+            className="project flex items-center row-span-2 col-span-1 relative h-56 xl:h-40 bg-no-repeat bg-cover bg-center 2xl:h-40"
             style={{
               backgroundImage: `url(${getData(project._embedded, "image")})`,
             }}
@@ -171,7 +171,7 @@ const Item = (props) => {
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pl-32 xl:pr-5 md:px-10 lg:pl-16 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16">
+              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:pl-16 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16">
                 <div className="desc mb-10 xl:mb-5 sm:mb-5">
                   <h4 className="mb-5">
                     <div

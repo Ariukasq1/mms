@@ -7,14 +7,14 @@ import Link from "next/link";
 import FullPage from "../../components/FullPage";
 
 export const renderValues = (career, currentLanguage) => (
-  <div className="px-56 xl:px-20 2xl:px-28 pt-16 2xl:pt-28 lg:pl-20 lg:pr-5 md:px-10 sm:px-5 sm:h-auto md:h-auto">
+  <div className="px-56 xl:px-20 2xl:px-28 pt-16 2xl:pt-28 xl:pt-28 lg:pl-20 lg:pr-5 md:px-10 sm:px-5 sm:h-auto md:h-auto">
     <div className="heading-tag capitalize text-xl font-bold sm:text-lg">
       {__("human resource")}
     </div>
     <div className="heading-title capitalize text-4xl mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
       {__("We put company culture first")}
     </div>
-    <div className="grid grid-cols-4 gap-12 xl:gap-3 lg:gap-5 md:gap-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+    <div className="grid grid-cols-4 gap-12 xl:gap-5 lg:gap-5 md:gap-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
       {career.map((item, index) => (
         <div
           key={item.id}
@@ -37,7 +37,7 @@ export const renderValues = (career, currentLanguage) => (
                 <div className="bg-wrapper flex items-center justify-center">
                   <img src={getData(item._embedded, "image")} alt="image" />
                 </div>
-                <div className="content p-6 2xl:py-2">
+                <div className="content p-6 2xl:py-2 xl:p-2">
                   <h4 className="font-semibold text-menuTextColor mb-3 text-lg">
                     {item.title.rendered}
                   </h4>

@@ -116,7 +116,7 @@ const Detail = (props) => {
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 xl:pl-32 xl:pr-5 md:px-10 lg:pl-16 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16 2xl:pt-28">
+              <div className="projects-wrapper pl-32 xl:px-16 md:px-10 lg:pl-16 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16 2xl:pt-28 xl:pt-28">
                 <div className="desc mb-10 xl:mb-5 sm:mb-5 2xl:mb-0">
                   <h4 className="mb-5">
                     <div

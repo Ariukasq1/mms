@@ -30,7 +30,7 @@ const settings = {
         rows: 2,
         infinite: true,
         slidesPerRow: 1,
-        dots: true,
+        dots: false,
       },
     },
     {
@@ -40,7 +40,7 @@ const settings = {
         rows: 2,
         infinite: true,
         slidesPerRow: 1,
-        dots: true,
+        dots: false,
       },
     },
     {
@@ -89,7 +89,7 @@ const Index = (props) => {
     return (
       <div key={news.id} className="news-wrapper">
         <div
-          className="relative news-item h-64 3xl:h-56 2xl:h-40 xl:h-48"
+          className="relative news-item h-64 3xl:h-56 2xl:h-40 xl:h-40"
           style={{
             backgroundImage: `url(${getData(news._embedded, "image")})`,
           }}
@@ -160,7 +160,7 @@ const Index = (props) => {
         children={
           <div id="fullpage">
             <div className="section news">
-              <div className="px-56 2xl:px-40 2xl:pt-20 pt-16 xl:px-24 lg:px-20 md:px-10 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
+              <div className="px-56 2xl:px-40 2xl:pt-20 pt-16 xl:px-24 xl:pt-20 lg:px-20 md:px-10 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden sm:overflow-hidden">
                 <div className="brands text-center">
                   <div className="heading-title capitalize text-5xl mt-2 mb-6 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1">
                     {__("Newsroom")}

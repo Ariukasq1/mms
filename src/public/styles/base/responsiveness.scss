@@ -77,6 +77,15 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
+  .main-values {
+    .card {
+      .bg-wrapper {
+        height: 180px;
+        padding: 10px 30px;
+        border-radius: 10px 10px 0 0;
+      }
+    }
+  }
   .image {
     height: 220px;
   }
