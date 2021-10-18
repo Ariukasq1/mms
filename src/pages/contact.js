@@ -5,7 +5,7 @@ import { Config } from "../config";
 import { fetcher } from "../utils";
 import FullPage from "../components/FullPage";
 
-const Contact = (props) => {
+const Contact = ({ contact }) => {
   return (
     <Layout>
       <FullPage
@@ -13,7 +13,7 @@ const Contact = (props) => {
         children={
           <>
             <div className="section footer">
-              <Footer contact={props.contact} />
+              <Footer contact={contact} />
             </div>
           </>
         }
@@ -22,7 +22,7 @@ const Contact = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+Contact.getInitialProps = async (ctx) => {
   const query = ctx.query.lang;
 
   const contact = await fetcher(
@@ -31,7 +31,7 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { contact } };
+  return { contact };
 };
 
 export default Contact;

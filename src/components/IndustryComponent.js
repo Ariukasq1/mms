@@ -29,7 +29,7 @@ const IndustryComponent = ({ industries }) => {
               key={i}
               tab={
                 <div
-                  className="title text-6xl 2xl:text-5xl xl:text-4xl lg:text-5xl md:text-4xl sm:text-3xl"
+                  className="title text-6xl 2xl:text-5xl xl:text-4xl lg:text-5xl md:text-4xl sm:text-4xl"
                   data-aos="fade-right"
                   data-aos-easing="ease-in"
                   data-aos-delay={i * 150}
@@ -42,7 +42,7 @@ const IndustryComponent = ({ industries }) => {
               }
             >
               <div
-                className="w-full h-body relative"
+                className="w-full h-body relative sm:h-86"
                 style={{
                   backgroundImage: `url(${getData(item._embedded, "image")})`,
                   backgroundSize: "cover",
@@ -51,7 +51,7 @@ const IndustryComponent = ({ industries }) => {
                 }}
               >
                 <div className="bg-black opacity-50 absolute inset-0" />
-                <div className="desc text-lg p-20 pr-32 text-white overflow-ellipsis h-full font-medium relative w-full sm:px-5 sm:text-sm md:w-full md:p-10 md:text-sm lg:p-10 2xl:p-10 xl:p-12 xl:overflow-auto sm:py-5 overflow-ellipsis  sm:h-80 ">
+                <div className="desc text-lg p-20 pr-32 text-white overflow-ellipsis h-full font-medium relative w-full sm:px-5 sm:text-sm md:w-full md:p-10 md:text-sm lg:p-10 2xl:p-10 xl:p-12 xl:overflow-auto sm:py-20 overflow-ellipsis  sm:h-80 ">
                   <div
                     dangerouslySetInnerHTML={{
                       __html: item.content.rendered,

@@ -12,8 +12,41 @@ import { DownloadOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 
 class Brands extends React.Component {
-  constructor(props) {
-    super(props);
+  static async getInitialProps(ctx) {
+    const query = ctx.query.brands;
+    const lang = ctx.query.lang;
+
+    const items = await fetcher(
+      `${Config.apiUrl}/wp/v2/posts?_embed&slug=${query}&${
+        lang === "mn" ? "lang=mn" : "lang="
+      }`
+    );
+
+    const itemSlug = items.length !== 0 ? items[0].slug : "abb";
+
+    const currentCat = await fetcher(
+      `${Config.apiUrl}/wp/v2/categories?slug=${itemSlug}&${
+        lang === "mn" ? "lang=mn" : "lang="
+      }`
+    );
+
+    const categories = await fetcher(
+      `${Config.apiUrl}/wp/v2/categories?parent=${currentCat[0].id || "222"}&${
+        lang === "mn" ? "lang=mn" : "lang="
+      }`
+    );
+
+    const posts = await fetcher(
+      `${Config.apiUrl}/wp/v2/posts?_embed&per_page=100&${
+        lang === "mn" ? "lang=mn" : "lang="
+      }`
+    );
+
+    return { items, categories, posts, lang };
+  }
+
+  constructor({ items, categories, posts, lang }) {
+    super({ items, categories, posts, lang });
 
     this.state = {
       showDetail: false,
@@ -259,38 +292,5 @@ class Brands extends React.Component {
     );
   }
 }
-
-export const getServerSideProps = async (ctx) => {
-  const query = ctx.query.brands;
-  const lang = ctx.query.lang;
-
-  const items = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${query}&${
-      lang === "mn" ? "lang=mn" : "lang="
-    }`
-  );
-
-  const itemSlug = items.length !== 0 ? items[0].slug : "abb";
-
-  const currentCat = await fetcher(
-    `${Config.apiUrl}/wp/v2/categories?slug=${itemSlug}&${
-      lang === "mn" ? "lang=mn" : "lang="
-    }`
-  );
-
-  const categories = await fetcher(
-    `${Config.apiUrl}/wp/v2/categories?parent=${currentCat[0].id || "222"}&${
-      lang === "mn" ? "lang=mn" : "lang="
-    }`
-  );
-
-  const posts = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&per_page=100&${
-      lang === "mn" ? "lang=mn" : "lang="
-    }`
-  );
-
-  return { props: { items, categories, posts, lang } };
-};
 
 export default Brands;

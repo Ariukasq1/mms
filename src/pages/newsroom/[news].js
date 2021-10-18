@@ -56,18 +56,18 @@ const settings = {
   ],
 };
 
-const News = (props) => {
+const News = ({ details, news }) => {
   const currentLanguage = getLangParam();
-  const post = props.details[0];
+  const post = details[0];
 
-  const renderNews = props.news.map((n, index) => {
+  const renderNews = news.map((n, index) => {
     return (
       <div key={index}>
         <div className="newsBox mb-5 xl:mb-1 md:mb-12 pr-8 sm:mb-5 sm:pr-0 2xl:mb-0">
           <Link
             href={{
               pathname: "/newsroom/[news]#1",
-              query: { news: props.news.slug },
+              query: { news: news.slug },
             }}
             as={`/newsroom/${n.slug}?lang=${currentLanguage}#1`}
           >
@@ -152,7 +152,7 @@ const News = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+News.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
   const slug = ctx.query.news;
 
@@ -168,7 +168,7 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { details, news } };
+  return { details, news };
 };
 
 export default News;

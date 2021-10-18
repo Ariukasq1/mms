@@ -5,7 +5,7 @@ import { Config } from "../../config";
 import { fetcher } from "../../utils";
 import FullPage from "../../components/FullPage";
 
-const Brands = (props) => {
+const Brands = ({ brands, brandCategories }) => {
   return (
     <Layout>
       <FullPage
@@ -14,8 +14,8 @@ const Brands = (props) => {
           <>
             <div className="section brands">
               <BrandsComponent
-                brands={props.brands}
-                brandCategories={props.brandCategories}
+                brands={brands}
+                brandCategories={brandCategories}
               />
             </div>
           </>
@@ -25,7 +25,7 @@ const Brands = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+Brands.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const brandCategories = await fetcher(
@@ -40,6 +40,6 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { brands, brandCategories } };
+  return { brands, brandCategories };
 };
 export default Brands;

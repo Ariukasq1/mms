@@ -4532,6 +4532,7 @@ module.exports = /******/ (function (modules) {
               else if (
                 (Qn(r, {
                   overflow: "visible",
+                  overflowX: "hidden",
                   height: "initial",
                 }),
                 re(!!g.autoScrolling && Y.recordHistory, "internal"),

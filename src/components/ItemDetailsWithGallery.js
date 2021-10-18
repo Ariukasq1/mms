@@ -40,7 +40,7 @@ const ItemDetailsWithGallery = ({ images }) => {
     return (
       <div key={index} className={"slick-slide sliderBigImg"}>
         <img
-          className={"object-cover object-center h-body w-full"}
+          className={"object-cover object-center h-body w-full sm:h-86"}
           src={image}
           alt={index}
         />

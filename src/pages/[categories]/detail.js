@@ -59,7 +59,7 @@ class ItemDetail extends React.Component {
             <div className="w-1/2 flex flex-col mx-12 mt-5 lg:ml-0 lg:mr-5 lg:mt-5 md:mt-5 lg:w-full md:w-full md:mx-0 sm:w-full xl:mt-5 lg:px-20 sm:px-8 sm:m-0">
               {this.renderSupport(post.acf)}
             </div>
-            <div className="w-1/2 md:w-full sm:w-full lg:w-full h-body">
+            <div className="w-1/2 md:w-full sm:w-full lg:w-full h-body sm:h-86">
               <div
                 className="item-image bg-cover bg-no-repeat h-full object-cover object-center relative sm:bg-center "
                 style={{

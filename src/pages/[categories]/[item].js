@@ -41,20 +41,22 @@ const AdditionSection = (posts, detail, lang) => {
   );
 };
 
-const Item = (props) => {
+const Item = ({ posts, querySlug, detail, lang }) => {
   return (
     <Layout>
       <FullPage
         children={
           <div id="fullpage">
-            <div className="section categories">{CategoriesItem(props)}</div>
-            <div className="section item-detail">
-              <ItemDetail post={props.detail[0]} lang={props.lang} />
+            <div className="section categories">
+              {CategoriesItem(posts, querySlug, lang)}
             </div>
-            {FactsSection(props.posts, props.detail, props.lang)}
-            {AdditionSection(props.posts, props.detail, props.lang)}
+            <div className="section item-detail">
+              <ItemDetail post={detail[0]} lang={lang} />
+            </div>
+            {FactsSection(posts, detail, lang)}
+            {AdditionSection(posts, detail, lang)}
             <div className="section relations">
-              <ItemRelations lang={props.lang} post={props.detail[0]} />
+              <ItemRelations lang={lang} post={detail[0]} />
             </div>
           </div>
         }
@@ -63,7 +65,7 @@ const Item = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+Item.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
   const slug = ctx.query.item;
 
@@ -85,7 +87,7 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { posts, querySlug, detail, lang } };
+  return { posts, querySlug, detail, lang };
 };
 
 export default Item;

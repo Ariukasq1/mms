@@ -9,7 +9,14 @@ import { fetcher } from "../utils";
 import FullPage from "../components/FullPage";
 import Footer from "../components/layouts/footer";
 
-const Index = (props) => {
+const Index = ({
+  sliders,
+  brandCategories,
+  brands,
+  capability,
+  industries,
+  contact,
+}) => {
   return (
     <Layout>
       <FullPage
@@ -17,22 +24,22 @@ const Index = (props) => {
         children={
           <>
             <div className="section slider">
-              <HomeSlider sliders={props.sliders} />
+              <HomeSlider sliders={sliders} />
             </div>
             <div className="section capabilities">
-              <CapabilitiesComponent data={props.capability[0]} />
+              <CapabilitiesComponent data={capability[0]} />
             </div>
             <div className="section industry">
-              <IndustryComponent industries={props.industries} />
+              <IndustryComponent industries={industries} />
             </div>
             <div className="section brands">
               <BrandsComponent
-                brands={props.brands}
-                brandCategories={props.brandCategories}
+                brands={brands}
+                brandCategories={brandCategories}
               />
             </div>
             <div className="section footer">
-              <Footer contact={props.contact} />
+              <Footer contact={contact} />
             </div>
           </>
         }
@@ -41,7 +48,7 @@ const Index = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+Index.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const sliders = await fetcher(
@@ -85,14 +92,12 @@ export const getServerSideProps = async (ctx) => {
   );
 
   return {
-    props: {
-      sliders,
-      brandCategories,
-      brands,
-      capability,
-      industries,
-      contact,
-    },
+    sliders,
+    brandCategories,
+    brands,
+    capability,
+    industries,
+    contact,
   };
 };
 

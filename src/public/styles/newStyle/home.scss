@@ -71,3 +71,15 @@
   bottom: -30px;
   right: 400px;
 }
+
+@keyframes bounce-1 {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -260,10 +260,17 @@
   .section.additional h4 {
     padding-left: 0;
   }
+  .section.slider,
+  .section.brands,
+  .section.categories,
+  .section.brand-detail {
+    .fp-tableCell {
+      padding-top: 66px;
+    }
+  }
   .section {
     height: max-content !important;
     .fp-tableCell {
-      padding-top: 66px;
       height: max-content !important;
     }
   }
@@ -303,8 +310,8 @@
   }
   .arrow {
     position: absolute;
-    bottom: -30px;
-    right: 100px;
+    bottom: 0px;
+    right: 200px;
   }
   .footer-responsive {
     display: block;

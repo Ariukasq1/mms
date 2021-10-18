@@ -1,28 +1,23 @@
 import React from "react";
-import Link from "next/link";
 import Layout from "../components/layouts/Layout";
 import ItemDetailsWithGallery from "../components/ItemDetailsWithGallery";
 import { Config } from "../config";
 import Slider from "react-slick";
-import arrowImage from "../public/images/arrow-white.svg";
-import arrowImageBlue from "../public/images/arrow-blue.svg";
 import {
   fetcher,
   __,
   getData,
   SampleNextArrow,
   SamplePrevArrow,
-  getLangParam,
 } from "../utils";
 import Material from "./Material";
 import FullPage from "../components/FullPage";
 import { SliderSubCategories } from "./portfolio";
 import { renderProjects, projectInfo } from "./portfolio/[item]";
 
-const Detail = (props) => {
-  const post = props.detail[0];
-  const projectDetail = props.projectDetails[0];
-  const currentLanguage = getLangParam();
+const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
+  const post = detail[0];
+  const projectDetail = projectDetails[0];
 
   const settingsItems = {
     infinite: true,
@@ -101,9 +96,9 @@ const Detail = (props) => {
                       {__("Portfolio")}
                     </h2>
                     <SliderSubCategories
-                      data={props.posts}
+                      data={posts}
                       querySlug="portfolio"
-                      language={props.lang}
+                      language={lang}
                     />
                   </div>
                 </div>
@@ -116,7 +111,7 @@ const Detail = (props) => {
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:px-20 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16 lg:h-auto lg:pb-20">
+              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:px-20 sm:px-8 sm:h-auto sm:overflow-hidden sm:py-16 md:h-auto md:overflow-hidden md:pb-16 lg:h-auto lg:pb-20">
                 <div className="desc mb-10 xl:mb-5 sm:mb-5 2xl:mb-0">
                   <h4 className="mb-5">
                     <div
@@ -127,15 +122,15 @@ const Detail = (props) => {
                   </h4>
                 </div>
                 <div>
-                  {(props.projects || []).length > 8 ? (
+                  {(projects || []).length > 8 ? (
                     <div className="brands pl-12 pr-32 xl:pl-0 2xl:pl-0 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-0 sm:pl-0 sm:pr-0">
                       <Slider {...settingsItems}>
-                        {renderProjects(props.projects, post, props.lang)}
+                        {renderProjects(projects, post, lang)}
                       </Slider>
                     </div>
                   ) : (
                     <div className="grid grid-cols-4 px-10 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:pl-0 sm:pr-5">
-                      {renderProjects(props.projects, post, props.lang)}
+                      {renderProjects(projects, post, lang)}
                     </div>
                   )}
                 </div>
@@ -186,7 +181,7 @@ const Detail = (props) => {
                 <div className="usage relative md:h-auto h-body overflow-auto sm:h-auto z-30 lg:h-auto">
                   <div
                     className={
-                      "px-72 flex flex-col justify-center xl:px-20 2xl:px-40 md:p-10 md:flex-col lg:px-20 sm:flex-col sm:px-5 lg:py-10"
+                      "px-72 flex flex-col justify-center xl:px-20 2xl:px-40 md:p-10 md:flex-col lg:px-20 sm:flex-col sm:px-5 lg:py-10 sm:py-16"
                     }
                   >
                     <h2 className={"uppercase text-white mb-10"}>
@@ -198,7 +193,7 @@ const Detail = (props) => {
                           <Material
                             key={product}
                             productId={product}
-                            lang={props.lang}
+                            lang={lang}
                           />
                         )
                       )}
@@ -214,7 +209,7 @@ const Detail = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+Detail.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
   const parentSlug = ctx.query.parentSlug;
   const slug = ctx.query.slug;
@@ -248,7 +243,7 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { posts, detail, projects, projectDetails, lang } };
+  return { posts, detail, projects, projectDetails, lang };
 };
 
 export default Detail;

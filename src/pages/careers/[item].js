@@ -36,7 +36,7 @@ const renderCulture = (items, currentId, currentTitle) => {
             />
           </div>
         </div>
-        <div className="w-1/2 md:w-full sm:w-full lg:w-full ">
+        <div className="w-1/2 md:w-full sm:w-full lg:w-full sm:mb-10">
           {!item.acf.image_1 ? (
             <img
               className="object-cover object-center h-body w-full"
@@ -61,7 +61,7 @@ const renderCulture = (items, currentId, currentTitle) => {
     const renderDetails = () => {
       return item.slug.includes("1-1") ? (
         <div
-          className="h-body object-cover relative bg-center bg-no-repeat bg-cover"
+          className="h-body object-cover relative bg-center bg-no-repeat bg-cover sm:h-86"
           style={{
             backgroundImage: `url(${getData(item._embedded, "image")})`,
           }}
@@ -190,7 +190,7 @@ const renderVacancies = (items, currentId, currentTitle, jobs, lang) => {
               </div>
               <div className="w-2/5 md:w-full sm:w-full lg:w-full">
                 <div
-                  className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative"
+                  className="item-image bg-cover bg-no-repeat h-body object-cover object-center relative sm:h-86"
                   style={{
                     backgroundImage: `url(${getData(item._embedded, "image")})`,
                   }}
@@ -306,16 +306,14 @@ const renderProcess = (items, currentId, currentTitle) => {
   );
 };
 
-const Item = (props) => {
+const Item = ({ career, jobs, detail, items, contact, lang }) => {
   const currentLanguage = getLangParam();
-  const detail = props.detail;
-  const items = props.items;
 
   if (!detail || detail.length === 0) {
     return null;
   }
 
-  const post = props.detail[0];
+  const post = detail[0];
 
   const renderFaq = () => {
     return (
@@ -366,25 +364,19 @@ const Item = (props) => {
         children={
           <div id="fullpage career-page">
             <div className="section main-values">
-              {renderValues(props.career, currentLanguage)}
+              {renderValues(career, currentLanguage)}
             </div>
             {post.slug === "faqs"
               ? renderFaq()
               : post.slug === "why-mms"
               ? renderCulture(items, post.id, post.title.rendered)
               : post.slug === "open-vacancy"
-              ? renderVacancies(
-                  items,
-                  post.id,
-                  post.title.rendered,
-                  props.jobs,
-                  props.lang
-                )
+              ? renderVacancies(items, post.id, post.title.rendered, jobs, lang)
               : post.slug === "selection-process"
               ? renderProcess(items, post.id, post.title.rendered)
               : null}
             <div className="section footer">
-              <Footer contact={props.contact} />
+              <Footer contact={contact} />
             </div>
           </div>
         }
@@ -393,7 +385,7 @@ const Item = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+Item.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
   const slug = ctx.query.item;
 
@@ -434,7 +426,7 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { career, jobs, detail, items, contact, lang } };
+  return { career, jobs, detail, items, contact, lang };
 };
 
 export default Item;

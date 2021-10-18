@@ -27,7 +27,7 @@ export const renderProjects = (projects, post, language) => {
           href={`/portfolio/${post.slug}/detail/${project.slug}?lang=${language}#section4`}
         >
           <div
-            className="project flex items-center row-span-2 col-span-1 relative h-56 xl:h-40 bg-no-repeat bg-cover bg-center 2xl:h-40"
+            className="project flex items-center row-span-2 col-span-1 relative h-56 xl:h-40 bg-no-repeat bg-cover bg-center 2xl:h-40 sm:mb-10"
             style={{
               backgroundImage: `url(${getData(project._embedded, "image")})`,
             }}
@@ -85,8 +85,8 @@ export const projectInfo = (post) => {
   );
 };
 
-const Item = (props) => {
-  const post = props.detail[0];
+const Item = ({ posts, detail, projects, lang }) => {
+  const post = detail[0];
 
   if (Object.keys(post).length !== 0) {
     typeof window !== "undefined" &&
@@ -156,9 +156,9 @@ const Item = (props) => {
                       {__("Portfolio")}
                     </h2>
                     <SliderSubCategories
-                      data={props.posts}
+                      data={posts}
                       querySlug="portfolio"
-                      language={props.lang}
+                      language={lang}
                     />
                   </div>
                 </div>
@@ -171,7 +171,7 @@ const Item = (props) => {
                 backgroundImage: `url(${getData(post._embedded, "image")})`,
               }}
             >
-              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:px-20 sm:px-8 sm:h-auto sm:overflow-hidden sm:pb-16 md:h-auto md:overflow-hidden md:pb-16 lg:h-auto lg:pb-20">
+              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:px-20 sm:px-8 sm:h-auto sm:overflow-hidden sm:py-16 md:h-auto md:overflow-hidden md:pb-16 lg:h-auto lg:pb-20">
                 <div className="desc mb-10 xl:mb-5 sm:mb-5">
                   <h4 className="mb-5">
                     <div
@@ -182,15 +182,15 @@ const Item = (props) => {
                   </h4>
                 </div>
                 <div>
-                  {(props.projects || []).length > 8 ? (
+                  {(projects || []).length > 8 ? (
                     <div className="brands pl-12 pr-32 xl:pl-0 2xl:pl-0 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-0 sm:pl-0 sm:pr-0">
                       <Slider {...settingsItems}>
-                        {renderProjects(props.projects, post, props.lang)}
+                        {renderProjects(projects, post, lang)}
                       </Slider>
                     </div>
                   ) : (
                     <div className="grid grid-cols-4 px-10 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:pl-0 sm:pr-5">
-                      {renderProjects(props.projects, post, props.lang)}
+                      {renderProjects(projects, post, lang)}
                     </div>
                   )}
                 </div>
@@ -203,7 +203,7 @@ const Item = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+Item.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
   const slug = ctx.query.item;
 
@@ -230,7 +230,7 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { posts, detail, projects, lang } };
+  return { posts, detail, projects, lang };
 };
 
 export default Item;

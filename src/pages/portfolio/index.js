@@ -6,8 +6,8 @@ import { fetcher, __, getData } from "../../utils";
 import FullPage from "../../components/FullPage";
 import Link from "next/link";
 
-export const SliderSubCategories = (props) => {
-  const renderContent = props.data.map((post, index) => {
+export const SliderSubCategories = ({ data, querySlug, language }) => {
+  const renderContent = data.map((post, index) => {
     if (
       (post.categories !== 0 &&
         post.categories.includes(194) &&
@@ -46,7 +46,7 @@ export const SliderSubCategories = (props) => {
           <a
             className="my-4 text-base w-auto text-gradient font-normal hover:text-opacity-100 flex flex-row sm:my-4 2xl:my-2"
             style={{ display: "block" }}
-            href={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
+            href={`/${querySlug}/${post.slug}?lang=${language}#section2`}
           >
             {__("Read more")}
           </a>
@@ -56,9 +56,9 @@ export const SliderSubCategories = (props) => {
           <Link
             href={{
               pathname: `/[portfolio]/[item]`,
-              query: { lang: props.language },
+              query: { lang: language },
             }}
-            as={`/${props.querySlug}/${post.slug}?lang=${props.language}#section2`}
+            as={`/${querySlug}/${post.slug}?lang=${language}#section2`}
           >
             <a>
               <img
@@ -73,7 +73,7 @@ export const SliderSubCategories = (props) => {
     );
   });
 
-  if (!props.data || props.data.length === 0) {
+  if (!data || data.length === 0) {
     return null;
   }
 
@@ -84,7 +84,7 @@ export const SliderSubCategories = (props) => {
   );
 };
 
-const Portfolio = (props) => {
+const Portfolio = ({ posts, lang }) => {
   return (
     <Layout>
       <FullPage
@@ -98,9 +98,9 @@ const Portfolio = (props) => {
                       {__("Portfolio")}
                     </h2>
                     <SliderSubCategories
-                      data={props.posts}
+                      data={posts}
                       querySlug="portfolio"
-                      language={props.lang}
+                      language={lang}
                     />
                   </div>
                 </div>
@@ -113,7 +113,7 @@ const Portfolio = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+Portfolio.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const posts = await fetcher(
@@ -124,7 +124,7 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { posts, lang } };
+  return { posts, lang };
 };
 
 export default Portfolio;

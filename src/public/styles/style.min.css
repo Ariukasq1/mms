@@ -827,6 +827,17 @@ figcaption {
   right: 400px;
 }
 
+@keyframes bounce-1 {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .section.projects {
   background-repeat: no-repeat;
   background-size: cover;
@@ -2095,11 +2106,17 @@ label {
     padding-left: 0;
   }
 
+  .section.slider .fp-tableCell,
+.section.brands .fp-tableCell,
+.section.categories .fp-tableCell,
+.section.brand-detail .fp-tableCell {
+    padding-top: 66px;
+  }
+
   .section {
     height: max-content !important;
   }
   .section .fp-tableCell {
-    padding-top: 66px;
     height: max-content !important;
   }
 
@@ -2136,8 +2153,8 @@ label {
 
   .arrow {
     position: absolute;
-    bottom: -30px;
-    right: 100px;
+    bottom: 0px;
+    right: 200px;
   }
 
   .footer-responsive {

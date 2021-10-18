@@ -33,7 +33,7 @@ export default class AboutDetail extends React.Component {
     const items = Object.values(post.acf);
 
     return (
-      <div className="sm:pl-0">
+      <div className="sm:pl-10">
         <div
           className={`grid grid-cols-${
             post.slug.includes("supply") ? "9" : "3"
@@ -47,7 +47,7 @@ export default class AboutDetail extends React.Component {
             return (
               <div
                 key={index}
-                className="supply-item flex flex-col items-center"
+                className="supply-item flex flex-col items-center sm:items-start"
               >
                 <div className="wrapper mb-5">
                   <img
@@ -56,7 +56,8 @@ export default class AboutDetail extends React.Component {
                   />
                 </div>
                 <h5
-                  style={{ minHeight: post.slug.includes("supply") && "54px" }}
+                  style={{ minHeight: post.slug.includes("supply") && "34px" }}
+                  className="sm:h-auto"
                 >
                   {item.name}
                 </h5>

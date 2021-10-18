@@ -59,7 +59,7 @@ export const renderValues = (career, currentLanguage) => (
   </div>
 );
 
-const Index = (props) => {
+const Index = ({ career, contact }) => {
   const currentLanguage = getLangParam();
 
   return (
@@ -68,10 +68,10 @@ const Index = (props) => {
         children={
           <div id="fullpage career-page">
             <div className="section main-values">
-              {renderValues(props.career, currentLanguage)}
+              {renderValues(career, currentLanguage)}
             </div>
             <div className="section footer">
-              <Footer contact={props.contact} />
+              <Footer contact={contact} />
             </div>
           </div>
         }
@@ -80,7 +80,7 @@ const Index = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+Index.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const career = await fetcher(
@@ -97,7 +97,7 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { career, contact } };
+  return { career, contact };
 };
 
 export default Index;

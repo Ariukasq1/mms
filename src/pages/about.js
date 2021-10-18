@@ -42,10 +42,9 @@ const settings = {
   ],
 };
 
-const About = (props) => {
-  const categories = props.categories;
+const About = ({ contact, posts, histories, categories }) => {
   const [activeId, setactiveId] = React.useState(categories[0].id);
-  const post = props.posts[0];
+  const post = posts[0];
 
   const onTabChange = (key) => {
     setactiveId(key);
@@ -185,16 +184,14 @@ const About = (props) => {
                 <div className="px-40 relative 2xl:px-20 xl:px-24 lg:px-20 md:px-16 sm:px-8">
                   <div className="history relative">
                     <Slider {...settings} className="h-full">
-                      {props.histories.map((history) =>
-                        renderTimeline(history)
-                      )}
+                      {histories.map((history) => renderTimeline(history))}
                     </Slider>
                   </div>
                 </div>
               </div>
             </div>
             <div className="section project-info footer">
-              <Footer contact={props.contact} />
+              <Footer contact={contact} />
             </div>
           </div>
         }
@@ -203,7 +200,7 @@ const About = (props) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+About.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const contact = await fetcher(
@@ -214,12 +211,6 @@ export const getServerSideProps = async (ctx) => {
 
   const posts = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=207&${
-      lang === "mn" ? "lang=" + lang : ""
-    }`
-  );
-
-  const services = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=208&${
       lang === "mn" ? "lang=" + lang : ""
     }`
   );
@@ -236,7 +227,7 @@ export const getServerSideProps = async (ctx) => {
     }`
   );
 
-  return { props: { contact, posts, services, histories, categories } };
+  return { contact, posts, histories, categories };
 };
 
 export default About;
