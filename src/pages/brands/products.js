@@ -58,7 +58,7 @@ class Products extends React.Component {
       return (
         <div
           key={index}
-          className="brand-p-item xl:mb-4 mb-5 sm:mb-10"
+          className="brand-p-item sm:mb-10"
           onClick={onClick && onClick.bind(this, product)}
         >
           <div className="font-medium text-black text-xl mb-4 title sm">
@@ -90,7 +90,7 @@ class Products extends React.Component {
     }
 
     return (
-      <div className="grid grid-cols-4 gap-6 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+      <div className="grid grid-cols-4 gap-6 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
         {content}
       </div>
     );
