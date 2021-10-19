@@ -90,7 +90,7 @@ class Products extends React.Component {
     }
 
     return (
-      <div className="grid grid-cols-4 gap-6 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+      <div className="grid grid-cols-4 gap-6 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:h-auto md:h-auto sm:h-auto">
         {content}
       </div>
     );

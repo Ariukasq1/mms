@@ -27,9 +27,9 @@ class BrandDetail extends React.Component {
     } = brand.acf || {};
     return (
       <div className="brand-detail-wrapper h-body sm:overflow-hidden sm:h-auto md:h-auto lg:h-auto lg:pt-28 md:pt-28">
-        <div className="relative h-full flex lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 lg:h-auto md:h-auto sm:h-auto">
+        <div className="relative h-full flex lg:block md:block sm:block lg:h-auto md:h-auto sm:h-auto">
           <div
-            className="w-1/3 col-item p-16 bg-cover bg-center bg-no-repeat h-full object-cover object-center cursor-pointer relative sm:px-0 sm:py-5 2xl:p-5 xl:p-3 overflow-auto lg:h-auto"
+            className="w-1/3 col-item p-16 bg-cover bg-center bg-no-repeat h-full object-cover object-center cursor-pointer relative sm:px-0 sm:py-5 2xl:p-5 xl:p-3 overflow-auto lg:h-auto md:h-auto sm:h-auto lg:w-full md:w-full sm:w-full"
             style={{
               backgroundImage: `url(${getData(brand._embedded, "image")})`,
             }}
@@ -90,9 +90,9 @@ class BrandDetail extends React.Component {
               </div>
             </div>
           </div>
-          <div className="w-2/3 flex flex-col">
-            <div className="flex">
-              <div className="col-item p-16 w-1/2 3xl:p-5 2xl:p-6 2xl:h-80 xl:p-5 xl:h-72 md:p-10 sm:p-5 lg:pb-0 overflow-auto lg:h-auto md:h-auto sm:h-auto">
+          <div className="w-2/3 flex flex-col lg:w-full md:w-full sm:w-full lg:h-auto md:h-auto sm:h-auto">
+            <div className="flex lg:block md:block sm:block">
+              <div className="col-item p-16 w-1/2 3xl:p-5 2xl:p-6 2xl:h-80  xl:p-5 xl:h-72 lg:w-full md:w-full sm:w-full md:p-10 sm:p-5 lg:pb-0 overflow-auto lg:h-auto md:h-auto sm:h-auto">
                 <div className={"itemDetailsTexts"}>
                   <h3 className="mb-10 sm:mb-3 text-menuTextColor leading-8 font-bold text-2xl">
                     {__("About")}
@@ -115,7 +115,7 @@ class BrandDetail extends React.Component {
                   />
                 </div>
               </div>
-              <div className="col-item p-16 w-1/2 3xl:p-5 2xl:p-6 2xl:h-80 xl:p-5 xl:h-72 md:p-10 sm:p-5 lg:pb-0 overflow-auto lg:h-auto md:h-auto sm:h-auto">
+              <div className="col-item p-16 w-1/2 3xl:p-5 2xl:p-6 2xl:h-80 xl:p-5 xl:h-72 lg:w-full md:w-full sm:w-full md:p-10 sm:p-5 lg:pb-0 overflow-auto lg:h-auto md:h-auto sm:h-auto">
                 <div className={"itemDetailsTexts"}>
                   <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
                     <span>
@@ -150,7 +150,11 @@ class BrandDetail extends React.Component {
                 <div className="text-base font-bold text-menuTextColor mb-3">
                   {__("Certification & Accreditations")}:
                 </div>
-                <img className="w-full" src={certificate} alt="certificate" />
+                <img
+                  className="w-full lg:mb-10 md:mb-5 sm:mb-5"
+                  src={certificate}
+                  alt="certificate"
+                />
               </div>
             )}
           </div>

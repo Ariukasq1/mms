@@ -120,14 +120,14 @@ class Brands extends React.Component {
       <Layout>
         <FullPage
           children={
-            <div id="fullpage ">
+            <div id="fullpage">
               <div className="section brand-detail item-detail">
                 <BrandDetail items={items} />
               </div>
               <div className="section odd">
                 <div
                   className={
-                    "brandsProducts px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-24 md:px-10 sm:p-5 md:h-auto sm:h-auto lg:h-auto"
+                    "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:px-10 sm:p-5 md:h-auto sm:h-auto lg:h-auto lg:py-10 md:py-5 sm:py-5"
                   }
                 >
                   <div className="flex items-center justify-between sm:block sm:leading-8">
@@ -166,7 +166,7 @@ class Brands extends React.Component {
                 <div className="section" id="content">
                   <div
                     className={
-                      "brandsProducts px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:pr-8 md:pr-8 md:pl-24 sm:px-5 lg:px-20"
+                      "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:pr-8 md:pl-24 sm:px-5 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5"
                     }
                   >
                     <div className="flex items-center justify-between mb-8 2xl:mb-5 xl:mb-5 sm:block sm:leading-8">
@@ -197,7 +197,7 @@ class Brands extends React.Component {
                         </a>
                       )}
                     </div>
-                    <div className="sm:pl-20 sm:pr-5 xl:h-80 xl:overflow-auto">
+                    <div className="xl:h-80 xl:overflow-auto">
                       <ProductDetail
                         currentItemId={currentProduct.id}
                         onClick={this.onProductClick}
@@ -211,7 +211,7 @@ class Brands extends React.Component {
                 <div className="section" id="content">
                   <div
                     className={
-                      "brandsProducts px-40 h-body justify-center flex flex-col xl:px-16 md:pl-24 md:pr-8 lg:pr-8 sm:px-5 lg:px-20 2xl:px-20"
+                      "brandsProducts relative px-40 h-body justify-center flex flex-col xl:px-16 md:pl-24 md:pr-8 sm:px-5 lg:px-16 2xl:px-20 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5"
                     }
                   >
                     <div className="flex items-center justify-between mb-8 sm:block">
@@ -243,7 +243,7 @@ class Brands extends React.Component {
                           </a>
                         )}
                     </div>
-                    <div className="sm:pl-20 sm:pr-5">
+                    <div className="xl:h-80 xl:overflow-auto">
                       <ProductDetail
                         currentItemId={currentProductDetail.id}
                         onClick={this.onDetailClick}
@@ -257,7 +257,7 @@ class Brands extends React.Component {
                 <div className="section odd" id="content">
                   <div
                     className={
-                      "brandsProducts px-40 flex flex-col h-body justify-center lg:px-20 md:px-14 sm:px-8 2xl:px-20 xl:px-16"
+                      "brandsProducts relative px-40 flex flex-col h-body justify-center lg:px-16 md:px-14 sm:px-8 2xl:px-20 xl:px-16 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5"
                     }
                   >
                     <h2 className="text-menuTextColor mb-8 sm:leading-8">
@@ -277,7 +277,7 @@ class Brands extends React.Component {
 
               {hasRelation && (
                 <div className="section category-brand">
-                  <div className="px-40 bg-white lg:px-20 h-body justify-center flex flex-col 2xl:px-20 xl:px-16">
+                  <div className="px-40 relative bg-white lg:px-16 h-body justify-center flex flex-col 2xl:px-20 xl:px-16 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5">
                     {(capabilities || []).length !== 0 &&
                       renderRelations("capabilities", capabilities)}
                     {(industries || []).length !== 0 &&

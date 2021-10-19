@@ -1978,6 +1978,9 @@ label {
   .section .fp-tableCell {
     height: max-content !important;
   }
+  .section .fp-tableCell .fp-scrollable {
+    height: max-content !important;
+  }
 
   .image {
     height: 250px;
@@ -2032,6 +2035,9 @@ label {
     height: max-content !important;
   }
   .section .fp-tableCell {
+    height: max-content !important;
+  }
+  .section .fp-tableCell .fp-scrollable {
     height: max-content !important;
   }
 
@@ -2116,6 +2122,9 @@ label {
     height: max-content !important;
   }
   .section .fp-tableCell {
+    height: max-content !important;
+  }
+  .section .fp-tableCell .fp-scrollable {
     height: max-content !important;
   }
 
