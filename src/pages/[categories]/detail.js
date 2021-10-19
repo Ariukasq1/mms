@@ -17,7 +17,7 @@ class ItemDetail extends React.Component {
             <div dangerouslySetInnerHTML={{ __html: supports.title }} />
           )}
         </h2>
-        <div className="support-content grid gap-6 grid-cols-4 lg:gap-4 md:gap-2 md:px-10 md:pb-10 sm:grid-cols-2 sm:gap-2 md:grid-cols-3 overflow-auto 2xl:h-80 xl:h-80 overflow-x-hidden 3xl:h-80 lg:mb-5">
+        <div className="support-content grid gap-6 grid-cols-4 lg:gap-4 md:gap-2 md:px-10 md:pb-10 sm:grid-cols-2 sm:gap-2 md:grid-cols-3 xl:grid-cols-3 overflow-auto 2xl:h-80 xl:h-80 overflow-x-hidden lg:mb-5">
           {(datas || []).map((data, index) => {
             if (
               data.includes("<ul") ||
@@ -32,7 +32,7 @@ class ItemDetail extends React.Component {
                 key={index}
               >
                 <div
-                  className="flex flex-col items-center text-base text-center font-medium px-6 sm:text-xs py-5 xl:py-2 xl:px-2 xl:text-xs leading-5 2xl:py-2 2xl:px-0"
+                  className="flex flex-col items-center text-base text-center font-medium px-4 py-5 3xl:py-2 3xl:px-0 2xl:p-3 sm:text-xs  xl:py-2 xl:px-2 xl:text-xs leading-5 "
                   dangerouslySetInnerHTML={{ __html: data }}
                 />
               </div>
@@ -54,9 +54,9 @@ class ItemDetail extends React.Component {
 
     return (
       <div className="category-item ">
-        <div className="pl-24 xl:pl-12 md:pl-0 sm:px-0 lg:px-0">
+        <div className="xl:pl-20 md:pl-0 sm:px-0 lg:px-0">
           <div className="flex md:block sm:block lg:block h-body sm:h-auto md:h-auto lg:h-auto md:overflow-hidden sm:overflow-hidden lg:mb-10 md:mb-10 sm:mb-10">
-            <div className="w-1/2 flex flex-col mx-12 mt-5 lg:ml-0 lg:mr-5 lg:mt-5 md:mt-5 lg:w-full md:w-full md:mx-0 sm:w-full xl:mt-5 lg:px-20 sm:px-8 sm:m-0">
+            <div className="w-1/2 flex flex-col mx-20 mt-5 2xl:ml-20 2xl:mr-10 xl:ml-0 xl:mr-8 lg:ml-0 lg:mr-5 lg:mt-5 md:mt-5 lg:w-full md:w-full md:mx-0 sm:w-full xl:mt-5 lg:px-20 sm:px-8 sm:m-0">
               {this.renderSupport(post.acf)}
             </div>
             <div className="w-1/2 md:w-full sm:w-full lg:w-full h-body sm:h-86">
@@ -80,7 +80,7 @@ class ItemDetail extends React.Component {
                     </h2>
                     <div className="mb-4 sm:mb-0">
                       <div
-                        className="text-lg font-medium sm:text-sm"
+                        className="text-lg font-medium sm:text-sm xl:text-tiny"
                         dangerouslySetInnerHTML={{
                           __html: post.content && post.content.rendered,
                         }}

@@ -58,9 +58,9 @@ export const renderProjects = (projects, post, language) => {
 
 export const projectInfo = (post) => {
   return (
-    <div className="pl-24 xl:pl-12 lg:pl-0 md:pl-0 sm:pl-0 h-body overflow-auto lg:h-auto sm:h-auto md:h-auto md:mb-10 sm:mb-10">
+    <div className="pl-24 xl:pl-16 lg:pl-0 md:pl-0 sm:pl-0 h-body overflow-auto lg:h-auto sm:h-auto md:h-auto md:mb-10 sm:mb-10">
       <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full h-full lg:block md:block sm:block sm:h-auto">
-        <div className="flex flex-col mx-12 lg:px-20 lg:py-10 lg:m-0 sm:mx-5 md:mx-10 2xl:mt-0 3xl:mt-5 h-full overflow-auto lg:h-auto md:h-auto sm:h-auto">
+        <div className="flex flex-col mx-12 2xl:ml-0 2xl:mr-10 xl:ml-0 xl:mr-8 lg:px-20 lg:py-10 lg:m-0 sm:mx-5 md:mx-10 2xl:mt-0 3xl:mt-5 h-full overflow-auto lg:h-auto md:h-auto sm:h-auto">
           <h2
             className="text-2xl capitalize font-bold text-menuTextColor mb-8 xl:mb-1 2xl:mb-2"
             dangerouslySetInnerHTML={{
@@ -150,7 +150,7 @@ const Item = ({ posts, detail, projects, lang }) => {
           <div id="fullpage">
             <div className="section categories">
               <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider px-32 pt-16 2xl:px-28 2xl:pt-28 xl:px-24 xl:pt-24 lg:px-20 lg:pt-28 md:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto sm:pt-0">
+                <div className="capabilitiesPageSlider h-body px-40 flex items-center 2xl:px-28 xl:px-24 lg:px-20 lg:pt-28 md:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto sm:pt-0">
                   <div className="brands">
                     <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2 sm:m-0 md:m-0">
                       {__("Portfolio")}

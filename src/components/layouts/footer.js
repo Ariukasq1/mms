@@ -53,11 +53,11 @@ class Footer extends React.Component {
     return (
       <footer
         className={
-          "bg-contact relative text-white h-body lg:h-auto md:h-auto sm:h-auto"
+          "bg-contact text-white h-body flex items-center justify-evenly lg:h-auto md:h-auto sm:h-auto"
         }
       >
         <div
-          className="footer-responsive justify-evenly h-full px-40 flex pt-24 2xl:px-20 2xl:pt-3 xl:px-10 lg:px-20 lg:py-5 md:px-2 xl:pt-3 sm:p-0"
+          className="footer-responsive px-40 flex 3xl:px-32 2xl:px-20 xl:px-10 lg:px-20 lg:py-5 md:px-2 xl:pt-3 sm:p-0"
           style={{ backgroundColor: "#262626" }}
         >
           <div

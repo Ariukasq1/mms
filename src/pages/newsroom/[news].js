@@ -63,7 +63,7 @@ const News = ({ details, news }) => {
   const renderNews = news.map((n, index) => {
     return (
       <div key={index}>
-        <div className="newsBox mb-5 xl:mb-1 md:mb-12 pr-8 sm:mb-5 sm:pr-0 2xl:mb-0">
+        <div className="newsBox mb-5 mr-8 xl:mb-1 md:mb-12 sm:mb-5 sm:pr-0 2xl:mb-0">
           <Link
             href={{
               pathname: "/newsroom/[news]#1",
@@ -96,15 +96,15 @@ const News = ({ details, news }) => {
             <div className="section news-detail">
               <div
                 className={
-                  "pl-24 flex h-body lg:block lg:px-20 md:block sm:block sm:px-5 sm:h-auto md:h-auto md:px-10 lg:h-auto lg:pt-20 lg:mb-10 md:pt-20 md:pb-10"
+                  "flex h-body lg:block lg:px-20 md:block sm:block sm:px-5 sm:h-auto md:h-auto md:px-10 lg:h-auto lg:pt-20 lg:mb-10 md:pt-20 md:pb-10"
                 }
               >
                 <div
                   className={
-                    "w-1/2 h-full overflow-auto lg:w-full md:w-full sm:w-full lg:mt-5 md:mt-5 sm:mt-5 sm:overflow-hidden lg:h-auto md:h-auto pt-10"
+                    "w-1/2 pl-40 pr-20 pt-10 h-full overflow-auto 3xl:pl-20 3xl:pr-16 2xl:pl-20 2xl:pr-10 xl:pl-16 xl:pr-8 lg:w-full md:w-full sm:w-full lg:mt-5 md:mt-5 sm:mt-5 sm:overflow-hidden lg:h-auto md:h-auto"
                   }
                 >
-                  <h2 className={"mb-10 font-medium text-sm sm:mb-5"}>
+                  <h2 className={"font-medium text-sm sm:mb-5"}>
                     #{__("News")}
                   </h2>
                   <h2 className={"mb-4 font-bold text-xl"}>
@@ -116,7 +116,7 @@ const News = ({ details, news }) => {
                   </h2>
                   <div className="content">
                     <div
-                      className={"text-base pr-5"}
+                      className={"text-base"}
                       dangerouslySetInnerHTML={{
                         __html: post.content.rendered,
                       }}
@@ -136,7 +136,7 @@ const News = ({ details, news }) => {
               </div>
             </div>
             <div className="section odd otherNews">
-              <div className="pl-40 pr-12 md:px-10 2xl:pt-28 pt-28 2xl:px-20 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden md:pb-10 sm:pb-10 xl:px-16 xl:pt-20 lg:h-auto lg:px-20 lg:pt-10">
+              <div className="pl-40 pr-20 md:px-10 2xl:pt-28 2xl:px-20 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden md:pb-10 sm:pb-10 xl:px-16 xl:pt-20 lg:h-auto lg:px-20 lg:pt-10">
                 <h2 className=" text-3xl font-bold mb-3 capitalize 2xl:mb-2">
                   {__("Related news")}
                 </h2>

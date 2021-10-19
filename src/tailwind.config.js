@@ -33,7 +33,8 @@ module.exports = {
     extend: {
       screens: {
         "2xl": { min: "1280px", max: "1535px" },
-        "3xl": { min: "1536px" },
+        "3xl": { min: "1536px", max: "1679px" },
+        "4xl": { min: "1680px" },
       },
       colors: {
         menuTextColor: "#00498e",

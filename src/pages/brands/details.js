@@ -26,30 +26,30 @@ class BrandDetail extends React.Component {
       certificate,
     } = brand.acf || {};
     return (
-      <div className="brand-detail-wrapper h-body overflow-auto sm:overflow-hidden sm:h-auto md:h-auto lg:h-auto lg:pt-28 md:pt-28">
-        <div className="relative grid grid-cols-3 h-full lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 lg:h-auto md:h-auto sm:h-auto">
+      <div className="brand-detail-wrapper h-body sm:overflow-hidden sm:h-auto md:h-auto lg:h-auto lg:pt-28 md:pt-28">
+        <div className="relative h-full flex lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 lg:h-auto md:h-auto sm:h-auto">
           <div
-            className="col-item p-16 bg-cover bg-center bg-no-repeat h-full w-full object-cover object-center cursor-pointer relative sm:px-0 sm:py-5 2xl:p-5 overflow-auto lg:h-auto"
+            className="w-1/3 col-item p-16 bg-cover bg-center bg-no-repeat h-full object-cover object-center cursor-pointer relative sm:px-0 sm:py-5 2xl:p-5 xl:p-3 overflow-auto lg:h-auto"
             style={{
               backgroundImage: `url(${getData(brand._embedded, "image")})`,
             }}
           >
             <div
-              className="about-brand p-10 sm:px-4 sm:py-0"
+              className="about-brand p-10 sm:px-4 sm:py-0 xl:p-3"
               data-aos="flip-down"
             >
               <div className="sub-heading font-bold text-xl sm:text-base">
                 <span className="inline-block"></span>
                 {__("Brands")}
               </div>
-              <div className={"mb-8 logo flex justify-center sm:mb-6"}>
+              <div className={"mb-8 logo flex justify-center sm:mb-6 xl:mb-0"}>
                 <img
                   className="mt-8 sm:mt-2"
                   src={logo && logo}
                   alt="brand-logo"
                 />
               </div>
-              <div className="slogan mb-8 text-center sm:mb-0">
+              <div className="slogan mb-8 text-center sm:mb-0 xl:mb-0">
                 {slogan && (
                   <div className="slo relative w-full text-2xl heading-tag font-bold uppercase mb-8 sm:pb-2 sm:mb-0">
                     <blockquote className="border-0">
@@ -90,58 +90,63 @@ class BrandDetail extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-item p-16 2xl:p-6 xl:p-8 md:p-10 sm:p-5 lg:pb-0  overflow-auto lg:h-auto md:h-auto sm:h-auto">
-            <div className={"itemDetailsTexts"}>
-              <h3 className="mb-10 sm:mb-3 text-menuTextColor leading-8 font-bold text-2xl">
-                {__("About")}
-                <span>
+          <div className="w-2/3 flex flex-col">
+            <div className="flex">
+              <div className="col-item p-16 w-1/2 3xl:p-5 2xl:p-6 2xl:h-80 xl:p-5 xl:h-72 md:p-10 sm:p-5 lg:pb-0 overflow-auto lg:h-auto md:h-auto sm:h-auto">
+                <div className={"itemDetailsTexts"}>
+                  <h3 className="mb-10 sm:mb-3 text-menuTextColor leading-8 font-bold text-2xl">
+                    {__("About")}
+                    <span>
+                      <div
+                        className="inline-block"
+                        dangerouslySetInnerHTML={{
+                          __html: brand.title.rendered,
+                        }}
+                      />
+                    </span>
+                  </h3>
                   <div
-                    className="inline-block"
-                    dangerouslySetInnerHTML={{ __html: brand.title.rendered }}
+                    className={
+                      "text-lg sm:pb-5 xl:text-base xl:auto-overflow 2xl:auto-overflow md:pb-0 md:mb-0"
+                    }
+                    dangerouslySetInnerHTML={{
+                      __html: about,
+                    }}
                   />
-                </span>
-              </h3>
-              <div
-                className={
-                  "text-lg pb-10 mb-10 sm:pb-5 xl:text-base xl:auto-overflow 2xl:auto-overflow md:pb-0 md:mb-0"
-                }
-                dangerouslySetInnerHTML={{
-                  __html: about,
-                }}
-              />
-            </div>
-          </div>
-          <div className="col-item p-16 2xl:p-6 xl:p-8 md:p-10 sm:p-5 lg:pb-0  overflow-auto lg:h-auto md:h-auto sm:h-auto">
-            <div className={"itemDetailsTexts"}>
-              <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
-                <span>
+                </div>
+              </div>
+              <div className="col-item p-16 w-1/2 3xl:p-5 2xl:p-6 2xl:h-80 xl:p-5 xl:h-72 md:p-10 sm:p-5 lg:pb-0 overflow-auto lg:h-auto md:h-auto sm:h-auto">
+                <div className={"itemDetailsTexts"}>
+                  <h3 className="mb-10 text-menuTextColor leading-8 font-bold text-2xl">
+                    <span>
+                      <div
+                        className="inline-block"
+                        dangerouslySetInnerHTML={{
+                          __html: brand.title.rendered,
+                        }}
+                      />
+                    </span>
+                    {__("Details")}
+                  </h3>
                   <div
-                    className="inline-block"
-                    dangerouslySetInnerHTML={{ __html: brand.title.rendered }}
+                    className={
+                      "text-lg xl:text-base 2xl:auto-overflow xl:auto-overflow"
+                    }
+                    dangerouslySetInnerHTML={{
+                      __html: advantage,
+                    }}
                   />
-                </span>
-                {__("Details")}
-              </h3>
-              <div
-                className={
-                  "text-lg xl:text-base pb-10 2xl:auto-overflow xl:auto-overflow"
-                }
-                dangerouslySetInnerHTML={{
-                  __html: advantage,
-                }}
-              />
-              <div
-                className={"text-lg xl:text-base pb-10 auto-overflow"}
-                dangerouslySetInnerHTML={{
-                  __html: additional,
-                }}
-              />
+                  <div
+                    className={"text-lg xl:text-base auto-overflow"}
+                    dangerouslySetInnerHTML={{
+                      __html: additional,
+                    }}
+                  />
+                </div>
+              </div>
             </div>
             {certificate && (
-              <div
-                className="certification lg:relative md:relative sm:relative"
-                style={{ bottom: "2rem" }}
-              >
+              <div className="certification lg:relative md:relative sm:relative px-16">
                 <div className="text-base font-bold text-menuTextColor mb-3">
                   {__("Certification & Accreditations")}:
                 </div>

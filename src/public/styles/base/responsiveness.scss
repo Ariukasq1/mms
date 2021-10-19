@@ -1,14 +1,8 @@
-@media (min-width: 1536px) {
+@media (min-width: 1536px) and (max-width: 1679px) {
   .industry {
-    .heading-tag {
-      top: 5px;
-    }
     .ant-tabs {
       .ant-tabs-nav-list {
-        margin-top: 60px;
-      }
-      .ant-tabs-tab {
-        margin-left: 8rem;
+        margin-top: 16%;
       }
     }
     > a {
@@ -20,6 +14,14 @@
   }
   .image {
     height: 300px;
+  }
+  .main-values {
+    .card {
+      .bg-wrapper {
+        height: 250px;
+        padding: 20px 30px;
+      }
+    }
   }
 }
 
@@ -77,6 +79,23 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
+  .section.brand-detail.item-detail {
+    .brand-detail-wrapper {
+      .col-item {
+        .slogan {
+          .slo {
+            blockquote {
+              min-width: 250px;
+              min-height: 250px;
+            }
+            &:before {
+              font-size: 170px;
+            }
+          }
+        }
+      }
+    }
+  }
   .main-values {
     .card {
       .bg-wrapper {
@@ -93,6 +112,12 @@
     margin-bottom: 0px;
   }
   .industry {
+    .Industries-btn {
+      bottom: 10px;
+    }
+    .heading-tag {
+      top: 20px;
+    }
     .ant-tabs {
       .ant-tabs-nav-list {
         margin-top: 60px;

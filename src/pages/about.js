@@ -59,7 +59,7 @@ const About = ({ contact, posts, histories, categories }) => {
       return (
         <div
           key={index}
-          className="about-detail-content w-full md:mb-10 sm:mb-10 "
+          className="about-detail-content w-full md:mb-10 sm:mb-10"
         >
           <AboutDetail catId={activeId} />
         </div>
@@ -84,7 +84,7 @@ const About = ({ contact, posts, histories, categories }) => {
   };
 
   const cats = (
-    <ul className="flex justify-center category-wrapper flex-wrap mb-2 xl:mb-10 sm:text-left sm:mb-10 2xl:mb-3 md:pl-0 sm:pl-0 sm:justify-start">
+    <ul className="flex justify-center category-wrapper flex-wrap mb-10 3xl:mb-5 xl:mb-10 sm:text-left sm:mb-10 2xl:mb-3 md:pl-0 sm:pl-0 sm:justify-start">
       {categories.map((category) => (
         <React.Fragment key={category.id}>
           <li
@@ -110,7 +110,7 @@ const About = ({ contact, posts, histories, categories }) => {
             <div className="section about-us">
               <div
                 className={
-                  "pl-40 pr-20 flex flex-row justify-center items-center 2xl:px-20 2xl:pt-28 xl:pt-28 xl:px-16 sm:flex-col sm:px-5 lg:block md:block md:px-10 pt-10 sm:h-auto sm:overflow-hidden md:h-auto lg:pt-29 lg:px-20 lg:h-auto md:pt-29"
+                  "pl-40 pr-20 flex flex-row justify-center items-center 2xl:px-20 2xl:pt-28 xl:pt-28 xl:px-16 sm:flex-col sm:px-5 lg:block md:block md:px-10 sm:h-auto sm:overflow-hidden md:h-auto lg:pt-29 lg:px-20 lg:h-auto md:pt-29"
                 }
               >
                 <div
@@ -154,8 +154,8 @@ const About = ({ contact, posts, histories, categories }) => {
                 </div>
               </div>
             </div>
-            <div className="section what-we-do project-info ">
-              <div className="sm:h-auto md:h-auto 2xl:pt-28 pt-16 xl:pt-28 lg:h-auto lg:pb-10 sm:pt-0">
+            <div className="section what-we-do project-info">
+              <div className="sm:h-auto md:h-auto lg:h-auto lg:pb-10 sm:pt-0 h-body flex flex-col justify-center">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-tag capitalize text-xl font-bold sm:text-lg sm:mt-0">
                     {__("What we do")}
@@ -167,7 +167,7 @@ const About = ({ contact, posts, histories, categories }) => {
                 </div>
                 <div
                   className={
-                    "px-32 2xl:px-20 xl:px-24 lg:px-20 md:px-10 sm:px-5"
+                    "px-20 2xl:px-20 xl:px-24 lg:px-20 md:px-10 sm:px-5"
                   }
                 >
                   {renderWhatWeDo()}
@@ -175,15 +175,15 @@ const About = ({ contact, posts, histories, categories }) => {
               </div>
             </div>
             <div className="section timeline odd">
-              <div className="md:h-auto sm:h-auto 2xl:pt-28">
+              <div className="md:h-auto sm:h-auto 2xl:pt-28 xl:pt-28">
                 <div className="text-center brands sm:px-8">
-                  <div className="heading-title capitalize text-5xl mt-2 mb-10 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 2xl:mb-0">
+                  <div className="heading-title capitalize text-5xl mt-2 mb-10 3xl:mb-0 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 2xl:mb-0">
                     {__("Our history")}
                   </div>
                 </div>
                 <div className="px-40 relative 2xl:px-20 xl:px-24 lg:px-20 md:px-16 sm:px-8">
                   <div className="history relative">
-                    <Slider {...settings} className="h-full">
+                    <Slider {...settings}>
                       {histories.map((history) => renderTimeline(history))}
                     </Slider>
                   </div>

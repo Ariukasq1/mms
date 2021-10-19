@@ -1,7 +1,4 @@
 .main-values {
-  .fp-tableCell {
-    vertical-align: middle;
-  }
   .card {
     position: relative;
     background: #fff;
@@ -11,9 +8,9 @@
     transition: all 500ms ease;
 
     .bg-wrapper {
-      height: 280px;
+      height: 350px;
       background: #edf2f7;
-      padding: 20px 30px;
+      padding: 30px 60px;
       border-radius: 10px 10px 0 0;
       transition: all ease 0.3s;
     }

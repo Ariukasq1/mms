@@ -127,7 +127,7 @@ class Brands extends React.Component {
               <div className="section odd">
                 <div
                   className={
-                    "brandsProducts px-40 flex flex-col xl:p-16 lg:px-24 md:px-10 sm:p-5 md:h-auto sm:h-auto lg:h-auto"
+                    "brandsProducts px-40 h-body flex flex-col justify-center xl:p-16 lg:px-24 md:px-10 sm:p-5 md:h-auto sm:h-auto lg:h-auto"
                   }
                 >
                   <div className="flex items-center justify-between sm:block sm:leading-8">
@@ -166,7 +166,7 @@ class Brands extends React.Component {
                 <div className="section" id="content">
                   <div
                     className={
-                      "brandsProducts px-40 flex flex-col xl:pt-28 xl:pr-16 lg:pr-8 md:pr-8 md:pl-24 sm:px-5 lg:px-20"
+                      "brandsProducts px-40 h-body flex flex-col justify-center xl:pt-28 xl:pr-16 lg:pr-8 md:pr-8 md:pl-24 sm:px-5 lg:px-20"
                     }
                   >
                     <div className="flex items-center justify-between mb-8 sm:block sm:leading-8">
@@ -211,7 +211,7 @@ class Brands extends React.Component {
                 <div className="section" id="content">
                   <div
                     className={
-                      "brandsProducts px-40 flex flex-col xl:pr-16 md:pl-24 md:pr-8 lg:pr-8 sm:px-5 lg:px-20"
+                      "brandsProducts px-40 h-body justify-center flex flex-col xl:pr-16 md:pl-24 md:pr-8 lg:pr-8 sm:px-5 lg:px-20"
                     }
                   >
                     <div className="flex items-center justify-between mb-8 sm:block">
@@ -257,7 +257,7 @@ class Brands extends React.Component {
                 <div className="section odd" id="content">
                   <div
                     className={
-                      "brandsProducts px-40 flex flex-col lg:px-20 md:px-14 sm:px-8 lg:px-20"
+                      "brandsProducts px-40 flex flex-col h-body justify-center lg:px-20 md:px-14 sm:px-8 "
                     }
                   >
                     <h2 className="text-menuTextColor mb-8 sm:leading-8">
@@ -277,7 +277,7 @@ class Brands extends React.Component {
 
               {hasRelation && (
                 <div className="section category-brand">
-                  <div className="px-40 bg-white lg:px-20">
+                  <div className="px-40 bg-white lg:px-20 h-body justify-center flex flex-col">
                     {(capabilities || []).length !== 0 &&
                       renderRelations("capabilities", capabilities)}
                     {(industries || []).length !== 0 &&

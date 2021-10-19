@@ -4,9 +4,15 @@
   }
 }
 .industry {
+  .Industries-btn {
+    bottom: 30px;
+  }
+  .heading-tag {
+    top: 50px;
+  }
   .ant-tabs {
     .ant-tabs-nav-list {
-      margin-top: 16%;
+      margin-top: 10%;
     }
 
     .ant-tabs-nav {
@@ -30,13 +36,13 @@
 
       > .image-icon {
         display: none;
-        margin: 15px 0 0 30px;
+        margin: 15px 0 0 10px;
         transition: all ease 0.3s;
       }
     }
 
     .ant-tabs-tab {
-      margin-left: 192px;
+      margin-left: 160px;
       width: max-content;
       background: #fff;
       padding: 0;

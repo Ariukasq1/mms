@@ -406,10 +406,6 @@ figcaption {
   color: #6d6d6d;
 }
 
-p {
-  margin-bottom: 1em;
-}
-
 .pt-5 {
   padding-top: 5px !important;
 }
@@ -775,8 +771,14 @@ figcaption {
   vertical-align: middle;
 }
 
+.industry .Industries-btn {
+  bottom: 30px;
+}
+.industry .heading-tag {
+  top: 50px;
+}
 .industry .ant-tabs .ant-tabs-nav-list {
-  margin-top: 16%;
+  margin-top: 10%;
 }
 .industry .ant-tabs .ant-tabs-nav {
   flex-basis: 50%;
@@ -796,11 +798,11 @@ figcaption {
 }
 .industry .ant-tabs .ant-tabs-tab-btn .title > .image-icon {
   display: none;
-  margin: 15px 0 0 30px;
+  margin: 15px 0 0 10px;
   transition: all ease 0.3s;
 }
 .industry .ant-tabs .ant-tabs-tab {
-  margin-left: 192px;
+  margin-left: 160px;
   width: max-content;
   background: #fff;
   padding: 0;
@@ -958,9 +960,6 @@ figcaption {
   vertical-align: middle;
 }
 
-.section.what-we-do .fp-tableCell {
-  vertical-align: middle;
-}
 .section.what-we-do .ant-tabs-nav-wrap {
   white-space: pre-wrap;
 }
@@ -1012,9 +1011,6 @@ figcaption {
   font-size: 16px;
 }
 
-.section.timeline .fp-tableCell {
-  vertical-align: middle;
-}
 .section.timeline .history:before {
   content: "-";
   right: 0;
@@ -1165,9 +1161,6 @@ figcaption {
   overflow: hidden;
 }
 
-.main-values .fp-tableCell {
-  vertical-align: middle;
-}
 .main-values .card {
   position: relative;
   background: #fff;
@@ -1177,9 +1170,9 @@ figcaption {
   transition: all 500ms ease;
 }
 .main-values .card .bg-wrapper {
-  height: 280px;
+  height: 350px;
   background: #edf2f7;
-  padding: 20px 30px;
+  padding: 30px 60px;
   border-radius: 10px 10px 0 0;
   transition: all ease 0.3s;
 }
@@ -1387,7 +1380,7 @@ section {
 
 .heading-title {
   line-height: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .btn-gradient {
@@ -1816,11 +1809,7 @@ label {
   margin-bottom: 15px;
   font-size: 1.4rem;
   font-weight: 500;
-  padding-left: 65px;
   line-height: 25px;
-  min-height: 50px;
-  display: flex;
-  align-items: center;
 }
 .section.additional .content {
   overflow: auto;
@@ -1847,9 +1836,6 @@ label {
   vertical-align: middle;
 }
 
-.section.categories .fp-tableCell {
-  vertical-align: middle;
-}
 .section.categories .slick-prev,
 .section.categories .slick-next {
   top: 104.8%;
@@ -1865,15 +1851,9 @@ label {
   max-width: 240px;
 }
 
-@media (min-width: 1536px) {
-  .industry .heading-tag {
-    top: 5px;
-  }
+@media (min-width: 1536px) and (max-width: 1679px) {
   .industry .ant-tabs .ant-tabs-nav-list {
-    margin-top: 60px;
-  }
-  .industry .ant-tabs .ant-tabs-tab {
-    margin-left: 8rem;
+    margin-top: 16%;
   }
   .industry > a {
     bottom: 5%;
@@ -1885,6 +1865,11 @@ label {
 
   .image {
     height: 300px;
+  }
+
+  .main-values .card .bg-wrapper {
+    height: 250px;
+    padding: 20px 30px;
   }
 }
 @media (min-width: 1280px) and (max-width: 1535px) {
@@ -1933,6 +1918,14 @@ label {
   }
 }
 @media (min-width: 1024px) and (max-width: 1279px) {
+  .section.brand-detail.item-detail .brand-detail-wrapper .col-item .slogan .slo blockquote {
+    min-width: 250px;
+    min-height: 250px;
+  }
+  .section.brand-detail.item-detail .brand-detail-wrapper .col-item .slogan .slo:before {
+    font-size: 170px;
+  }
+
   .main-values .card .bg-wrapper {
     height: 180px;
     padding: 10px 30px;
@@ -1947,6 +1940,12 @@ label {
     margin-bottom: 0px;
   }
 
+  .industry .Industries-btn {
+    bottom: 10px;
+  }
+  .industry .heading-tag {
+    top: 20px;
+  }
   .industry .ant-tabs .ant-tabs-nav-list {
     margin-top: 60px;
   }

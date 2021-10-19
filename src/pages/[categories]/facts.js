@@ -3,41 +3,6 @@ import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 
 class ItemFacts extends React.Component {
-  renderSupport(acf) {
-    const { supports } = acf || {};
-    const datas = supports && supports.desc.split("<li>");
-
-    return (
-      <div className="support">
-        <h2 className="text-2xl capitalize font-bold text-menuTextColor mb-12">
-          {supports && supports.title}
-        </h2>
-        <div className="support-content grid gap-6 grid-cols-4">
-          {(datas || []).map((data, index) => {
-            if (
-              data.includes("<ul") ||
-              data.includes("<p><!-- /wp:list --></p>")
-            ) {
-              return null;
-            }
-
-            return (
-              <div
-                className="icon-wrapper bg-white flex items-center justify-center rounded-md mb-4"
-                key={index}
-              >
-                <div
-                  className="flex flex-col items-center text-base text-center font-medium px-6 leading-5"
-                  dangerouslySetInnerHTML={{ __html: data }}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
-
   render() {
     const { post = {} } = this.props;
 
