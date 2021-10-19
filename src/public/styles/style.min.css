@@ -1964,6 +1964,12 @@ label {
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
+  .main-values .card .bg-wrapper {
+    height: 230px;
+    padding: 10px 30px;
+    border-radius: 10px 10px 0 0;
+  }
+
   .section.additional .odd:first-child .content {
     padding-left: 0;
   }
@@ -2031,6 +2037,12 @@ label {
   }
 }
 @media (min-width: 640px) and (max-width: 767px) {
+  .main-values .card .bg-wrapper {
+    height: 180px;
+    padding: 10px 30px;
+    border-radius: 10px 10px 0 0;
+  }
+
   .section {
     height: max-content !important;
   }
@@ -2099,6 +2111,12 @@ label {
   }
 }
 @media (min-width: 320px) and (max-width: 639px) {
+  .main-values .card .bg-wrapper {
+    height: 230px;
+    padding: 10px 30px;
+    border-radius: 10px 10px 0 0;
+  }
+
   .image {
     height: 200px;
   }
