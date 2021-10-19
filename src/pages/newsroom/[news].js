@@ -101,7 +101,7 @@ const News = ({ details, news }) => {
               >
                 <div
                   className={
-                    "w-1/2 pl-40 pr-20 pt-10 h-full overflow-auto 3xl:pl-20 3xl:pr-16 2xl:pl-20 2xl:pr-10 xl:pl-16 xl:pr-8 lg:w-full md:w-full sm:w-full lg:mt-5 md:mt-5 sm:mt-5 sm:overflow-hidden lg:h-auto md:h-auto"
+                    "w-1/2 pl-40 pr-20 pt-10 h-full overflow-auto 3xl:pl-20 3xl:pr-16 2xl:pl-20 2xl:pr-10 xl:pl-16 xl:pr-8 lg:w-full md:w-full sm:w-full lg:px-0 md:px-0 sm:px-0 lg:mt-5 md:mt-5 sm:mt-10 sm:overflow-hidden lg:h-auto md:h-auto"
                   }
                 >
                   <h2 className={"font-medium text-sm sm:mb-5"}>
