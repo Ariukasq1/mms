@@ -51,7 +51,7 @@ const IndustryComponent = ({ industries }) => {
                 }}
               >
                 <div className="bg-black opacity-50 absolute inset-0" />
-                <div className="desc relative flex items-center text-lg text-white h-full w-full font-medium px-32 3xl:px-16 sm:px-5 sm:text-sm md:w-full md:p-10 md:text-sm lg:p-10 2xl:p-10 xl:px-12  sm:py-20 overflow-ellipsis sm:h-80 ">
+                <div className="desc relative flex items-center text-lg text-white h-full w-full font-medium px-32 3xl:px-16 sm:px-5 sm:text-sm md:w-full md:p-10 md:text-sm lg:p-10 2xl:p-10 xl:px-12 overflow-ellipsis">
                   <div
                     className="xl:h-72 xl:overflow-auto"
                     dangerouslySetInnerHTML={{
