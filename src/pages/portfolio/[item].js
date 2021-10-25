@@ -58,10 +58,10 @@ export const renderProjects = (projects, post, language) => {
 
 export const projectInfo = (post) => {
   return (
-    <div className="pl-24 xl:pl-16 lg:pl-0 md:pl-0 sm:pl-0 h-body overflow-auto lg:h-auto sm:h-auto md:h-auto md:mb-10 sm:mb-10">
+    <div className="pl-24 xl:pl-16 lg:pl-0 md:pl-0 sm:pl-0 h-body lg:h-auto sm:h-auto md:h-auto md:mb-10 sm:mb-10">
       <div className="grid grid-flow-col grid-cols-2 grid-rows-1 gap-4 w-full h-full lg:block md:block sm:block sm:h-auto">
-        <div className="flex flex-col mx-12 2xl:ml-0 2xl:mr-10 xl:ml-0 xl:mr-8 lg:px-20 lg:py-10 lg:m-0 sm:mx-5 md:mx-10 2xl:mt-0 3xl:mt-5 h-full overflow-auto lg:h-auto md:h-auto sm:h-auto">
-          <h2
+        <div className="flex flex-col mx-12 2xl:ml-0 2xl:mr-10 xl:mx-0 xl:pr-8 xl:overflow-auto lg:px-20 lg:py-10 lg:m-0 sm:mx-5 md:mx-10 2xl:mt-0 3xl:mt-5 lg:h-auto md:h-auto sm:h-auto">
+          <h2o
             className="text-2xl capitalize font-bold text-menuTextColor mb-8 xl:mb-1 2xl:mb-2"
             dangerouslySetInnerHTML={{
               __html: post.title.rendered,
