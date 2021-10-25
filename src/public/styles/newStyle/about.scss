@@ -67,6 +67,9 @@
   }
 }
 .section.timeline {
+  .fp-tableCell {
+    vertical-align: middle;
+  }
   .history {
     &:before {
       content: "-";

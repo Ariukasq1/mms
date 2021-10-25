@@ -175,7 +175,7 @@ const About = ({ contact, posts, histories, categories }) => {
               </div>
             </div>
             <div className="section timeline odd">
-              <div className="md:h-auto sm:h-auto 2xl:pt-28 xl:pt-28">
+              <div className="md:h-auto sm:h-auto 3xl:pt-28 2xl:pt-28 xl:pt-28">
                 <div className="text-center brands sm:px-8">
                   <div className="heading-title capitalize text-5xl mt-2 mb-10 3xl:mb-0 sm:text-2xl sm:leading-7 sm:my-4 sm:mt-1 2xl:mb-0">
                     {__("Our history")}

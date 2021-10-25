@@ -1011,6 +1011,9 @@ figcaption {
   font-size: 16px;
 }
 
+.section.timeline .fp-tableCell {
+  vertical-align: middle;
+}
 .section.timeline .history:before {
   content: "-";
   right: 0;
