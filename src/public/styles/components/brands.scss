@@ -1,5 +1,10 @@
 .section.brand-detail.item-detail {
   .brand-detail-wrapper {
+    .brandText {
+      .col-item {
+        height: calc(100vh - 214px);
+      }
+    }
     .col-item {
       .about-brand {
         background: rgba(250, 250, 250, 0.8);
@@ -56,7 +61,7 @@
 
           &:before {
             content: "\201C";
-            font-size: 220px;
+            font-size: 200px;
             line-height: 1;
             position: absolute;
             top: 2%;
@@ -96,6 +101,9 @@
           }
         }
       }
+    }
+    .certification {
+      bottom: 10px;
     }
   }
 }

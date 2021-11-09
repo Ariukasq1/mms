@@ -48,6 +48,7 @@
     }
 
     .support-content {
+      height: calc(100vh - 214px);
       .icon-wrapper {
         box-shadow: 0 0 5px rgba(127, 123, 123, 0.1);
         transition: all ease 0.3s;

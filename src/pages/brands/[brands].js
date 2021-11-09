@@ -127,10 +127,10 @@ class Brands extends React.Component {
               <div className="section odd">
                 <div
                   className={
-                    "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:px-10 sm:p-5 md:h-auto sm:h-auto lg:h-auto lg:py-10 md:py-5 sm:py-5"
+                    "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:px-10 sm:p-5 md:h-auto sm:h-auto lg:h-auto lg:py-10 md:py-5 overflow-auto 2xl:pt-28 xl:pt-28 xl:h-auto"
                   }
                 >
-                  <div className="flex items-center justify-between sm:block sm:leading-8">
+                  <div className="flex items-center sm:block sm:leading-8">
                     <h2 className="text-menuTextColor xl:m-0 mr-5 sm:mb-5">
                       <div
                         className="inline-block"
@@ -166,7 +166,7 @@ class Brands extends React.Component {
                 <div className="section" id="content">
                   <div
                     className={
-                      "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:pr-8 md:pl-24 sm:px-5 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5"
+                      "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:pr-8 md:pl-24 sm:p-5 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 xl:pt-28 overflow-auto"
                     }
                   >
                     <div className="flex items-center justify-between mb-8 2xl:mb-5 xl:mb-5 sm:block sm:leading-8">
@@ -197,12 +197,11 @@ class Brands extends React.Component {
                         </a>
                       )}
                     </div>
-                    <div className="xl:h-80 xl:overflow-auto">
-                      <ProductDetail
-                        currentItemId={currentProduct.id}
-                        onClick={this.onProductClick}
-                      />
-                    </div>
+
+                    <ProductDetail
+                      currentItemId={currentProduct.id}
+                      onClick={this.onProductClick}
+                    />
                   </div>
                 </div>
               )}
@@ -243,12 +242,10 @@ class Brands extends React.Component {
                           </a>
                         )}
                     </div>
-                    <div className="xl:h-80 xl:overflow-auto">
-                      <ProductDetail
-                        currentItemId={currentProductDetail.id}
-                        onClick={this.onDetailClick}
-                      />
-                    </div>
+                    <ProductDetail
+                      currentItemId={currentProductDetail.id}
+                      onClick={this.onDetailClick}
+                    />
                   </div>
                 </div>
               )}

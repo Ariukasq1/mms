@@ -17,7 +17,7 @@ class ItemDetail extends React.Component {
             <div dangerouslySetInnerHTML={{ __html: supports.title }} />
           )}
         </h2>
-        <div className="support-content grid gap-6 grid-cols-4 lg:gap-4 md:gap-2 md:px-10 md:pb-10 sm:grid-cols-2 sm:gap-2 md:grid-cols-3 xl:grid-cols-3 overflow-auto 2xl:h-80 xl:h-80 overflow-x-hidden lg:mb-5">
+        <div className="support-content grid gap-6 grid-cols-4 lg:gap-4 md:gap-2 md:px-10 md:pb-10 sm:grid-cols-2 sm:gap-2 md:grid-cols-3 xl:grid-cols-3 overflow-auto overflow-x-hidden lg:mb-5">
           {(datas || []).map((data, index) => {
             if (
               data.includes("<ul") ||
@@ -61,7 +61,7 @@ class ItemDetail extends React.Component {
             </div>
             <div className="w-1/2 md:w-full sm:w-full lg:w-full h-body sm:h-86">
               <div
-                className="item-image bg-cover bg-no-repeat h-full object-cover object-center relative sm:bg-center "
+                className="item-image bg-cover bg-no-repeat h-full object-cover object-center relative sm:bg-center"
                 style={{
                   backgroundImage: `url(${getData(post._embedded, "image")})`,
                 }}

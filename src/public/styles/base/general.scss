@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 body,
 h1,
 h2,
@@ -12,18 +13,18 @@ label,
 input,
 textarea,
 li {
-  font-family: "Raleway", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 html {
-  font-family: "Raleway", sans-serif;
+  font-family: "Nunito", sans-serif;
   overflow-x: hidden !important;
 }
 
 body {
   margin: 0;
   color: $text-color;
-  font-family: "Raleway", sans-serif;
+  font-family: "Nunito", sans-serif;
   word-wrap: break-word;
   font-kerning: normal;
   line-height: 1.75;

@@ -67,7 +67,7 @@ class Products extends React.Component {
               dangerouslySetInnerHTML={{ __html: product.name }}
             />
           </div>
-          <div className="image-wrapper h-48 w-full xl:h-32">
+          <div className="image-wrapper h-48 w-full">
             {product.acf.length !== 0 && product.acf.bg_image ? (
               <img
                 className="h-full w-full object-cover"
