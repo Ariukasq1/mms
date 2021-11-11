@@ -222,7 +222,9 @@ Item.getInitialProps = async (ctx) => {
   );
 
   const catId =
-    detail[0].categories.length !== 0 ? detail[0].categories[0] : 195;
+    detail.length > 0 && detail[0].categories.length > 0
+      ? detail[0].categories[0]
+      : 195;
 
   const projects = await fetcher(
     `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=20&${

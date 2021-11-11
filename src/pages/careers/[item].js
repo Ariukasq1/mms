@@ -410,7 +410,9 @@ Item.getInitialProps = async (ctx) => {
   );
 
   const catId =
-    detail[0].categories.length !== 0 ? detail[0].categories[0] : 228;
+    detail.length > 0 && detail[0].categories.length > 0
+      ? detail[0].categories[0]
+      : 228;
 
   const items = await fetcher(
     `${
