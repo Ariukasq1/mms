@@ -100,8 +100,7 @@ class Brands extends React.Component {
     } = this.state;
 
     const brand = items.length > 0 ? items[0] : {};
-    const { capabilities, industries } =
-      brand.acf.length > 0 ? brand.acf : null;
+    const { capabilities, industries } = brand.acf || {};
 
     const hasRelation =
       (capabilities || []).length !== 0 || (industries || []).length !== 0

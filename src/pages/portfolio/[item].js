@@ -86,7 +86,11 @@ export const projectInfo = (post) => {
 };
 
 const Item = ({ posts, detail, projects, lang }) => {
-  const post = detail[0];
+  const post = detail.length > 0 ? detail[0] : null;
+
+  if (!post || post === "undefined") {
+    return null;
+  }
 
   if (Object.keys(post).length !== 0) {
     typeof window !== "undefined" &&

@@ -17,7 +17,7 @@ import { renderProjects, projectInfo } from "./portfolio/[item]";
 
 const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
   const post = detail[0];
-  const projectDetail = projectDetails[0];
+  const projectDetail = projectDetails.length > 0 ? projectDetails[0] : null;
 
   const settingsItems = {
     infinite: true,
