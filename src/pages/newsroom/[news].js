@@ -58,7 +58,7 @@ const settings = {
 
 const News = ({ details, news }) => {
   const currentLanguage = getLangParam();
-  const post = details[0];
+  const post = details.length > 0 ? details[0] : null;
 
   const renderNews = news.map((n, index) => {
     return (
@@ -87,6 +87,10 @@ const News = ({ details, news }) => {
       </div>
     );
   });
+
+  if (!post || post === "undefined") {
+    return null;
+  }
 
   return (
     <Layout>
