@@ -135,7 +135,7 @@ class Brands extends React.Component {
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
-                          __html: brand.title.rendered,
+                          __html: (brand && brand.title.rendered) || "",
                         }}
                       />
                       &nbsp;

@@ -79,7 +79,7 @@ const News = ({ details, news }) => {
                 />
               </div>
               <div className="font-medium text-sm mb-0 title leading-5 mt-2 sm:mt-2 md:mt-2 lg:mt-2 xl:mt-1 2xl:mt-2 2xl:mb-0">
-                {(n.title && n.title.rendered) || ""}
+                {n.title.rendered}
               </div>
             </a>
           </Link>
@@ -110,7 +110,7 @@ const News = ({ details, news }) => {
                   <h2 className={"mb-4 font-bold text-xl"}>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: (post.title && post.title.rendered) || "",
+                        __html: (post && post.title.rendered) || "",
                       }}
                     />
                   </h2>
@@ -118,7 +118,7 @@ const News = ({ details, news }) => {
                     <div
                       className={"text-base"}
                       dangerouslySetInnerHTML={{
-                        __html: post.content.rendered,
+                        __html: (post && post.content.rendered) || "",
                       }}
                     />
                   </div>
