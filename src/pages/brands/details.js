@@ -100,7 +100,7 @@ class BrandDetail extends React.Component {
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
-                          __html: brand.title.rendered,
+                          __html: (brand.title && brand.title.rendered) || "",
                         }}
                       />
                     </span>
@@ -122,7 +122,7 @@ class BrandDetail extends React.Component {
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
-                          __html: brand.title.rendered,
+                          __html: (brand.title && brand.title.rendered) || "",
                         }}
                       />
                     </span>
