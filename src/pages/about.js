@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import moment from "moment";
+import moment, { isMoment } from "moment";
 import Layout from "../components/layouts/Layout";
 import Footer from "../components/layouts/footer";
 import { Config } from "../config";
@@ -68,14 +68,24 @@ const About = ({ contact, posts, histories, categories }) => {
   };
 
   const renderTimeline = (history) => {
-    const { year } = history.acf;
+    const renderDate = (y) => {
+      if (!y || !isMoment(y)) {
+        return ''
+      }
+
+      return (
+        <h3>
+          {moment(y).format("YYYY")}{" "}
+          <span>{moment(y).format("MMM")}</span>
+        </h3>
+      )
+    }
+
+    const { year } = history.acf || {};
 
     return (
       <div className="history-item" key={history._id}>
-        <h3>
-          {moment(year).format("YYYY")}{" "}
-          <span>{moment(year).format("MMM")}</span>
-        </h3>
+        {renderDate(year)}
         <div className="text-center desc content text-base">
           <div dangerouslySetInnerHTML={{ __html: history.content.rendered }} />
         </div>
@@ -89,9 +99,8 @@ const About = ({ contact, posts, histories, categories }) => {
         <React.Fragment key={category.id}>
           <li
             key={category.id}
-            className={`text-lg font-medium pr-2 list-none ${
-              activeId === category.id ? "active text-menuTextColor" : ""
-            }`}
+            className={`text-lg font-medium pr-2 list-none ${activeId === category.id ? "active text-menuTextColor" : ""
+              }`}
             onClick={onTabChange.bind(this, category.id)}
           >
             {category.name}
@@ -204,26 +213,22 @@ About.getInitialProps = async (ctx) => {
   const lang = ctx.query.lang;
 
   const contact = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235&${
-      lang === "mn" ? "lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=235&${lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const posts = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=207&${
-      lang === "mn" ? "lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=207&${lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const histories = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=209&${
-      lang === "mn" ? "lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=209&${lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const categories = await fetcher(
-    `${Config.apiUrl}/wp/v2/categories?parent=208&${
-      lang === "mn" ? "lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/categories?parent=208&${lang === "mn" ? "lang=" + lang : ""
     }`
   );
 

@@ -29,7 +29,7 @@ export const SliderSubCategories = ({ data, querySlug, language }) => {
         data-aos-offset="300"
       >
         <div className="title text-black font-medium">
-          {post.title.rendered}
+          {(post.title || {}).rendered}
         </div>
         <div
           className={
@@ -38,7 +38,7 @@ export const SliderSubCategories = ({ data, querySlug, language }) => {
         >
           <div
             dangerouslySetInnerHTML={{
-              __html: post.excerpt.rendered,
+              __html: (post.excerpt || {}).rendered,
             }}
           />
         </div>
@@ -64,7 +64,7 @@ export const SliderSubCategories = ({ data, querySlug, language }) => {
               <img
                 className="h-full w-full object-cover"
                 src={getData(post._embedded, "image")}
-                alt={post.title.rendered}
+                alt={(post.title || {}).rendered}
               />
             </a>
           </Link>
@@ -73,7 +73,7 @@ export const SliderSubCategories = ({ data, querySlug, language }) => {
     );
   });
 
-  if (!data || data.length === 0) {
+  if (!data || (data || []).length === 0) {
     return null;
   }
 

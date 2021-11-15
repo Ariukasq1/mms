@@ -16,8 +16,8 @@ import { SliderSubCategories } from "./portfolio";
 import { renderProjects, projectInfo } from "./portfolio/[item]";
 
 const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
-  const post = detail[0];
-  const projectDetail = projectDetails.length > 0 ? projectDetails[0] : null;
+  const post = detail.length > 0 ? detail[0] : {};
+  const projectDetail = projectDetails.length > 0 ? projectDetails[0] : {};
 
   const settingsItems = {
     infinite: true,
@@ -25,7 +25,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
     slidesToScroll: 1,
     initialSlide: 0,
     speed: 500,
-    rows: !post.content.rendered ? 2 : 2,
+    rows: 2,
     slidesPerRow: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -116,7 +116,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                   <h4 className="mb-5">
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: post.title.rendered,
+                        __html: (post.title || {}).rendered,
                       }}
                     />
                   </h4>
@@ -141,34 +141,34 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
                 <div className="flex lg:block md:block sm:block">
                   <div className="w-1/2 flex flex-col justify-center flex-center mr-16 xl:mr-8 lg:w-full md:w-full sm:w-full">
                     <b>
-                      <span className="block">{post.title.rendered}</span>
+                      <span className="block">{(post.title || {}).rendered}</span>
                     </b>
                     <h4 className="mb-5">
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: projectDetail.title.rendered,
+                          __html: (projectDetail.title || {}).rendered,
                         }}
                       />
                     </h4>
                     <p className="text-base">
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: projectDetail.content.rendered,
+                          __html: (projectDetail.content || {}).rendered,
                         }}
                       />
                     </p>
                   </div>
                   <div className="w-1/2 lg:w-full md:w-full sm:w-full lg:h-auto md:h-auto sm:h-auto">
-                    {Object.values(projectDetail.acf).length === 0 ||
-                    !projectDetail.acf.image_1 ? (
+                    {Object.values(projectDetail.acf || {}).length === 0 ||
+                      !projectDetail.acf.image_1 ? (
                       <img
                         className="object-cover object-center portfolio-h-body h-body w-full lg:h-auto md:h-auto sm:h-auto"
                         src={getData(projectDetail._embedded, "image")}
-                        alt={projectDetail.title.rendered}
+                        alt={(projectDetail.title || {}).rendered}
                       />
                     ) : (
                       <ItemDetailsWithGallery
-                        images={Object.values(projectDetail.acf)}
+                        images={Object.values(projectDetail.acf || {})}
                       />
                     )}
                   </div>
@@ -176,7 +176,7 @@ const Detail = ({ posts, detail, projects, projectDetails, lang }) => {
               </div>
             </div>
 
-            {projectDetail.acf.length !== 0 && (
+            {(projectDetail.acf || []).length !== 0 && (
               <div className="section portfolio-usage">
                 <div className="usage relative md:h-auto h-body flex flex-col justify-center overflow-auto sm:h-auto z-30 lg:h-auto">
                   <div
@@ -215,16 +215,13 @@ Detail.getInitialProps = async (ctx) => {
   const slug = ctx.query.slug;
 
   const posts = await fetcher(
-    `${
-      Config.apiUrl
-    }/wp/v2/posts?_embed&categories=194&per_page=20&filter[orderby]=id&order=asc&${
-      lang === "mn" ? "lang=" + lang : ""
+    `${Config.apiUrl
+    }/wp/v2/posts?_embed&categories=194&per_page=20&filter[orderby]=id&order=asc&${lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const detail = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${parentSlug}&${
-      lang === "mn" ? "lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${parentSlug}&${lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
@@ -234,14 +231,12 @@ Detail.getInitialProps = async (ctx) => {
       : 195;
 
   const projects = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=40&${
-      lang === "mn" ? "lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&categories=${catId}&per_page=40&${lang === "mn" ? "lang=" + lang : ""
     }`
   );
 
   const projectDetails = await fetcher(
-    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${
-      lang === "mn" ? "lang=" + lang : ""
+    `${Config.apiUrl}/wp/v2/posts?_embed&slug=${slug}&${lang === "mn" ? "lang=" + lang : ""
     }`
   );
 

@@ -35,7 +35,7 @@ export const renderProjects = (projects, post, language) => {
             <div className="content">
               <h4>
                 <div
-                  dangerouslySetInnerHTML={{ __html: project.title.rendered }}
+                  dangerouslySetInnerHTML={{ __html: (project.title || {}).rendered }}
                 />
               </h4>
               <div className="flex items-center more">
@@ -64,13 +64,13 @@ export const projectInfo = (post) => {
           <h2o
             className="text-2xl capitalize font-bold text-menuTextColor mb-8 xl:mb-1 2xl:mb-2"
             dangerouslySetInnerHTML={{
-              __html: post.title.rendered,
+              __html: (post.title || {}).rendered,
             }}
           />
           <div
             className="text-base xl:text-tiny"
             dangerouslySetInnerHTML={{
-              __html: post.content.rendered,
+              __html: (post.content || {}).rendered,
             }}
           />
         </div>
@@ -180,7 +180,7 @@ const Item = ({ posts, detail, projects, lang }) => {
                   <h4 className="mb-5">
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: post.title.rendered,
+                        __html: (post.title || {}).rendered,
                       }}
                     />
                   </h4>
