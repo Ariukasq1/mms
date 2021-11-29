@@ -1720,9 +1720,6 @@ label {
   right: 400px;
 }
 
-/* 
-@import "./components/home.scss";
-@import "./components/item.scss"; */
 .section.item-detail .category-item .item-image {
   transition-property: transform;
   flex-shrink: 0;
