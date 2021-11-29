@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../components/layouts/Layout";
 import Footer from "../components/layouts/footer";
 import { Config } from "../config";
 import { fetcher } from "../utils";
@@ -7,18 +6,16 @@ import FullPage from "../components/FullPage";
 
 const Contact = ({ contact }) => {
   return (
-    <Layout>
-      <FullPage
-        page="contact"
-        children={
-          <>
-            <div className="section footer">
-              <Footer contact={contact} />
-            </div>
-          </>
-        }
-      />
-    </Layout>
+    <FullPage
+      page="contact"
+      children={
+        <>
+          <div className="section footer">
+            <Footer contact={contact} />
+          </div>
+        </>
+      }
+    />
   );
 };
 

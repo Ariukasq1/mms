@@ -1,7 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 import Link from "next/link";
-import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import {
   fetcher,
@@ -93,66 +92,62 @@ const News = ({ details, news }) => {
   }
 
   return (
-    <Layout>
-      <FullPage
-        children={
-          <div id="fullpage homeScreen">
-            <div className="section news-detail">
+    <FullPage
+      children={
+        <div id="fullpage homeScreen">
+          <div className="section news-detail">
+            <div
+              className={
+                "flex h-body lg:block lg:px-20 md:block sm:block sm:px-5 sm:h-auto md:h-auto md:px-10 lg:h-auto lg:pt-20 lg:mb-10 md:pt-20 md:pb-10"
+              }
+            >
               <div
                 className={
-                  "flex h-body lg:block lg:px-20 md:block sm:block sm:px-5 sm:h-auto md:h-auto md:px-10 lg:h-auto lg:pt-20 lg:mb-10 md:pt-20 md:pb-10"
+                  "w-1/2 pl-40 pr-20 pt-10 h-full overflow-auto 3xl:pl-20 3xl:pr-16 2xl:pl-20 2xl:pr-10 xl:pl-16 xl:pr-8 lg:w-full md:w-full sm:w-full lg:px-0 md:px-0 sm:px-0 lg:mt-5 md:mt-5 sm:mt-10 sm:overflow-hidden lg:h-auto md:h-auto"
                 }
               >
-                <div
-                  className={
-                    "w-1/2 pl-40 pr-20 pt-10 h-full overflow-auto 3xl:pl-20 3xl:pr-16 2xl:pl-20 2xl:pr-10 xl:pl-16 xl:pr-8 lg:w-full md:w-full sm:w-full lg:px-0 md:px-0 sm:px-0 lg:mt-5 md:mt-5 sm:mt-10 sm:overflow-hidden lg:h-auto md:h-auto"
-                  }
-                >
-                  <h2 className={"font-medium text-sm sm:mb-5"}>
-                    #{__("News")}
-                  </h2>
-                  <h2 className={"mb-4 font-bold text-xl"}>
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: (post && post.title.rendered) || "",
-                      }}
-                    />
-                  </h2>
-                  <div className="content">
-                    <div
-                      className={"text-base"}
-                      dangerouslySetInnerHTML={{
-                        __html: (post && post.content.rendered) || "",
-                      }}
-                    />
-                  </div>
-                </div>
-                <div
-                  className={
-                    "w-1/2 h-full xl:h-full lg:w-full lg:h-auto md:w-full md:h-auto sm:w-full sm:h-auto "
-                  }
-                >
-                  <img
-                    className="w-full object-cover h-full"
-                    src={getData(post._embedded, "image")}
+                <h2 className={"font-medium text-sm sm:mb-5"}>#{__("News")}</h2>
+                <h2 className={"mb-4 font-bold text-xl"}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: (post && post.title.rendered) || "",
+                    }}
+                  />
+                </h2>
+                <div className="content">
+                  <div
+                    className={"text-base"}
+                    dangerouslySetInnerHTML={{
+                      __html: (post && post.content.rendered) || "",
+                    }}
                   />
                 </div>
               </div>
-            </div>
-            <div className="section odd otherNews">
-              <div className="pl-40 pr-20 md:px-10 2xl:pt-28 2xl:px-20 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden md:pb-10 sm:pb-10 xl:px-16 xl:pt-20 lg:h-auto lg:px-20 lg:pt-10">
-                <h2 className=" text-3xl font-bold mb-3 capitalize 2xl:mb-2">
-                  {__("Related news")}
-                </h2>
-                <div className="brands news-slider sm:pb-20 lg:pb-20">
-                  <Slider {...settings}>{renderNews}</Slider>
-                </div>
+              <div
+                className={
+                  "w-1/2 h-full xl:h-full lg:w-full lg:h-auto md:w-full md:h-auto sm:w-full sm:h-auto "
+                }
+              >
+                <img
+                  className="w-full object-cover h-full"
+                  src={getData(post._embedded, "image")}
+                />
               </div>
             </div>
           </div>
-        }
-      />
-    </Layout>
+          <div className="section odd otherNews">
+            <div className="pl-40 pr-20 md:px-10 2xl:pt-28 2xl:px-20 sm:px-5 sm:h-auto md:h-auto md:overflow-hidden md:pb-10 sm:pb-10 xl:px-16 xl:pt-20 lg:h-auto lg:px-20 lg:pt-10">
+              <h2 className=" text-3xl font-bold mb-3 capitalize 2xl:mb-2">
+                {__("Related news")}
+              </h2>
+              <div className="brands news-slider sm:pb-20 lg:pb-20">
+                <Slider {...settings}>{renderNews}</Slider>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    />
   );
 };
 

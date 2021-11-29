@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import SliderSubCategories from "../../components/SliderSubCategories";
 import { fetcher, __ } from "../../utils";
@@ -27,17 +26,15 @@ export const CategoriesItem = (posts, querySlug, lang) => {
 
 const Categories = ({ posts, querySlug, lang }) => {
   return (
-    <Layout>
-      <FullPage
-        children={
-          <div id="fullpage">
-            <div className="section categories">
-              {CategoriesItem(posts, querySlug, lang)}
-            </div>
+    <FullPage
+      children={
+        <div id="fullpage">
+          <div className="section categories">
+            {CategoriesItem(posts, querySlug, lang)}
           </div>
-        }
-      />
-    </Layout>
+        </div>
+      }
+    />
   );
 };
 

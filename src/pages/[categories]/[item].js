@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import { fetcher, __ } from "../../utils";
 import FullPage from "../../components/FullPage";
@@ -43,25 +42,23 @@ const AdditionSection = (posts, detail, lang) => {
 
 const Item = ({ posts, querySlug, detail, lang }) => {
   return (
-    <Layout>
-      <FullPage
-        children={
-          <div id="fullpage">
-            <div className="section categories">
-              {CategoriesItem(posts, querySlug, lang)}
-            </div>
-            <div className="section item-detail">
-              <ItemDetail post={detail[0]} lang={lang} />
-            </div>
-            {FactsSection(posts, detail, lang)}
-            {AdditionSection(posts, detail, lang)}
-            <div className="section relations">
-              <ItemRelations lang={lang} post={detail[0]} />
-            </div>
+    <FullPage
+      children={
+        <div id="fullpage">
+          <div className="section categories">
+            {CategoriesItem(posts, querySlug, lang)}
           </div>
-        }
-      />
-    </Layout>
+          <div className="section item-detail">
+            <ItemDetail post={detail[0]} lang={lang} />
+          </div>
+          {FactsSection(posts, detail, lang)}
+          {AdditionSection(posts, detail, lang)}
+          <div className="section relations">
+            <ItemRelations lang={lang} post={detail[0]} />
+          </div>
+        </div>
+      }
+    />
   );
 };
 

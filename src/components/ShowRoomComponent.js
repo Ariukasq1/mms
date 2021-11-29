@@ -1,7 +1,6 @@
 import React from "react";
 import { Tabs } from "antd";
 import arrowImage from "../public/images/arrow.svg";
-import Link from "next/link";
 
 const { TabPane } = Tabs;
 

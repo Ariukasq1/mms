@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../../components/layouts/Layout";
 import Footer from "../../components/layouts/footer";
 import { Config } from "../../config";
 import { fetcher, getData, __, getLangParam } from "../../utils";
@@ -63,20 +62,18 @@ const Index = ({ career, contact }) => {
   const currentLanguage = getLangParam();
 
   return (
-    <Layout>
-      <FullPage
-        children={
-          <div id="fullpage career-page">
-            <div className="section main-values">
-              {renderValues(career, currentLanguage)}
-            </div>
-            <div className="section footer">
-              <Footer contact={contact} />
-            </div>
+    <FullPage
+      children={
+        <div id="fullpage career-page">
+          <div className="section main-values">
+            {renderValues(career, currentLanguage)}
           </div>
-        }
-      />
-    </Layout>
+          <div className="section footer">
+            <Footer contact={contact} />
+          </div>
+        </div>
+      }
+    />
   );
 };
 

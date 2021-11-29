@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import { fetcher, __ } from "../../utils";
 import RelationSlider from "../../components/RelationSlider";
@@ -117,34 +116,72 @@ class Brands extends React.Component {
     };
 
     return (
-      <Layout>
-        <FullPage
-          children={
-            <div id="fullpage">
-              <div className="section brand-detail item-detail">
-                <BrandDetail items={items} />
+      <FullPage
+        children={
+          <div id="fullpage">
+            <div className="section brand-detail item-detail">
+              <BrandDetail items={items} />
+            </div>
+            <div className="section odd">
+              <div
+                className={
+                  "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:px-10 sm:p-5 md:h-auto sm:h-auto lg:h-auto lg:py-10 md:py-5 overflow-auto 2xl:pt-28 xl:pt-28 xl:h-auto"
+                }
+              >
+                <div className="flex items-center sm:block sm:leading-8">
+                  <h2 className="text-menuTextColor xl:m-0 mr-5 sm:mb-5">
+                    <div
+                      className="inline-block"
+                      dangerouslySetInnerHTML={{
+                        __html: (brand && brand.title.rendered) || "",
+                      }}
+                    />
+                    &nbsp;
+                    {__("Products")}
+                  </h2>
+                  {brand.acf && brand.acf.brochure && (
+                    <a
+                      className="flex items-center text-blue-600 font-medium"
+                      href={brand.acf.brochure}
+                      target="_blank"
+                      download
+                    >
+                      <Button
+                        type="primary"
+                        shape="round"
+                        icon={<DownloadOutlined />}
+                      >
+                        {__("Download brochure")}
+                      </Button>
+                    </a>
+                  )}
+                </div>
+                <Products items={categories} onClick={this.onClick} />
               </div>
-              <div className="section odd">
+            </div>
+
+            {showProduct && (
+              <div className="section" id="content">
                 <div
                   className={
-                    "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:px-10 sm:p-5 md:h-auto sm:h-auto lg:h-auto lg:py-10 md:py-5 overflow-auto 2xl:pt-28 xl:pt-28 xl:h-auto"
+                    "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:pr-8 md:pl-24 sm:p-5 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 xl:pt-28 overflow-auto"
                   }
                 >
-                  <div className="flex items-center sm:block sm:leading-8">
-                    <h2 className="text-menuTextColor xl:m-0 mr-5 sm:mb-5">
+                  <div className="flex items-center justify-between mb-8 2xl:mb-5 xl:mb-5 sm:block sm:leading-8">
+                    <h2 className="text-menuTextColor mr-5 sm:mb-5">
                       <div
                         className="inline-block"
                         dangerouslySetInnerHTML={{
-                          __html: (brand && brand.title.rendered) || "",
+                          __html: currentProduct.name,
                         }}
                       />
                       &nbsp;
                       {__("Products")}
                     </h2>
-                    {brand.acf && brand.acf.brochure && (
+                    {currentProduct.acf && currentProduct.acf.pdf_file && (
                       <a
                         className="flex items-center text-blue-600 font-medium"
-                        href={brand.acf.brochure}
+                        href={currentProduct.acf.pdf_file}
                         target="_blank"
                         download
                       >
@@ -158,32 +195,38 @@ class Brands extends React.Component {
                       </a>
                     )}
                   </div>
-                  <Products items={categories} onClick={this.onClick} />
+
+                  <ProductDetail
+                    currentItemId={currentProduct.id}
+                    onClick={this.onProductClick}
+                  />
                 </div>
               </div>
+            )}
 
-              {showProduct && (
-                <div className="section" id="content">
-                  <div
-                    className={
-                      "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:pr-8 md:pl-24 sm:p-5 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 xl:pt-28 overflow-auto"
-                    }
-                  >
-                    <div className="flex items-center justify-between mb-8 2xl:mb-5 xl:mb-5 sm:block sm:leading-8">
-                      <h2 className="text-menuTextColor mr-5 sm:mb-5">
-                        <div
-                          className="inline-block"
-                          dangerouslySetInnerHTML={{
-                            __html: currentProduct.name,
-                          }}
-                        />
-                        &nbsp;
-                        {__("Products")}
-                      </h2>
-                      {currentProduct.acf && currentProduct.acf.pdf_file && (
+            {showProductDetail && (
+              <div className="section" id="content">
+                <div
+                  className={
+                    "brandsProducts relative px-40 h-body justify-center flex flex-col xl:px-16 md:pl-24 md:pr-8 sm:px-5 lg:px-16 2xl:px-20 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5"
+                  }
+                >
+                  <div className="flex items-center justify-between mb-8 sm:block">
+                    <h2 className="text-menuTextColor mr-5 sm:leading-8">
+                      <div
+                        className="inline-block"
+                        dangerouslySetInnerHTML={{
+                          __html: currentProductDetail.name,
+                        }}
+                      />
+                      &nbsp;
+                      {__("Products")}
+                    </h2>
+                    {currentProductDetail.acf &&
+                      currentProductDetail.acf.pdf_file && (
                         <a
                           className="flex items-center text-blue-600 font-medium"
-                          href={currentProduct.acf.pdf_file}
+                          href={currentProductDetail.acf.pdf_file}
                           target="_blank"
                           download
                         >
@@ -196,96 +239,50 @@ class Brands extends React.Component {
                           </Button>
                         </a>
                       )}
-                    </div>
+                  </div>
+                  <ProductDetail
+                    currentItemId={currentProductDetail.id}
+                    onClick={this.onDetailClick}
+                  />
+                </div>
+              </div>
+            )}
 
-                    <ProductDetail
-                      currentItemId={currentProduct.id}
-                      onClick={this.onProductClick}
+            {showDetail && (
+              <div className="section odd" id="content">
+                <div
+                  className={
+                    "brandsProducts relative px-40 flex flex-col h-body justify-center lg:px-16 md:px-14 sm:px-8 2xl:px-20 xl:px-16 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5"
+                  }
+                >
+                  <h2 className="text-menuTextColor mb-8 sm:leading-8">
+                    <div
+                      className="inline-block"
+                      dangerouslySetInnerHTML={{
+                        __html: productDetail.name,
+                      }}
                     />
-                  </div>
+                    &nbsp;
+                    {__("Products")}
+                  </h2>
+                  <ProductModal currentItemId={productDetail.id} />
                 </div>
-              )}
+              </div>
+            )}
 
-              {showProductDetail && (
-                <div className="section" id="content">
-                  <div
-                    className={
-                      "brandsProducts relative px-40 h-body justify-center flex flex-col xl:px-16 md:pl-24 md:pr-8 sm:px-5 lg:px-16 2xl:px-20 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5"
-                    }
-                  >
-                    <div className="flex items-center justify-between mb-8 sm:block">
-                      <h2 className="text-menuTextColor mr-5 sm:leading-8">
-                        <div
-                          className="inline-block"
-                          dangerouslySetInnerHTML={{
-                            __html: currentProductDetail.name,
-                          }}
-                        />
-                        &nbsp;
-                        {__("Products")}
-                      </h2>
-                      {currentProductDetail.acf &&
-                        currentProductDetail.acf.pdf_file && (
-                          <a
-                            className="flex items-center text-blue-600 font-medium"
-                            href={currentProductDetail.acf.pdf_file}
-                            target="_blank"
-                            download
-                          >
-                            <Button
-                              type="primary"
-                              shape="round"
-                              icon={<DownloadOutlined />}
-                            >
-                              {__("Download brochure")}
-                            </Button>
-                          </a>
-                        )}
-                    </div>
-                    <ProductDetail
-                      currentItemId={currentProductDetail.id}
-                      onClick={this.onDetailClick}
-                    />
-                  </div>
+            {hasRelation && (
+              <div className="section category-brand">
+                <div className="px-40 relative bg-white lg:px-16 h-body justify-center flex flex-col 2xl:px-20 xl:px-16 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5">
+                  {(capabilities || []).length !== 0 &&
+                    renderRelations("capabilities", capabilities)}
+                  {(industries || []).length !== 0 &&
+                    renderRelations("industries", industries)}
                 </div>
-              )}
-
-              {showDetail && (
-                <div className="section odd" id="content">
-                  <div
-                    className={
-                      "brandsProducts relative px-40 flex flex-col h-body justify-center lg:px-16 md:px-14 sm:px-8 2xl:px-20 xl:px-16 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5"
-                    }
-                  >
-                    <h2 className="text-menuTextColor mb-8 sm:leading-8">
-                      <div
-                        className="inline-block"
-                        dangerouslySetInnerHTML={{
-                          __html: productDetail.name,
-                        }}
-                      />
-                      &nbsp;
-                      {__("Products")}
-                    </h2>
-                    <ProductModal currentItemId={productDetail.id} />
-                  </div>
-                </div>
-              )}
-
-              {hasRelation && (
-                <div className="section category-brand">
-                  <div className="px-40 relative bg-white lg:px-16 h-body justify-center flex flex-col 2xl:px-20 xl:px-16 lg:h-auto md:h-auto sm:h-auto lg:py-10 md:py-5 sm:py-5">
-                    {(capabilities || []).length !== 0 &&
-                      renderRelations("capabilities", capabilities)}
-                    {(industries || []).length !== 0 &&
-                      renderRelations("industries", industries)}
-                  </div>
-                </div>
-              )}
-            </div>
-          }
-        />
-      </Layout>
+              </div>
+            )}
+          </div>
+        }
+      />
     );
   }
 }

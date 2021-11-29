@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../../components/layouts/Layout";
 import BrandsComponent from "../../components/BrandsComponent";
 import { Config } from "../../config";
 import { fetcher } from "../../utils";
@@ -7,21 +6,19 @@ import FullPage from "../../components/FullPage";
 
 const Brands = ({ brands, brandCategories }) => {
   return (
-    <Layout>
-      <FullPage
-        page="brands"
-        children={
-          <>
-            <div className="section brands">
-              <BrandsComponent
-                brands={brands}
-                brandCategories={brandCategories}
-              />
-            </div>
-          </>
-        }
-      />
-    </Layout>
+    <FullPage
+      page="brands"
+      children={
+        <>
+          <div className="section brands">
+            <BrandsComponent
+              brands={brands}
+              brandCategories={brandCategories}
+            />
+          </div>
+        </>
+      }
+    />
   );
 };
 

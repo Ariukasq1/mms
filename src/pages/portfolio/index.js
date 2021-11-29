@@ -1,6 +1,5 @@
 import React from "react";
 import arrowImage from "../../public/images/arrow-blue.svg";
-import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import { fetcher, __, getData } from "../../utils";
 import FullPage from "../../components/FullPage";
@@ -86,30 +85,28 @@ export const SliderSubCategories = ({ data, querySlug, language }) => {
 
 const Portfolio = ({ posts, lang }) => {
   return (
-    <Layout>
-      <FullPage
-        children={
-          <div id="fullpage">
-            <div className="section categories">
-              <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider h-body px-40 flex items-center 2xl:px-28 xl:px-24 lg:px-20 lg:pt-28 md:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto sm:pt-0">
-                  <div className="brands">
-                    <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2 sm:m-0 md:m-0">
-                      {__("Portfolio")}
-                    </h2>
-                    <SliderSubCategories
-                      data={posts}
-                      querySlug="portfolio"
-                      language={lang}
-                    />
-                  </div>
+    <FullPage
+      children={
+        <div id="fullpage">
+          <div className="section categories">
+            <div className="capabilitiesPage">
+              <div className="capabilitiesPageSlider h-body px-40 flex items-center 2xl:px-28 xl:px-24 lg:px-20 lg:pt-28 md:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto sm:pt-0">
+                <div className="brands">
+                  <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2 sm:m-0 md:m-0">
+                    {__("Portfolio")}
+                  </h2>
+                  <SliderSubCategories
+                    data={posts}
+                    querySlug="portfolio"
+                    language={lang}
+                  />
                 </div>
               </div>
             </div>
           </div>
-        }
-      />
-    </Layout>
+        </div>
+      }
+    />
   );
 };
 

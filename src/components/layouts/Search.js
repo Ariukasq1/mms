@@ -1,9 +1,5 @@
-import Layout from "../components/layout";
 import WPAPI from "wpapi";
 import React, { Component } from "react";
-import Link from "next/link";
-import Categories from "../components/Categories";
-import { getData } from "../utils";
 
 const wp = new WPAPI({ endpoint: "https://erxes.io/blog_wp/wp-json" });
 

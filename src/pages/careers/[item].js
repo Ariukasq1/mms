@@ -1,9 +1,7 @@
 import React from "react";
-import Layout from "../../components/layouts/Layout";
 import Footer from "../../components/layouts/footer";
 import { Config } from "../../config";
 import { fetcher, getData, __, getLangParam } from "../../utils";
-import Link from "next/link";
 import { Collapse } from "antd";
 import moment from "moment";
 import ItemDetailsWithGallery from "../../components/ItemDetailsWithGallery";
@@ -359,29 +357,27 @@ const Item = ({ career, jobs, detail, items, contact, lang }) => {
   };
 
   return (
-    <Layout>
-      <FullPage
-        children={
-          <div id="fullpage career-page">
-            <div className="section main-values">
-              {renderValues(career, currentLanguage)}
-            </div>
-            {post.slug === "faqs"
-              ? renderFaq()
-              : post.slug === "why-mms"
-              ? renderCulture(items, post.id, post.title.rendered)
-              : post.slug === "open-vacancy"
-              ? renderVacancies(items, post.id, post.title.rendered, jobs, lang)
-              : post.slug === "selection-process"
-              ? renderProcess(items, post.id, post.title.rendered)
-              : null}
-            <div className="section footer">
-              <Footer contact={contact} />
-            </div>
+    <FullPage
+      children={
+        <div id="fullpage career-page">
+          <div className="section main-values">
+            {renderValues(career, currentLanguage)}
           </div>
-        }
-      />
-    </Layout>
+          {post.slug === "faqs"
+            ? renderFaq()
+            : post.slug === "why-mms"
+            ? renderCulture(items, post.id, post.title.rendered)
+            : post.slug === "open-vacancy"
+            ? renderVacancies(items, post.id, post.title.rendered, jobs, lang)
+            : post.slug === "selection-process"
+            ? renderProcess(items, post.id, post.title.rendered)
+            : null}
+          <div className="section footer">
+            <Footer contact={contact} />
+          </div>
+        </div>
+      }
+    />
   );
 };
 

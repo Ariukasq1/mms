@@ -14,6 +14,7 @@ import axios from "axios";
 import { Config } from "../config";
 import DataContext from "../components/DataContext";
 import { setLocale } from "../utils";
+import Layout from "../components/layouts/Layout";
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();
@@ -42,9 +43,9 @@ function MyApp({ Component, pageProps, top_menu, bottom_menu, lang }) {
 
   return (
     <DataContext.Provider value={{ top_menu, bottom_menu }}>
-      <div className="next">
+      <Layout className="next">
         <Component {...pageProps} />
-      </div>
+      </Layout>
     </DataContext.Provider>
   );
 }

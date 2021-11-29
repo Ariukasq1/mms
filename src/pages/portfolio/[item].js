@@ -1,7 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import arrowImageBlue from "../../public/images/arrow-blue.svg";
-import Layout from "../../components/layouts/Layout";
 import { Config } from "../../config";
 import Slider from "react-slick";
 import arrowImage from "../../public/images/arrow-white.svg";
@@ -35,7 +33,9 @@ export const renderProjects = (projects, post, language) => {
             <div className="content">
               <h4>
                 <div
-                  dangerouslySetInnerHTML={{ __html: (project.title || {}).rendered }}
+                  dangerouslySetInnerHTML={{
+                    __html: (project.title || {}).rendered,
+                  }}
                 />
               </h4>
               <div className="flex items-center more">
@@ -148,62 +148,60 @@ const Item = ({ posts, detail, projects, lang }) => {
   };
 
   return (
-    <Layout>
-      <FullPage
-        children={
-          <div id="fullpage">
-            <div className="section categories">
-              <div className="capabilitiesPage">
-                <div className="capabilitiesPageSlider h-body px-40 flex items-center 2xl:px-28 xl:px-24 lg:px-20 lg:pt-28 md:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto sm:pt-0">
-                  <div className="brands">
-                    <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2 sm:m-0 md:m-0">
-                      {__("Portfolio")}
-                    </h2>
-                    <SliderSubCategories
-                      data={posts}
-                      querySlug="portfolio"
-                      language={lang}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="section project-info">{projectInfo(post)}</div>
-            <div
-              className="section projects"
-              style={{
-                backgroundImage: `url(${getData(post._embedded, "image")})`,
-              }}
-            >
-              <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:px-20 sm:px-8 sm:h-auto sm:overflow-hidden sm:py-16 md:h-auto md:overflow-hidden md:pb-16 lg:h-auto lg:pb-20">
-                <div className="desc mb-10 xl:mb-5 sm:mb-5">
-                  <h4 className="mb-5">
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: (post.title || {}).rendered,
-                      }}
-                    />
-                  </h4>
-                </div>
-                <div>
-                  {(projects || []).length > 8 ? (
-                    <div className="brands pl-12 pr-32 xl:pl-0 2xl:pl-0 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-0 sm:pl-0 sm:pr-0">
-                      <Slider {...settingsItems}>
-                        {renderProjects(projects, post, lang)}
-                      </Slider>
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-4 px-10 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:pl-0 sm:pr-5">
-                      {renderProjects(projects, post, lang)}
-                    </div>
-                  )}
+    <FullPage
+      children={
+        <div id="fullpage">
+          <div className="section categories">
+            <div className="capabilitiesPage">
+              <div className="capabilitiesPageSlider h-body px-40 flex items-center 2xl:px-28 xl:px-24 lg:px-20 lg:pt-28 md:pt-28 md:px-10 sm:px-5 sm:h-auto md:h-auto lg:h-auto sm:pt-0">
+                <div className="brands">
+                  <h2 className="ml-5 text-3xl font-bold mb-8 capitalize 2xl:mb-5 xl:mb-2 xl:ml-2 lg:ml-0 lg:mb-2 sm:m-0 md:m-0">
+                    {__("Portfolio")}
+                  </h2>
+                  <SliderSubCategories
+                    data={posts}
+                    querySlug="portfolio"
+                    language={lang}
+                  />
                 </div>
               </div>
             </div>
           </div>
-        }
-      />
-    </Layout>
+          <div className="section project-info">{projectInfo(post)}</div>
+          <div
+            className="section projects"
+            style={{
+              backgroundImage: `url(${getData(post._embedded, "image")})`,
+            }}
+          >
+            <div className="projects-wrapper pl-32 2xl:pt-28 xl:pt-28 xl:px-16 md:px-10 lg:px-20 sm:px-8 sm:h-auto sm:overflow-hidden sm:py-16 md:h-auto md:overflow-hidden md:pb-16 lg:h-auto lg:pb-20">
+              <div className="desc mb-10 xl:mb-5 sm:mb-5">
+                <h4 className="mb-5">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: (post.title || {}).rendered,
+                    }}
+                  />
+                </h4>
+              </div>
+              <div>
+                {(projects || []).length > 8 ? (
+                  <div className="brands pl-12 pr-32 xl:pl-0 2xl:pl-0 project-slider lg:pl-0 lg:pr-5 xl:px-0 md:px-0 sm:pl-0 sm:pr-0">
+                    <Slider {...settingsItems}>
+                      {renderProjects(projects, post, lang)}
+                    </Slider>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-4 px-10 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 sm:pl-0 sm:pr-5">
+                    {renderProjects(projects, post, lang)}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    />
   );
 };
 

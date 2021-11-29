@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "../components/layouts/Layout";
 import { Config } from "../config";
 import HomeSlider from "../components/layouts/HomeSlider";
 import CapabilitiesComponent from "../components/CapabilitiesComponent";
@@ -18,33 +17,31 @@ const Index = ({
   contact,
 }) => {
   return (
-    <Layout>
-      <FullPage
-        page="home"
-        children={
-          <>
-            <div className="section slider">
-              <HomeSlider sliders={sliders} />
-            </div>
-            <div className="section capabilities">
-              <CapabilitiesComponent data={capability[0]} />
-            </div>
-            <div className="section industry">
-              <IndustryComponent industries={industries} />
-            </div>
-            <div className="section brands">
-              <BrandsComponent
-                brands={brands}
-                brandCategories={brandCategories}
-              />
-            </div>
-            <div className="section footer">
-              <Footer contact={contact} />
-            </div>
-          </>
-        }
-      />
-    </Layout>
+    <FullPage
+      page="home"
+      children={
+        <>
+          <div className="section slider">
+            <HomeSlider sliders={sliders} />
+          </div>
+          <div className="section capabilities">
+            <CapabilitiesComponent data={capability[0]} />
+          </div>
+          <div className="section industry">
+            <IndustryComponent industries={industries} />
+          </div>
+          <div className="section brands">
+            <BrandsComponent
+              brands={brands}
+              brandCategories={brandCategories}
+            />
+          </div>
+          <div className="section footer">
+            <Footer contact={contact} />
+          </div>
+        </>
+      }
+    />
   );
 };
 
