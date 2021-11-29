@@ -52,7 +52,7 @@ class ProductModal extends React.Component {
 
   render() {
     const { items, showModal, currentItem } = this.state;
-    const { pdf_file } = currentItem.acf || {};
+    const { pdf_file } = currentItem && currentItem.acf || {};
 
     const content = (items || []).map((product, index) => (
       <div

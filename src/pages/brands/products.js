@@ -68,7 +68,7 @@ class Products extends React.Component {
             />
           </div>
           <div className="image-wrapper h-48 w-full">
-            {product.acf.length !== 0 && product.acf.bg_image ? (
+            {product && product.acf.length !== 0 && product.acf.bg_image ? (
               <img
                 className="h-full w-full object-cover"
                 src={product.acf.bg_image}

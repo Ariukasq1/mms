@@ -13,7 +13,7 @@ class BrandDetail extends React.Component {
   render() {
     const { items } = this.props;
 
-    const brand = items ? items[0] : {};
+    const brand = items && items.length ? items[0] : {};
     const {
       logo,
       about,

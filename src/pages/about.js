@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import moment, { isMoment } from "moment";
 import Footer from "../components/layouts/footer";
 import { Config } from "../config";
 import { fetcher, getData, __ } from "../utils";
@@ -67,19 +66,25 @@ const About = ({ contact, posts, histories, categories }) => {
   };
 
   const renderTimeline = (history) => {
-    const renderDate = (y) => {
-      if (!y || !isMoment(y)) {
+    const renderDate = (dateString) => {
+      if (!dateString) {
         return "";
       }
 
-      return (
-        <h3>
-          {moment(y).format("YYYY")} <span>{moment(y).format("MMM")}</span>
-        </h3>
-      );
+      try {
+        date = new Date(dateString)
+        return (
+          <h3>
+            {date.getFullYear()} <span>{date.toLocaleString('default', { month: 'short' })}</span>
+          </h3>
+        );
+
+      } catch {
+        return "";
+      }
     };
 
-    const { year } = history.acf || {};
+    const { year } = (history || {acf: {}}).acf || {};
 
     return (
       <div className="history-item" key={history._id}>
