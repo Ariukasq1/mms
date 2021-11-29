@@ -67,24 +67,17 @@ const About = ({ contact, posts, histories, categories }) => {
 
   const renderTimeline = (history) => {
     const renderDate = (dateString) => {
-      if (!dateString) {
-        return "";
-      }
+      let date = new Date(dateString);
 
-      try {
-        date = new Date(dateString)
-        return (
-          <h3>
-            {date.getFullYear()} <span>{date.toLocaleString('default', { month: 'short' })}</span>
-          </h3>
-        );
-
-      } catch {
-        return "";
-      }
+      return (
+        <h3>
+          {date.getFullYear()}{" "}
+          <span>{date.toLocaleString("default", { month: "short" })}</span>
+        </h3>
+      );
     };
 
-    const { year } = (history || {acf: {}}).acf || {};
+    const { year } = (history || { acf: {} }).acf || {};
 
     return (
       <div className="history-item" key={history._id}>
