@@ -128,12 +128,13 @@ class Brands extends React.Component {
                   "brandsProducts relative px-40 h-body flex flex-col justify-center 2xl:px-20 xl:px-16 lg:px-16 md:px-10 sm:p-5 md:h-auto sm:h-auto lg:h-auto lg:py-10 md:py-5 overflow-auto 2xl:pt-28 xl:pt-28 xl:h-auto"
                 }
               >
-                <div className="flex items-center sm:block sm:leading-8">
+                <div className="flex items-center justify-between mb-8 sm:block sm:leading-8">
                   <h2 className="text-menuTextColor xl:m-0 mr-5 sm:mb-5">
                     <div
                       className="inline-block"
                       dangerouslySetInnerHTML={{
-                        __html: (brand && brand.title && brand.title.rendered) || "",
+                        __html:
+                          (brand && brand.title && brand.title.rendered) || "",
                       }}
                     />
                     &nbsp;

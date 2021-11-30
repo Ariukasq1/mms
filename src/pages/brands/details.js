@@ -95,7 +95,7 @@ class BrandDetail extends React.Component {
               <div className="col-item p-16 w-1/2 3xl:p-5 2xl:p-6 xl:p-5 lg:w-full md:w-full sm:w-full md:p-10 sm:p-5 lg:pb-0 overflow-auto">
                 <div className={"itemDetailsTexts"}>
                   <h3 className="mb-10 sm:mb-3 text-menuTextColor leading-8 font-bold text-2xl">
-                    {__("About")}
+                    {__("About")}&nbsp;
                     <span>
                       <div
                         className="inline-block"
@@ -126,6 +126,7 @@ class BrandDetail extends React.Component {
                         }}
                       />
                     </span>
+                    &nbsp;
                     {__("Details")}
                   </h3>
                   <div
